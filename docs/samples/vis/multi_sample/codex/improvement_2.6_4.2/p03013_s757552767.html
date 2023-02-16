@@ -1,0 +1,70 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-removed">2. </p>
+            <p class="diff-block-removed">3. </p>
+            <p class="diff-block-removed">4. def&nbsp;resolve():</p>
+            <p class="diff-block-removed">5. &nbsp;&nbsp;&nbsp;&nbsp;MOD&nbsp;=&nbsp;10**9&nbsp;+&nbsp;7</p>
+            <p class="diff-block-removed">6. &nbsp;&nbsp;&nbsp;&nbsp;n,&nbsp;m&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">7. &nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;=&nbsp;[int(eval(input()))&nbsp;for&nbsp;_&nbsp;in&nbsp;range(m)]</p>
+            <p class="diff-block-removed">8. &nbsp;&nbsp;&nbsp;&nbsp;dp&nbsp;=&nbsp;np.array([1]&nbsp;*&nbsp;(n&nbsp;+&nbsp;1))</p>
+            <p class="diff-block-removed">9. &nbsp;&nbsp;&nbsp;&nbsp;dp[a]&nbsp;=&nbsp;0</p>
+            <p class="diff-block-removed">10. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(2,&nbsp;n&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-removed">11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;dp[i]&nbsp;!=&nbsp;0:</p>
+            <p class="diff-block-removed">12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i]&nbsp;=&nbsp;np.sum(dp[i&nbsp;-&nbsp;2&nbsp;:&nbsp;i])&nbsp;%&nbsp;MOD</p>
+            <p class="diff-block-removed">13. &nbsp;&nbsp;&nbsp;&nbsp;print((dp[n]))</p>
+            <p class="diff-block-removed">14. </p>
+            <p class="diff-block-removed">15. </p>
+            <p class="diff-block-removed">16. resolve()</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [3.3536768283000002x faster, p03013, s757552767]</strong></p>
+            <p class="diff-block-added">1. n,&nbsp;m&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p class="diff-block-added">2. a&nbsp;=&nbsp;[int(input())&nbsp;for&nbsp;_&nbsp;in&nbsp;range(m)]</p>
+            <p class="diff-block-added">3. MOD&nbsp;=&nbsp;10**9&nbsp;+&nbsp;7</p>
+            <p class="diff-block-added">4. dp&nbsp;=&nbsp;[0]&nbsp;*&nbsp;(n&nbsp;+&nbsp;1)</p>
+            <p class="diff-block-added">5. dp[0]&nbsp;=&nbsp;1</p>
+            <p class="diff-block-added">6. for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;n&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-added">7. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;not&nbsp;i&nbsp;in&nbsp;a:</p>
+            <p class="diff-block-added">8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i]&nbsp;=&nbsp;dp[i&nbsp;-&nbsp;1]&nbsp;+&nbsp;dp[i&nbsp;-&nbsp;2]</p>
+            <p class="diff-block-added">9. print(dp[-1]&nbsp;%&nbsp;MOD)</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. #&nbsp;https://atcoder.jp/contests/abc095/tasks/arc096_a</p>
+            <p class="diff-block-removed">2. &quot;&quot;&quot;</p>
+            <p class="diff-block-removed">3. 別解(定数時間)</p>
+            <p class="diff-block-removed">4. https://atcoder.jp/contests/abc095/submissions/10226556</p>
+            <p class="diff-block-removed">5. &quot;&quot;&quot;</p>
+            <p class="diff-block-removed">6. A,&nbsp;B,&nbsp;C,&nbsp;X,&nbsp;Y&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">7. ans&nbsp;=&nbsp;float(&quot;inf&quot;)</p>
+            <p class="diff-block-removed">8. #&nbsp;ABピザを2枚1組で考える&nbsp;-&gt;&nbsp;ABセット</p>
+            <p class="diff-block-removed">9. #&nbsp;i:&nbsp;ABセットの個数</p>
+            <p class="diff-block-removed">10. for&nbsp;i&nbsp;in&nbsp;range(10**5&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-removed">11. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;min(ans,&nbsp;i&nbsp;*&nbsp;(2&nbsp;*&nbsp;C)&nbsp;+&nbsp;max(0,&nbsp;X&nbsp;-&nbsp;i)&nbsp;*&nbsp;A&nbsp;+&nbsp;max(0,&nbsp;Y&nbsp;-&nbsp;i)&nbsp;*&nbsp;B)</p>
+            <p>12. print(ans)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [2.8339990216x faster, p03371, s270393964]</strong></p>
+            <p class="diff-block-added">1. from&nbsp;itertools&nbsp;import&nbsp;*</p>
+            <p class="diff-block-added">2. </p>
+            <p class="diff-block-added">3. A,&nbsp;B,&nbsp;C,&nbsp;X,&nbsp;Y&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p class="diff-block-added">4. ans&nbsp;=&nbsp;min(</p>
+            <p class="diff-block-added">5. &nbsp;&nbsp;&nbsp;&nbsp;C&nbsp;*&nbsp;2&nbsp;*&nbsp;max(X,&nbsp;Y),</p>
+            <p class="diff-block-added">6. &nbsp;&nbsp;&nbsp;&nbsp;X&nbsp;*&nbsp;A&nbsp;+&nbsp;Y&nbsp;*&nbsp;B,</p>
+            <p class="diff-block-added">7. &nbsp;&nbsp;&nbsp;&nbsp;C&nbsp;*&nbsp;2&nbsp;*&nbsp;X&nbsp;+&nbsp;B&nbsp;*&nbsp;max(0,&nbsp;Y&nbsp;-&nbsp;X),</p>
+            <p class="diff-block-added">8. &nbsp;&nbsp;&nbsp;&nbsp;C&nbsp;*&nbsp;2&nbsp;*&nbsp;Y&nbsp;+&nbsp;A&nbsp;*&nbsp;max(0,&nbsp;X&nbsp;-&nbsp;Y),</p>
+            <p class="diff-block-added">9. )</p>
+            <p>10. print(ans)</p>
+        </div>
+    </div>
+</body>
+</html>

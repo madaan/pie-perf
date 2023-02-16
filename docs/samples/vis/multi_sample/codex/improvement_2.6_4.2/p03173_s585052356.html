@@ -1,0 +1,69 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-removed">2. </p>
+            <p class="diff-block-removed">3. N&nbsp;=&nbsp;int(eval(input()))</p>
+            <p class="diff-block-removed">4. A&nbsp;=&nbsp;[0]&nbsp;+&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">5. A&nbsp;=&nbsp;np.array(A,&nbsp;dtype=np.int64)</p>
+            <p class="diff-block-removed">6. A&nbsp;=&nbsp;np.cumsum(A)</p>
+            <p class="diff-block-removed">7. dp&nbsp;=&nbsp;np.zeros((N,&nbsp;N),&nbsp;dtype=np.int64)</p>
+            <p class="diff-block-removed">8. for&nbsp;j&nbsp;in&nbsp;range(1,&nbsp;N):</p>
+            <p class="diff-block-removed">9. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(N&nbsp;-&nbsp;j):</p>
+            <p class="diff-block-removed">10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;print&nbsp;(dp[i,&nbsp;i:i&nbsp;+&nbsp;j],&nbsp;dp[i&nbsp;+&nbsp;1:i&nbsp;+&nbsp;j&nbsp;+&nbsp;1,&nbsp;i&nbsp;+&nbsp;j])</p>
+            <p class="diff-block-removed">11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tmp&nbsp;=&nbsp;min(dp[i,&nbsp;i&nbsp;:&nbsp;i&nbsp;+&nbsp;j]&nbsp;+&nbsp;dp[i&nbsp;+&nbsp;1&nbsp;:&nbsp;i&nbsp;+&nbsp;j&nbsp;+&nbsp;1,&nbsp;i&nbsp;+&nbsp;j])</p>
+            <p class="diff-block-removed">12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i][i&nbsp;+&nbsp;j]&nbsp;=&nbsp;tmp&nbsp;+&nbsp;A[i&nbsp;+&nbsp;j&nbsp;+&nbsp;1]&nbsp;-&nbsp;A[i]</p>
+            <p class="diff-block-removed">13. print((dp[0][N&nbsp;-&nbsp;1]))</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [4.0473472332x faster, p03173, s585052356]</strong></p>
+            <p class="diff-block-added">1. N&nbsp;=&nbsp;int(input())</p>
+            <p class="diff-block-added">2. A&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-added">3. S&nbsp;=&nbsp;[0]&nbsp;*&nbsp;(N&nbsp;+&nbsp;1)</p>
+            <p class="diff-block-added">4. for&nbsp;i&nbsp;in&nbsp;range(N):</p>
+            <p class="diff-block-added">5. &nbsp;&nbsp;&nbsp;&nbsp;S[i&nbsp;+&nbsp;1]&nbsp;=&nbsp;S[i]&nbsp;+&nbsp;A[i]</p>
+            <p class="diff-block-added">6. dp&nbsp;=&nbsp;[[0]&nbsp;*&nbsp;N&nbsp;for&nbsp;_&nbsp;in&nbsp;range(N)]</p>
+            <p class="diff-block-added">7. for&nbsp;w&nbsp;in&nbsp;range(1,&nbsp;N):</p>
+            <p class="diff-block-added">8. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;l&nbsp;in&nbsp;range(N&nbsp;-&nbsp;w):</p>
+            <p class="diff-block-added">9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r&nbsp;=&nbsp;l&nbsp;+&nbsp;w</p>
+            <p class="diff-block-added">10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[l][r]&nbsp;=&nbsp;min(dp[l][i]&nbsp;+&nbsp;dp[i&nbsp;+&nbsp;1][r]&nbsp;for&nbsp;i&nbsp;in&nbsp;range(l,&nbsp;r))&nbsp;+&nbsp;S[r&nbsp;+&nbsp;1]&nbsp;-&nbsp;S[l]</p>
+            <p class="diff-block-added">11. print(dp[0][N&nbsp;-&nbsp;1])</p>
+        </div>
+    </div>
+</body>
+</html>

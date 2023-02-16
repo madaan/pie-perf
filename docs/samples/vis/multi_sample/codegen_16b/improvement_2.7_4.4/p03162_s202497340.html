@@ -1,0 +1,78 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p>1. N&nbsp;=&nbsp;int(eval(input()))</p>
+            <p class="diff-block-removed">2. ABC&nbsp;=&nbsp;[]</p>
+            <p class="diff-block-removed">3. for&nbsp;n&nbsp;in&nbsp;range(N):</p>
+            <p class="diff-block-removed">4. &nbsp;&nbsp;&nbsp;&nbsp;ABC.append(list(map(int,&nbsp;input().split())))</p>
+            <p class="diff-block-removed">5. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-removed">6. </p>
+            <p class="diff-block-removed">7. ABC&nbsp;=&nbsp;np.array(ABC)</p>
+            <p class="diff-block-removed">8. ##&nbsp;「日付」、「選択した行動」ごとの幸福度の最大値を格納するarray</p>
+            <p class="diff-block-removed">9. hp&nbsp;=&nbsp;np.zeros((N,&nbsp;3),&nbsp;dtype=int)</p>
+            <p class="diff-block-removed">10. hp[0]&nbsp;=&nbsp;ABC[0]</p>
+            <p class="diff-block-removed">11. for&nbsp;n&nbsp;in&nbsp;range(1,&nbsp;N):&nbsp;&nbsp;#&nbsp;日単位でのループ</p>
+            <p class="diff-block-removed">12. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;c&nbsp;in&nbsp;range(3):&nbsp;&nbsp;#&nbsp;選択肢ごとのループ</p>
+            <p class="diff-block-removed">13. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;##&nbsp;n日にcを選択した場合の幸福度。つまり前日はc以外を選択している</p>
+            <p class="diff-block-removed">14. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;c&nbsp;==&nbsp;0:</p>
+            <p class="diff-block-removed">15. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hp[n][0]&nbsp;=&nbsp;max(hp[n&nbsp;-&nbsp;1][1],&nbsp;hp[n&nbsp;-&nbsp;1][2])&nbsp;+&nbsp;ABC[n][0]</p>
+            <p class="diff-block-removed">16. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif&nbsp;c&nbsp;==&nbsp;1:</p>
+            <p class="diff-block-removed">17. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hp[n][1]&nbsp;=&nbsp;max(hp[n&nbsp;-&nbsp;1][0],&nbsp;hp[n&nbsp;-&nbsp;1][2])&nbsp;+&nbsp;ABC[n][1]</p>
+            <p class="diff-block-removed">18. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif&nbsp;c&nbsp;==&nbsp;2:</p>
+            <p class="diff-block-removed">19. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hp[n][2]&nbsp;=&nbsp;max(hp[n&nbsp;-&nbsp;1][0],&nbsp;hp[n&nbsp;-&nbsp;1][1])&nbsp;+&nbsp;ABC[n][2]</p>
+            <p class="diff-block-removed">20. ans&nbsp;=&nbsp;max(hp[-1])</p>
+            <p class="diff-block-removed">21. print(ans)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [3.9932676691x faster, p03162, s202497340]</strong></p>
+            <p class="diff-block-added">1. import&nbsp;sys</p>
+            <p class="diff-block-added">2. </p>
+            <p class="diff-block-added">3. input&nbsp;=&nbsp;sys.stdin.readline&nbsp;&nbsp;#&nbsp;指定</p>
+            <p class="diff-block-added">4. sys.setrecursionlimit(10**7)</p>
+            <p class="diff-block-added">5. MOD&nbsp;=&nbsp;10**9&nbsp;+&nbsp;7&nbsp;&nbsp;#&nbsp;設定</p>
+            <p>6. N&nbsp;=&nbsp;int(eval(input()))</p>
+            <p class="diff-block-added">7. H&nbsp;=&nbsp;[list(map(int,&nbsp;input().split()))&nbsp;for&nbsp;n&nbsp;in&nbsp;range(N)]</p>
+            <p class="diff-block-added">8. for&nbsp;n&nbsp;in&nbsp;range(1,&nbsp;N):</p>
+            <p class="diff-block-added">9. &nbsp;&nbsp;&nbsp;&nbsp;H[n][0]&nbsp;+=&nbsp;max(H[n&nbsp;-&nbsp;1][1],&nbsp;H[n&nbsp;-&nbsp;1][2])</p>
+            <p class="diff-block-added">10. &nbsp;&nbsp;&nbsp;&nbsp;H[n][1]&nbsp;+=&nbsp;max(H[n&nbsp;-&nbsp;1][0],&nbsp;H[n&nbsp;-&nbsp;1][2])</p>
+            <p class="diff-block-added">11. &nbsp;&nbsp;&nbsp;&nbsp;H[n][2]&nbsp;+=&nbsp;max(H[n&nbsp;-&nbsp;1][0],&nbsp;H[n&nbsp;-&nbsp;1][1])</p>
+            <p class="diff-block-added">12. print((max(H[-1])))</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-removed">2. import&nbsp;itertools</p>
+            <p class="diff-block-removed">3. </p>
+            <p class="diff-block-removed">4. X,&nbsp;Y,&nbsp;Z,&nbsp;K&nbsp;=&nbsp;tuple([int(x)&nbsp;for&nbsp;x&nbsp;in&nbsp;str(eval(input())).split(&quot;&nbsp;&quot;)])</p>
+            <p class="diff-block-removed">5. A&nbsp;=&nbsp;np.array(sorted([int(x)&nbsp;for&nbsp;x&nbsp;in&nbsp;str(eval(input())).split(&quot;&nbsp;&quot;)],&nbsp;reverse=True))</p>
+            <p class="diff-block-removed">6. B&nbsp;=&nbsp;np.array(sorted([int(x)&nbsp;for&nbsp;x&nbsp;in&nbsp;str(eval(input())).split(&quot;&nbsp;&quot;)],&nbsp;reverse=True))</p>
+            <p class="diff-block-removed">7. C&nbsp;=&nbsp;np.array(sorted([int(x)&nbsp;for&nbsp;x&nbsp;in&nbsp;str(eval(input())).split(&quot;&nbsp;&quot;)],&nbsp;reverse=True))</p>
+            <p class="diff-block-removed">8. tmp&nbsp;=&nbsp;{(0,&nbsp;0,&nbsp;0):&nbsp;A[0]&nbsp;+&nbsp;B[0]&nbsp;+&nbsp;C[0]}</p>
+            <p class="diff-block-removed">9. tmp_keys&nbsp;=&nbsp;[(0,&nbsp;0,&nbsp;0)]</p>
+            <p class="diff-block-removed">10. out&nbsp;=&nbsp;[]</p>
+            <p>11. for&nbsp;i&nbsp;in&nbsp;range(K):</p>
+            <p class="diff-block-removed">12. &nbsp;&nbsp;&nbsp;&nbsp;(a,&nbsp;b,&nbsp;c),&nbsp;p&nbsp;=&nbsp;max(list(tmp.items()),&nbsp;key=lambda&nbsp;x:&nbsp;x[1])</p>
+            <p class="diff-block-removed">13. &nbsp;&nbsp;&nbsp;&nbsp;out.append(tmp.pop((a,&nbsp;b,&nbsp;c)))</p>
+            <p class="diff-block-removed">14. &nbsp;&nbsp;&nbsp;&nbsp;keys&nbsp;=&nbsp;[]</p>
+            <p class="diff-block-removed">15. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;a&nbsp;&lt;&nbsp;X&nbsp;-&nbsp;1:</p>
+            <p class="diff-block-removed">16. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;keys.append((a&nbsp;+&nbsp;1,&nbsp;b,&nbsp;c))</p>
+            <p class="diff-block-removed">17. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;b&nbsp;&lt;&nbsp;Y&nbsp;-&nbsp;1:</p>
+            <p class="diff-block-removed">18. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;keys.append((a,&nbsp;b&nbsp;+&nbsp;1,&nbsp;c))</p>
+            <p class="diff-block-removed">19. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;c&nbsp;&lt;&nbsp;Z&nbsp;-&nbsp;1:</p>
+            <p class="diff-block-removed">20. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;keys.append((a,&nbsp;b,&nbsp;c&nbsp;+&nbsp;1))</p>
+            <p class="diff-block-removed">21. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;key&nbsp;in&nbsp;keys:</p>
+            <p class="diff-block-removed">22. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;key&nbsp;not&nbsp;in&nbsp;tmp_keys:</p>
+            <p class="diff-block-removed">23. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tmp[key]&nbsp;=&nbsp;A[key[0]]&nbsp;+&nbsp;B[key[1]]&nbsp;+&nbsp;C[key[2]]</p>
+            <p class="diff-block-removed">24. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tmp_keys.append(key)</p>
+            <p class="diff-block-removed">25. for&nbsp;x&nbsp;in&nbsp;out:</p>
+            <p class="diff-block-removed">26. &nbsp;&nbsp;&nbsp;&nbsp;print(x)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [3.2812444658x faster, p03078, s578367863]</strong></p>
+            <p class="diff-block-added">1. X,&nbsp;Y,&nbsp;Z,&nbsp;K&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p class="diff-block-added">2. A&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-added">3. B&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-added">4. C&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-added">5. A.sort(reverse=True)</p>
+            <p class="diff-block-added">6. B.sort(reverse=True)</p>
+            <p class="diff-block-added">7. C.sort(reverse=True)</p>
+            <p class="diff-block-added">8. ABC&nbsp;=&nbsp;[]</p>
+            <p class="diff-block-added">9. for&nbsp;a&nbsp;in&nbsp;A:</p>
+            <p class="diff-block-added">10. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;b&nbsp;in&nbsp;B:</p>
+            <p class="diff-block-added">11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;c&nbsp;in&nbsp;C:</p>
+            <p class="diff-block-added">12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ABC.append(a&nbsp;+&nbsp;b&nbsp;+&nbsp;c)</p>
+            <p class="diff-block-added">13. ABC.sort(reverse=True)</p>
+            <p>14. for&nbsp;i&nbsp;in&nbsp;range(K):</p>
+            <p class="diff-block-added">15. &nbsp;&nbsp;&nbsp;&nbsp;print(ABC[i])</p>
+        </div>
+    </div>
+</body>
+</html>

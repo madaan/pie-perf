@@ -1,0 +1,73 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. Mod&nbsp;=&nbsp;10**9&nbsp;+&nbsp;7</p>
+            <p class="diff-block-removed">2. N,&nbsp;M&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">3. a&nbsp;=&nbsp;[int(eval(input()))&nbsp;for&nbsp;_&nbsp;in&nbsp;range(M)]</p>
+            <p class="diff-block-removed">4. b&nbsp;=&nbsp;[1]&nbsp;*&nbsp;(N&nbsp;+&nbsp;1)</p>
+            <p class="diff-block-removed">5. for&nbsp;j&nbsp;in&nbsp;a:</p>
+            <p class="diff-block-removed">6. &nbsp;&nbsp;&nbsp;&nbsp;b[j]&nbsp;=&nbsp;0</p>
+            <p class="diff-block-removed">7. for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;N&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-removed">8. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;b[i]&nbsp;==&nbsp;0:</p>
+            <p class="diff-block-removed">9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue</p>
+            <p class="diff-block-removed">10. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;i&nbsp;==&nbsp;1:</p>
+            <p class="diff-block-removed">11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b[1]&nbsp;=&nbsp;1</p>
+            <p class="diff-block-removed">12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue</p>
+            <p class="diff-block-removed">13. &nbsp;&nbsp;&nbsp;&nbsp;b[i]&nbsp;=&nbsp;b[i&nbsp;-&nbsp;1]&nbsp;+&nbsp;b[i&nbsp;-&nbsp;2]</p>
+            <p class="diff-block-removed">14. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;b[i]&nbsp;&gt;=&nbsp;Mod:</p>
+            <p class="diff-block-removed">15. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b[i]&nbsp;%=&nbsp;Mod</p>
+            <p class="diff-block-removed">16. print((b[N]))</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [1.0285695768x faster, p03013, s190076821]</strong></p>
+            <p class="diff-block-added">1. N,&nbsp;M&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p class="diff-block-added">2. S&nbsp;=&nbsp;set(map(int,&nbsp;[input()&nbsp;for&nbsp;_&nbsp;in&nbsp;range(M)]))</p>
+            <p class="diff-block-added">3. MOD&nbsp;=&nbsp;10**9&nbsp;+&nbsp;7</p>
+            <p class="diff-block-added">4. dp&nbsp;=&nbsp;[0]&nbsp;*&nbsp;(N&nbsp;+&nbsp;1)</p>
+            <p class="diff-block-added">5. dp[0]&nbsp;=&nbsp;1</p>
+            <p class="diff-block-added">6. dp[1]&nbsp;=&nbsp;1&nbsp;if&nbsp;1&nbsp;not&nbsp;in&nbsp;S&nbsp;else&nbsp;0</p>
+            <p class="diff-block-added">7. for&nbsp;i&nbsp;in&nbsp;range(2,&nbsp;N&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-added">8. &nbsp;&nbsp;&nbsp;&nbsp;dp[i]&nbsp;=&nbsp;dp[i&nbsp;-&nbsp;2]&nbsp;+&nbsp;dp[i&nbsp;-&nbsp;1]</p>
+            <p class="diff-block-added">9. &nbsp;&nbsp;&nbsp;&nbsp;dp[i]&nbsp;%=&nbsp;MOD</p>
+            <p class="diff-block-added">10. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;i&nbsp;in&nbsp;S:</p>
+            <p class="diff-block-added">11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i]&nbsp;=&nbsp;0</p>
+            <p class="diff-block-added">12. print(dp[-1])</p>
+        </div>
+    </div>
+</body>
+</html>

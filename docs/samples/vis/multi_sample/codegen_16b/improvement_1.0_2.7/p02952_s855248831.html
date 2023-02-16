@@ -1,0 +1,63 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p>1. N&nbsp;=&nbsp;int(eval(input()))</p>
+            <p class="diff-block-removed">2. count&nbsp;=&nbsp;0</p>
+            <p>3. for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;N&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-removed">4. &nbsp;&nbsp;&nbsp;&nbsp;num_dig&nbsp;=&nbsp;0</p>
+            <p class="diff-block-removed">5. &nbsp;&nbsp;&nbsp;&nbsp;ii&nbsp;=&nbsp;i</p>
+            <p class="diff-block-removed">6. &nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;ii&nbsp;&gt;&nbsp;0:</p>
+            <p class="diff-block-removed">7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ii&nbsp;=&nbsp;int(ii&nbsp;/&nbsp;10)</p>
+            <p class="diff-block-removed">8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;num_dig&nbsp;+=&nbsp;1</p>
+            <p class="diff-block-removed">9. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;num_dig&nbsp;%&nbsp;2&nbsp;!=&nbsp;0:</p>
+            <p class="diff-block-removed">10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count&nbsp;+=&nbsp;1</p>
+            <p class="diff-block-removed">11. print(count)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [1.4243129675000001x faster, p02952, s855248831]</strong></p>
+            <p>1. N&nbsp;=&nbsp;int(eval(input()))</p>
+            <p class="diff-block-added">2. ans&nbsp;=&nbsp;0</p>
+            <p>3. for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;N&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-added">4. &nbsp;&nbsp;&nbsp;&nbsp;d&nbsp;=&nbsp;len(str(i))</p>
+            <p class="diff-block-added">5. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;d&nbsp;%&nbsp;2&nbsp;==&nbsp;1:</p>
+            <p class="diff-block-added">6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;+=&nbsp;1</p>
+            <p class="diff-block-added">7. print(ans)</p>
+        </div>
+    </div>
+</body>
+</html>

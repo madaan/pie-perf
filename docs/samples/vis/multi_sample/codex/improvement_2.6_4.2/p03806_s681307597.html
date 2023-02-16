@@ -1,0 +1,86 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. n,&nbsp;ma,&nbsp;mb&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">2. U&nbsp;=&nbsp;400</p>
+            <p class="diff-block-removed">3. dp&nbsp;=&nbsp;[[[float(&quot;inf&quot;)]&nbsp;*&nbsp;(U&nbsp;+&nbsp;1)&nbsp;for&nbsp;_&nbsp;in&nbsp;range(U&nbsp;+&nbsp;1)]&nbsp;for&nbsp;i&nbsp;in&nbsp;range(n&nbsp;+&nbsp;1)]</p>
+            <p class="diff-block-removed">4. dp[0][0][0]&nbsp;=&nbsp;0</p>
+            <p class="diff-block-removed">5. for&nbsp;i&nbsp;in&nbsp;range(n):</p>
+            <p class="diff-block-removed">6. &nbsp;&nbsp;&nbsp;&nbsp;a,&nbsp;b,&nbsp;c&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">7. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;range(U&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-removed">8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;k&nbsp;in&nbsp;range(U&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-removed">9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;j&nbsp;&lt;&nbsp;a&nbsp;or&nbsp;k&nbsp;&lt;&nbsp;b:</p>
+            <p class="diff-block-removed">10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i&nbsp;+&nbsp;1][j][k]&nbsp;=&nbsp;dp[i][j][k]</p>
+            <p class="diff-block-removed">11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:</p>
+            <p class="diff-block-removed">12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i&nbsp;+&nbsp;1][j][k]&nbsp;=&nbsp;min(dp[i][j][k],&nbsp;dp[i][j&nbsp;-&nbsp;a][k&nbsp;-&nbsp;b]&nbsp;+&nbsp;c)</p>
+            <p class="diff-block-removed">13. ans&nbsp;=&nbsp;float(&quot;inf&quot;)</p>
+            <p class="diff-block-removed">14. for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;1&nbsp;+&nbsp;U&nbsp;//&nbsp;max(ma,&nbsp;mb)):</p>
+            <p class="diff-block-removed">15. &nbsp;&nbsp;&nbsp;&nbsp;na,&nbsp;nb&nbsp;=&nbsp;i&nbsp;*&nbsp;ma,&nbsp;i&nbsp;*&nbsp;mb</p>
+            <p class="diff-block-removed">16. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;min(ans,&nbsp;dp[-1][na][nb])</p>
+            <p class="diff-block-removed">17. if&nbsp;ans&nbsp;==&nbsp;float(&quot;inf&quot;):</p>
+            <p class="diff-block-removed">18. &nbsp;&nbsp;&nbsp;&nbsp;print((-1))</p>
+            <p class="diff-block-removed">19. else:</p>
+            <p>20. &nbsp;&nbsp;&nbsp;&nbsp;print(ans)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [2.9653070508x faster, p03806, s681307597]</strong></p>
+            <p class="diff-block-added">1. N,&nbsp;A,&nbsp;B&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p class="diff-block-added">2. C&nbsp;=&nbsp;[tuple(map(int,&nbsp;input().split()))&nbsp;for&nbsp;_&nbsp;in&nbsp;range(N)]</p>
+            <p class="diff-block-added">3. INF&nbsp;=&nbsp;10**10</p>
+            <p class="diff-block-added">4. dp&nbsp;=&nbsp;[[INF&nbsp;for&nbsp;_&nbsp;in&nbsp;range(401)]&nbsp;for&nbsp;_&nbsp;in&nbsp;range(401)]</p>
+            <p class="diff-block-added">5. dp[0][0]&nbsp;=&nbsp;0</p>
+            <p class="diff-block-added">6. for&nbsp;a,&nbsp;b,&nbsp;c&nbsp;in&nbsp;C:</p>
+            <p class="diff-block-added">7. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(400,&nbsp;-1,&nbsp;-1):</p>
+            <p class="diff-block-added">8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;range(400,&nbsp;-1,&nbsp;-1):</p>
+            <p class="diff-block-added">9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;dp[i][j]&nbsp;==&nbsp;INF:</p>
+            <p class="diff-block-added">10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue</p>
+            <p class="diff-block-added">11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;i&nbsp;+&nbsp;a&nbsp;&lt;=&nbsp;400&nbsp;and&nbsp;j&nbsp;+&nbsp;b&nbsp;&lt;=&nbsp;400:</p>
+            <p class="diff-block-added">12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i&nbsp;+&nbsp;a][j&nbsp;+&nbsp;b]&nbsp;=&nbsp;min(dp[i&nbsp;+&nbsp;a][j&nbsp;+&nbsp;b],&nbsp;dp[i][j]&nbsp;+&nbsp;c)</p>
+            <p class="diff-block-added">13. ans&nbsp;=&nbsp;INF</p>
+            <p class="diff-block-added">14. for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;400&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-added">15. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;A&nbsp;*&nbsp;i&nbsp;&gt;&nbsp;400&nbsp;or&nbsp;B&nbsp;*&nbsp;i&nbsp;&gt;&nbsp;400:</p>
+            <p class="diff-block-added">16. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</p>
+            <p class="diff-block-added">17. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;min(ans,&nbsp;dp[A&nbsp;*&nbsp;i][B&nbsp;*&nbsp;i])</p>
+            <p class="diff-block-added">18. if&nbsp;ans&nbsp;==&nbsp;INF:</p>
+            <p class="diff-block-added">19. &nbsp;&nbsp;&nbsp;&nbsp;print(-1)</p>
+            <p>20. else:</p>
+            <p>21. &nbsp;&nbsp;&nbsp;&nbsp;print(ans)</p>
+        </div>
+    </div>
+</body>
+</html>

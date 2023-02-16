@@ -1,0 +1,126 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-removed">2. </p>
+            <p class="diff-block-removed">3. N,&nbsp;D&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p>4. points&nbsp;=&nbsp;[list(map(int,&nbsp;input().split()))&nbsp;for&nbsp;_&nbsp;in&nbsp;range(N)]</p>
+            <p>5. count&nbsp;=&nbsp;0</p>
+            <p>6. for&nbsp;i&nbsp;in&nbsp;range(N):</p>
+            <p class="diff-block-removed">7. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;range(N):</p>
+            <p class="diff-block-removed">8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;j&nbsp;==&nbsp;i:</p>
+            <p class="diff-block-removed">9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue</p>
+            <p class="diff-block-removed">10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dist&nbsp;=&nbsp;np.sqrt(sum([(points[i][d]&nbsp;-&nbsp;points[j][d])&nbsp;**&nbsp;2&nbsp;for&nbsp;d&nbsp;in&nbsp;range(D)]))</p>
+            <p>11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;dist.is_integer():</p>
+            <p>12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count&nbsp;+=&nbsp;1</p>
+            <p class="diff-block-removed">13. print((count&nbsp;//&nbsp;2))</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [3.6289198462x faster, p02982, s201924324]</strong></p>
+            <p class="diff-block-added">1. N,&nbsp;D&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p>2. points&nbsp;=&nbsp;[list(map(int,&nbsp;input().split()))&nbsp;for&nbsp;_&nbsp;in&nbsp;range(N)]</p>
+            <p class="diff-block-added">3. count&nbsp;=&nbsp;0</p>
+            <p class="diff-block-added">4. for&nbsp;i&nbsp;in&nbsp;range(N):</p>
+            <p class="diff-block-added">5. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;range(i&nbsp;+&nbsp;1,&nbsp;N):</p>
+            <p class="diff-block-added">6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dist&nbsp;=&nbsp;sum([(points[i][d]&nbsp;-&nbsp;points[j][d])&nbsp;**&nbsp;2&nbsp;for&nbsp;d&nbsp;in&nbsp;range(D)])&nbsp;**&nbsp;0.5</p>
+            <p class="diff-block-added">7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;dist.is_integer():</p>
+            <p class="diff-block-added">8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count&nbsp;+=&nbsp;1</p>
+            <p class="diff-block-added">9. print(count)</p>
+            <p class="diff-block-added">10. #&nbsp;optimized&nbsp;version&nbsp;of&nbsp;the&nbsp;same&nbsp;code:</p>
+            <p class="diff-block-added">11. N,&nbsp;D&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p class="diff-block-added">12. count&nbsp;=&nbsp;0</p>
+            <p class="diff-block-added">13. for&nbsp;i&nbsp;in&nbsp;range(N):</p>
+            <p class="diff-block-added">14. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;range(i&nbsp;+&nbsp;1,&nbsp;N):</p>
+            <p class="diff-block-added">15. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dist&nbsp;=&nbsp;sum((points[i][d]&nbsp;-&nbsp;points[j][d])&nbsp;**&nbsp;2&nbsp;for&nbsp;d&nbsp;in&nbsp;range(D))&nbsp;**&nbsp;0.5</p>
+            <p class="diff-block-added">16. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;dist.is_integer():</p>
+            <p class="diff-block-added">17. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count&nbsp;+=&nbsp;1</p>
+            <p class="diff-block-added">18. print(count)</p>
+            <p class="diff-block-added">19. #&nbsp;optimized&nbsp;version&nbsp;of&nbsp;the&nbsp;same&nbsp;code:</p>
+            <p class="diff-block-added">20. N,&nbsp;D&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p class="diff-block-added">21. count&nbsp;=&nbsp;0</p>
+            <p class="diff-block-added">22. for&nbsp;i&nbsp;in&nbsp;range(N):</p>
+            <p class="diff-block-added">23. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;range(i&nbsp;+&nbsp;1,&nbsp;N):</p>
+            <p class="diff-block-added">24. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dist&nbsp;=&nbsp;sum((points[i][d]&nbsp;-&nbsp;points[j][d])&nbsp;**&nbsp;2&nbsp;for&nbsp;d&nbsp;in&nbsp;range(D))&nbsp;**&nbsp;0.5</p>
+            <p class="diff-block-added">25. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;dist.is_integer():</p>
+            <p class="diff-block-added">26. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count&nbsp;+=&nbsp;1</p>
+            <p class="diff-block-added">27. print(count)</p>
+            <p class="diff-block-added">28. #&nbsp;optimized&nbsp;version&nbsp;of&nbsp;the&nbsp;same&nbsp;code:</p>
+            <p class="diff-block-added">29. N,&nbsp;D&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p class="diff-block-added">30. count&nbsp;=&nbsp;0</p>
+            <p class="diff-block-added">31. for&nbsp;i&nbsp;in&nbsp;range(N):</p>
+            <p class="diff-block-added">32. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;range(i&nbsp;+&nbsp;1,&nbsp;N):</p>
+            <p class="diff-block-added">33. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dist&nbsp;=&nbsp;(sum((points[i][d]&nbsp;-&nbsp;points[j][d])&nbsp;**&nbsp;2&nbsp;for&nbsp;d&nbsp;in&nbsp;range(D)))&nbsp;**&nbsp;0.5</p>
+            <p class="diff-block-added">34. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;dist.is_integer():</p>
+            <p class="diff-block-added">35. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count&nbsp;+=&nbsp;1</p>
+            <p class="diff-block-added">36. print(count)</p>
+            <p class="diff-block-added">37. #&nbsp;optimized&nbsp;version&nbsp;of&nbsp;the&nbsp;same&nbsp;code:</p>
+            <p class="diff-block-added">38. N,&nbsp;D&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p class="diff-block-added">39. count&nbsp;=&nbsp;0</p>
+            <p class="diff-block-added">40. for&nbsp;i&nbsp;in&nbsp;range(N):</p>
+            <p class="diff-block-added">41. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;range(i&nbsp;+&nbsp;1,&nbsp;N):</p>
+            <p class="diff-block-added">42. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dist&nbsp;=&nbsp;(sum((points[i][d]&nbsp;-&nbsp;points[j][d])&nbsp;**&nbsp;2&nbsp;for&nbsp;d&nbsp;in&nbsp;range(D)))&nbsp;**&nbsp;0.5</p>
+            <p class="diff-block-added">43. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;dist.is_integer():</p>
+            <p class="diff-block-added">44. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count&nbsp;+=&nbsp;1</p>
+            <p class="diff-block-added">45. print(count)</p>
+            <p class="diff-block-added">46. #&nbsp;optimized&nbsp;version&nbsp;of&nbsp;the&nbsp;same&nbsp;code:</p>
+            <p class="diff-block-added">47. #&nbsp;ABC161-D</p>
+            <p class="diff-block-added">48. from&nbsp;itertools&nbsp;import&nbsp;product</p>
+            <p class="diff-block-added">49. </p>
+            <p class="diff-block-added">50. L&nbsp;=&nbsp;int(input())</p>
+            <p class="diff-block-added">51. all&nbsp;=&nbsp;list(range(10))</p>
+            <p class="diff-block-added">52. n&nbsp;=&nbsp;0</p>
+            <p class="diff-block-added">53. for&nbsp;i&nbsp;in&nbsp;product(all,&nbsp;repeat=L):</p>
+            <p class="diff-block-added">54. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;sum(i)&nbsp;==&nbsp;0:</p>
+            <p class="diff-block-added">55. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue</p>
+            <p class="diff-block-added">56. &nbsp;&nbsp;&nbsp;&nbsp;n&nbsp;+=&nbsp;1</p>
+            <p class="diff-block-added">57. print(n)</p>
+            <p class="diff-block-added">58. #&nbsp;optimized&nbsp;version&nbsp;of&nbsp;the&nbsp;same&nbsp;code:</p>
+            <p class="diff-block-added">59. from&nbsp;itertools&nbsp;import&nbsp;product</p>
+            <p class="diff-block-added">60. </p>
+            <p class="diff-block-added">61. L&nbsp;=&nbsp;int(input())</p>
+            <p class="diff-block-added">62. all&nbsp;=&nbsp;list(range(10))</p>
+            <p class="diff-block-added">63. n&nbsp;=&nbsp;0</p>
+            <p class="diff-block-added">64. for&nbsp;i&nbsp;in&nbsp;product(all,&nbsp;repeat=L):</p>
+            <p class="diff-block-added">65. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;sum(i)&nbsp;==&nbsp;0:</p>
+            <p class="diff-block-added">66. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue</p>
+            <p class="diff-block-added">67. &nbsp;&nbsp;&nbsp;&nbsp;n&nbsp;+=&nbsp;1</p>
+            <p class="diff-block-added">68. print(n)</p>
+        </div>
+    </div>
+</body>
+</html>

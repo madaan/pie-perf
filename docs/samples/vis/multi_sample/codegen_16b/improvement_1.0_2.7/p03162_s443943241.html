@@ -1,0 +1,70 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. #&nbsp;https://atcoder.jp/contests/dp/tasks/dp_c</p>
+            <p class="diff-block-removed">2. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-removed">3. </p>
+            <p>4. N&nbsp;=&nbsp;int(eval(input()))</p>
+            <p class="diff-block-removed">5. Max_List&nbsp;=&nbsp;[]</p>
+            <p class="diff-block-removed">6. N_List&nbsp;=&nbsp;[i&nbsp;for&nbsp;i&nbsp;in&nbsp;range(3)]</p>
+            <p class="diff-block-removed">7. for&nbsp;i&nbsp;in&nbsp;range(N):</p>
+            <p class="diff-block-removed">8. &nbsp;&nbsp;&nbsp;&nbsp;Current_List&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">9. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;i&nbsp;==&nbsp;0:</p>
+            <p class="diff-block-removed">10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Max_List.append(Current_List)</p>
+            <p class="diff-block-removed">11. &nbsp;&nbsp;&nbsp;&nbsp;else:</p>
+            <p class="diff-block-removed">12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Current_Max_List&nbsp;=&nbsp;[]</p>
+            <p class="diff-block-removed">13. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;range(3):</p>
+            <p class="diff-block-removed">14. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Index_List&nbsp;=&nbsp;np.array(Max_List[i&nbsp;-&nbsp;1])</p>
+            <p class="diff-block-removed">15. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ind&nbsp;=&nbsp;np.ones(3,&nbsp;dtype=bool)</p>
+            <p class="diff-block-removed">16. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ind[j]&nbsp;=&nbsp;False</p>
+            <p class="diff-block-removed">17. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Current_Max_List.append(max(Index_List[ind])&nbsp;+&nbsp;Current_List[j])</p>
+            <p class="diff-block-removed">18. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Max_List.append(Current_Max_List)</p>
+            <p class="diff-block-removed">19. print((max(Max_List[-1])))</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [2.5064664437x faster, p03162, s443943241]</strong></p>
+            <p>1. N&nbsp;=&nbsp;int(eval(input()))</p>
+            <p class="diff-block-added">2. DP&nbsp;=&nbsp;[list(map(int,&nbsp;input().split()))&nbsp;for&nbsp;i&nbsp;in&nbsp;range(N)]</p>
+            <p class="diff-block-added">3. for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;N):</p>
+            <p class="diff-block-added">4. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;range(3):</p>
+            <p class="diff-block-added">5. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DP[i][j]&nbsp;=&nbsp;max(DP[i&nbsp;-&nbsp;1][j&nbsp;-&nbsp;1],&nbsp;DP[i&nbsp;-&nbsp;1][j&nbsp;-&nbsp;2])&nbsp;+&nbsp;DP[i][j]</p>
+            <p class="diff-block-added">6. print((max(DP[N&nbsp;-&nbsp;1])))</p>
+        </div>
+    </div>
+</body>
+</html>

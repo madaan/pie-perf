@@ -1,0 +1,144 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. #&nbsp;-*-&nbsp;coding:&nbsp;utf-8&nbsp;-*-</p>
+            <p class="diff-block-removed">2. &quot;&quot;&quot;</p>
+            <p class="diff-block-removed">3. 参考：http://drken1215.hatenablog.com/entry/2018/09/23/224100</p>
+            <p class="diff-block-removed">4. 　　　http://tutuz.hateblo.jp/entry/2018/09/24/121248</p>
+            <p class="diff-block-removed">5. ・素因数分解と重複組み合わせ</p>
+            <p class="diff-block-removed">6. ・毎回階乗やると死ぬから階乗と逆元のテーブル作る(忘れてた)</p>
+            <p class="diff-block-removed">7. &quot;&quot;&quot;</p>
+            <p class="diff-block-removed">8. from&nbsp;collections&nbsp;import&nbsp;defaultdict</p>
+            <p class="diff-block-removed">9. from&nbsp;math&nbsp;import&nbsp;sqrt</p>
+            <p>10. </p>
+            <p>11. MOD&nbsp;=&nbsp;10**9&nbsp;+&nbsp;7</p>
+            <p>12. </p>
+            <p>13. </p>
+            <p class="diff-block-removed">14. def&nbsp;fact_prime(num):</p>
+            <p class="diff-block-removed">15. &nbsp;&nbsp;&nbsp;&nbsp;d&nbsp;=&nbsp;defaultdict(int)</p>
+            <p class="diff-block-removed">16. &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;終点はルート切り捨て+1</p>
+            <p class="diff-block-removed">17. &nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;=&nbsp;int(sqrt(num))&nbsp;+&nbsp;1</p>
+            <p class="diff-block-removed">18. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(2,&nbsp;end&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-removed">19. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cnt&nbsp;=&nbsp;0</p>
+            <p class="diff-block-removed">20. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;素因数分解：小さい方から割れるだけ割って素数をカウント</p>
+            <p class="diff-block-removed">21. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;num&nbsp;%&nbsp;i&nbsp;==&nbsp;0:</p>
+            <p class="diff-block-removed">22. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;num&nbsp;//=&nbsp;i</p>
+            <p class="diff-block-removed">23. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d[i]&nbsp;+=&nbsp;1</p>
+            <p class="diff-block-removed">24. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;1まで来たら終了</p>
+            <p class="diff-block-removed">25. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;num&nbsp;==&nbsp;1:</p>
+            <p class="diff-block-removed">26. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</p>
+            <p class="diff-block-removed">27. &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;最後までそのまま来たやつはnumが素数(ただし1^1は1^0なので数に入れない)</p>
+            <p class="diff-block-removed">28. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;num&nbsp;!=&nbsp;1:</p>
+            <p class="diff-block-removed">29. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d[num]&nbsp;+=&nbsp;1</p>
+            <p class="diff-block-removed">30. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;d</p>
+            <p>31. </p>
+            <p>32. </p>
+            <p class="diff-block-removed">33. #&nbsp;とりあえずv+N-1が収まればいいはず</p>
+            <p class="diff-block-removed">34. MAX&nbsp;=&nbsp;10**5&nbsp;*&nbsp;2</p>
+            <p class="diff-block-removed">35. #&nbsp;予め組み合わせ計算に必要な階乗と逆元のテーブルを作っておく</p>
+            <p class="diff-block-removed">36. factorial&nbsp;=&nbsp;[1]&nbsp;*&nbsp;(MAX)</p>
+            <p class="diff-block-removed">37. factorial[0]&nbsp;=&nbsp;factorial[1]&nbsp;=&nbsp;1</p>
+            <p class="diff-block-removed">38. for&nbsp;i&nbsp;in&nbsp;range(2,&nbsp;MAX):</p>
+            <p class="diff-block-removed">39. &nbsp;&nbsp;&nbsp;&nbsp;factorial[i]&nbsp;=&nbsp;factorial[i&nbsp;-&nbsp;1]&nbsp;*&nbsp;i&nbsp;%&nbsp;MOD</p>
+            <p class="diff-block-removed">40. inverse&nbsp;=&nbsp;[1]&nbsp;*&nbsp;(MAX)</p>
+            <p class="diff-block-removed">41. #&nbsp;powに第三引数入れると冪乗のmod付計算を高速にやってくれる</p>
+            <p class="diff-block-removed">42. inverse[MAX&nbsp;-&nbsp;1]&nbsp;=&nbsp;pow(factorial[MAX&nbsp;-&nbsp;1],&nbsp;MOD&nbsp;-&nbsp;2,&nbsp;MOD)</p>
+            <p class="diff-block-removed">43. for&nbsp;i&nbsp;in&nbsp;range(MAX&nbsp;-&nbsp;2,&nbsp;0,&nbsp;-1):</p>
+            <p class="diff-block-removed">44. &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;最後から戻っていくこのループならH+W回powするより処理が速い</p>
+            <p class="diff-block-removed">45. &nbsp;&nbsp;&nbsp;&nbsp;inverse[i]&nbsp;=&nbsp;inverse[i&nbsp;+&nbsp;1]&nbsp;*&nbsp;(i&nbsp;+&nbsp;1)&nbsp;%&nbsp;MOD</p>
+            <p class="diff-block-removed">46. #&nbsp;組み合わせの数</p>
+            <p class="diff-block-removed">47. def&nbsp;nCr(n,&nbsp;r):</p>
+            <p class="diff-block-removed">48. &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;10C7&nbsp;=&nbsp;10C3</p>
+            <p class="diff-block-removed">49. &nbsp;&nbsp;&nbsp;&nbsp;r&nbsp;=&nbsp;min(r,&nbsp;n&nbsp;-&nbsp;r)</p>
+            <p class="diff-block-removed">50. &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;分子の計算</p>
+            <p class="diff-block-removed">51. &nbsp;&nbsp;&nbsp;&nbsp;numerator&nbsp;=&nbsp;factorial[n]</p>
+            <p class="diff-block-removed">52. &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;分母の計算</p>
+            <p class="diff-block-removed">53. &nbsp;&nbsp;&nbsp;&nbsp;denominator&nbsp;=&nbsp;inverse[r]&nbsp;*&nbsp;inverse[n&nbsp;-&nbsp;r]&nbsp;%&nbsp;MOD</p>
+            <p class="diff-block-removed">54. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;numerator&nbsp;*&nbsp;denominator&nbsp;%&nbsp;MOD</p>
+            <p>55. </p>
+            <p>56. </p>
+            <p class="diff-block-removed">57. N,&nbsp;M&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">58. #&nbsp;d&nbsp;=&nbsp;fact_prime(M)</p>
+            <p class="diff-block-removed">59. #&nbsp;print(d)</p>
+            <p class="diff-block-removed">60. ans&nbsp;=&nbsp;1</p>
+            <p class="diff-block-removed">61. for&nbsp;k,&nbsp;v&nbsp;in&nbsp;list(fact_prime(M).items()):</p>
+            <p class="diff-block-removed">62. &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;重複組み合わせ</p>
+            <p class="diff-block-removed">63. &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;v個のkとN-1個の仕切りから、v個を並べる(v+N-1個のマスからv個を選び出す組み合わせ)</p>
+            <p class="diff-block-removed">64. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;(ans&nbsp;*&nbsp;nCr(v&nbsp;+&nbsp;N&nbsp;-&nbsp;1,&nbsp;v))&nbsp;%&nbsp;MOD</p>
+            <p class="diff-block-removed">65. print(ans)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [3.5260698557x faster, p03253, s242527358]</strong></p>
+            <p class="diff-block-added">1. import&nbsp;math</p>
+            <p>2. </p>
+            <p>3. MOD&nbsp;=&nbsp;10**9&nbsp;+&nbsp;7</p>
+            <p>4. </p>
+            <p>5. </p>
+            <p class="diff-block-added">6. def&nbsp;comb(n,&nbsp;r,&nbsp;mod=MOD):</p>
+            <p class="diff-block-added">7. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;n&nbsp;&lt;&nbsp;0&nbsp;or&nbsp;r&nbsp;&lt;&nbsp;0&nbsp;or&nbsp;n&nbsp;&lt;&nbsp;r:</p>
+            <p class="diff-block-added">8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;0</p>
+            <p class="diff-block-added">9. &nbsp;&nbsp;&nbsp;&nbsp;r&nbsp;=&nbsp;min(r,&nbsp;n&nbsp;-&nbsp;r)</p>
+            <p class="diff-block-added">10. &nbsp;&nbsp;&nbsp;&nbsp;c&nbsp;=&nbsp;1</p>
+            <p class="diff-block-added">11. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(r):</p>
+            <p class="diff-block-added">12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c&nbsp;=&nbsp;c&nbsp;*&nbsp;(n&nbsp;-&nbsp;i)&nbsp;*&nbsp;pow(i&nbsp;+&nbsp;1,&nbsp;mod&nbsp;-&nbsp;2,&nbsp;mod)&nbsp;%&nbsp;mod</p>
+            <p class="diff-block-added">13. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;c</p>
+            <p>14. </p>
+            <p>15. </p>
+            <p class="diff-block-added">16. def&nbsp;main():</p>
+            <p class="diff-block-added">17. &nbsp;&nbsp;&nbsp;&nbsp;N,&nbsp;M&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p class="diff-block-added">18. &nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;=&nbsp;M</p>
+            <p class="diff-block-added">19. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;1</p>
+            <p class="diff-block-added">20. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;p&nbsp;in&nbsp;range(2,&nbsp;int(math.sqrt(a))&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-added">21. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;a&nbsp;%&nbsp;p:</p>
+            <p class="diff-block-added">22. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue</p>
+            <p class="diff-block-added">23. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e&nbsp;=&nbsp;0</p>
+            <p class="diff-block-added">24. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;a&nbsp;%&nbsp;p&nbsp;==&nbsp;0:</p>
+            <p class="diff-block-added">25. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;//=&nbsp;p</p>
+            <p class="diff-block-added">26. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e&nbsp;+=&nbsp;1</p>
+            <p class="diff-block-added">27. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;*=&nbsp;comb(e&nbsp;+&nbsp;N&nbsp;-&nbsp;1,&nbsp;e)</p>
+            <p class="diff-block-added">28. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;%=&nbsp;MOD</p>
+            <p class="diff-block-added">29. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;a&nbsp;&gt;&nbsp;1:</p>
+            <p class="diff-block-added">30. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;*=&nbsp;comb(1&nbsp;+&nbsp;N&nbsp;-&nbsp;1,&nbsp;1)</p>
+            <p class="diff-block-added">31. &nbsp;&nbsp;&nbsp;&nbsp;print(ans&nbsp;%&nbsp;MOD)</p>
+            <p>32. </p>
+            <p>33. </p>
+            <p class="diff-block-added">34. main()</p>
+        </div>
+    </div>
+</body>
+</html>

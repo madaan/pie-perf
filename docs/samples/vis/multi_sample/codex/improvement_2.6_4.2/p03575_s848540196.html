@@ -1,0 +1,94 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. import&nbsp;sys,&nbsp;queue,&nbsp;math,&nbsp;numpy&nbsp;as&nbsp;np,&nbsp;scipy&nbsp;as&nbsp;sc</p>
+            <p class="diff-block-removed">2. </p>
+            <p class="diff-block-removed">3. sys.setrecursionlimit(10**7)</p>
+            <p class="diff-block-removed">4. input&nbsp;=&nbsp;sys.stdin.readline</p>
+            <p class="diff-block-removed">5. INF&nbsp;=&nbsp;10**18</p>
+            <p class="diff-block-removed">6. MOD&nbsp;=&nbsp;10**9&nbsp;+&nbsp;7</p>
+            <p class="diff-block-removed">7. LI&nbsp;=&nbsp;lambda:&nbsp;[int(x)&nbsp;for&nbsp;x&nbsp;in&nbsp;input().split()]</p>
+            <p class="diff-block-removed">8. N,&nbsp;M&nbsp;=&nbsp;LI()</p>
+            <p class="diff-block-removed">9. E&nbsp;=&nbsp;[LI()&nbsp;for&nbsp;_&nbsp;in&nbsp;range(M)]</p>
+            <p class="diff-block-removed">10. ans&nbsp;=&nbsp;0</p>
+            <p class="diff-block-removed">11. for&nbsp;i&nbsp;in&nbsp;range(M):</p>
+            <p class="diff-block-removed">12. &nbsp;&nbsp;&nbsp;&nbsp;g&nbsp;=&nbsp;np.array([i&nbsp;for&nbsp;i&nbsp;in&nbsp;range(N&nbsp;+&nbsp;1)])</p>
+            <p class="diff-block-removed">13. </p>
+            <p>14. &nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;root(x):</p>
+            <p class="diff-block-removed">15. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;g[x]&nbsp;!=&nbsp;x:</p>
+            <p class="diff-block-removed">16. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;g[x]&nbsp;=&nbsp;root(g[x])</p>
+            <p class="diff-block-removed">17. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;g[x]</p>
+            <p class="diff-block-removed">18. </p>
+            <p class="diff-block-removed">19. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;range(M):</p>
+            <p class="diff-block-removed">20. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;i&nbsp;!=&nbsp;j:</p>
+            <p class="diff-block-removed">21. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;g[root(E[j][0])]&nbsp;=&nbsp;root(E[j][1])</p>
+            <p class="diff-block-removed">22. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;+=&nbsp;root(E[i][0])&nbsp;!=&nbsp;root(E[i][1])</p>
+            <p class="diff-block-removed">23. print(ans)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [3.3565704712x faster, p03575, s848540196]</strong></p>
+            <p class="diff-block-added">1. def&nbsp;main():</p>
+            <p class="diff-block-added">2. &nbsp;&nbsp;&nbsp;&nbsp;MOD&nbsp;=&nbsp;10**9&nbsp;+&nbsp;7</p>
+            <p class="diff-block-added">3. &nbsp;&nbsp;&nbsp;&nbsp;N,&nbsp;M&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p class="diff-block-added">4. &nbsp;&nbsp;&nbsp;&nbsp;edges&nbsp;=&nbsp;[tuple(map(int,&nbsp;input().split()))&nbsp;for&nbsp;_&nbsp;in&nbsp;range(M)]</p>
+            <p class="diff-block-added">5. </p>
+            <p>6. &nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;root(x):</p>
+            <p class="diff-block-added">7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;parents[x]&nbsp;==&nbsp;x:</p>
+            <p class="diff-block-added">8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;x</p>
+            <p class="diff-block-added">9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:</p>
+            <p class="diff-block-added">10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parents[x]&nbsp;=&nbsp;root(parents[x])</p>
+            <p class="diff-block-added">11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;parents[x]</p>
+            <p class="diff-block-added">12. </p>
+            <p class="diff-block-added">13. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;0</p>
+            <p class="diff-block-added">14. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(M):</p>
+            <p class="diff-block-added">15. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parents&nbsp;=&nbsp;list(range(N&nbsp;+&nbsp;1))</p>
+            <p class="diff-block-added">16. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;range(M):</p>
+            <p class="diff-block-added">17. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;i&nbsp;!=&nbsp;j:</p>
+            <p class="diff-block-added">18. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;u,&nbsp;v&nbsp;=&nbsp;edges[j]</p>
+            <p class="diff-block-added">19. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parents[root(u)]&nbsp;=&nbsp;root(v)</p>
+            <p class="diff-block-added">20. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;u,&nbsp;v&nbsp;=&nbsp;edges[i]</p>
+            <p class="diff-block-added">21. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;+=&nbsp;root(u)&nbsp;!=&nbsp;root(v)</p>
+            <p class="diff-block-added">22. &nbsp;&nbsp;&nbsp;&nbsp;print(ans)</p>
+            <p class="diff-block-added">23. </p>
+            <p class="diff-block-added">24. </p>
+            <p class="diff-block-added">25. if&nbsp;__name__&nbsp;==&nbsp;&quot;__main__&quot;:</p>
+            <p class="diff-block-added">26. &nbsp;&nbsp;&nbsp;&nbsp;main()</p>
+        </div>
+    </div>
+</body>
+</html>

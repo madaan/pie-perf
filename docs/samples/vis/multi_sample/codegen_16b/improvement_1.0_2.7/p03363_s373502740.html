@@ -1,0 +1,64 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p>1. N&nbsp;=&nbsp;int(input())</p>
+            <p>2. A&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p>3. ans,&nbsp;s&nbsp;=&nbsp;0,&nbsp;0</p>
+            <p class="diff-block-removed">4. d&nbsp;=&nbsp;{0:&nbsp;1}</p>
+            <p>5. for&nbsp;i&nbsp;in&nbsp;A:</p>
+            <p>6. &nbsp;&nbsp;&nbsp;&nbsp;s&nbsp;+=&nbsp;i</p>
+            <p>7. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;+=&nbsp;d.get(s,&nbsp;0)</p>
+            <p>8. &nbsp;&nbsp;&nbsp;&nbsp;d[s]&nbsp;=&nbsp;d.get(s,&nbsp;0)&nbsp;+&nbsp;1</p>
+            <p>9. print(ans)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [1.0906008377x faster, p03363, s373502740]</strong></p>
+            <p>1. N&nbsp;=&nbsp;int(input())</p>
+            <p>2. A&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p>3. ans,&nbsp;s&nbsp;=&nbsp;0,&nbsp;0</p>
+            <p class="diff-block-added">4. d,&nbsp;c&nbsp;=&nbsp;{0:&nbsp;1},&nbsp;0</p>
+            <p>5. for&nbsp;i&nbsp;in&nbsp;A:</p>
+            <p>6. &nbsp;&nbsp;&nbsp;&nbsp;s&nbsp;+=&nbsp;i</p>
+            <p>7. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;+=&nbsp;d.get(s,&nbsp;0)</p>
+            <p class="diff-block-added">8. &nbsp;&nbsp;&nbsp;&nbsp;c&nbsp;+=&nbsp;1&nbsp;if&nbsp;not&nbsp;d.get(s,&nbsp;0)&nbsp;else&nbsp;0</p>
+            <p>9. &nbsp;&nbsp;&nbsp;&nbsp;d[s]&nbsp;=&nbsp;d.get(s,&nbsp;0)&nbsp;+&nbsp;1</p>
+            <p>10. print(ans)</p>
+        </div>
+    </div>
+</body>
+</html>

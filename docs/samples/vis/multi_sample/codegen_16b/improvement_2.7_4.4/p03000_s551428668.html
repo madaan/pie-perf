@@ -1,0 +1,66 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. import&nbsp;sys</p>
+            <p class="diff-block-removed">2. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-removed">3. </p>
+            <p>4. N,&nbsp;X&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">5. L&nbsp;=&nbsp;np.array(list(map(int,&nbsp;input().split())))</p>
+            <p class="diff-block-removed">6. x&nbsp;=&nbsp;np.zeros(N&nbsp;+&nbsp;1)</p>
+            <p class="diff-block-removed">7. for&nbsp;n&nbsp;in&nbsp;range(1,&nbsp;N&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-removed">8. &nbsp;&nbsp;&nbsp;&nbsp;x[n]&nbsp;=&nbsp;x[n&nbsp;-&nbsp;1]&nbsp;+&nbsp;L[n&nbsp;-&nbsp;1]</p>
+            <p class="diff-block-removed">9. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;x[n]&nbsp;&gt;&nbsp;X:</p>
+            <p class="diff-block-removed">10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(n)</p>
+            <p class="diff-block-removed">11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sys.exit()</p>
+            <p>12. print((N&nbsp;+&nbsp;1))</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [3.8991223684x faster, p03000, s551428668]</strong></p>
+            <p>1. N,&nbsp;X&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-added">2. S&nbsp;=&nbsp;[0]&nbsp;+&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-added">3. x_t&nbsp;=&nbsp;S[0]</p>
+            <p class="diff-block-added">4. for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;N&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-added">5. &nbsp;&nbsp;&nbsp;&nbsp;x_t&nbsp;+=&nbsp;S[i]</p>
+            <p class="diff-block-added">6. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;x_t&nbsp;&gt;&nbsp;X:</p>
+            <p class="diff-block-added">7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(i)</p>
+            <p class="diff-block-added">8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit()</p>
+            <p>9. print((N&nbsp;+&nbsp;1))</p>
+        </div>
+    </div>
+</body>
+</html>

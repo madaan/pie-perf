@@ -1,0 +1,70 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p>1. n_str&nbsp;=&nbsp;eval(input())</p>
+            <p>2. n_int&nbsp;=&nbsp;int(n_str)</p>
+            <p class="diff-block-removed">3. #&nbsp;1&nbsp;~&nbsp;50000</p>
+            <p class="diff-block-removed">4. #&nbsp;桁数が奇数=&nbsp;1桁,&nbsp;3桁,&nbsp;5桁</p>
+            <p class="diff-block-removed">5. #&nbsp;1&nbsp;~&nbsp;9,&nbsp;100&nbsp;~&nbsp;999,10000&nbsp;~&nbsp;99999の90909個しかないので全探索いけるか?</p>
+            <p class="diff-block-removed">6. exs_list&nbsp;=&nbsp;[]</p>
+            <p class="diff-block-removed">7. for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;100000):</p>
+            <p class="diff-block-removed">8. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;len(str(i))&nbsp;%&nbsp;2&nbsp;==&nbsp;1:</p>
+            <p class="diff-block-removed">9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exs_list.append(i)</p>
+            <p class="diff-block-removed">10. exs&nbsp;=&nbsp;{i:&nbsp;i&nbsp;for&nbsp;i&nbsp;in&nbsp;exs_list}</p>
+            <p class="diff-block-removed">11. n_s&nbsp;=&nbsp;[]</p>
+            <p>12. ans&nbsp;=&nbsp;0</p>
+            <p>13. for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;n_int&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-removed">14. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;len(str(i))&nbsp;%&nbsp;2&nbsp;==&nbsp;0:</p>
+            <p class="diff-block-removed">15. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue</p>
+            <p class="diff-block-removed">16. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;i&nbsp;in&nbsp;exs:</p>
+            <p>17. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;+=&nbsp;1</p>
+            <p>18. print(ans)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [2.0042719181x faster, p02952, s443742997]</strong></p>
+            <p>1. n_str&nbsp;=&nbsp;eval(input())</p>
+            <p>2. n_int&nbsp;=&nbsp;int(n_str)</p>
+            <p>3. ans&nbsp;=&nbsp;0</p>
+            <p>4. for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;n_int&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-added">5. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;len(str(i))&nbsp;%&nbsp;2&nbsp;==&nbsp;1:</p>
+            <p>6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;+=&nbsp;1</p>
+            <p>7. print(ans)</p>
+        </div>
+    </div>
+</body>
+</html>

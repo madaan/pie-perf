@@ -1,0 +1,72 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-removed">2. </p>
+            <p class="diff-block-removed">3. N&nbsp;=&nbsp;int(eval(input()))</p>
+            <p class="diff-block-removed">4. A&nbsp;=&nbsp;np.array(input().split(),&nbsp;dtype=np.int32)</p>
+            <p class="diff-block-removed">5. </p>
+            <p class="diff-block-removed">6. </p>
+            <p>7. def&nbsp;ord(n):</p>
+            <p>8. &nbsp;&nbsp;&nbsp;&nbsp;cnt&nbsp;=&nbsp;0</p>
+            <p>9. &nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;not&nbsp;n&nbsp;&amp;&nbsp;1:</p>
+            <p>10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n&nbsp;&gt;&gt;=&nbsp;1</p>
+            <p>11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cnt&nbsp;+=&nbsp;1</p>
+            <p>12. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;cnt</p>
+            <p class="diff-block-removed">13. </p>
+            <p class="diff-block-removed">14. </p>
+            <p class="diff-block-removed">15. np_ord&nbsp;=&nbsp;np.frompyfunc(ord,&nbsp;1,&nbsp;1)</p>
+            <p class="diff-block-removed">16. answer&nbsp;=&nbsp;np_ord(A).sum()</p>
+            <p class="diff-block-removed">17. print(answer)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [3.5271846353000003x faster, p03325, s031225874]</strong></p>
+            <p>1. def&nbsp;ord(n):</p>
+            <p>2. &nbsp;&nbsp;&nbsp;&nbsp;cnt&nbsp;=&nbsp;0</p>
+            <p>3. &nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;not&nbsp;n&nbsp;&amp;&nbsp;1:</p>
+            <p>4. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n&nbsp;&gt;&gt;=&nbsp;1</p>
+            <p>5. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cnt&nbsp;+=&nbsp;1</p>
+            <p>6. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;cnt</p>
+            <p>7. </p>
+            <p>8. </p>
+            <p class="diff-block-added">9. N&nbsp;=&nbsp;int(eval(input()))</p>
+            <p class="diff-block-added">10. print((sum([ord(x)&nbsp;for&nbsp;x&nbsp;in&nbsp;[int(n)&nbsp;for&nbsp;n&nbsp;in&nbsp;input().split()]])))</p>
+        </div>
+    </div>
+</body>
+</html>

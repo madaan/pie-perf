@@ -1,0 +1,145 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. import&nbsp;sys,&nbsp;re</p>
+            <p class="diff-block-removed">2. from&nbsp;collections&nbsp;import&nbsp;deque,&nbsp;defaultdict,&nbsp;Counter</p>
+            <p class="diff-block-removed">3. from&nbsp;math&nbsp;import&nbsp;(</p>
+            <p class="diff-block-removed">4. &nbsp;&nbsp;&nbsp;&nbsp;ceil,</p>
+            <p class="diff-block-removed">5. &nbsp;&nbsp;&nbsp;&nbsp;sqrt,</p>
+            <p class="diff-block-removed">6. &nbsp;&nbsp;&nbsp;&nbsp;hypot,</p>
+            <p class="diff-block-removed">7. &nbsp;&nbsp;&nbsp;&nbsp;factorial,</p>
+            <p class="diff-block-removed">8. &nbsp;&nbsp;&nbsp;&nbsp;pi,</p>
+            <p class="diff-block-removed">9. &nbsp;&nbsp;&nbsp;&nbsp;sin,</p>
+            <p class="diff-block-removed">10. &nbsp;&nbsp;&nbsp;&nbsp;cos,</p>
+            <p class="diff-block-removed">11. &nbsp;&nbsp;&nbsp;&nbsp;tan,</p>
+            <p class="diff-block-removed">12. &nbsp;&nbsp;&nbsp;&nbsp;asin,</p>
+            <p class="diff-block-removed">13. &nbsp;&nbsp;&nbsp;&nbsp;acos,</p>
+            <p class="diff-block-removed">14. &nbsp;&nbsp;&nbsp;&nbsp;atan,</p>
+            <p class="diff-block-removed">15. &nbsp;&nbsp;&nbsp;&nbsp;radians,</p>
+            <p class="diff-block-removed">16. &nbsp;&nbsp;&nbsp;&nbsp;degrees,</p>
+            <p class="diff-block-removed">17. )&nbsp;&nbsp;#&nbsp;,&nbsp;log2,&nbsp;log</p>
+            <p class="diff-block-removed">18. from&nbsp;itertools&nbsp;import&nbsp;(</p>
+            <p class="diff-block-removed">19. &nbsp;&nbsp;&nbsp;&nbsp;accumulate,</p>
+            <p class="diff-block-removed">20. &nbsp;&nbsp;&nbsp;&nbsp;permutations,</p>
+            <p class="diff-block-removed">21. &nbsp;&nbsp;&nbsp;&nbsp;combinations,</p>
+            <p class="diff-block-removed">22. &nbsp;&nbsp;&nbsp;&nbsp;combinations_with_replacement,</p>
+            <p class="diff-block-removed">23. &nbsp;&nbsp;&nbsp;&nbsp;product,</p>
+            <p class="diff-block-removed">24. &nbsp;&nbsp;&nbsp;&nbsp;groupby,</p>
+            <p class="diff-block-removed">25. )</p>
+            <p class="diff-block-removed">26. from&nbsp;operator&nbsp;import&nbsp;itemgetter,&nbsp;mul</p>
+            <p class="diff-block-removed">27. from&nbsp;copy&nbsp;import&nbsp;deepcopy</p>
+            <p class="diff-block-removed">28. from&nbsp;string&nbsp;import&nbsp;ascii_lowercase,&nbsp;ascii_uppercase,&nbsp;digits</p>
+            <p class="diff-block-removed">29. from&nbsp;bisect&nbsp;import&nbsp;bisect,&nbsp;bisect_left,&nbsp;insort,&nbsp;insort_left</p>
+            <p class="diff-block-removed">30. from&nbsp;fractions&nbsp;import&nbsp;gcd</p>
+            <p class="diff-block-removed">31. from&nbsp;heapq&nbsp;import&nbsp;heappush,&nbsp;heappop</p>
+            <p class="diff-block-removed">32. from&nbsp;functools&nbsp;import&nbsp;reduce</p>
+            <p class="diff-block-removed">33. from&nbsp;decimal&nbsp;import&nbsp;Decimal</p>
+            <p class="diff-block-removed">34. </p>
+            <p class="diff-block-removed">35. </p>
+            <p class="diff-block-removed">36. def&nbsp;input():</p>
+            <p class="diff-block-removed">37. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;sys.stdin.readline().strip()</p>
+            <p class="diff-block-removed">38. </p>
+            <p class="diff-block-removed">39. </p>
+            <p class="diff-block-removed">40. def&nbsp;INT():</p>
+            <p class="diff-block-removed">41. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;int(eval(input()))</p>
+            <p class="diff-block-removed">42. </p>
+            <p class="diff-block-removed">43. </p>
+            <p class="diff-block-removed">44. def&nbsp;MAP():</p>
+            <p class="diff-block-removed">45. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">46. </p>
+            <p class="diff-block-removed">47. </p>
+            <p class="diff-block-removed">48. def&nbsp;LIST():</p>
+            <p class="diff-block-removed">49. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">50. </p>
+            <p class="diff-block-removed">51. </p>
+            <p class="diff-block-removed">52. def&nbsp;ZIP(n):</p>
+            <p class="diff-block-removed">53. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;list(zip(*(MAP()&nbsp;for&nbsp;_&nbsp;in&nbsp;range(n))))</p>
+            <p class="diff-block-removed">54. </p>
+            <p class="diff-block-removed">55. </p>
+            <p class="diff-block-removed">56. sys.setrecursionlimit(10**9)</p>
+            <p class="diff-block-removed">57. INF&nbsp;=&nbsp;float(&quot;inf&quot;)</p>
+            <p class="diff-block-removed">58. mod&nbsp;=&nbsp;10**9&nbsp;+&nbsp;7</p>
+            <p class="diff-block-removed">59. from&nbsp;decimal&nbsp;import&nbsp;*</p>
+            <p class="diff-block-removed">60. </p>
+            <p class="diff-block-removed">61. N&nbsp;=&nbsp;INT()</p>
+            <p>62. xy&nbsp;=&nbsp;[]</p>
+            <p>63. for&nbsp;i&nbsp;in&nbsp;range(N):</p>
+            <p class="diff-block-removed">64. &nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;=&nbsp;INT()</p>
+            <p class="diff-block-removed">65. &nbsp;&nbsp;&nbsp;&nbsp;xy.append([LIST()&nbsp;for&nbsp;_&nbsp;in&nbsp;range(A)])</p>
+            <p>66. ans&nbsp;=&nbsp;0</p>
+            <p>67. for&nbsp;i&nbsp;in&nbsp;range(1&nbsp;&lt;&lt;&nbsp;N):</p>
+            <p class="diff-block-removed">68. &nbsp;&nbsp;&nbsp;&nbsp;i&nbsp;=&nbsp;list(&quot;{:b}&quot;.format(i).zfill(N))</p>
+            <p>69. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;range(N):</p>
+            <p>70. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;i[j]&nbsp;==&nbsp;&quot;1&quot;:</p>
+            <p>71. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;x,&nbsp;y&nbsp;in&nbsp;xy[j]:</p>
+            <p>72. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;y&nbsp;!=&nbsp;int(i[x&nbsp;-&nbsp;1]):</p>
+            <p>73. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</p>
+            <p>74. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:</p>
+            <p>75. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue</p>
+            <p>76. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</p>
+            <p>77. &nbsp;&nbsp;&nbsp;&nbsp;else:</p>
+            <p>78. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tmp&nbsp;=&nbsp;sum([int(x)&nbsp;for&nbsp;x&nbsp;in&nbsp;i])</p>
+            <p>79. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;max(ans,&nbsp;tmp)</p>
+            <p>80. print(ans)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [1.2665018925x faster, p02837, s234390283]</strong></p>
+            <p class="diff-block-added">1. N&nbsp;=&nbsp;int(input())</p>
+            <p>2. xy&nbsp;=&nbsp;[]</p>
+            <p>3. for&nbsp;i&nbsp;in&nbsp;range(N):</p>
+            <p class="diff-block-added">4. &nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;=&nbsp;int(input())</p>
+            <p class="diff-block-added">5. &nbsp;&nbsp;&nbsp;&nbsp;xy.append([list(map(int,&nbsp;input().split()))&nbsp;for&nbsp;_&nbsp;in&nbsp;range(A)])</p>
+            <p>6. ans&nbsp;=&nbsp;0</p>
+            <p>7. for&nbsp;i&nbsp;in&nbsp;range(1&nbsp;&lt;&lt;&nbsp;N):</p>
+            <p class="diff-block-added">8. &nbsp;&nbsp;&nbsp;&nbsp;i&nbsp;=&nbsp;list(bin(i)[2:].zfill(N))</p>
+            <p>9. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;range(N):</p>
+            <p>10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;i[j]&nbsp;==&nbsp;&quot;1&quot;:</p>
+            <p>11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;x,&nbsp;y&nbsp;in&nbsp;xy[j]:</p>
+            <p>12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;y&nbsp;!=&nbsp;int(i[x&nbsp;-&nbsp;1]):</p>
+            <p>13. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</p>
+            <p>14. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:</p>
+            <p>15. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue</p>
+            <p>16. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</p>
+            <p>17. &nbsp;&nbsp;&nbsp;&nbsp;else:</p>
+            <p>18. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tmp&nbsp;=&nbsp;sum([int(x)&nbsp;for&nbsp;x&nbsp;in&nbsp;i])</p>
+            <p>19. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;max(ans,&nbsp;tmp)</p>
+            <p>20. print(ans)</p>
+        </div>
+    </div>
+</body>
+</html>

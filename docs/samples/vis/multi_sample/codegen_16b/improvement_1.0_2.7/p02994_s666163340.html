@@ -1,0 +1,68 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p>1. n,&nbsp;a&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p>2. l&nbsp;=&nbsp;[a&nbsp;+&nbsp;i&nbsp;-&nbsp;1&nbsp;for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;n&nbsp;+&nbsp;1)]</p>
+            <p class="diff-block-removed">3. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-removed">4. </p>
+            <p class="diff-block-removed">5. b&nbsp;=&nbsp;min(np.abs(l))</p>
+            <p>6. if&nbsp;b&nbsp;==&nbsp;0:</p>
+            <p>7. &nbsp;&nbsp;&nbsp;&nbsp;l.remove(0)</p>
+            <p class="diff-block-removed">8. elif&nbsp;b&nbsp;in&nbsp;l:</p>
+            <p class="diff-block-removed">9. &nbsp;&nbsp;&nbsp;&nbsp;l.remove(b)</p>
+            <p class="diff-block-removed">10. elif&nbsp;-b&nbsp;in&nbsp;l:</p>
+            <p class="diff-block-removed">11. &nbsp;&nbsp;&nbsp;&nbsp;l.remove(-b)</p>
+            <p>12. print((sum(l)))</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [2.5446848722x faster, p02994, s666163340]</strong></p>
+            <p>1. n,&nbsp;a&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p>2. l&nbsp;=&nbsp;[a&nbsp;+&nbsp;i&nbsp;-&nbsp;1&nbsp;for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;n&nbsp;+&nbsp;1)]</p>
+            <p class="diff-block-added">3. b&nbsp;=&nbsp;min(l,&nbsp;key=lambda&nbsp;x:&nbsp;abs(x))</p>
+            <p>4. if&nbsp;b&nbsp;==&nbsp;0:</p>
+            <p>5. &nbsp;&nbsp;&nbsp;&nbsp;l.remove(0)</p>
+            <p class="diff-block-added">6. else:</p>
+            <p class="diff-block-added">7. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;b&nbsp;in&nbsp;l:</p>
+            <p class="diff-block-added">8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;l.remove(b)</p>
+            <p class="diff-block-added">9. &nbsp;&nbsp;&nbsp;&nbsp;elif&nbsp;-b&nbsp;in&nbsp;l:</p>
+            <p class="diff-block-added">10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;l.remove((-b))</p>
+            <p>11. print((sum(l)))</p>
+        </div>
+    </div>
+</body>
+</html>

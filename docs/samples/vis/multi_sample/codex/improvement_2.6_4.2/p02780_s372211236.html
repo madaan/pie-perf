@@ -1,0 +1,65 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-removed">2. </p>
+            <p class="diff-block-removed">3. N,&nbsp;K&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">4. p&nbsp;=&nbsp;np.array(list(map(int,&nbsp;input().split())))</p>
+            <p class="diff-block-removed">5. tmp&nbsp;=&nbsp;np.sum(p[:K])</p>
+            <p class="diff-block-removed">6. max&nbsp;=&nbsp;tmp</p>
+            <p class="diff-block-removed">7. for&nbsp;i&nbsp;in&nbsp;range(N&nbsp;-&nbsp;K):</p>
+            <p class="diff-block-removed">8. &nbsp;&nbsp;&nbsp;&nbsp;tmp&nbsp;=&nbsp;tmp&nbsp;-&nbsp;p[i]&nbsp;+&nbsp;p[i&nbsp;+&nbsp;K]</p>
+            <p class="diff-block-removed">9. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;tmp&nbsp;&gt;&nbsp;max:</p>
+            <p class="diff-block-removed">10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;max&nbsp;=&nbsp;tmp</p>
+            <p class="diff-block-removed">11. print(((max&nbsp;+&nbsp;K)&nbsp;/&nbsp;2))</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [3.3916852x faster, p02780, s372211236]</strong></p>
+            <p class="diff-block-added">1. N,&nbsp;K&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p class="diff-block-added">2. P&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-added">3. s&nbsp;=&nbsp;sum(P[:K])</p>
+            <p class="diff-block-added">4. mx&nbsp;=&nbsp;s</p>
+            <p class="diff-block-added">5. for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;N&nbsp;-&nbsp;K&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-added">6. &nbsp;&nbsp;&nbsp;&nbsp;s&nbsp;-=&nbsp;P[i&nbsp;-&nbsp;1]</p>
+            <p class="diff-block-added">7. &nbsp;&nbsp;&nbsp;&nbsp;s&nbsp;+=&nbsp;P[i&nbsp;+&nbsp;K&nbsp;-&nbsp;1]</p>
+            <p class="diff-block-added">8. &nbsp;&nbsp;&nbsp;&nbsp;mx&nbsp;=&nbsp;max(mx,&nbsp;s)</p>
+            <p class="diff-block-added">9. print((mx&nbsp;+&nbsp;K)&nbsp;/&nbsp;2)</p>
+        </div>
+    </div>
+</body>
+</html>

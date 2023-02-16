@@ -1,0 +1,75 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. import&nbsp;statistics</p>
+            <p>2. </p>
+            <p class="diff-block-removed">3. N&nbsp;=&nbsp;int(eval(input()))</p>
+            <p class="diff-block-removed">4. a&nbsp;=&nbsp;[int(i)&nbsp;for&nbsp;i&nbsp;in&nbsp;input().split()]</p>
+            <p class="diff-block-removed">5. ans&nbsp;=&nbsp;0</p>
+            <p class="diff-block-removed">6. for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;N&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-removed">7. &nbsp;&nbsp;&nbsp;&nbsp;a[i&nbsp;-&nbsp;1]&nbsp;-=&nbsp;i</p>
+            <p class="diff-block-removed">8. b&nbsp;=&nbsp;statistics.median(a)</p>
+            <p class="diff-block-removed">9. for&nbsp;i&nbsp;in&nbsp;range(N):</p>
+            <p class="diff-block-removed">10. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;+=&nbsp;abs(a[i]&nbsp;-&nbsp;b)</p>
+            <p class="diff-block-removed">11. print((int(ans)))</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [1.1968244875x faster, p03309, s057200482]</strong></p>
+            <p class="diff-block-added">1. import&nbsp;sys</p>
+            <p class="diff-block-added">2. </p>
+            <p class="diff-block-added">3. input&nbsp;=&nbsp;sys.stdin.readline</p>
+            <p class="diff-block-added">4. </p>
+            <p class="diff-block-added">5. </p>
+            <p class="diff-block-added">6. def&nbsp;main():</p>
+            <p class="diff-block-added">7. &nbsp;&nbsp;&nbsp;&nbsp;N&nbsp;=&nbsp;int(eval(input()))</p>
+            <p class="diff-block-added">8. &nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;=&nbsp;[int(i)&nbsp;for&nbsp;i&nbsp;in&nbsp;input().split()]</p>
+            <p class="diff-block-added">9. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;N&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-added">10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A[i&nbsp;-&nbsp;1]&nbsp;-=&nbsp;i</p>
+            <p class="diff-block-added">11. &nbsp;&nbsp;&nbsp;&nbsp;B&nbsp;=&nbsp;A[N&nbsp;//&nbsp;2]</p>
+            <p class="diff-block-added">12. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;0</p>
+            <p class="diff-block-added">13. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(N):</p>
+            <p class="diff-block-added">14. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;+=&nbsp;abs(A[i]&nbsp;-&nbsp;B)</p>
+            <p class="diff-block-added">15. &nbsp;&nbsp;&nbsp;&nbsp;print(ans)</p>
+            <p class="diff-block-added">16. </p>
+            <p class="diff-block-added">17. </p>
+            <p class="diff-block-added">18. if&nbsp;__name__&nbsp;==&nbsp;&quot;__main__&quot;:</p>
+            <p class="diff-block-added">19. &nbsp;&nbsp;&nbsp;&nbsp;main()</p>
+        </div>
+    </div>
+</body>
+</html>

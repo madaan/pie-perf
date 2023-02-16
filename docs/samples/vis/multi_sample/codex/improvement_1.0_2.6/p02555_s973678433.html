@@ -1,0 +1,121 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. #&nbsp;import&nbsp;sys</p>
+            <p class="diff-block-removed">2. #&nbsp;sys.setrecursionlimit(10&nbsp;**&nbsp;6)</p>
+            <p class="diff-block-removed">3. #&nbsp;import&nbsp;bisect</p>
+            <p class="diff-block-removed">4. #&nbsp;from&nbsp;collections&nbsp;import&nbsp;deque</p>
+            <p class="diff-block-removed">5. def&nbsp;cmb(n,&nbsp;r):</p>
+            <p class="diff-block-removed">6. &nbsp;&nbsp;&nbsp;&nbsp;&quot;&quot;&quot;組み合わせ&quot;&quot;&quot;</p>
+            <p class="diff-block-removed">7. &nbsp;&nbsp;&nbsp;&nbsp;import&nbsp;math</p>
+            <p class="diff-block-removed">8. </p>
+            <p>9. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;n&nbsp;&lt;&nbsp;r:</p>
+            <p>10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;0</p>
+            <p class="diff-block-removed">11. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;math.factorial(n)&nbsp;//&nbsp;(math.factorial(n&nbsp;-&nbsp;r)&nbsp;*&nbsp;math.factorial(r))</p>
+            <p class="diff-block-removed">12. </p>
+            <p class="diff-block-removed">13. </p>
+            <p class="diff-block-removed">14. #&nbsp;from&nbsp;decorator&nbsp;import&nbsp;stop_watch</p>
+            <p class="diff-block-removed">15. #</p>
+            <p class="diff-block-removed">16. #</p>
+            <p class="diff-block-removed">17. #&nbsp;@stop_watch</p>
+            <p class="diff-block-removed">18. def&nbsp;solve(S):</p>
+            <p class="diff-block-removed">19. &nbsp;&nbsp;&nbsp;&nbsp;mod&nbsp;=&nbsp;10**9&nbsp;+&nbsp;7</p>
+            <p class="diff-block-removed">20. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;0</p>
+            <p class="diff-block-removed">21. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;S&nbsp;//&nbsp;3&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-removed">22. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tama&nbsp;=&nbsp;i&nbsp;+&nbsp;(S&nbsp;-&nbsp;(i&nbsp;*&nbsp;3))</p>
+            <p class="diff-block-removed">23. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tama&nbsp;-=&nbsp;2</p>
+            <p class="diff-block-removed">24. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bo&nbsp;=&nbsp;i&nbsp;-&nbsp;1</p>
+            <p class="diff-block-removed">25. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;+=&nbsp;cmb(tama&nbsp;+&nbsp;1,&nbsp;bo)</p>
+            <p class="diff-block-removed">26. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;%=&nbsp;mod</p>
+            <p class="diff-block-removed">27. &nbsp;&nbsp;&nbsp;&nbsp;print(ans)</p>
+            <p class="diff-block-removed">28. </p>
+            <p class="diff-block-removed">29. </p>
+            <p class="diff-block-removed">30. if&nbsp;__name__&nbsp;==&nbsp;&quot;__main__&quot;:</p>
+            <p class="diff-block-removed">31. &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;S&nbsp;=&nbsp;input()</p>
+            <p class="diff-block-removed">32. &nbsp;&nbsp;&nbsp;&nbsp;S&nbsp;=&nbsp;int(eval(input()))</p>
+            <p class="diff-block-removed">33. &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;N,&nbsp;M&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p class="diff-block-removed">34. &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Ai&nbsp;=&nbsp;[int(i)&nbsp;for&nbsp;i&nbsp;in&nbsp;input().split()]</p>
+            <p class="diff-block-removed">35. &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Bi&nbsp;=&nbsp;[int(i)&nbsp;for&nbsp;i&nbsp;in&nbsp;input().split()]</p>
+            <p class="diff-block-removed">36. &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;ABi&nbsp;=&nbsp;[[int(i)&nbsp;for&nbsp;i&nbsp;in&nbsp;input().split()]&nbsp;for&nbsp;_&nbsp;in&nbsp;range(N)]</p>
+            <p class="diff-block-removed">37. &nbsp;&nbsp;&nbsp;&nbsp;solve(S)</p>
+            <p class="diff-block-removed">38. &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;#&nbsp;test</p>
+            <p class="diff-block-removed">39. &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;from&nbsp;random&nbsp;import&nbsp;randint</p>
+            <p class="diff-block-removed">40. &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;from&nbsp;func&nbsp;import&nbsp;random_str</p>
+            <p class="diff-block-removed">41. &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;solve()</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [1.6233435001x faster, p02555, s973678433]</strong></p>
+            <p class="diff-block-added">1. def&nbsp;gcd(a,&nbsp;b):</p>
+            <p class="diff-block-added">2. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;b&nbsp;==&nbsp;0:</p>
+            <p class="diff-block-added">3. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;a</p>
+            <p class="diff-block-added">4. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;gcd(b,&nbsp;a&nbsp;%&nbsp;b)</p>
+            <p class="diff-block-added">5. </p>
+            <p class="diff-block-added">6. </p>
+            <p class="diff-block-added">7. def&nbsp;lcm(a,&nbsp;b):</p>
+            <p class="diff-block-added">8. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;(a&nbsp;*&nbsp;b)&nbsp;//&nbsp;gcd(a,&nbsp;b)</p>
+            <p class="diff-block-added">9. </p>
+            <p class="diff-block-added">10. </p>
+            <p class="diff-block-added">11. def&nbsp;cmb(n,&nbsp;r,&nbsp;mod=10**9&nbsp;+&nbsp;7):</p>
+            <p>12. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;n&nbsp;&lt;&nbsp;r:</p>
+            <p>13. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;0</p>
+            <p class="diff-block-added">14. &nbsp;&nbsp;&nbsp;&nbsp;r&nbsp;=&nbsp;min(r,&nbsp;n&nbsp;-&nbsp;r)</p>
+            <p class="diff-block-added">15. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;g1[n]&nbsp;*&nbsp;g2[r]&nbsp;*&nbsp;g2[n&nbsp;-&nbsp;r]&nbsp;%&nbsp;mod</p>
+            <p class="diff-block-added">16. </p>
+            <p class="diff-block-added">17. </p>
+            <p class="diff-block-added">18. N&nbsp;=&nbsp;int(input())</p>
+            <p class="diff-block-added">19. g1&nbsp;=&nbsp;[1,&nbsp;1]&nbsp;&nbsp;#&nbsp;元テーブル</p>
+            <p class="diff-block-added">20. g2&nbsp;=&nbsp;[1,&nbsp;1]&nbsp;&nbsp;#&nbsp;逆元テーブル</p>
+            <p class="diff-block-added">21. inverse&nbsp;=&nbsp;[0,&nbsp;1]&nbsp;&nbsp;#&nbsp;逆元テーブル計算用テーブル</p>
+            <p class="diff-block-added">22. s&nbsp;=&nbsp;3</p>
+            <p class="diff-block-added">23. mod&nbsp;=&nbsp;10**9&nbsp;+&nbsp;7</p>
+            <p class="diff-block-added">24. for&nbsp;i&nbsp;in&nbsp;range(2,&nbsp;N&nbsp;+&nbsp;2):</p>
+            <p class="diff-block-added">25. &nbsp;&nbsp;&nbsp;&nbsp;g1.append((g1[-1]&nbsp;*&nbsp;i)&nbsp;%&nbsp;mod)</p>
+            <p class="diff-block-added">26. &nbsp;&nbsp;&nbsp;&nbsp;inverse.append((-inverse[mod&nbsp;%&nbsp;i]&nbsp;*&nbsp;(mod&nbsp;//&nbsp;i))&nbsp;%&nbsp;mod)</p>
+            <p class="diff-block-added">27. &nbsp;&nbsp;&nbsp;&nbsp;g2.append((g2[-1]&nbsp;*&nbsp;inverse[-1])&nbsp;%&nbsp;mod)</p>
+            <p class="diff-block-added">28. ans&nbsp;=&nbsp;0</p>
+            <p class="diff-block-added">29. for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;(N&nbsp;//&nbsp;3)&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-added">30. &nbsp;&nbsp;&nbsp;&nbsp;tama&nbsp;=&nbsp;i&nbsp;+&nbsp;(N&nbsp;-&nbsp;(i&nbsp;*&nbsp;3))</p>
+            <p class="diff-block-added">31. &nbsp;&nbsp;&nbsp;&nbsp;tama&nbsp;-=&nbsp;2</p>
+            <p class="diff-block-added">32. &nbsp;&nbsp;&nbsp;&nbsp;bo&nbsp;=&nbsp;i&nbsp;-&nbsp;1</p>
+            <p class="diff-block-added">33. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;+=&nbsp;cmb(tama&nbsp;+&nbsp;1,&nbsp;bo)</p>
+            <p class="diff-block-added">34. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;%=&nbsp;mod</p>
+            <p class="diff-block-added">35. print(ans)</p>
+        </div>
+    </div>
+</body>
+</html>

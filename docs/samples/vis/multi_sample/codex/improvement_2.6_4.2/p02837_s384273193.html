@@ -1,0 +1,80 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. import&nbsp;itertools</p>
+            <p class="diff-block-removed">2. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-removed">3. </p>
+            <p class="diff-block-removed">4. N&nbsp;=&nbsp;int(eval(input()))</p>
+            <p class="diff-block-removed">5. stl&nbsp;=&nbsp;[]</p>
+            <p>6. for&nbsp;i&nbsp;in&nbsp;range(N):</p>
+            <p class="diff-block-removed">7. &nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;=&nbsp;int(eval(input()))</p>
+            <p>8. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;_&nbsp;in&nbsp;range(a):</p>
+            <p class="diff-block-removed">9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x,&nbsp;y&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stl.append((i,&nbsp;x&nbsp;-&nbsp;1,&nbsp;y))</p>
+            <p class="diff-block-removed">11. dl&nbsp;=&nbsp;np.array(list(itertools.product([0,&nbsp;1],&nbsp;repeat=N)),&nbsp;np.bool)</p>
+            <p class="diff-block-removed">12. for&nbsp;i,&nbsp;x,&nbsp;y&nbsp;in&nbsp;stl:</p>
+            <p class="diff-block-removed">13. &nbsp;&nbsp;&nbsp;&nbsp;bl&nbsp;=&nbsp;(dl[:,&nbsp;i]&nbsp;==&nbsp;False)&nbsp;|&nbsp;(dl[:,&nbsp;x]&nbsp;==&nbsp;bool(y))</p>
+            <p class="diff-block-removed">14. &nbsp;&nbsp;&nbsp;&nbsp;dl&nbsp;=&nbsp;dl[bl]</p>
+            <p class="diff-block-removed">15. res&nbsp;=&nbsp;dl.sum(axis=1).max()</p>
+            <p class="diff-block-removed">16. print(res)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [3.2117660151x faster, p02837, s384273193]</strong></p>
+            <p class="diff-block-added">1. N&nbsp;=&nbsp;int(input())</p>
+            <p class="diff-block-added">2. stl&nbsp;=&nbsp;[[]&nbsp;for&nbsp;_&nbsp;in&nbsp;range(N)]</p>
+            <p class="diff-block-added">3. for&nbsp;i&nbsp;in&nbsp;range(N):</p>
+            <p class="diff-block-added">4. &nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;=&nbsp;int(input())</p>
+            <p>5. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;_&nbsp;in&nbsp;range(a):</p>
+            <p class="diff-block-added">6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x,&nbsp;y&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p class="diff-block-added">7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stl[i].append((x&nbsp;-&nbsp;1,&nbsp;y))</p>
+            <p class="diff-block-added">8. ans&nbsp;=&nbsp;0</p>
+            <p class="diff-block-added">9. for&nbsp;b&nbsp;in&nbsp;range(2**N):</p>
+            <p class="diff-block-added">10. &nbsp;&nbsp;&nbsp;&nbsp;ok&nbsp;=&nbsp;True</p>
+            <p class="diff-block-added">11. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(N):</p>
+            <p class="diff-block-added">12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;not&nbsp;b&nbsp;&gt;&gt;&nbsp;i&nbsp;&amp;&nbsp;1:</p>
+            <p class="diff-block-added">13. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue</p>
+            <p class="diff-block-added">14. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;x,&nbsp;y&nbsp;in&nbsp;stl[i]:</p>
+            <p class="diff-block-added">15. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;y&nbsp;!=&nbsp;bool(b&nbsp;&gt;&gt;&nbsp;x&nbsp;&amp;&nbsp;1):</p>
+            <p class="diff-block-added">16. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ok&nbsp;=&nbsp;False</p>
+            <p class="diff-block-added">17. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;ok:</p>
+            <p class="diff-block-added">18. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;max(ans,&nbsp;bin(b).count(&quot;1&quot;))</p>
+            <p class="diff-block-added">19. print(ans)</p>
+        </div>
+    </div>
+</body>
+</html>

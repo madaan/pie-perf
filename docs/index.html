@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto:400,500,700&display=swap">
+
+    <style>
+        /* img {
+			height: 20px;
+			width: 20px;
+			margin-left: 10px;
+			vertical-align: middle;
+		} */
+
+        /* Update the background color */
+        .hero {
+        background-color: #f7ede2;
+        }
+
+        /* Change the font family */
+        .publication-title {
+        font-family: 'Roboto', sans-serif;
+        }
+        .publication-authors {
+        font-family: 'Open Sans', sans-serif;
+        }
+
+    </style>
+    <meta charset="utf-8">
+    <meta name="description" content="Optimization">
+    <meta name="keywords"
+        content="Chain of thought, few-shot prompting, codex, gpt3, reasoning, program-aided lm, symbolic reasoning">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--generate title with an inline image-->
+    <title>Learning Performance Improving Code Edits with <img src="./static/images/favicon.svg" alt="pie" width="20"
+            height="20" /></title>
+
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <!-- <link rel="stylesheet" href="./static/css/prism.css">
+    <script src="./static/js/prism.js"></script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/themes/prism-coy.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/plugins/line-numbers/prism-line-numbers.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-core.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <link rel="icon" href="./static/images/favicon.svg">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <!-- <script src="./static/js/results.js"></script> -->
+
+    <!--solution from https://stackoverflow.com/questions/23018619/make-text-in-select-element-wrap-when-too-long-->
+    <style>
+        .long_opt {
+            max-width: 100%;
+            white-space: normal;
+            text-overflow: ellipsis;
+        }
+    </style>
+    <script>
+        // toggle the visibility of the element with id "element_id"
+        function toggle_visibility(element_id) {
+            var e = document.getElementById(element_id);
+            if (e.style.display == 'block')
+                e.style.display = 'none';
+            else
+                e.style.display = 'block';
+        }
+
+    </script>
+    <!-- <script>
+        $(function () {
+            $("#outputs").load("./static/outputs.html");
+        });
+    </script> -->
+
+    <!--font awesome-->
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-1 publication-title">Learning Performance Improving Code Edits with <img
+                                src="./static/images/pie.png" alt="pie" width="40" height="40" vertical-align="middle"
+                                margin-left="5px" /></h1>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">
+                                <a href="https://madaan.github.io/">Aman Madaan</a><sup>1</sup>,
+                            </span>
+                            <span class="author-block">
+                                <a href="https://alexshypula.github.io/">Alexander Shypula</a><sup>2</sup>,
+                            </span>
+                            <span class="author-block">
+                                <a href="https://urialon.ml/">Uri Alon</a><sup>1</sup>,
+                            </span>
+                            <span class="author-block">
+                                <a href="https://sites.google.com/site/miladhashemi/">Milad Hashemi</a><sup>3</sup>,
+                            </span>
+                            <span class="author-block">
+                                <a href="https://www.parthasarathys.com/">Parthasarathy Ranganathan</a><sup>3</sup>,
+                            </span>
+                            <span class="author-block">
+                                <a href="https://www.cs.cmu.edu/~./yiming/">Yiming Yang</a><sup>1</sup>,
+                            </span>
+                            <span class="author-block">
+                                <a href="http://www.phontron.com/">Graham Neubig</a><sup>1,4</sup>,
+                            </span>
+                            <span class="author-block">
+                                <a href="https://www.ayazdan.com//">Amir Yazdanbakhsh</a><sup>5</sup>
+                            </span>
+                        </div>
+
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block"><sup>1</sup>Carnegie Mellon University</span>
+                            <span class="author-block"><sup>2</sup>University of Pennsylvania</span>
+                            <span class="author-block"><sup>3</sup>Google</span><br />
+                            <span class="author-block"><sup>4</sup>Inspired Cognition</span>
+                            <span class="author-block"><sup>5</sup>Google Research, Brain Team</span><br />
+                        </div>
+
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                                <!-- PDF Link. -->
+                                <span class="link-block">
+                                    <a href="" class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fas fa-file-pdf"></i>
+                                        </span>
+                                        <span>Paper</span>
+                                    </a>
+                                </span>
+                                <span class="link-block">
+                                    <a href="https://colab.research.google.com/drive/1u4_RsdI0E79PCMDdcPiJUzYhdnjoXeXc?usp=sharing"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fas fa-terminal"></i>
+                                        </span>
+                                        <span>Colab</span>
+                                    </a>
+                                </span>
+                                <!-- Code Link. -->
+                                <span class="link-block">
+                                    <a href="https://github.com/madaan/pie"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-github"></i>
+                                        </span>
+                                        <span>Code</span>
+                                    </a>
+                                </span>
+                                <!-- Dataset Link. -->
+                                <span class="link-block">
+                                    <a href="https://github.com/madaan/pie/datasets"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="far fa-file"></i>
+                                        </span>
+                                        <span>Data</span>
+                                    </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- add a link to the page samples/index.html -->
+
+
+
+    <section class="hero teaser">
+        <div class="container is-max-desktop">
+            <div class="hero-body">
+                <figure class="image is-8by6">
+                    <img src="static/images/mainfig-v2.jpg">
+                </figure>
+                <h2 class="subtitle has-text-centered">
+                </h2>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="section">
+
+        <div class="container is-max-desktop">
+            <div class="notification is-warning  has-margin-top">
+                <button class="delete"></button>
+                <strong>TLDR:</strong> PIE is a dataset and model for learning code edits that improve runtime.
+            </div>
+            <!-- Abstract. -->
+            <div class="columns is-centered has-text-centered">
+
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">About</h2>
+                    <div class="content has-text-justified is-size-4">
+                        The waning of Moore's Law has shifted the focus of the tech industry towards alternative methods
+                        to achieve continued performance gains. To optimize program efficiency, programmers must craft
+                        and refactor code with better performance characteristics. In this paper, we investigate the
+                        ability of large language models (LLMs) to suggest functionally correct, performance-improving
+                        code edits. We hypothesize that language models can suggest such edits in ways that would be
+                        impractical for static analysis alone. To evaluate and improve the capacity of large language
+                        models, we have curated a large-scale dataset of Performance-Improving Edits (<span
+                            class="pie">PIE</span>).
+                        PIE contains trajectories of programs, where a programmer begins with an initial, slower version
+                        and iteratively makes changes to improve the program's performance. We use PIE to fine-tune
+                        multiple variants of CODEGEN, a billion-scale Transformer-decoder model. Additionally, we use
+                        examples from PIE to prompt OpenAI's CODEX using a few-shot prompting. Our results show that
+                        both CODEX and CODEGEN can generate performance-improving edits, with speedups of more than 2.5x
+                        for over 25% of the programs. Moreover, PIE allows CODEGEN, an open-sourced and 10x smaller
+                        model than CODEX, to match the performance of CODEX on this challenging task. </div>
+                </div>
+            </div>
+            <!--/ Abstract. -->
+        </div>
+    </section>
+
+
+    <section class="section" id="results">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Main Results</h2>
+                    <!--add screenshot of the results-->
+                    <figure class="image is-8by6">
+                        <img src="static/images/results.jpg">
+                    </figure>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section" id="results">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Dataset</h2>
+
+                    We provide the trajectories,
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <hr>
+
+
+    <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+            <h2 class="title">BibTeX</h2>
+            <pre><code>
+                <!--bibtex-->
+                <!-- @article{gao2022pal,
+                    title={PAL: Program-aided Language Models},
+                    author={Gao, Luyu and Madaan, Aman and Zhou, Shuyan and Alon, Uri and Liu, Pengfei and Yang, Yiming and Callan, Jamie and Neubig, Graham},
+                    journal={arXiv preprint arXiv:2211.10435},
+                    year={2022}
+                  } -->
+</code></pre>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered">
+                <a class="icon-link" href="">
+                    <i class="fas fa-file-pdf"></i>
+                </a>
+                <a class="icon-link" href="https://github.com/madaan/pie" class="external-link" disabled>
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <div class="content">
+                        <p>
+                            Template adapted from <a href="http://nerfies.github.io/">Nerfies</a> by Keunhong Park et
+                            al.
+                            and uses <a href="https://bulma.io/">Bulma</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

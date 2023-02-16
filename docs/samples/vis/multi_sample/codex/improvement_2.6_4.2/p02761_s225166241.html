@@ -1,0 +1,98 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. import&nbsp;sys</p>
+            <p class="diff-block-removed">2. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-removed">3. </p>
+            <p class="diff-block-removed">4. N,&nbsp;M&nbsp;=&nbsp;[int(_)&nbsp;for&nbsp;_&nbsp;in&nbsp;input().split()]</p>
+            <p class="diff-block-removed">5. if&nbsp;M&nbsp;==&nbsp;0:</p>
+            <p class="diff-block-removed">6. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;N&nbsp;==&nbsp;1:</p>
+            <p class="diff-block-removed">7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(&quot;0&quot;)</p>
+            <p class="diff-block-removed">8. &nbsp;&nbsp;&nbsp;&nbsp;else:</p>
+            <p class="diff-block-removed">9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;[0]&nbsp;*&nbsp;N</p>
+            <p class="diff-block-removed">10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans[0]&nbsp;=&nbsp;1</p>
+            <p class="diff-block-removed">11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print((&quot;&quot;.join(map(str,&nbsp;ans))))</p>
+            <p class="diff-block-removed">12. &nbsp;&nbsp;&nbsp;&nbsp;sys.exit()</p>
+            <p class="diff-block-removed">13. S,&nbsp;C&nbsp;=&nbsp;np.array([[int(_)&nbsp;for&nbsp;_&nbsp;in&nbsp;input().split()]&nbsp;for&nbsp;i&nbsp;in&nbsp;range(M)]).T</p>
+            <p>14. ans&nbsp;=&nbsp;[-1]&nbsp;*&nbsp;N</p>
+            <p>15. for&nbsp;i&nbsp;in&nbsp;range(M):</p>
+            <p class="diff-block-removed">16. &nbsp;&nbsp;&nbsp;&nbsp;j&nbsp;=&nbsp;int(S[i])&nbsp;-&nbsp;1</p>
+            <p class="diff-block-removed">17. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;ans[j]&nbsp;==&nbsp;-1&nbsp;or&nbsp;ans[j]&nbsp;==&nbsp;C[i]:</p>
+            <p class="diff-block-removed">18. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans[j]&nbsp;=&nbsp;C[i]</p>
+            <p class="diff-block-removed">19. &nbsp;&nbsp;&nbsp;&nbsp;else:</p>
+            <p class="diff-block-removed">20. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(&quot;-1&quot;)</p>
+            <p class="diff-block-removed">21. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sys.exit()</p>
+            <p>22. if&nbsp;N&nbsp;&gt;=&nbsp;2&nbsp;and&nbsp;ans[0]&nbsp;==&nbsp;0:</p>
+            <p class="diff-block-removed">23. &nbsp;&nbsp;&nbsp;&nbsp;print(&quot;-1&quot;)</p>
+            <p class="diff-block-removed">24. &nbsp;&nbsp;&nbsp;&nbsp;sys.exit()</p>
+            <p>25. if&nbsp;N&nbsp;&gt;=&nbsp;2&nbsp;and&nbsp;ans[0]&nbsp;==&nbsp;-1:</p>
+            <p class="diff-block-removed">26. &nbsp;&nbsp;&nbsp;&nbsp;ans[0]&nbsp;=&nbsp;1</p>
+            <p>27. for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;N):</p>
+            <p>28. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;ans[i]&nbsp;==&nbsp;-1:</p>
+            <p>29. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans[i]&nbsp;=&nbsp;0</p>
+            <p class="diff-block-removed">30. s&nbsp;=&nbsp;&quot;&quot;.join(map(str,&nbsp;ans))</p>
+            <p class="diff-block-removed">31. print(s)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [3.6355978646000002x faster, p02761, s225166241]</strong></p>
+            <p class="diff-block-added">1. N,&nbsp;M&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p>2. ans&nbsp;=&nbsp;[-1]&nbsp;*&nbsp;N</p>
+            <p>3. for&nbsp;i&nbsp;in&nbsp;range(M):</p>
+            <p class="diff-block-added">4. &nbsp;&nbsp;&nbsp;&nbsp;s,&nbsp;c&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p class="diff-block-added">5. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;N&nbsp;==&nbsp;1&nbsp;and&nbsp;c&nbsp;==&nbsp;0:</p>
+            <p class="diff-block-added">6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(0)</p>
+            <p class="diff-block-added">7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit()</p>
+            <p class="diff-block-added">8. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;ans[s&nbsp;-&nbsp;1]&nbsp;==&nbsp;-1:</p>
+            <p class="diff-block-added">9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans[s&nbsp;-&nbsp;1]&nbsp;=&nbsp;c</p>
+            <p>10. &nbsp;&nbsp;&nbsp;&nbsp;else:</p>
+            <p class="diff-block-added">11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;ans[s&nbsp;-&nbsp;1]&nbsp;!=&nbsp;c:</p>
+            <p class="diff-block-added">12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(-1)</p>
+            <p class="diff-block-added">13. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit()</p>
+            <p>14. if&nbsp;N&nbsp;&gt;=&nbsp;2&nbsp;and&nbsp;ans[0]&nbsp;==&nbsp;0:</p>
+            <p class="diff-block-added">15. &nbsp;&nbsp;&nbsp;&nbsp;print(-1)</p>
+            <p class="diff-block-added">16. &nbsp;&nbsp;&nbsp;&nbsp;exit()</p>
+            <p>17. if&nbsp;N&nbsp;&gt;=&nbsp;2&nbsp;and&nbsp;ans[0]&nbsp;==&nbsp;-1:</p>
+            <p>18. &nbsp;&nbsp;&nbsp;&nbsp;ans[0]&nbsp;=&nbsp;1</p>
+            <p>19. for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;N):</p>
+            <p>20. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;ans[i]&nbsp;==&nbsp;-1:</p>
+            <p>21. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans[i]&nbsp;=&nbsp;0</p>
+            <p class="diff-block-added">22. print(&quot;&quot;.join(map(str,&nbsp;ans)))</p>
+        </div>
+    </div>
+</body>
+</html>

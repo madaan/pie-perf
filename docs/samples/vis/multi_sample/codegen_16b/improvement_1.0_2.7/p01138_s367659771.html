@@ -1,0 +1,85 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p>1. def&nbsp;f(s):</p>
+            <p>2. &nbsp;&nbsp;&nbsp;&nbsp;s&nbsp;=&nbsp;list(map(int,&nbsp;s.split(&quot;:&quot;)))</p>
+            <p class="diff-block-removed">3. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;(s[0]&nbsp;*&nbsp;60&nbsp;+&nbsp;s[1])&nbsp;*&nbsp;60&nbsp;+&nbsp;s[2]</p>
+            <p>4. </p>
+            <p>5. </p>
+            <p class="diff-block-removed">6. a&nbsp;=&nbsp;86401</p>
+            <p>7. while&nbsp;1:</p>
+            <p>8. &nbsp;&nbsp;&nbsp;&nbsp;t&nbsp;=&nbsp;[0]&nbsp;*&nbsp;a</p>
+            <p>9. &nbsp;&nbsp;&nbsp;&nbsp;n&nbsp;=&nbsp;int(eval(input()))</p>
+            <p>10. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;n&nbsp;==&nbsp;0:</p>
+            <p>11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</p>
+            <p>12. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;_&nbsp;in&nbsp;range(n):</p>
+            <p>13. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b,&nbsp;c&nbsp;=&nbsp;input().split()</p>
+            <p>14. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t[f(b)]&nbsp;+=&nbsp;1</p>
+            <p>15. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t[f(c)]&nbsp;-=&nbsp;1</p>
+            <p>16. &nbsp;&nbsp;&nbsp;&nbsp;d&nbsp;=&nbsp;0</p>
+            <p>17. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;a):</p>
+            <p>18. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t[i]&nbsp;+=&nbsp;t[i&nbsp;-&nbsp;1]</p>
+            <p>19. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d&nbsp;=&nbsp;max(d,&nbsp;t[i])</p>
+            <p>20. &nbsp;&nbsp;&nbsp;&nbsp;print(d)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [2.3019479728x faster, p01138, s367659771]</strong></p>
+            <p>1. def&nbsp;f(s):</p>
+            <p>2. &nbsp;&nbsp;&nbsp;&nbsp;s&nbsp;=&nbsp;list(map(int,&nbsp;s.split(&quot;:&quot;)))</p>
+            <p class="diff-block-added">3. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;s[0]&nbsp;*&nbsp;60&nbsp;+&nbsp;s[1]</p>
+            <p>4. </p>
+            <p>5. </p>
+            <p class="diff-block-added">6. a&nbsp;=&nbsp;24&nbsp;*&nbsp;60</p>
+            <p>7. while&nbsp;1:</p>
+            <p>8. &nbsp;&nbsp;&nbsp;&nbsp;t&nbsp;=&nbsp;[0]&nbsp;*&nbsp;a</p>
+            <p>9. &nbsp;&nbsp;&nbsp;&nbsp;n&nbsp;=&nbsp;int(eval(input()))</p>
+            <p>10. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;n&nbsp;==&nbsp;0:</p>
+            <p>11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</p>
+            <p>12. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;_&nbsp;in&nbsp;range(n):</p>
+            <p>13. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b,&nbsp;c&nbsp;=&nbsp;input().split()</p>
+            <p>14. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t[f(b)]&nbsp;+=&nbsp;1</p>
+            <p>15. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t[f(c)]&nbsp;-=&nbsp;1</p>
+            <p>16. &nbsp;&nbsp;&nbsp;&nbsp;d&nbsp;=&nbsp;0</p>
+            <p>17. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;a):</p>
+            <p>18. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t[i]&nbsp;+=&nbsp;t[i&nbsp;-&nbsp;1]</p>
+            <p>19. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d&nbsp;=&nbsp;max(d,&nbsp;t[i])</p>
+            <p>20. &nbsp;&nbsp;&nbsp;&nbsp;print(d)</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. import&nbsp;sys</p>
+            <p class="diff-block-removed">2. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-removed">3. </p>
+            <p class="diff-block-removed">4. stdin&nbsp;=&nbsp;sys.stdin</p>
+            <p class="diff-block-removed">5. ri&nbsp;=&nbsp;lambda:&nbsp;int(rs())</p>
+            <p class="diff-block-removed">6. rl&nbsp;=&nbsp;lambda:&nbsp;list(map(int,&nbsp;stdin.readline().split()))</p>
+            <p class="diff-block-removed">7. rs&nbsp;=&nbsp;lambda:&nbsp;stdin.readline().rstrip()&nbsp;&nbsp;#&nbsp;ignore&nbsp;trailing&nbsp;spaces</p>
+            <p class="diff-block-removed">8. S&nbsp;=&nbsp;list(rs())</p>
+            <p class="diff-block-removed">9. W&nbsp;=&nbsp;[0]&nbsp;*&nbsp;len(S)</p>
+            <p class="diff-block-removed">10. for&nbsp;i&nbsp;in&nbsp;range(len(S)):</p>
+            <p class="diff-block-removed">11. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;S[i]&nbsp;==&nbsp;&quot;W&quot;:</p>
+            <p class="diff-block-removed">12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;W[i]&nbsp;=&nbsp;1</p>
+            <p class="diff-block-removed">13. W&nbsp;=&nbsp;np.array(W[::-1])</p>
+            <p class="diff-block-removed">14. W_cum&nbsp;=&nbsp;W.cumsum()[::-1]</p>
+            <p class="diff-block-removed">15. W_cum&nbsp;=&nbsp;W_cum.tolist()</p>
+            <p class="diff-block-removed">16. answer&nbsp;=&nbsp;0</p>
+            <p class="diff-block-removed">17. for&nbsp;i&nbsp;in&nbsp;range(len(S)):</p>
+            <p class="diff-block-removed">18. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;S[i]&nbsp;==&nbsp;&quot;B&quot;:</p>
+            <p class="diff-block-removed">19. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;answer&nbsp;+=&nbsp;W_cum[i]</p>
+            <p class="diff-block-removed">20. print(answer)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [3.44736686x faster, p03200, s238646365]</strong></p>
+            <p class="diff-block-added">1. S&nbsp;=&nbsp;input()</p>
+            <p class="diff-block-added">2. ans&nbsp;=&nbsp;0</p>
+            <p class="diff-block-added">3. cnt&nbsp;=&nbsp;0</p>
+            <p class="diff-block-added">4. for&nbsp;s&nbsp;in&nbsp;S[::-1]:</p>
+            <p class="diff-block-added">5. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;s&nbsp;==&nbsp;&quot;W&quot;:</p>
+            <p class="diff-block-added">6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cnt&nbsp;+=&nbsp;1</p>
+            <p class="diff-block-added">7. &nbsp;&nbsp;&nbsp;&nbsp;else:</p>
+            <p class="diff-block-added">8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;+=&nbsp;cnt</p>
+            <p class="diff-block-added">9. print(ans)</p>
+        </div>
+    </div>
+</body>
+</html>

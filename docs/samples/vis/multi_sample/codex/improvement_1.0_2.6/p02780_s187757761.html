@@ -1,0 +1,100 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. class&nbsp;SegmentTree:</p>
+            <p class="diff-block-removed">2. &nbsp;&nbsp;&nbsp;&nbsp;seg_len&nbsp;=&nbsp;1</p>
+            <p class="diff-block-removed">3. &nbsp;&nbsp;&nbsp;&nbsp;node&nbsp;=&nbsp;[]</p>
+            <p class="diff-block-removed">4. </p>
+            <p class="diff-block-removed">5. &nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;__init__(self,&nbsp;n):</p>
+            <p class="diff-block-removed">6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;self.seg_len&nbsp;&lt;&nbsp;n:</p>
+            <p class="diff-block-removed">7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.seg_len&nbsp;&lt;&lt;=&nbsp;1</p>
+            <p class="diff-block-removed">8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.node&nbsp;=&nbsp;[0&nbsp;for&nbsp;_&nbsp;in&nbsp;range(self.seg_len&nbsp;*&nbsp;2)]</p>
+            <p class="diff-block-removed">9. </p>
+            <p class="diff-block-removed">10. &nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;add(self,&nbsp;idx,&nbsp;v):</p>
+            <p class="diff-block-removed">11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;idx&nbsp;+=&nbsp;self.seg_len</p>
+            <p class="diff-block-removed">12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.node[idx]&nbsp;+=&nbsp;v</p>
+            <p class="diff-block-removed">13. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;True:</p>
+            <p class="diff-block-removed">14. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;idx&nbsp;//=&nbsp;2</p>
+            <p class="diff-block-removed">15. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;idx&nbsp;==&nbsp;0:</p>
+            <p class="diff-block-removed">16. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</p>
+            <p class="diff-block-removed">17. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.node[idx]&nbsp;=&nbsp;self.node[idx&nbsp;*&nbsp;2]&nbsp;+&nbsp;self.node[idx&nbsp;*&nbsp;2&nbsp;+&nbsp;1]</p>
+            <p class="diff-block-removed">18. </p>
+            <p class="diff-block-removed">19. &nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;sum(self,&nbsp;l,&nbsp;r):</p>
+            <p class="diff-block-removed">20. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;l&nbsp;+=&nbsp;self.seg_len</p>
+            <p class="diff-block-removed">21. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r&nbsp;+=&nbsp;self.seg_len</p>
+            <p class="diff-block-removed">22. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ret&nbsp;=&nbsp;0</p>
+            <p class="diff-block-removed">23. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;l&nbsp;&lt;&nbsp;r:</p>
+            <p class="diff-block-removed">24. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;l&nbsp;&amp;&nbsp;1&nbsp;==&nbsp;1:</p>
+            <p class="diff-block-removed">25. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ret&nbsp;+=&nbsp;self.node[l]</p>
+            <p class="diff-block-removed">26. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;l&nbsp;+=&nbsp;1</p>
+            <p class="diff-block-removed">27. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;r&nbsp;&amp;&nbsp;1&nbsp;==&nbsp;1:</p>
+            <p class="diff-block-removed">28. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ret&nbsp;+=&nbsp;self.node[r&nbsp;-&nbsp;1]</p>
+            <p class="diff-block-removed">29. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r&nbsp;-=&nbsp;1</p>
+            <p class="diff-block-removed">30. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;l&nbsp;//=&nbsp;2</p>
+            <p class="diff-block-removed">31. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r&nbsp;//=&nbsp;2</p>
+            <p class="diff-block-removed">32. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;ret</p>
+            <p class="diff-block-removed">33. </p>
+            <p class="diff-block-removed">34. </p>
+            <p class="diff-block-removed">35. n,&nbsp;k&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">36. p&nbsp;=&nbsp;[int(x)&nbsp;for&nbsp;x&nbsp;in&nbsp;input().split()]</p>
+            <p class="diff-block-removed">37. seg_tree&nbsp;=&nbsp;SegmentTree(n)</p>
+            <p>38. for&nbsp;i&nbsp;in&nbsp;range(n):</p>
+            <p class="diff-block-removed">39. &nbsp;&nbsp;&nbsp;&nbsp;seg_tree.add(i,&nbsp;(1&nbsp;+&nbsp;p[i])&nbsp;/&nbsp;2)</p>
+            <p>40. ans&nbsp;=&nbsp;0</p>
+            <p>41. for&nbsp;i&nbsp;in&nbsp;range(n&nbsp;-&nbsp;k&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-removed">42. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;max(ans,&nbsp;seg_tree.sum(i,&nbsp;i&nbsp;+&nbsp;k))</p>
+            <p>43. print(ans)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [1.0637439522x faster, p02780, s187757761]</strong></p>
+            <p class="diff-block-added">1. n,&nbsp;k&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p class="diff-block-added">2. a&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-added">3. for&nbsp;i&nbsp;in&nbsp;range(n):</p>
+            <p class="diff-block-added">4. &nbsp;&nbsp;&nbsp;&nbsp;a[i]&nbsp;=&nbsp;(a[i]&nbsp;+&nbsp;1)&nbsp;/&nbsp;2</p>
+            <p class="diff-block-added">5. sm&nbsp;=&nbsp;[0]&nbsp;*&nbsp;(n&nbsp;+&nbsp;1)</p>
+            <p class="diff-block-added">6. sm[0]&nbsp;=&nbsp;0</p>
+            <p class="diff-block-added">7. for&nbsp;i&nbsp;in&nbsp;range(n):</p>
+            <p class="diff-block-added">8. &nbsp;&nbsp;&nbsp;&nbsp;sm[i&nbsp;+&nbsp;1]&nbsp;=&nbsp;sm[i]&nbsp;+&nbsp;a[i]</p>
+            <p>9. ans&nbsp;=&nbsp;0</p>
+            <p>10. for&nbsp;i&nbsp;in&nbsp;range(n&nbsp;-&nbsp;k&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-added">11. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;max(ans,&nbsp;sm[i&nbsp;+&nbsp;k]&nbsp;-&nbsp;sm[i])</p>
+            <p>12. print(ans)</p>
+        </div>
+    </div>
+</body>
+</html>

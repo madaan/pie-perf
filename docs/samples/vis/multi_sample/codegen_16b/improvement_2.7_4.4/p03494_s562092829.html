@@ -1,0 +1,66 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p>2. </p>
+            <p class="diff-block-removed">3. eval(input())</p>
+            <p class="diff-block-removed">4. x&nbsp;=&nbsp;np.array(input().split(),&nbsp;dtype=np.int32)</p>
+            <p class="diff-block-removed">5. ans&nbsp;=&nbsp;0</p>
+            <p class="diff-block-removed">6. while&nbsp;(x&nbsp;%&nbsp;2&nbsp;==&nbsp;0).all():</p>
+            <p class="diff-block-removed">7. &nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;=&nbsp;x&nbsp;//&nbsp;2</p>
+            <p class="diff-block-removed">8. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;+=&nbsp;1</p>
+            <p class="diff-block-removed">9. print(ans)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [3.8265994998x faster, p03494, s562092829]</strong></p>
+            <p class="diff-block-added">1. def&nbsp;main():</p>
+            <p class="diff-block-added">2. &nbsp;&nbsp;&nbsp;&nbsp;N&nbsp;=&nbsp;int(eval(input()))</p>
+            <p class="diff-block-added">3. &nbsp;&nbsp;&nbsp;&nbsp;b&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-added">4. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;0</p>
+            <p class="diff-block-added">5. &nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;all(i&nbsp;%&nbsp;2&nbsp;==&nbsp;0&nbsp;for&nbsp;i&nbsp;in&nbsp;b):</p>
+            <p class="diff-block-added">6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b&nbsp;=&nbsp;[i&nbsp;/&nbsp;2&nbsp;for&nbsp;i&nbsp;in&nbsp;b]</p>
+            <p class="diff-block-added">7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;+=&nbsp;1</p>
+            <p class="diff-block-added">8. &nbsp;&nbsp;&nbsp;&nbsp;print(ans)</p>
+            <p class="diff-block-added">9. </p>
+            <p class="diff-block-added">10. </p>
+            <p class="diff-block-added">11. if&nbsp;__name__&nbsp;==&nbsp;&quot;__main__&quot;:</p>
+            <p class="diff-block-added">12. &nbsp;&nbsp;&nbsp;&nbsp;main()</p>
+        </div>
+    </div>
+</body>
+</html>

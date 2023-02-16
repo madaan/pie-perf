@@ -1,0 +1,70 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. #&nbsp;-*-&nbsp;coding:&nbsp;utf-8&nbsp;-*-</p>
+            <p class="diff-block-removed">2. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-removed">3. </p>
+            <p>4. if&nbsp;__name__&nbsp;==&nbsp;&quot;__main__&quot;:</p>
+            <p>5. &nbsp;&nbsp;&nbsp;&nbsp;n&nbsp;=&nbsp;int(eval(input()))</p>
+            <p class="diff-block-removed">6. &nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;=&nbsp;np.array([int(a)&nbsp;for&nbsp;a&nbsp;in&nbsp;input().split()],&nbsp;dtype=np.int)</p>
+            <p class="diff-block-removed">7. &nbsp;&nbsp;&nbsp;&nbsp;isEven&nbsp;=&nbsp;True</p>
+            <p>8. &nbsp;&nbsp;&nbsp;&nbsp;count&nbsp;=&nbsp;0</p>
+            <p class="diff-block-removed">9. &nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;isEven:</p>
+            <p class="diff-block-removed">10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(A&nbsp;%&nbsp;2).any()&nbsp;!=&nbsp;0:</p>
+            <p class="diff-block-removed">11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;isEven&nbsp;=&nbsp;False</p>
+            <p>12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</p>
+            <p class="diff-block-removed">13. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;=&nbsp;A&nbsp;/&nbsp;2</p>
+            <p>14. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count&nbsp;+=&nbsp;1</p>
+            <p>15. &nbsp;&nbsp;&nbsp;&nbsp;print(count)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [3.4372998937x faster, p03494, s456783513]</strong></p>
+            <p>1. if&nbsp;__name__&nbsp;==&nbsp;&quot;__main__&quot;:</p>
+            <p>2. &nbsp;&nbsp;&nbsp;&nbsp;n&nbsp;=&nbsp;int(eval(input()))</p>
+            <p class="diff-block-added">3. &nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;=&nbsp;[int(a)&nbsp;for&nbsp;a&nbsp;in&nbsp;input().split()]</p>
+            <p>4. &nbsp;&nbsp;&nbsp;&nbsp;count&nbsp;=&nbsp;0</p>
+            <p class="diff-block-added">5. &nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;True:</p>
+            <p class="diff-block-added">6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;any(a&nbsp;%&nbsp;2&nbsp;for&nbsp;a&nbsp;in&nbsp;A):</p>
+            <p>7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</p>
+            <p class="diff-block-added">8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;=&nbsp;[a&nbsp;/&nbsp;2&nbsp;for&nbsp;a&nbsp;in&nbsp;A]</p>
+            <p>9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count&nbsp;+=&nbsp;1</p>
+            <p>10. &nbsp;&nbsp;&nbsp;&nbsp;print(count)</p>
+        </div>
+    </div>
+</body>
+</html>

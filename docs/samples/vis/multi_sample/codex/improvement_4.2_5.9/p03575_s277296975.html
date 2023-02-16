@@ -1,0 +1,86 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. N,&nbsp;M&nbsp;=&nbsp;(int(x)&nbsp;for&nbsp;x&nbsp;in&nbsp;input().split())</p>
+            <p class="diff-block-removed">2. edge&nbsp;=&nbsp;[tuple(int(x)&nbsp;for&nbsp;x&nbsp;in&nbsp;input().split())&nbsp;for&nbsp;_&nbsp;in&nbsp;range(M)]</p>
+            <p class="diff-block-removed">3. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-removed">4. from&nbsp;scipy.sparse.csgraph&nbsp;import&nbsp;floyd_warshall</p>
+            <p class="diff-block-removed">5. </p>
+            <p class="diff-block-removed">6. INF&nbsp;=&nbsp;100</p>
+            <p class="diff-block-removed">7. tmpl_graph&nbsp;=&nbsp;[[INF&nbsp;if&nbsp;i&nbsp;!=&nbsp;j&nbsp;else&nbsp;0&nbsp;for&nbsp;j&nbsp;in&nbsp;range(N)]&nbsp;for&nbsp;i&nbsp;in&nbsp;range(N)]</p>
+            <p>8. ans&nbsp;=&nbsp;0</p>
+            <p class="diff-block-removed">9. for&nbsp;E&nbsp;in&nbsp;edge:</p>
+            <p class="diff-block-removed">10. &nbsp;&nbsp;&nbsp;&nbsp;edgeWithoutE&nbsp;=&nbsp;edge.copy()</p>
+            <p class="diff-block-removed">11. &nbsp;&nbsp;&nbsp;&nbsp;edgeWithoutE.remove(E)</p>
+            <p class="diff-block-removed">12. &nbsp;&nbsp;&nbsp;&nbsp;graph&nbsp;=&nbsp;np.array(tmpl_graph)</p>
+            <p class="diff-block-removed">13. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;x&nbsp;in&nbsp;edgeWithoutE:</p>
+            <p class="diff-block-removed">14. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;graph[x[0]&nbsp;-&nbsp;1,&nbsp;x[1]&nbsp;-&nbsp;1]&nbsp;=&nbsp;1</p>
+            <p class="diff-block-removed">15. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;graph[x[1]&nbsp;-&nbsp;1,&nbsp;x[0]&nbsp;-&nbsp;1]&nbsp;=&nbsp;1</p>
+            <p class="diff-block-removed">16. &nbsp;&nbsp;&nbsp;&nbsp;graph&nbsp;=&nbsp;floyd_warshall(graph,&nbsp;directed=False)</p>
+            <p class="diff-block-removed">17. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;len(graph[graph&nbsp;==&nbsp;100])&nbsp;&gt;&nbsp;0:</p>
+            <p>18. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;+=&nbsp;1</p>
+            <p>19. print(ans)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [4.2770564247x faster, p03575, s277296975]</strong></p>
+            <p class="diff-block-added">1. N,&nbsp;M&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p class="diff-block-added">2. edge&nbsp;=&nbsp;[tuple(map(int,&nbsp;input().split()))&nbsp;for&nbsp;_&nbsp;in&nbsp;range(M)]</p>
+            <p class="diff-block-added">3. edge.sort()</p>
+            <p>4. ans&nbsp;=&nbsp;0</p>
+            <p class="diff-block-added">5. for&nbsp;i&nbsp;in&nbsp;range(M):</p>
+            <p class="diff-block-added">6. &nbsp;&nbsp;&nbsp;&nbsp;graph&nbsp;=&nbsp;[[0]&nbsp;*&nbsp;N&nbsp;for&nbsp;_&nbsp;in&nbsp;range(N)]</p>
+            <p class="diff-block-added">7. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;range(M):</p>
+            <p class="diff-block-added">8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;j&nbsp;==&nbsp;i:</p>
+            <p class="diff-block-added">9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue</p>
+            <p class="diff-block-added">10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;graph[edge[j][0]&nbsp;-&nbsp;1][edge[j][1]&nbsp;-&nbsp;1]&nbsp;=&nbsp;1</p>
+            <p class="diff-block-added">11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;graph[edge[j][1]&nbsp;-&nbsp;1][edge[j][0]&nbsp;-&nbsp;1]&nbsp;=&nbsp;1</p>
+            <p class="diff-block-added">12. &nbsp;&nbsp;&nbsp;&nbsp;visited&nbsp;=&nbsp;[0]&nbsp;*&nbsp;N</p>
+            <p class="diff-block-added">13. &nbsp;&nbsp;&nbsp;&nbsp;q&nbsp;=&nbsp;[0]</p>
+            <p class="diff-block-added">14. &nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;len(q)&nbsp;&gt;&nbsp;0:</p>
+            <p class="diff-block-added">15. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;u&nbsp;=&nbsp;q.pop()</p>
+            <p class="diff-block-added">16. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;visited[u]&nbsp;=&nbsp;1</p>
+            <p class="diff-block-added">17. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;v&nbsp;in&nbsp;range(N):</p>
+            <p class="diff-block-added">18. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;graph[u][v]&nbsp;&gt;&nbsp;0&nbsp;and&nbsp;visited[v]&nbsp;==&nbsp;0:</p>
+            <p class="diff-block-added">19. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;q.append(v)</p>
+            <p class="diff-block-added">20. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;0&nbsp;in&nbsp;visited:</p>
+            <p>21. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;+=&nbsp;1</p>
+            <p>22. print(ans)</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. def&nbsp;main():</p>
+            <p class="diff-block-removed">2. &nbsp;&nbsp;&nbsp;&nbsp;n,&nbsp;ma,&nbsp;mb,&nbsp;*L&nbsp;=&nbsp;list(map(int,&nbsp;open(0).read().split()))</p>
+            <p class="diff-block-removed">3. &nbsp;&nbsp;&nbsp;&nbsp;M&nbsp;=&nbsp;1&nbsp;&lt;&lt;&nbsp;30</p>
+            <p class="diff-block-removed">4. &nbsp;&nbsp;&nbsp;&nbsp;dp&nbsp;=&nbsp;[[M]&nbsp;*&nbsp;420&nbsp;for&nbsp;_&nbsp;in&nbsp;range(420)]</p>
+            <p class="diff-block-removed">5. &nbsp;&nbsp;&nbsp;&nbsp;dp[0][0]&nbsp;=&nbsp;0</p>
+            <p class="diff-block-removed">6. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;a,&nbsp;b,&nbsp;c&nbsp;in&nbsp;zip(*[iter(L)]&nbsp;*&nbsp;3):</p>
+            <p class="diff-block-removed">7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(400,&nbsp;-1,&nbsp;-1):</p>
+            <p class="diff-block-removed">8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;range(400,&nbsp;-1,&nbsp;-1):</p>
+            <p class="diff-block-removed">9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t&nbsp;=&nbsp;dp[i][j]&nbsp;+&nbsp;c</p>
+            <p class="diff-block-removed">10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;dp[i&nbsp;+&nbsp;a][j&nbsp;+&nbsp;b]&nbsp;&gt;&nbsp;t:</p>
+            <p class="diff-block-removed">11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i&nbsp;+&nbsp;a][j&nbsp;+&nbsp;b]&nbsp;=&nbsp;t</p>
+            <p class="diff-block-removed">12. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;M</p>
+            <p class="diff-block-removed">13. &nbsp;&nbsp;&nbsp;&nbsp;_ma,&nbsp;_mb&nbsp;=&nbsp;ma,&nbsp;mb</p>
+            <p class="diff-block-removed">14. &nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;_ma&nbsp;&lt;&nbsp;410&nbsp;&gt;&nbsp;_mb:</p>
+            <p class="diff-block-removed">15. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;min(ans,&nbsp;dp[_ma][_mb])</p>
+            <p class="diff-block-removed">16. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_ma&nbsp;+=&nbsp;ma</p>
+            <p class="diff-block-removed">17. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_mb&nbsp;+=&nbsp;mb</p>
+            <p class="diff-block-removed">18. &nbsp;&nbsp;&nbsp;&nbsp;print((ans&nbsp;if&nbsp;ans&nbsp;&lt;&nbsp;M&nbsp;else&nbsp;-1))</p>
+            <p class="diff-block-removed">19. </p>
+            <p class="diff-block-removed">20. </p>
+            <p class="diff-block-removed">21. if&nbsp;__name__&nbsp;==&nbsp;&quot;__main__&quot;:</p>
+            <p class="diff-block-removed">22. &nbsp;&nbsp;&nbsp;&nbsp;main()</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [1.1367911942x faster, p03806, s355426542]</strong></p>
+            <p class="diff-block-added">1. N,&nbsp;A,&nbsp;B&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p class="diff-block-added">2. inf&nbsp;=&nbsp;10**9</p>
+            <p class="diff-block-added">3. dp&nbsp;=&nbsp;[[inf&nbsp;for&nbsp;_&nbsp;in&nbsp;range(401)]&nbsp;for&nbsp;_&nbsp;in&nbsp;range(401)]</p>
+            <p class="diff-block-added">4. dp[0][0]&nbsp;=&nbsp;0</p>
+            <p class="diff-block-added">5. for&nbsp;i&nbsp;in&nbsp;range(N):</p>
+            <p class="diff-block-added">6. &nbsp;&nbsp;&nbsp;&nbsp;a,&nbsp;b,&nbsp;c&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p class="diff-block-added">7. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;range(400,&nbsp;-1,&nbsp;-1):</p>
+            <p class="diff-block-added">8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;k&nbsp;in&nbsp;range(400,&nbsp;-1,&nbsp;-1):</p>
+            <p class="diff-block-added">9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;dp[j][k]&nbsp;&lt;&nbsp;inf:</p>
+            <p class="diff-block-added">10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[j&nbsp;+&nbsp;a][k&nbsp;+&nbsp;b]&nbsp;=&nbsp;min(dp[j&nbsp;+&nbsp;a][k&nbsp;+&nbsp;b],&nbsp;dp[j][k]&nbsp;+&nbsp;c)</p>
+            <p class="diff-block-added">11. ans&nbsp;=&nbsp;inf</p>
+            <p class="diff-block-added">12. for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;401):</p>
+            <p class="diff-block-added">13. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;A&nbsp;*&nbsp;i&nbsp;&gt;&nbsp;400&nbsp;or&nbsp;B&nbsp;*&nbsp;i&nbsp;&gt;&nbsp;400:</p>
+            <p class="diff-block-added">14. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</p>
+            <p class="diff-block-added">15. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;min(ans,&nbsp;dp[A&nbsp;*&nbsp;i][B&nbsp;*&nbsp;i])</p>
+            <p class="diff-block-added">16. print(ans&nbsp;if&nbsp;ans&nbsp;!=&nbsp;inf&nbsp;else&nbsp;-1)</p>
+        </div>
+    </div>
+</body>
+</html>

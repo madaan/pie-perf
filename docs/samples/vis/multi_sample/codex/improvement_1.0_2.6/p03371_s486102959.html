@@ -1,0 +1,61 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p>1. A,&nbsp;B,&nbsp;C,&nbsp;X,&nbsp;Y&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">2. max_iter&nbsp;=&nbsp;max(X,&nbsp;Y)&nbsp;*&nbsp;2</p>
+            <p class="diff-block-removed">3. ans&nbsp;=&nbsp;float(&quot;inf&quot;)</p>
+            <p class="diff-block-removed">4. for&nbsp;i&nbsp;in&nbsp;range(max_iter):</p>
+            <p class="diff-block-removed">5. &nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;=&nbsp;max(X&nbsp;-&nbsp;i,&nbsp;0)</p>
+            <p class="diff-block-removed">6. &nbsp;&nbsp;&nbsp;&nbsp;b&nbsp;=&nbsp;max(Y&nbsp;-&nbsp;i,&nbsp;0)</p>
+            <p class="diff-block-removed">7. &nbsp;&nbsp;&nbsp;&nbsp;price&nbsp;=&nbsp;2&nbsp;*&nbsp;C&nbsp;*&nbsp;i&nbsp;+&nbsp;A&nbsp;*&nbsp;a&nbsp;+&nbsp;B&nbsp;*&nbsp;b</p>
+            <p class="diff-block-removed">8. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;min(ans,&nbsp;price)</p>
+            <p>9. print(ans)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [1.9945734187x faster, p03371, s486102959]</strong></p>
+            <p>1. A,&nbsp;B,&nbsp;C,&nbsp;X,&nbsp;Y&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-added">2. ans&nbsp;=&nbsp;min(</p>
+            <p class="diff-block-added">3. &nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;*&nbsp;X&nbsp;+&nbsp;B&nbsp;*&nbsp;Y,</p>
+            <p class="diff-block-added">4. &nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;*&nbsp;C&nbsp;*&nbsp;max(X,&nbsp;Y),</p>
+            <p class="diff-block-added">5. &nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;*&nbsp;C&nbsp;*&nbsp;min(X,&nbsp;Y)&nbsp;+&nbsp;A&nbsp;*&nbsp;max(X&nbsp;-&nbsp;Y,&nbsp;0)&nbsp;+&nbsp;B&nbsp;*&nbsp;max(Y&nbsp;-&nbsp;X,&nbsp;0),</p>
+            <p class="diff-block-added">6. )</p>
+            <p>7. print(ans)</p>
+        </div>
+    </div>
+</body>
+</html>

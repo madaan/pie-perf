@@ -1,0 +1,88 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p>1. import&nbsp;sys</p>
+            <p class="diff-block-removed">2. import&nbsp;os</p>
+            <p class="diff-block-removed">3. import&nbsp;math</p>
+            <p class="diff-block-removed">4. </p>
+            <p>5. ii&nbsp;=&nbsp;lambda:&nbsp;int(sys.stdin.buffer.readline().rstrip())</p>
+            <p>6. il&nbsp;=&nbsp;lambda:&nbsp;list(map(int,&nbsp;sys.stdin.buffer.readline().split()))</p>
+            <p>7. iln&nbsp;=&nbsp;lambda&nbsp;n:&nbsp;[int(sys.stdin.buffer.readline().rstrip())&nbsp;for&nbsp;_&nbsp;in&nbsp;range(n)]</p>
+            <p class="diff-block-removed">8. iss&nbsp;=&nbsp;lambda:&nbsp;sys.stdin.buffer.readline().decode().rstrip()</p>
+            <p class="diff-block-removed">9. isn&nbsp;=&nbsp;lambda&nbsp;n:&nbsp;[sys.stdin.buffer.readline().decode().rstrip()&nbsp;for&nbsp;_&nbsp;in&nbsp;range(n)]</p>
+            <p class="diff-block-removed">10. </p>
+            <p class="diff-block-removed">11. </p>
+            <p class="diff-block-removed">12. def&nbsp;main():</p>
+            <p class="diff-block-removed">13. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;os.getenv(&quot;LOCAL&quot;):</p>
+            <p class="diff-block-removed">14. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sys.stdin&nbsp;=&nbsp;open(&quot;input.txt&quot;,&nbsp;&quot;r&quot;)</p>
+            <p class="diff-block-removed">15. &nbsp;&nbsp;&nbsp;&nbsp;N&nbsp;=&nbsp;ii()</p>
+            <p class="diff-block-removed">16. &nbsp;&nbsp;&nbsp;&nbsp;ret&nbsp;=&nbsp;float(&quot;inf&quot;)</p>
+            <p class="diff-block-removed">17. &nbsp;&nbsp;&nbsp;&nbsp;I&nbsp;=&nbsp;int(math.sqrt(N))&nbsp;*&nbsp;10</p>
+            <p class="diff-block-removed">18. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;I):</p>
+            <p class="diff-block-removed">19. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;N&nbsp;%&nbsp;i&nbsp;==&nbsp;0:</p>
+            <p class="diff-block-removed">20. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j&nbsp;=&nbsp;N&nbsp;//&nbsp;i</p>
+            <p class="diff-block-removed">21. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ret&nbsp;=&nbsp;min(ret,&nbsp;j&nbsp;+&nbsp;i&nbsp;-&nbsp;2)</p>
+            <p class="diff-block-removed">22. &nbsp;&nbsp;&nbsp;&nbsp;print(ret)</p>
+            <p class="diff-block-removed">23. </p>
+            <p class="diff-block-removed">24. </p>
+            <p class="diff-block-removed">25. if&nbsp;__name__&nbsp;==&nbsp;&quot;__main__&quot;:</p>
+            <p class="diff-block-removed">26. &nbsp;&nbsp;&nbsp;&nbsp;main()</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [1.6237239358000002x faster, p02881, s671057519]</strong></p>
+            <p class="diff-block-added">1. import&nbsp;os</p>
+            <p>2. import&nbsp;sys</p>
+            <p>3. </p>
+            <p class="diff-block-added">4. if&nbsp;os.getenv(&quot;LOCAL&quot;):</p>
+            <p class="diff-block-added">5. &nbsp;&nbsp;&nbsp;&nbsp;sys.stdin&nbsp;=&nbsp;open(&quot;input.txt&quot;,&nbsp;&quot;r&quot;)</p>
+            <p class="diff-block-added">6. sys.setrecursionlimit(10**9)</p>
+            <p class="diff-block-added">7. input&nbsp;=&nbsp;sys.stdin.readline</p>
+            <p class="diff-block-added">8. N&nbsp;=&nbsp;int(eval(input()))</p>
+            <p class="diff-block-added">9. ret&nbsp;=&nbsp;float(&quot;inf&quot;)</p>
+            <p>10. ii&nbsp;=&nbsp;lambda:&nbsp;int(sys.stdin.buffer.readline().rstrip())</p>
+            <p>11. il&nbsp;=&nbsp;lambda:&nbsp;list(map(int,&nbsp;sys.stdin.buffer.readline().split()))</p>
+            <p>12. iln&nbsp;=&nbsp;lambda&nbsp;n:&nbsp;[int(sys.stdin.buffer.readline().rstrip())&nbsp;for&nbsp;_&nbsp;in&nbsp;range(n)]</p>
+            <p class="diff-block-added">13. for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;1001):</p>
+            <p class="diff-block-added">14. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;N&nbsp;%&nbsp;i&nbsp;==&nbsp;0:</p>
+            <p class="diff-block-added">15. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j&nbsp;=&nbsp;N&nbsp;//&nbsp;i</p>
+            <p class="diff-block-added">16. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ret&nbsp;=&nbsp;min(ret,&nbsp;i&nbsp;+&nbsp;j&nbsp;-&nbsp;2)</p>
+            <p class="diff-block-added">17. print(ret)</p>
+        </div>
+    </div>
+</body>
+</html>

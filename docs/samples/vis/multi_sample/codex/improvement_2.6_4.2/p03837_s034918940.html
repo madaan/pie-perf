@@ -1,0 +1,91 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. from&nbsp;scipy.sparse.csgraph&nbsp;import&nbsp;csgraph_from_dense,&nbsp;floyd_warshall</p>
+            <p class="diff-block-removed">2. </p>
+            <p class="diff-block-removed">3. INF&nbsp;=&nbsp;float(&quot;inf&quot;)</p>
+            <p class="diff-block-removed">4. </p>
+            <p class="diff-block-removed">5. </p>
+            <p>6. def&nbsp;sol():</p>
+            <p class="diff-block-removed">7. &nbsp;&nbsp;&nbsp;&nbsp;N,&nbsp;M&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">8. &nbsp;&nbsp;&nbsp;&nbsp;edges&nbsp;=&nbsp;[]</p>
+            <p class="diff-block-removed">9. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;_&nbsp;in&nbsp;range(M):</p>
+            <p class="diff-block-removed">10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fr,&nbsp;to,&nbsp;cost&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fr&nbsp;-=&nbsp;1</p>
+            <p class="diff-block-removed">12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;-=&nbsp;1</p>
+            <p class="diff-block-removed">13. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;edges.append((fr,&nbsp;to,&nbsp;cost))</p>
+            <p class="diff-block-removed">14. &nbsp;&nbsp;&nbsp;&nbsp;graph&nbsp;=&nbsp;[[INF]&nbsp;*&nbsp;N&nbsp;for&nbsp;_&nbsp;in&nbsp;range(N)]</p>
+            <p class="diff-block-removed">15. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;fr,&nbsp;to,&nbsp;cost&nbsp;in&nbsp;edges:</p>
+            <p class="diff-block-removed">16. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;graph[fr][to]&nbsp;=&nbsp;cost</p>
+            <p class="diff-block-removed">17. &nbsp;&nbsp;&nbsp;&nbsp;graph&nbsp;=&nbsp;csgraph_from_dense(graph,&nbsp;null_value=INF)</p>
+            <p class="diff-block-removed">18. &nbsp;&nbsp;&nbsp;&nbsp;dist&nbsp;=&nbsp;floyd_warshall(graph,&nbsp;directed=False)</p>
+            <p class="diff-block-removed">19. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;(graph&nbsp;&gt;&nbsp;dist).sum()</p>
+            <p>20. &nbsp;&nbsp;&nbsp;&nbsp;print(ans)</p>
+            <p class="diff-block-removed">21. </p>
+            <p class="diff-block-removed">22. </p>
+            <p>23. sol()</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [3.6239592176x faster, p03837, s034918940]</strong></p>
+            <p>1. def&nbsp;sol():</p>
+            <p class="diff-block-added">2. &nbsp;&nbsp;&nbsp;&nbsp;n,&nbsp;m&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p class="diff-block-added">3. &nbsp;&nbsp;&nbsp;&nbsp;E&nbsp;=&nbsp;[tuple(map(lambda&nbsp;x:&nbsp;int(x)&nbsp;-&nbsp;1,&nbsp;input().split()[:3]))&nbsp;for&nbsp;_&nbsp;in&nbsp;range(m)]</p>
+            <p class="diff-block-added">4. &nbsp;&nbsp;&nbsp;&nbsp;d&nbsp;=&nbsp;[[float(&quot;inf&quot;)]&nbsp;*&nbsp;n&nbsp;for&nbsp;_&nbsp;in&nbsp;range(n)]</p>
+            <p class="diff-block-added">5. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(n):</p>
+            <p class="diff-block-added">6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d[i][i]&nbsp;=&nbsp;0</p>
+            <p class="diff-block-added">7. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(m):</p>
+            <p class="diff-block-added">8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a,&nbsp;b,&nbsp;c&nbsp;=&nbsp;E[i]</p>
+            <p class="diff-block-added">9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d[a][b]&nbsp;=&nbsp;min(d[a][b],&nbsp;c)</p>
+            <p class="diff-block-added">10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d[b][a]&nbsp;=&nbsp;min(d[b][a],&nbsp;c)</p>
+            <p class="diff-block-added">11. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;k&nbsp;in&nbsp;range(n):</p>
+            <p class="diff-block-added">12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(n):</p>
+            <p class="diff-block-added">13. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;range(n):</p>
+            <p class="diff-block-added">14. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d[i][j]&nbsp;=&nbsp;min(d[i][j],&nbsp;d[i][k]&nbsp;+&nbsp;d[k][j])</p>
+            <p class="diff-block-added">15. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;0</p>
+            <p class="diff-block-added">16. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(m):</p>
+            <p class="diff-block-added">17. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a,&nbsp;b,&nbsp;c&nbsp;=&nbsp;E[i]</p>
+            <p class="diff-block-added">18. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;d[a][b]&nbsp;&lt;&nbsp;c:</p>
+            <p class="diff-block-added">19. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;+=&nbsp;1</p>
+            <p>20. &nbsp;&nbsp;&nbsp;&nbsp;print(ans)</p>
+            <p>21. </p>
+            <p>22. </p>
+            <p>23. sol()</p>
+        </div>
+    </div>
+</body>
+</html>

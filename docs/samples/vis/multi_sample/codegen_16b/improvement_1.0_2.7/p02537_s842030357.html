@@ -1,0 +1,159 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p>1. import&nbsp;sys</p>
+            <p class="diff-block-removed">2. </p>
+            <p>3. input&nbsp;=&nbsp;sys.stdin.readline</p>
+            <p class="diff-block-removed">4. n,&nbsp;k&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">5. As&nbsp;=&nbsp;[int(eval(input()))&nbsp;for&nbsp;i&nbsp;in&nbsp;range(n)]</p>
+            <p class="diff-block-removed">6. #&nbsp;N:&nbsp;処理する区間の長さ</p>
+            <p class="diff-block-removed">7. INF&nbsp;=&nbsp;0</p>
+            <p class="diff-block-removed">8. mx&nbsp;=&nbsp;300001</p>
+            <p class="diff-block-removed">9. LV&nbsp;=&nbsp;(mx&nbsp;-&nbsp;1).bit_length()</p>
+            <p class="diff-block-removed">10. N0&nbsp;=&nbsp;2**LV</p>
+            <p class="diff-block-removed">11. data&nbsp;=&nbsp;[INF]&nbsp;*&nbsp;(2&nbsp;*&nbsp;N0)</p>
+            <p class="diff-block-removed">12. lazy&nbsp;=&nbsp;[None]&nbsp;*&nbsp;(2&nbsp;*&nbsp;N0)</p>
+            <p class="diff-block-removed">13. #&nbsp;伝搬対象の区間を求める</p>
+            <p class="diff-block-removed">14. def&nbsp;gindex(l,&nbsp;r):</p>
+            <p class="diff-block-removed">15. &nbsp;&nbsp;&nbsp;&nbsp;L&nbsp;=&nbsp;(l&nbsp;+&nbsp;N0)&nbsp;&gt;&gt;&nbsp;1</p>
+            <p class="diff-block-removed">16. &nbsp;&nbsp;&nbsp;&nbsp;R&nbsp;=&nbsp;(r&nbsp;+&nbsp;N0)&nbsp;&gt;&gt;&nbsp;1</p>
+            <p class="diff-block-removed">17. &nbsp;&nbsp;&nbsp;&nbsp;lc&nbsp;=&nbsp;0&nbsp;if&nbsp;l&nbsp;&amp;&nbsp;1&nbsp;else&nbsp;(L&nbsp;&amp;&nbsp;-L).bit_length()</p>
+            <p class="diff-block-removed">18. &nbsp;&nbsp;&nbsp;&nbsp;rc&nbsp;=&nbsp;0&nbsp;if&nbsp;r&nbsp;&amp;&nbsp;1&nbsp;else&nbsp;(R&nbsp;&amp;&nbsp;-R).bit_length()</p>
+            <p class="diff-block-removed">19. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(LV):</p>
+            <p class="diff-block-removed">20. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;rc&nbsp;&lt;=&nbsp;i:</p>
+            <p class="diff-block-removed">21. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yield&nbsp;R</p>
+            <p class="diff-block-removed">22. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;L&nbsp;&lt;&nbsp;R&nbsp;and&nbsp;lc&nbsp;&lt;=&nbsp;i:</p>
+            <p class="diff-block-removed">23. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yield&nbsp;L</p>
+            <p class="diff-block-removed">24. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;L&nbsp;&gt;&gt;=&nbsp;1</p>
+            <p class="diff-block-removed">25. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;R&nbsp;&gt;&gt;=&nbsp;1</p>
+            <p class="diff-block-removed">26. </p>
+            <p class="diff-block-removed">27. </p>
+            <p class="diff-block-removed">28. #&nbsp;遅延伝搬処理</p>
+            <p class="diff-block-removed">29. def&nbsp;propagates(*ids):</p>
+            <p class="diff-block-removed">30. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;reversed(ids):</p>
+            <p class="diff-block-removed">31. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v&nbsp;=&nbsp;lazy[i&nbsp;-&nbsp;1]</p>
+            <p class="diff-block-removed">32. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;v&nbsp;is&nbsp;None:</p>
+            <p class="diff-block-removed">33. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue</p>
+            <p class="diff-block-removed">34. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lazy[2&nbsp;*&nbsp;i&nbsp;-&nbsp;1]&nbsp;=&nbsp;data[2&nbsp;*&nbsp;i&nbsp;-&nbsp;1]&nbsp;=&nbsp;lazy[2&nbsp;*&nbsp;i]&nbsp;=&nbsp;data[2&nbsp;*&nbsp;i]&nbsp;=&nbsp;v</p>
+            <p class="diff-block-removed">35. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lazy[i&nbsp;-&nbsp;1]&nbsp;=&nbsp;None</p>
+            <p class="diff-block-removed">36. </p>
+            <p class="diff-block-removed">37. </p>
+            <p class="diff-block-removed">38. #&nbsp;区間[l,&nbsp;r)をxで更新</p>
+            <p class="diff-block-removed">39. def&nbsp;update(l,&nbsp;r,&nbsp;x):</p>
+            <p class="diff-block-removed">40. &nbsp;&nbsp;&nbsp;&nbsp;(*ids,)&nbsp;=&nbsp;gindex(l,&nbsp;r)</p>
+            <p class="diff-block-removed">41. &nbsp;&nbsp;&nbsp;&nbsp;propagates(*ids)</p>
+            <p class="diff-block-removed">42. &nbsp;&nbsp;&nbsp;&nbsp;L&nbsp;=&nbsp;N0&nbsp;+&nbsp;l</p>
+            <p class="diff-block-removed">43. &nbsp;&nbsp;&nbsp;&nbsp;R&nbsp;=&nbsp;N0&nbsp;+&nbsp;r</p>
+            <p class="diff-block-removed">44. &nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;L&nbsp;&lt;&nbsp;R:</p>
+            <p class="diff-block-removed">45. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;R&nbsp;&amp;&nbsp;1:</p>
+            <p class="diff-block-removed">46. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;R&nbsp;-=&nbsp;1</p>
+            <p class="diff-block-removed">47. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lazy[R&nbsp;-&nbsp;1]&nbsp;=&nbsp;data[R&nbsp;-&nbsp;1]&nbsp;=&nbsp;x</p>
+            <p class="diff-block-removed">48. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;L&nbsp;&amp;&nbsp;1:</p>
+            <p class="diff-block-removed">49. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lazy[L&nbsp;-&nbsp;1]&nbsp;=&nbsp;data[L&nbsp;-&nbsp;1]&nbsp;=&nbsp;x</p>
+            <p class="diff-block-removed">50. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;L&nbsp;+=&nbsp;1</p>
+            <p class="diff-block-removed">51. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;L&nbsp;&gt;&gt;=&nbsp;1</p>
+            <p class="diff-block-removed">52. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;R&nbsp;&gt;&gt;=&nbsp;1</p>
+            <p class="diff-block-removed">53. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;ids:</p>
+            <p class="diff-block-removed">54. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data[i&nbsp;-&nbsp;1]&nbsp;=&nbsp;max(data[2&nbsp;*&nbsp;i&nbsp;-&nbsp;1],&nbsp;data[2&nbsp;*&nbsp;i])</p>
+            <p class="diff-block-removed">55. </p>
+            <p class="diff-block-removed">56. </p>
+            <p class="diff-block-removed">57. #&nbsp;区間[l,&nbsp;r)内の最小値を求める</p>
+            <p class="diff-block-removed">58. def&nbsp;query(l,&nbsp;r):</p>
+            <p class="diff-block-removed">59. &nbsp;&nbsp;&nbsp;&nbsp;propagates(*gindex(l,&nbsp;r))</p>
+            <p class="diff-block-removed">60. &nbsp;&nbsp;&nbsp;&nbsp;L&nbsp;=&nbsp;N0&nbsp;+&nbsp;l</p>
+            <p class="diff-block-removed">61. &nbsp;&nbsp;&nbsp;&nbsp;R&nbsp;=&nbsp;N0&nbsp;+&nbsp;r</p>
+            <p class="diff-block-removed">62. &nbsp;&nbsp;&nbsp;&nbsp;s&nbsp;=&nbsp;INF</p>
+            <p class="diff-block-removed">63. &nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;L&nbsp;&lt;&nbsp;R:</p>
+            <p class="diff-block-removed">64. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;R&nbsp;&amp;&nbsp;1:</p>
+            <p class="diff-block-removed">65. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;R&nbsp;-=&nbsp;1</p>
+            <p class="diff-block-removed">66. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s&nbsp;=&nbsp;max(s,&nbsp;data[R&nbsp;-&nbsp;1])</p>
+            <p class="diff-block-removed">67. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;L&nbsp;&amp;&nbsp;1:</p>
+            <p class="diff-block-removed">68. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s&nbsp;=&nbsp;max(s,&nbsp;data[L&nbsp;-&nbsp;1])</p>
+            <p class="diff-block-removed">69. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;L&nbsp;+=&nbsp;1</p>
+            <p class="diff-block-removed">70. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;L&nbsp;&gt;&gt;=&nbsp;1</p>
+            <p class="diff-block-removed">71. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;R&nbsp;&gt;&gt;=&nbsp;1</p>
+            <p class="diff-block-removed">72. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;s</p>
+            <p class="diff-block-removed">73. </p>
+            <p class="diff-block-removed">74. </p>
+            <p class="diff-block-removed">75. update(As[0],&nbsp;As[0]&nbsp;+&nbsp;1,&nbsp;1)</p>
+            <p class="diff-block-removed">76. for&nbsp;i,&nbsp;a&nbsp;in&nbsp;enumerate(As[1:]):</p>
+            <p class="diff-block-removed">77. &nbsp;&nbsp;&nbsp;&nbsp;l&nbsp;=&nbsp;max(0,&nbsp;a&nbsp;-&nbsp;k)</p>
+            <p class="diff-block-removed">78. &nbsp;&nbsp;&nbsp;&nbsp;r&nbsp;=&nbsp;min(mx,&nbsp;a&nbsp;+&nbsp;k)</p>
+            <p class="diff-block-removed">79. &nbsp;&nbsp;&nbsp;&nbsp;upd&nbsp;=&nbsp;query(l,&nbsp;r&nbsp;+&nbsp;1)</p>
+            <p class="diff-block-removed">80. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;upd&nbsp;==&nbsp;-1:</p>
+            <p class="diff-block-removed">81. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue</p>
+            <p class="diff-block-removed">82. &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;print(&quot;i&quot;,i,&quot;a&quot;,a,&quot;upd&quot;,upd,&quot;l&quot;,l,&quot;r&quot;,r)</p>
+            <p class="diff-block-removed">83. &nbsp;&nbsp;&nbsp;&nbsp;update(a,&nbsp;a&nbsp;+&nbsp;1,&nbsp;upd&nbsp;+&nbsp;1)</p>
+            <p class="diff-block-removed">84. ans&nbsp;=&nbsp;0</p>
+            <p class="diff-block-removed">85. for&nbsp;a&nbsp;in&nbsp;set(As):</p>
+            <p class="diff-block-removed">86. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;max(ans,&nbsp;query(a,&nbsp;a&nbsp;+&nbsp;1))</p>
+            <p class="diff-block-removed">87. print(ans)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [1.7942614469x faster, p02537, s842030357]</strong></p>
+            <p>1. import&nbsp;sys</p>
+            <p>2. </p>
+            <p>3. input&nbsp;=&nbsp;sys.stdin.readline</p>
+            <p>4. </p>
+            <p>5. </p>
+            <p class="diff-block-added">6. def&nbsp;main():</p>
+            <p class="diff-block-added">7. &nbsp;&nbsp;&nbsp;&nbsp;n,&nbsp;k&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-added">8. &nbsp;&nbsp;&nbsp;&nbsp;As&nbsp;=&nbsp;[int(eval(input()))&nbsp;for&nbsp;i&nbsp;in&nbsp;range(n)]</p>
+            <p class="diff-block-added">9. &nbsp;&nbsp;&nbsp;&nbsp;l&nbsp;=&nbsp;{}</p>
+            <p class="diff-block-added">10. &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;順序付(1-indexed),&nbsp;使うと間に合わない</p>
+            <p class="diff-block-added">11. &nbsp;&nbsp;&nbsp;&nbsp;As.sort()</p>
+            <p class="diff-block-added">12. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;n&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-added">13. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;l[As[i&nbsp;-&nbsp;1]]&nbsp;=&nbsp;i</p>
+            <p class="diff-block-added">14. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(n):</p>
+            <p class="diff-block-added">15. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;=&nbsp;l[As[i]]</p>
+            <p class="diff-block-added">16. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;a&nbsp;&lt;=&nbsp;k:</p>
+            <p>17. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue</p>
+            <p class="diff-block-added">18. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;切る</p>
+            <p class="diff-block-added">19. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;l[As[i]&nbsp;-&nbsp;k]&nbsp;=&nbsp;l[a&nbsp;-&nbsp;k]&nbsp;=&nbsp;a&nbsp;-&nbsp;k</p>
+            <p class="diff-block-added">20. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;0</p>
+            <p class="diff-block-added">21. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(n):</p>
+            <p class="diff-block-added">22. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;=&nbsp;l[As[i]]</p>
+            <p class="diff-block-added">23. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;max(ans,&nbsp;a&nbsp;-&nbsp;k)</p>
+            <p class="diff-block-added">24. &nbsp;&nbsp;&nbsp;&nbsp;print(ans)</p>
+            <p>25. </p>
+            <p>26. </p>
+            <p class="diff-block-added">27. main()</p>
+        </div>
+    </div>
+</body>
+</html>

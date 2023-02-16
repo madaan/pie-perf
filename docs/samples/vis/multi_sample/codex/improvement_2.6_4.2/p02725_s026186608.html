@@ -1,0 +1,97 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. import&nbsp;sys,&nbsp;re</p>
+            <p class="diff-block-removed">2. from&nbsp;collections&nbsp;import&nbsp;deque,&nbsp;defaultdict,&nbsp;Counter</p>
+            <p class="diff-block-removed">3. from&nbsp;math&nbsp;import&nbsp;ceil,&nbsp;sqrt,&nbsp;hypot,&nbsp;factorial,&nbsp;pi,&nbsp;sin,&nbsp;cos,&nbsp;radians</p>
+            <p class="diff-block-removed">4. from&nbsp;itertools&nbsp;import&nbsp;accumulate,&nbsp;permutations,&nbsp;combinations,&nbsp;product,&nbsp;groupby</p>
+            <p class="diff-block-removed">5. from&nbsp;operator&nbsp;import&nbsp;itemgetter,&nbsp;mul</p>
+            <p class="diff-block-removed">6. from&nbsp;copy&nbsp;import&nbsp;deepcopy</p>
+            <p class="diff-block-removed">7. from&nbsp;string&nbsp;import&nbsp;ascii_lowercase,&nbsp;ascii_uppercase,&nbsp;digits</p>
+            <p class="diff-block-removed">8. from&nbsp;bisect&nbsp;import&nbsp;bisect,&nbsp;bisect_left</p>
+            <p class="diff-block-removed">9. from&nbsp;fractions&nbsp;import&nbsp;gcd</p>
+            <p class="diff-block-removed">10. from&nbsp;heapq&nbsp;import&nbsp;heappush,&nbsp;heappop</p>
+            <p class="diff-block-removed">11. from&nbsp;functools&nbsp;import&nbsp;reduce</p>
+            <p class="diff-block-removed">12. </p>
+            <p class="diff-block-removed">13. </p>
+            <p class="diff-block-removed">14. def&nbsp;input():</p>
+            <p class="diff-block-removed">15. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;sys.stdin.readline().strip()</p>
+            <p class="diff-block-removed">16. </p>
+            <p class="diff-block-removed">17. </p>
+            <p class="diff-block-removed">18. def&nbsp;INT():</p>
+            <p class="diff-block-removed">19. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;int(eval(input()))</p>
+            <p class="diff-block-removed">20. </p>
+            <p class="diff-block-removed">21. </p>
+            <p class="diff-block-removed">22. def&nbsp;MAP():</p>
+            <p class="diff-block-removed">23. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">24. </p>
+            <p class="diff-block-removed">25. </p>
+            <p class="diff-block-removed">26. def&nbsp;LIST():</p>
+            <p class="diff-block-removed">27. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">28. </p>
+            <p class="diff-block-removed">29. </p>
+            <p class="diff-block-removed">30. def&nbsp;ZIP(n):</p>
+            <p class="diff-block-removed">31. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;list(zip(*(MAP()&nbsp;for&nbsp;_&nbsp;in&nbsp;range(n))))</p>
+            <p class="diff-block-removed">32. </p>
+            <p class="diff-block-removed">33. </p>
+            <p class="diff-block-removed">34. sys.setrecursionlimit(10**9)</p>
+            <p class="diff-block-removed">35. INF&nbsp;=&nbsp;float(&quot;inf&quot;)</p>
+            <p class="diff-block-removed">36. mod&nbsp;=&nbsp;10**9&nbsp;+&nbsp;7</p>
+            <p class="diff-block-removed">37. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-removed">38. </p>
+            <p class="diff-block-removed">39. K,&nbsp;N&nbsp;=&nbsp;MAP()</p>
+            <p class="diff-block-removed">40. A&nbsp;=&nbsp;LIST()</p>
+            <p>41. A.append(A[0]&nbsp;+&nbsp;K)</p>
+            <p class="diff-block-removed">42. B&nbsp;=&nbsp;np.zeros(N)</p>
+            <p>43. for&nbsp;i&nbsp;in&nbsp;range(N):</p>
+            <p class="diff-block-removed">44. &nbsp;&nbsp;&nbsp;&nbsp;B[i]&nbsp;=&nbsp;A[i&nbsp;+&nbsp;1]&nbsp;-&nbsp;A[i]</p>
+            <p class="diff-block-removed">45. print((int(K&nbsp;-&nbsp;max(B))))</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [3.6471119379x faster, p02725, s026186608]</strong></p>
+            <p class="diff-block-added">1. K,&nbsp;N&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p class="diff-block-added">2. A&nbsp;=&nbsp;[int(i)&nbsp;for&nbsp;i&nbsp;in&nbsp;input().split()]</p>
+            <p>3. A.append(A[0]&nbsp;+&nbsp;K)</p>
+            <p class="diff-block-added">4. D&nbsp;=&nbsp;[]</p>
+            <p>5. for&nbsp;i&nbsp;in&nbsp;range(N):</p>
+            <p class="diff-block-added">6. &nbsp;&nbsp;&nbsp;&nbsp;D.append(A[i&nbsp;+&nbsp;1]&nbsp;-&nbsp;A[i])</p>
+            <p class="diff-block-added">7. print(K&nbsp;-&nbsp;max(D))</p>
+        </div>
+    </div>
+</body>
+</html>

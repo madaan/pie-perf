@@ -1,0 +1,81 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-removed">2. </p>
+            <p>3. s&nbsp;=&nbsp;input()[::-1]</p>
+            <p>4. length&nbsp;=&nbsp;len(s)</p>
+            <p class="diff-block-removed">5. a&nbsp;=&nbsp;np.zeros(length,&nbsp;dtype=int)</p>
+            <p class="diff-block-removed">6. d&nbsp;=&nbsp;np.zeros(length,&nbsp;dtype=int)</p>
+            <p class="diff-block-removed">7. ans&nbsp;=&nbsp;np.zeros(2019,&nbsp;dtype=int)</p>
+            <p>8. x&nbsp;=&nbsp;10</p>
+            <p>9. a[0]&nbsp;=&nbsp;int(s[0])</p>
+            <p>10. d[0]&nbsp;=&nbsp;a[0]</p>
+            <p>11. ans[d[0]]&nbsp;+=&nbsp;1</p>
+            <p>12. for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;length):</p>
+            <p>13. &nbsp;&nbsp;&nbsp;&nbsp;a[i]&nbsp;=&nbsp;int(s[i])&nbsp;*&nbsp;x&nbsp;%&nbsp;2019</p>
+            <p>14. &nbsp;&nbsp;&nbsp;&nbsp;d[i]&nbsp;=&nbsp;(d[i&nbsp;-&nbsp;1]&nbsp;+&nbsp;a[i])&nbsp;%&nbsp;2019</p>
+            <p>15. &nbsp;&nbsp;&nbsp;&nbsp;ans[d[i]]&nbsp;+=&nbsp;1</p>
+            <p>16. &nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;=&nbsp;x&nbsp;*&nbsp;10&nbsp;%&nbsp;2019</p>
+            <p class="diff-block-removed">17. ans_c&nbsp;=&nbsp;ans[np.nonzero(ans)]</p>
+            <p class="diff-block-removed">18. print(</p>
+            <p class="diff-block-removed">19. &nbsp;&nbsp;&nbsp;&nbsp;(int(sum([ans_c[i]&nbsp;*&nbsp;(ans_c[i]&nbsp;-&nbsp;1)&nbsp;for&nbsp;i&nbsp;in&nbsp;range(ans_c.shape[0])])&nbsp;/&nbsp;2)&nbsp;+&nbsp;ans[0])</p>
+            <p class="diff-block-removed">20. )</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [5.2597513649x faster, p02702, s837932378]</strong></p>
+            <p>1. s&nbsp;=&nbsp;input()[::-1]</p>
+            <p>2. length&nbsp;=&nbsp;len(s)</p>
+            <p class="diff-block-added">3. a&nbsp;=&nbsp;[0]&nbsp;*&nbsp;length</p>
+            <p class="diff-block-added">4. d&nbsp;=&nbsp;[0]&nbsp;*&nbsp;length</p>
+            <p class="diff-block-added">5. ans&nbsp;=&nbsp;[0]&nbsp;*&nbsp;2019</p>
+            <p>6. x&nbsp;=&nbsp;10</p>
+            <p>7. a[0]&nbsp;=&nbsp;int(s[0])</p>
+            <p>8. d[0]&nbsp;=&nbsp;a[0]</p>
+            <p>9. ans[d[0]]&nbsp;+=&nbsp;1</p>
+            <p>10. for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;length):</p>
+            <p>11. &nbsp;&nbsp;&nbsp;&nbsp;a[i]&nbsp;=&nbsp;int(s[i])&nbsp;*&nbsp;x&nbsp;%&nbsp;2019</p>
+            <p>12. &nbsp;&nbsp;&nbsp;&nbsp;d[i]&nbsp;=&nbsp;(d[i&nbsp;-&nbsp;1]&nbsp;+&nbsp;a[i])&nbsp;%&nbsp;2019</p>
+            <p>13. &nbsp;&nbsp;&nbsp;&nbsp;ans[d[i]]&nbsp;+=&nbsp;1</p>
+            <p>14. &nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;=&nbsp;x&nbsp;*&nbsp;10&nbsp;%&nbsp;2019</p>
+            <p class="diff-block-added">15. ans_c&nbsp;=&nbsp;[ans[i]&nbsp;for&nbsp;i&nbsp;in&nbsp;range(2019)&nbsp;if&nbsp;ans[i]&nbsp;&gt;&nbsp;0]</p>
+            <p class="diff-block-added">16. print((int(sum([ans_c[i]&nbsp;*&nbsp;(ans_c[i]&nbsp;-&nbsp;1)&nbsp;for&nbsp;i&nbsp;in&nbsp;range(len(ans_c))])&nbsp;/&nbsp;2)&nbsp;+&nbsp;ans[0]))</p>
+        </div>
+    </div>
+</body>
+</html>

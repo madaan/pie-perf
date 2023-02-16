@@ -1,0 +1,71 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. import&nbsp;sys</p>
+            <p class="diff-block-removed">2. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p>3. </p>
+            <p class="diff-block-removed">4. sr&nbsp;=&nbsp;lambda:&nbsp;sys.stdin.readline().rstrip()</p>
+            <p class="diff-block-removed">5. ir&nbsp;=&nbsp;lambda:&nbsp;int(sr())</p>
+            <p class="diff-block-removed">6. lr&nbsp;=&nbsp;lambda:&nbsp;list(map(int,&nbsp;sr().split()))</p>
+            <p class="diff-block-removed">7. N&nbsp;=&nbsp;ir()</p>
+            <p class="diff-block-removed">8. P&nbsp;=&nbsp;np.array(lr())</p>
+            <p class="diff-block-removed">9. P_diff&nbsp;=&nbsp;np.diff(P)</p>
+            <p class="diff-block-removed">10. P_diff&nbsp;=&nbsp;P_diff&nbsp;&gt;&nbsp;0</p>
+            <p class="diff-block-removed">11. series&nbsp;=&nbsp;P_diff[:-1]&nbsp;==&nbsp;P_diff[1:]</p>
+            <p class="diff-block-removed">12. answer&nbsp;=&nbsp;series.sum()</p>
+            <p class="diff-block-removed">13. print(answer)</p>
+            <p class="diff-block-removed">14. #&nbsp;23</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [3.5475997972x faster, p02988, s600247338]</strong></p>
+            <p class="diff-block-added">1. def&nbsp;run(N):</p>
+            <p class="diff-block-added">2. &nbsp;&nbsp;&nbsp;&nbsp;P&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-added">3. &nbsp;&nbsp;&nbsp;&nbsp;answer&nbsp;=&nbsp;0</p>
+            <p class="diff-block-added">4. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(N&nbsp;-&nbsp;2):</p>
+            <p class="diff-block-added">5. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(P[i]&nbsp;&lt;&nbsp;P[i&nbsp;+&nbsp;1]&nbsp;&lt;&nbsp;P[i&nbsp;+&nbsp;2])&nbsp;or&nbsp;(P[i]&nbsp;&gt;&nbsp;P[i&nbsp;+&nbsp;1]&nbsp;&gt;&nbsp;P[i&nbsp;+&nbsp;2]):</p>
+            <p class="diff-block-added">6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;answer&nbsp;+=&nbsp;1</p>
+            <p class="diff-block-added">7. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;answer</p>
+            <p class="diff-block-added">8. </p>
+            <p class="diff-block-added">9. </p>
+            <p class="diff-block-added">10. if&nbsp;__name__&nbsp;==&nbsp;&quot;__main__&quot;:</p>
+            <p class="diff-block-added">11. &nbsp;&nbsp;&nbsp;&nbsp;N&nbsp;=&nbsp;int(input())</p>
+            <p class="diff-block-added">12. &nbsp;&nbsp;&nbsp;&nbsp;print(run(N))</p>
+        </div>
+    </div>
+</body>
+</html>

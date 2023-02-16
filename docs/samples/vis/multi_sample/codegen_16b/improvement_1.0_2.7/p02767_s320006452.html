@@ -1,0 +1,76 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p>1. n&nbsp;=&nbsp;int(eval(input()))</p>
+            <p>2. x&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p>3. x.sort()</p>
+            <p class="diff-block-removed">4. for&nbsp;p&nbsp;in&nbsp;range(x[0],&nbsp;x[len(x)&nbsp;-&nbsp;1]&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-removed">5. &nbsp;&nbsp;&nbsp;&nbsp;psum&nbsp;=&nbsp;0</p>
+            <p class="diff-block-removed">6. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(len(x)):</p>
+            <p class="diff-block-removed">7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;psum&nbsp;=&nbsp;psum&nbsp;+&nbsp;(x[0]&nbsp;-&nbsp;x[i])&nbsp;**&nbsp;2</p>
+            <p class="diff-block-removed">8. &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;&nbsp;&nbsp;&nbsp;print(psum)</p>
+            <p class="diff-block-removed">9. &nbsp;&nbsp;&nbsp;&nbsp;pmin&nbsp;=&nbsp;psum</p>
+            <p class="diff-block-removed">10. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;range(x[0]&nbsp;+&nbsp;1,&nbsp;x[len(x)&nbsp;-&nbsp;1]):</p>
+            <p class="diff-block-removed">11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;psum&nbsp;=&nbsp;0</p>
+            <p class="diff-block-removed">12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(len(x)):</p>
+            <p class="diff-block-removed">13. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;psum&nbsp;=&nbsp;psum&nbsp;+&nbsp;(j&nbsp;-&nbsp;x[i])&nbsp;**&nbsp;2</p>
+            <p class="diff-block-removed">14. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(psum)</p>
+            <p class="diff-block-removed">15. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;pmin&nbsp;&gt;&nbsp;psum:</p>
+            <p class="diff-block-removed">16. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pmin&nbsp;=&nbsp;psum</p>
+            <p>17. print(pmin)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [1.0589504321x faster, p02767, s320006452]</strong></p>
+            <p>1. n&nbsp;=&nbsp;int(eval(input()))</p>
+            <p>2. x&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p>3. x.sort()</p>
+            <p class="diff-block-added">4. psum&nbsp;=&nbsp;0</p>
+            <p class="diff-block-added">5. for&nbsp;i&nbsp;in&nbsp;range(len(x)):</p>
+            <p class="diff-block-added">6. &nbsp;&nbsp;&nbsp;&nbsp;psum&nbsp;=&nbsp;psum&nbsp;+&nbsp;(x[0]&nbsp;-&nbsp;x[i])&nbsp;**&nbsp;2</p>
+            <p class="diff-block-added">7. pmin&nbsp;=&nbsp;psum</p>
+            <p class="diff-block-added">8. for&nbsp;j&nbsp;in&nbsp;range(x[0]&nbsp;+&nbsp;1,&nbsp;x[len(x)&nbsp;-&nbsp;1]):</p>
+            <p class="diff-block-added">9. &nbsp;&nbsp;&nbsp;&nbsp;psum&nbsp;=&nbsp;0</p>
+            <p class="diff-block-added">10. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(len(x)):</p>
+            <p class="diff-block-added">11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;psum&nbsp;=&nbsp;psum&nbsp;+&nbsp;(j&nbsp;-&nbsp;x[i])&nbsp;**&nbsp;2</p>
+            <p class="diff-block-added">12. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;pmin&nbsp;&gt;&nbsp;psum:</p>
+            <p class="diff-block-added">13. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pmin&nbsp;=&nbsp;psum</p>
+            <p>14. print(pmin)</p>
+        </div>
+    </div>
+</body>
+</html>
