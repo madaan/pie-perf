@@ -159,7 +159,7 @@
                                     </a>
                                 </span>
                                 <span class="link-block">
-                                    <a href="https://colab.research.google.com/drive/1u4_RsdI0E79PCMDdcPiJUzYhdnjoXeXc?usp=sharing"
+                                    <a href=""
                                         class="external-link button is-normal is-rounded is-dark">
                                         <span class="icon">
                                             <i class="fas fa-terminal"></i>
@@ -272,6 +272,56 @@
                     <h2 class="title is-3">Dataset</h2>
 
                     We provide the trajectories,
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section" id="results">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Examples</h2>
+                    <div class="example-browse">
+                        <iframe id="example-frame" src="samples/vis/multi_sample/codegen_16b/improvement_1.0_2.7/p00001_s534000808.html"></iframe>
+                        <div class="example-nav">
+                          <a href="#" class="example-prev" onclick="prevExample()">&lt; Previous</a>
+                          <a href="#" class="example-next" onclick="nextExample()">Next &gt;</a>
+                        </div>
+                      </div>
+                      
+                      <script>
+                        var examples = [
+                          "samples/vis/multi_sample/codegen_16b/improvement_1.0_2.7/p00001_s534000808.html",
+                          "samples/vis/multi_sample/codegen_16b/improvement_1.0_2.7/p00001_s534000808.html",
+                          "samples/vis/multi_sample/codegen_16b/improvement_1.0_2.7/p00001_s534000808.html"
+                        ];
+                        var currentExample = 0;
+                      
+                        function prevExample() {
+                          currentExample--;
+                          if (currentExample < 0) {
+                            currentExample = examples.length - 1;
+                          }
+                          updateExample();
+                        }
+                      
+                        function nextExample() {
+                          currentExample++;
+                          if (currentExample >= examples.length) {
+                            currentExample = 0;
+                          }
+                          updateExample();
+                        }
+                      
+                        function updateExample() {
+                          var iframe = document.getElementById("example-frame");
+                          iframe.src = examples[currentExample];
+                        }
+                      </script>
+                      
+                    <a href="samples/vis/multi_sample/codegen_16b/improvement_1.0_2.7/p00001_s534000808.html">Example Page</a>
                 </div>
             </div>
         </div>
