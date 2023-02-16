@@ -103,11 +103,21 @@
 
 
     <section class="hero">
+        <section class="hero is-warning">
+            <div class="hero-body">
+              <div class="container">
+                <h1 class="title">
+                  Site under construction! Some links may not work!
+                </h1>
+              </div>
+            </div>
+          </section>
+          
         <div class="hero-body">
             <div class="container is-max-desktop">
                 <div class="columns is-centered">
                     <div class="column has-text-centered">
-                        <h1 class="title is-1 publication-title">[Site under construction! Some links may not work!] <br/>Learning Performance Improving Code Edits with <img
+                        <h1 class="title is-1 publication-title">Learning Performance Improving Code Edits with <img
                                 src="./static/images/pie.png" alt="pie" width="40" height="40" vertical-align="middle"
                                 margin-left="5px" /></h1>
                         <div class="is-size-5 publication-authors">
@@ -215,7 +225,7 @@
     <section class="section">
 
         <div class="container is-max-desktop">
-            <div class="notification is-warning  has-margin-top">
+            <div class="notification is-info  has-margin-top">
                 <button class="delete"></button>
                 <strong>TLDR:</strong> PIE is a dataset and model for learning code edits that improve runtime.
             </div>
@@ -283,16 +293,74 @@
 
   <section class="section">
     <div class="container">
-      <h1 class="title">Example Gallery [WIP]</h1>
-      <div id="example-container">
+      <h1 class="title" id="example-header">Example Gallery [WIP]</h1>
+      <div class="example-browse">
+        <iframe id="example-frame" src="samples/vis/multi_sample/codegen_16b/improvement_1.0_2.7/p00001_s534000808.html"  style="border: 0; width:100%; height: 500px; overflow: auto;"></iframe>
+        <div class="example-nav">
+          <a href="#" class="example-prev" onclick="prevExample()">&lt; Previous</a>
+          <a href="#" class="example-next" onclick="nextExample()">Next &gt;</a>
+        </div>
       </div>
-      <div class="columns">
-        <div class="column">
-          <button id="prev-example" class="button is-info is-light" disabled>Previous</button>
-        </div>
-        <div class="column has-text-right">
-          <button id="next-example" class="button is-info is-light">Next</button>
-        </div>
+      
+      <script>
+
+    var examples = [
+    "samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p03494_s386053727.html",
+"samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p02881_s498895748.html",
+"samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p02767_s628544873.html",
+"samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p03000_s975287095.html",
+"samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p02959_s294034147.html",
+"samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p02899_s524734651.html",
+"samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p00053_s978814614.html",
+"samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p00053_s391855332.html",
+"samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p03494_s417323905.html",
+"samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p00053_s431311473.html",
+"samples/vis/multi_sample/codex/improvement_4.2_5.9/p03796_s800410916.html",
+"samples/vis/multi_sample/codex/improvement_4.2_5.9/p03457_s981534291.html",
+"samples/vis/multi_sample/codex/improvement_4.2_5.9/p03371_s229566237.html",
+"samples/vis/multi_sample/codex/improvement_4.2_5.9/p03013_s205446737.html",
+"samples/vis/multi_sample/codex/improvement_4.2_5.9/p03608_s067652861.html",
+"samples/vis/multi_sample/codex/improvement_4.2_5.9/p03575_s060994907.html",
+"samples/vis/multi_sample/codex/improvement_4.2_5.9/p03371_s537618501.html",
+"samples/vis/multi_sample/codex/improvement_4.2_5.9/p03000_s741155786.html",
+"samples/vis/multi_sample/codex/improvement_4.2_5.9/p02537_s897150427.html",
+"samples/vis/multi_sample/codex/improvement_4.2_5.9/p00053_s978814614.html",
+"samples/vis/multi_sample/codex/improvement_4.2_5.9/p03608_s886496644.html",
+"samples/vis/multi_sample/codex/improvement_4.2_5.9/p03038_s447256606.html",
+"samples/vis/multi_sample/codex/improvement_4.2_5.9/p02982_s670004614.html",
+"samples/vis/multi_sample/codex/improvement_4.2_5.9/p02881_s106501170.html",
+"samples/vis/multi_sample/codex/improvement_4.2_5.9/p02574_s426798312.html",
+"samples/vis/multi_sample/codex/improvement_4.2_5.9/p03575_s277296975.html",
+"samples/vis/multi_sample/codex/improvement_4.2_5.9/p02702_s837932378.html",
+  ];
+        var currentExample = 0;
+      
+        function prevExample() {
+          currentExample--;
+          if (currentExample < 0) {
+            currentExample = examples.length - 1;
+          }
+          updateExample();
+        }
+      
+        function nextExample() {
+          currentExample++;
+          if (currentExample >= examples.length) {
+            currentExample = 0;
+          }
+          updateExample();
+        }
+      
+        function updateExample() {
+          var iframe = document.getElementById("example-frame");
+          iframe.src = examples[currentExample];
+          var element = document.getElementById("example-header");
+            element.scrollIntoView({behavior: "smooth"});
+            $('html,body').animate({
+        scrollTop: $(".second").offset().top},
+        'slow');
+        }
+      </script>
       </div>
     </div>
   </section>
