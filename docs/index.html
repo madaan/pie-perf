@@ -2,9 +2,33 @@
 <html xmlns="http://www.w3.org/1999/html">
 
 <head>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto:400,500,700&display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto:400,500,700&display=swap">
 
     <style>
+        .teaser .columns {
+            position: relative;
+        }
+
+        .caption {
+            font-size: 1.2rem;
+            font-family: "Open Sans", sans-serif;
+            padding: 1rem 0;
+            text-align: left
+        }
+
+        .teaser .arrow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .teaser .buttons {
+            margin-top: 1rem;
+            text-align: center;
+        }
+
         /* img {
 			height: 20px;
 			width: 20px;
@@ -17,12 +41,12 @@
 
         /* Change the font family */
         .publication-title {
-        font-family: 'Roboto', sans-serif;
-        }
-        .publication-authors {
-        font-family: 'Open Sans', sans-serif;
+            font-family: 'Roboto', sans-serif;
         }
 
+        .publication-authors {
+            font-family: 'Open Sans', sans-serif;
+        }
     </style>
     <meta charset="utf-8">
     <meta name="description" content="Optimization">
@@ -66,14 +90,142 @@
     <script src="./static/js/bulma-slider.min.js"></script>
     <script src="./static/js/index.js"></script>
     <script src="https://d3js.org/d3.v4.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+
+            var slow_images = [
+                'static/images/examples/slow_1.jpg',
+                'static/images/examples/slow_2.jpg',
+                'static/images/examples/slow_3.jpg',
+                'static/images/examples/slow_4.jpg',
+                'static/images/examples/slow_5.jpg',
+                'static/images/examples/slow_6.jpg',
+                'static/images/examples/slow_7.jpg',
+                'static/images/examples/slow_8.jpg',
+                'static/images/examples/slow_9.jpg',
+                'static/images/examples/slow_10.jpg',
+                'static/images/examples/slow_11.jpg',
+                'static/images/examples/slow_12.jpg',
+            ];
+            var fast_images = [
+                'static/images/examples/fast_1.jpg',
+                'static/images/examples/fast_2.jpg',
+                'static/images/examples/fast_3.jpg',
+                'static/images/examples/fast_4.jpg',
+                'static/images/examples/fast_5.jpg',
+                'static/images/examples/fast_6.jpg',
+                'static/images/examples/fast_7.jpg',
+                'static/images/examples/fast_8.jpg',
+                'static/images/examples/fast_9.jpg',
+                'static/images/examples/fast_10.jpg',
+                'static/images/examples/fast_11.jpg',
+                'static/images/examples/fast_12.jpg',
+            ];
+            var captions = [
+                "Substitutes a list with a counter (3.5x faster execution, problem ID: p02691, submission ID: s720467562, approach: codex).",
+                "Replaces a for loop with direct calculation (1.37x faster execution, problem ID: p03548, submission ID: s161926153, approach: codegen).",
+                "Removes redundant operations for reversing a string (1.74x faster execution, problem ID: p03416, submission ID: s576934995, approach: codex).",
+                "Substitutes sum with accumulate (1.27x faster execution, problem ID: p02780, submission ID: s803345472, approach: codegen).",
+                "Replaces calls to np.log2 with built-in math.log2. It is crucial to have domain experts review such optimizations for critical code, as the suggested changes may or may not be appropriate. (3.2x faster execution, problem ID: p03644, submission ID: s675566275, approach: codegen).",
+                "A more efficient way to check if the number of digits is even (1.49x faster execution, problem ID: p02952, submission ID: s855248831, approach: codex).",
+                "Calculates N choose 2 (comb(v, 2)) using the direct formula: v * (v - 1) // 2. It also uses a concise implementation of a Counter (3.56x faster execution, problem ID: p03287, submission ID: s936062710, approach: codex).",
+                "Uses Deque instead of vector for faster push_front (14x faster execution, problem ID: p03673, submission ID: s571947656, source: https://stackoverflow.com/questions/35483716/is-stddeque-faster-than-stdvector-for-inserting-at-the-end).",
+                "A saves time by not reading it from stdin since it is never used (10x faster execution, problem ID: p03309, submission ID: s670951114).",
+                "Replaces a for loop with a formula (100x faster execution, problem ID: p02924, submission ID: s276057957, approach: codex).",
+                "Folds the if-else statement into a single expression (4x faster execution, problem ID: p04011, submission ID: s699447607, approach: codex).",
+                "The classical comparison between cin/cout and printf/scanf (5x faster execution, problem ID: p02602, submission ID: s068863183, approach: codex). See more details at https://stackoverflow.com/questions/1042110/using-scanf-in-c-programs-is-faster-than-using-cin."
+            ];
+            var current = 0;
+            var max = slow_images.length - 1;
+
+            // define images
+
+            function showImage(index) {
+                $('.slow-image').attr('src', slow_images[index]);
+                $('.fast-image').attr('src', fast_images[index]);
+                $('.caption').text(captions[index]);
+            }
+
+            showImage(current);
+
+            $('.next').click(function () {
+                if (current < max) {
+                    current++;
+                    showImage(current);
+                }
+            });
+
+            $('.prev').click(function () {
+                if (current > 0) {
+                    current--;
+                    showImage(current);
+                }
+            });
+        });
+
+    </script>
     <!-- <script src="./static/js/results.js"></script> -->
 
     <!--solution from https://stackoverflow.com/questions/23018619/make-text-in-select-element-wrap-when-too-long-->
     <style>
+        .teaser .buttons button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(90deg, #4f9eff, #3871c1);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            border: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .teaser .buttons button:hover {
+            transform: translateY(-50%) scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
         .long_opt {
             max-width: 100%;
             white-space: normal;
             text-overflow: ellipsis;
+        }
+
+        .image-container {
+            height: 300px;
+            /* set a fixed height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-container img {
+            height: 100%;
+            object-fit: contain;
+            /* scale image proportionally and center it */
+        }
+
+
+        .caption {
+            font-size: 18px;
+            color: #333;
+            font-weight: bold;
+            margin-top: 10px;
+            text-align: center;
+            /* text-shadow: 1px 1px #fff; */
+            background-color: rgba(0, 0, 0, 0.05);
+            padding: 1em;
+            margin-top: 0.5em;
+            border-radius: 0.3em;
+            /* color: #fff; */
+            /* max-width: 600px; */
+            margin: auto;
+            margin-top: 1em;
         }
     </style>
     <script>
@@ -86,12 +238,20 @@
                 e.style.display = 'block';
         }
 
+
     </script>
-    <!-- <script>
-        $(function () {
-            $("#outputs").load("./static/outputs.html");
-        });
-    </script> -->
+
+
+    <!-- CSS for smooth transitions -->
+    <style>
+        .card-content {
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+    </style>
+
+
+
 
     <!--font awesome-->
     <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
@@ -105,14 +265,14 @@
     <section class="hero">
         <section class="hero is-warning">
             <div class="hero-body">
-              <div class="container">
-                <h1 class="title">
-                  Site under construction! Some links may not work!
-                </h1>
-              </div>
+                <div class="container">
+                    <h1 class="title">
+                        Site under construction! Some links may not work!
+                    </h1>
+                </div>
             </div>
-          </section>
-          
+        </section>
+
         <div class="hero-body">
             <div class="container is-max-desktop">
                 <div class="columns is-centered">
@@ -159,7 +319,8 @@
                             <div class="publication-links">
                                 <!-- PDF Link. -->
                                 <span class="link-block">
-                                    <a href="https://arxiv.org/pdf/2302.07867.pdf" class="external-link button is-normal is-rounded is-dark">
+                                    <a href="https://arxiv.org/pdf/2302.07867.pdf"
+                                        class="external-link button is-normal is-rounded is-dark">
                                         <span class="icon">
                                             <i class="fas fa-file-pdf"></i>
                                         </span>
@@ -204,35 +365,291 @@
     </section>
 
 
-    <!-- add a link to the page samples/index.html -->
 
-
-
-    <section class="hero teaser">
+    <section class="hero teaser" style="margin-bottom: 10em;">
         <div class="container is-max-desktop">
-            <div class="hero-body">
-                <figure class="image is-8by6">
-                    <img src="static/images/mainfig-v4.jpg">
-                </figure>
-                <h2 class="subtitle has-text-centered">
-                </h2>
+            <div class="notification is-info  has-margin-top">
+                <strong>TLDR:</strong> PIE is a dataset and model for learning code edits that improve runtime. Browse
+                through some model generated optimizations below!
+            </div>
+            <div class="columns is-multiline is-vcentered is-centered">
+                <div class="column has-text-centered">
+                    <button class="button is-primary is-rounded prev"><i class="fas fa-chevron-left"></i></button>
+                </div>
+                <div class="column is-4">
+                    <img src="static/images/examples/slow_1.jpg" alt="Slow Code" class="slow-image"
+                        style=" float: left;">
+                </div>
+                <div class="column is-2 has-text-centered">
+                    <img src="static/images/examples/pie.jpg">
+                    <!-- <i class="fas fa-chevron-right fa-2x arrow"></i> -->
+                </div>
+                <div class="column is-4">
+                    <img src="static/images/examples/fast_1.jpg" alt="Fast Code" class="fast-image"
+                        style=" float: left;">
+                </div>
+                <div class="column has-text-centered">
+                    <button class="button is-primary is-rounded next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="column is-12 has-text-centered">
+                    <div class="caption">
+                        Caption 1
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
 
 
+    <!--FAQ-->
+    <section class="section">
+        <div class="container is-max-desktop">
+            <h1 class="title">About <img src="./static/images/pie.png" alt="pie" width="40" height="40"
+                    vertical-align="middle" margin-left="5px" /></h1>
+            <div class="card">
+                <header class="card-header">
+                    <p class="card-header-title">
+                        Q. About PIE
+                    </p>
+                    <a class="card-header-icon">
+                        <span class="icon">
+                            <i class="fas fa-angle-down" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </header>
+                <div class="card-content is-hidden">
+                    <div class="content">
+                        PIE stands for <b>P</b>erformance <b>I</b>mproving Code <b>E</b>dits. We also train strong
+                        baselines, showing that CODEGEN-16B can be finetuned using PIE to match closely with CODEX on
+                        speedup.
+                        PIE is curated from [CodeNet](https://github.com/IBM/Project_CodeNet). Thanks to project codenet
+                        for making the dataset available!
+                        Each problem statement comes with a set of unit tests to check correctness.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <header class="card-header">
+                    <p class="card-header-title">
+                        Q. What makes PIE unique?
+                    </p>
+                    <a class="card-header-icon">
+                        <span class="icon">
+                            <i class="fas fa-angle-down" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </header>
+                <div class="card-content is-hidden">
+                    <div class="content">
+                        We collect trajectories of code edits from CodeNet, where a programmer iteratively modifies an
+                        initial program to improve its runtime efficiency. The fact that in each trajectory, a single
+                        programmer makes the edits,
+                        for a single program and a single goal (improving runtime efficiency) makes this dataset unique.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <header class="card-header">
+                    <p class="card-header-title">
+                        Q. Why are trajectories important?
+                    </p>
+                    <a class="card-header-icon">
+                        <span class="icon">
+                            <i class="fas fa-angle-down" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </header>
+                <div class="card-content is-hidden">
+                    <div class="content">
+                        Trajectories are important because they capture the evolution of a program as it is being
+                        written. Crucially, the differences between subsequent edits are localized to a small number of
+                        lines of code.
+                        The fact that the changes are minimal is critical in training models that can perform surgical
+                        code edits. We do not want complete rewrites; we want to build models that can propose minimal
+                        changes to a program.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <header class="card-header">
+                    <p class="card-header-title">
+                        Q. Why is it essential to have minimal changes?
+                    </p>
+                    <a class="card-header-icon">
+                        <span class="icon">
+                            <i class="fas fa-angle-down" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </header>
+                <div class="card-content is-hidden">
+                    <div class="content">
+                        We believe that the ability to make minimal changes is critical for the success of any program
+                        repair system. A system that completely rewrites a program is unlikely to be helpful in practice
+                        --- the programmer will have to verify that the new program is correct, and that it still
+                        achieves the same goal as the original program. In contrast, a system that can propose a small
+                        number of edits to a program is more likely to be useful in practice.
+                        The programmer can quickly verify that the edits are correct, without re-verifying the entire
+                        program.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <header class="card-header">
+                    <p class="card-header-title">
+                        Q. What are we releasing?
+                    </p>
+                    <a class="card-header-icon">
+                        <span class="icon">
+                            <i class="fas fa-angle-down" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </header>
+                <div class="card-content is-hidden">
+                    <div class="content">
+                        We are releasing the dataset of trajectories, our code for preparing the dataset, and our
+                        prompts. We are also releasing our evaluation harness, allowing you to evaluate new methods on
+                        the dataset.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <header class="card-header">
+                    <p class="card-header-title">
+                        Q. Who cares if my python script runs in 0.5 seconds instead of 0.4 seconds?
+                    </p>
+                    <a class="card-header-icon">
+                        <span class="icon">
+                            <i class="fas fa-angle-down" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </header>
+                <div class="card-content is-hidden">
+                    <div class="content">
+                        A lot of real-world use cases! Trading algorithms, daemons on cloud servers, query processing,
+                        os kernels, etc., are just a few examples where programs frequently run at scale.
+                        For programs executed millions of times a day, even a tiny improvement in runtime can
+                        significantly impact the overall system performance.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <header class="card-header">
+                    <p class="card-header-title">
+                        Q. But ChatGPT can already do everything?
+                    </p>
+                    <a class="card-header-icon">
+                        <span class="icon">
+                            <i class="fas fa-angle-down" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </header>
+                <div class="card-content is-hidden">
+                    <div class="content">
+                        While anecdotal examples are fun, they can be misleading. Our benchmark evaluation confirms that
+                        codex is pretty good at the task but is far from perfect!
+                        Crucially, we leverage pie to finetune [CodeGen-16B](https://github.com/salesforce/CodeGen), and
+                        show that it can closely match CODEX in terms of speedup (2.62x for codex vs. 2.45x for
+                        codegen-16b finetuned on PIE).
+                        Further, CodeGen-16B + PIE is *better* than codex in terms of the lines of code changed (56%
+                        changed by CodeGen-16B vs. 70% changed by codex) (please also see the note above on usability of
+                        optimization methods and the importance of making minimal-changes).
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <header class="card-header">
+                    <p class="card-header-title">
+                        Q. What if the optimizations add bugs?
+                    </p>
+                    <a class="card-header-icon">
+                        <span class="icon">
+                            <i class="fas fa-angle-down" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </header>
+                <div class="card-content is-hidden">
+                    <div class="content">
+                        Each trajectory in PIE comes with a unit test. We use the unit test to evaluate the correctness
+                        of the optimized program.
+                        In some cases, the optimization may introduce a bug that the unit tests miss. Therefore, we will
+                        also release an extended set of unit tests sourced from code contests.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <header class="card-header">
+                    <p class="card-header-title">
+                        Q. How large is the dataset?
+                    </p>
+                    <a class="card-header-icon">
+                        <span class="icon">
+                            <i class="fas fa-angle-down" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </header>
+                <div class="card-content is-hidden">
+                    <div class="content">
+                        The filtered dataset used for finetuning has ~40k pairs for Python and ~100k for C++. We also
+                        release the entire dataset, which has ~150k pairs for Python and ~200k for C++.
+                        The dataset is available on our [github](https://github.com/madaan/pie-perf).
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        // load the faq from /static/faq.html
+
+        $(function () {
+            $("#faq").load("/static/faq.html");
+        });
+
+        const faqs = document.querySelectorAll('.card-header');
+
+        faqs.forEach(faq => {
+            faq.addEventListener('click', () => {
+                const content = faq.nextElementSibling;
+
+                faq.classList.toggle('is-active');
+                content.classList.toggle('is-hidden');
+
+                // Smooth transition
+                if (content.classList.contains('is-hidden')) {
+                    content.style.maxHeight = 0;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        });
+
+        // Fold all FAQs initially
+        const cardContents = document.querySelectorAll('.card-content');
+
+        cardContents.forEach(content => {
+            content.style.maxHeight = 0;
+        });
+    </script>
+
     <section class="section">
 
         <div class="container is-max-desktop">
-            <div class="notification is-info  has-margin-top">
-                <strong>TLDR:</strong> PIE is a dataset and model for learning code edits that improve runtime.
-            </div>
+
             <!-- Abstract. -->
             <div class="columns is-centered has-text-centered">
 
                 <div class="column is-four-fifths">
-                    <h2 class="title is-3">About</h2>
+                    <h2 class="title is-3">Abstract</h2>
                     <div class="content has-text-justified is-size-4">
                         The waning of Moore's Law has shifted the focus of the tech industry towards alternative methods
                         to achieve continued performance gains. To optimize program efficiency, programmers must craft
@@ -277,7 +694,7 @@
             <div class="columns is-centered has-text-centered">
                 <div class="column is-four-fifths">
                     <h2 class="title is-3">Dataset</h2>
-[WIP]
+                    [WIP]
                 </div>
             </div>
         </div>
@@ -290,80 +707,83 @@
   ];-->
 
 
-  <section class="section">
-    <div class="container">
-      <h1 class="title" id="example-header">Example Gallery [WIP]</h1>
-      <div class="example-browse">
-        <iframe id="example-frame" src="samples/vis/multi_sample/codegen_16b/improvement_1.0_2.7/p00001_s534000808.html"  style="border: 0; width:100%; height: 500px; overflow: auto;"></iframe>
-        <div class="example-nav">
-          <a href="#" class="example-prev" onclick="prevExample()">&lt; Previous</a>
-          <a href="#" class="example-next" onclick="nextExample()">Next &gt;</a>
-        </div>
-      </div>
-      
-      <script>
+    <section class="section">
+        <div class="container">
+            <h1 class="title" id="example-header">Example Gallery [WIP]</h1>
+            <div class="example-browse">
+                <iframe id="example-frame"
+                    src="samples/vis/multi_sample/codegen_16b/improvement_1.0_2.7/p00001_s534000808.html"
+                    style="border: 0; width:100%; height: 500px; overflow: auto;"></iframe>
+                <div class="example-nav">
+                    <a href="#" class="example-prev" onclick="prevExample()">&lt; Previous</a>
+                    <a href="#" class="example-next" onclick="nextExample()">Next &gt;</a>
+                </div>
+            </div>
 
-    var examples = [
-    "samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p03494_s386053727.html",
-"samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p02881_s498895748.html",
-"samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p02767_s628544873.html",
-"samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p03000_s975287095.html",
-"samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p02959_s294034147.html",
-"samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p02899_s524734651.html",
-"samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p00053_s978814614.html",
-"samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p00053_s391855332.html",
-"samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p03494_s417323905.html",
-"samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p00053_s431311473.html",
-"samples/vis/multi_sample/codex/improvement_4.2_5.9/p03796_s800410916.html",
-"samples/vis/multi_sample/codex/improvement_4.2_5.9/p03457_s981534291.html",
-"samples/vis/multi_sample/codex/improvement_4.2_5.9/p03371_s229566237.html",
-"samples/vis/multi_sample/codex/improvement_4.2_5.9/p03013_s205446737.html",
-"samples/vis/multi_sample/codex/improvement_4.2_5.9/p03608_s067652861.html",
-"samples/vis/multi_sample/codex/improvement_4.2_5.9/p03575_s060994907.html",
-"samples/vis/multi_sample/codex/improvement_4.2_5.9/p03371_s537618501.html",
-"samples/vis/multi_sample/codex/improvement_4.2_5.9/p03000_s741155786.html",
-"samples/vis/multi_sample/codex/improvement_4.2_5.9/p02537_s897150427.html",
-"samples/vis/multi_sample/codex/improvement_4.2_5.9/p00053_s978814614.html",
-"samples/vis/multi_sample/codex/improvement_4.2_5.9/p03608_s886496644.html",
-"samples/vis/multi_sample/codex/improvement_4.2_5.9/p03038_s447256606.html",
-"samples/vis/multi_sample/codex/improvement_4.2_5.9/p02982_s670004614.html",
-"samples/vis/multi_sample/codex/improvement_4.2_5.9/p02881_s106501170.html",
-"samples/vis/multi_sample/codex/improvement_4.2_5.9/p02574_s426798312.html",
-"samples/vis/multi_sample/codex/improvement_4.2_5.9/p03575_s277296975.html",
-"samples/vis/multi_sample/codex/improvement_4.2_5.9/p02702_s837932378.html",
-  ];
-        var currentExample = 0;
-      
-        function prevExample() {
-          currentExample--;
-          if (currentExample < 0) {
-            currentExample = examples.length - 1;
-          }
-          updateExample();
-        }
-      
-        function nextExample() {
-          currentExample++;
-          if (currentExample >= examples.length) {
-            currentExample = 0;
-          }
-          updateExample();
-        }
-      
-        function updateExample() {
-          var iframe = document.getElementById("example-frame");
-          iframe.src = examples[currentExample];
-          var element = document.getElementById("example-header");
-            element.scrollIntoView({behavior: "smooth"});
-            $('html,body').animate({
-        scrollTop: $(".second").offset().top},
-        'slow');
-        }
-      </script>
-      </div>
-    </div>
-  </section>
-  
+            <script>
+
+                var examples = [
+                    "samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p03494_s386053727.html",
+                    "samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p02881_s498895748.html",
+                    "samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p02767_s628544873.html",
+                    "samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p03000_s975287095.html",
+                    "samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p02959_s294034147.html",
+                    "samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p02899_s524734651.html",
+                    "samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p00053_s978814614.html",
+                    "samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p00053_s391855332.html",
+                    "samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p03494_s417323905.html",
+                    "samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p00053_s431311473.html",
+                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p03796_s800410916.html",
+                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p03457_s981534291.html",
+                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p03371_s229566237.html",
+                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p03013_s205446737.html",
+                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p03608_s067652861.html",
+                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p03575_s060994907.html",
+                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p03371_s537618501.html",
+                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p03000_s741155786.html",
+                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p02537_s897150427.html",
+                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p00053_s978814614.html",
+                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p03608_s886496644.html",
+                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p03038_s447256606.html",
+                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p02982_s670004614.html",
+                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p02881_s106501170.html",
+                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p02574_s426798312.html",
+                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p03575_s277296975.html",
+                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p02702_s837932378.html",
+                ];
+                var currentExample = 0;
+
+                function prevExample() {
+                    currentExample--;
+                    if (currentExample < 0) {
+                        currentExample = examples.length - 1;
+                    }
+                    updateExample();
+                }
+
+                function nextExample() {
+                    currentExample++;
+                    if (currentExample >= examples.length) {
+                        currentExample = 0;
+                    }
+                    updateExample();
+                }
+
+                function updateExample() {
+                    var iframe = document.getElementById("example-frame");
+                    iframe.src = examples[currentExample];
+                    var element = document.getElementById("example-header");
+                    element.scrollIntoView({ behavior: "smooth" });
+                    $('html,body').animate({
+                        scrollTop: $(".second").offset().top
+                    },
+                        'slow');
+                }
+            </script>
+        </div>
+        </div>
+    </section>
+
     <hr>
 
 
@@ -371,13 +791,12 @@
         <div class="container is-max-desktop content">
             <h2 class="title">BibTeX</h2>
             <pre><code>
-                <!--bibtex-->
-                <!-- @article{gao2022pal,
-                    title={PAL: Program-aided Language Models},
-                    author={Gao, Luyu and Madaan, Aman and Zhou, Shuyan and Alon, Uri and Liu, Pengfei and Yang, Yiming and Callan, Jamie and Neubig, Graham},
-                    journal={arXiv preprint arXiv:2211.10435},
-                    year={2022}
-                  } -->
+                @article{madaan2023learning,
+                    title={Learning Performance-Improving Code Edits},
+                    author={Madaan, Aman and Shypula, Alexander and Alon, Uri and Hashemi, Milad and Ranganathan, Parthasarathy and Yang, Yiming and Neubig, Graham and Yazdanbakhsh, Amir},
+                    journal={arXiv preprint arXiv:2302.07867},
+                    year={2023}
+                  }
 </code></pre>
         </div>
     </section>

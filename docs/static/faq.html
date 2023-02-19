@@ -1,0 +1,198 @@
+<div class="card">
+    <header class="card-header">
+        <p class="card-header-title">
+            Q. About PIE
+        </p>
+        <a class="card-header-icon">
+            <span class="icon">
+                <i class="fas fa-angle-down" aria-hidden="true"></i>
+            </span>
+        </a>
+    </header>
+    <div class="card-content is-hidden">
+        <div class="content">
+            PIE stands for <b>P</b>erformance <b>I</b>mproving Code <b>E</b>dits. We also train strong baselines, showing that CODEGEN-16B can be finetuned using PIE to match closely with CODEX on speedup.
+PIE is curated from [CodeNet](https://github.com/IBM/Project_CodeNet). Thanks to project codenet for making the dataset available!
+Each problem statement comes with a set of unit tests to check correctness.
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <header class="card-header">
+        <p class="card-header-title">
+            Q. What makes PIE unique?
+        </p>
+        <a class="card-header-icon">
+            <span class="icon">
+                <i class="fas fa-angle-down" aria-hidden="true"></i>
+            </span>
+        </a>
+    </header>
+    <div class="card-content is-hidden">
+        <div class="content">
+            We collect trajectories of code edits from CodeNet, where a programmer iteratively modifies an initial program to improve its runtime efficiency. The fact that in each trajectory, a single programmer makes the edits, 
+for a single program and a single goal (improving runtime efficiency) makes this dataset unique.
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <header class="card-header">
+        <p class="card-header-title">
+            Q. Why are trajectories important?
+        </p>
+        <a class="card-header-icon">
+            <span class="icon">
+                <i class="fas fa-angle-down" aria-hidden="true"></i>
+            </span>
+        </a>
+    </header>
+    <div class="card-content is-hidden">
+        <div class="content">
+            Trajectories are important because they capture the evolution of a program as it is being written. Crucially, the differences between subsequent edits are localized to a small number of lines of code. 
+The fact that the changes are minimal is critical in training models that can perform surgical code edits. We do not want complete rewrites; we want to build models that can propose minimal changes to a program.
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <header class="card-header">
+        <p class="card-header-title">
+            Q. Why is it essential to have minimal changes?
+        </p>
+        <a class="card-header-icon">
+            <span class="icon">
+                <i class="fas fa-angle-down" aria-hidden="true"></i>
+            </span>
+        </a>
+    </header>
+    <div class="card-content is-hidden">
+        <div class="content">
+            We believe that the ability to make minimal changes is critical for the success of any program repair system. A system that completely rewrites a program is unlikely to be helpful in practice --- the programmer will have to verify that the new program is correct, and that it still achieves the same goal as the original program. In contrast, a system that can propose a small number of edits to a program is more likely to be useful in practice.
+The programmer can quickly verify that the edits are correct, without re-verifying the entire program.
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <header class="card-header">
+        <p class="card-header-title">
+            Q. What are we releasing?
+        </p>
+        <a class="card-header-icon">
+            <span class="icon">
+                <i class="fas fa-angle-down" aria-hidden="true"></i>
+            </span>
+        </a>
+    </header>
+    <div class="card-content is-hidden">
+        <div class="content">
+            We are releasing the dataset of trajectories, our code for preparing the dataset, and our prompts. We are also releasing our evaluation harness, allowing you to evaluate new methods on the dataset.
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <header class="card-header">
+        <p class="card-header-title">
+            Q. Who cares if my python script runs in 0.5 seconds instead of 0.4 seconds?
+        </p>
+        <a class="card-header-icon">
+            <span class="icon">
+                <i class="fas fa-angle-down" aria-hidden="true"></i>
+            </span>
+        </a>
+    </header>
+    <div class="card-content is-hidden">
+        <div class="content">
+            A lot of real-world use cases! Trading algorithms, daemons on cloud servers, query processing, os kernels, etc., are just a few examples where programs frequently run at scale. 
+For programs executed millions of times a day, even a tiny improvement in runtime can significantly impact the overall system performance.
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <header class="card-header">
+        <p class="card-header-title">
+            Q. But ChatGPT can already do everything?
+        </p>
+        <a class="card-header-icon">
+            <span class="icon">
+                <i class="fas fa-angle-down" aria-hidden="true"></i>
+            </span>
+        </a>
+    </header>
+    <div class="card-content is-hidden">
+        <div class="content">
+            While anecdotal examples are fun, they can be misleading. Our goal is to establish a benchmark that can systematically explore if LLMs can indeed optimize code. Our evaluation confirms that codex is pretty good at the task but is far from perfect!
+Crucially, we leverage pie to finetune [CodeGen-16B](https://github.com/salesforce/CodeGen), and show that it can closely match CODEX in terms of speedup (2.62x for codex vs. 2.45x for codegen-16b finetuned on PIE).
+Further, CodeGen-16B + PIE is *better* than codex in terms of the lines of code changed (56% changed by CodeGen-16B vs. 70% changed by codex) (please also see the note above on usability of optimization methods and the importance of making minimal-changes).
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <header class="card-header">
+        <p class="card-header-title">
+            Q. What if the optimizations add bugs?
+        </p>
+        <a class="card-header-icon">
+            <span class="icon">
+                <i class="fas fa-angle-down" aria-hidden="true"></i>
+            </span>
+        </a>
+    </header>
+    <div class="card-content is-hidden">
+        <div class="content">
+            Each trajectory in PIE comes with a unit test. We use the unit test to evaluate the correctness of the optimized program. 
+In some cases, the optimization may introduce a bug that the unit tests miss. Therefore, we will also release an extended set of unit tests sourced from code contests.
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <header class="card-header">
+        <p class="card-header-title">
+            Q. How large is the dataset?
+        </p>
+        <a class="card-header-icon">
+            <span class="icon">
+                <i class="fas fa-angle-down" aria-hidden="true"></i>
+            </span>
+        </a>
+    </header>
+    <div class="card-content is-hidden">
+        <div class="content">
+            The filtered dataset used for finetuning has ~40k pairs for Python and ~100k for C++. We also release the entire dataset, which has ~150k pairs for Python and ~200k for C++.
+The dataset is available on our [github](https://github.com/madaan/pie-perf).
+        </div>
+    </div>
+</div>
+
+<script>
+            const faqs = document.querySelectorAll('.card-header');
+
+faqs.forEach(faq => {
+    faq.addEventListener('click', () => {
+        const content = faq.nextElementSibling;
+
+        faq.classList.toggle('is-active');
+        content.classList.toggle('is-hidden');
+
+        // Smooth transition
+        if (content.classList.contains('is-hidden')) {
+            content.style.maxHeight = 0;
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+        }
+    });
+});
+
+// Fold all FAQs initially
+const cardContents = document.querySelectorAll('.card-content');
+
+cardContents.forEach(content => {
+    content.style.maxHeight = 0;
+});
+</script>
