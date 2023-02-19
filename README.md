@@ -2,8 +2,7 @@
 
 ## Dataset
 
-* All trajectories (`tsv`) are located [here](https://drive.google.com/file/d/19IL3VETwVI9rdibB979Xm4gEWYwn0CkV/view?usp=sharing).
-
+- All trajectories (`tsv`) are located [here](https://drive.google.com/file/d/19IL3VETwVI9rdibB979Xm4gEWYwn0CkV/view?usp=sharing).
 
 ### Columns description
 
@@ -18,11 +17,9 @@
 - `status_v{0,1}`: status of the code in the two versions. `status_v0` can be `Accepted` or `Time Limit Exceeded`, but `status_v1` is always `Accepted`.
 - `improvement_frac`: percentage of improvement of the second version of the code with respect to the first version. `improvement_frac` is always > 0.
 
-* Python splits
+* [Python splits](https://drive.google.com/file/d/1xBjvxvCkPJywOSMFrYQzYPRb-5utLrdr/view?usp=sharing)
 
-* C++ splits
-
-
+* [C++ splits](https://drive.google.com/file/d/1plrousZpNtnu6ssnznjvNsVp4gt27YlT/view?usp=sharing)
 
 Each file is a jsonl:
 
@@ -72,18 +69,11 @@ Each file is a jsonl:
 
 We use `src/make_splits.py` to create these splits. The exact configuration for creating each split is specified in the folder.
 
-
-
-* [Public test cases](https://drive.google.com/file/d/1RcUpZMOR8L2xYYWDZx7I0tHFzFgg7COO/view?usp=share_link)
-
-
+- [Public test cases](https://drive.google.com/file/d/1RcUpZMOR8L2xYYWDZx7I0tHFzFgg7COO/view?usp=share_link)
 
 ## Evaluating Your Method
 
-
-* Suppose you have a new method for code optimization, say `awesome_optimization`. We provide a sandbox for evaluating the generated code. The sandbox runs the input and the generated code over a set of test cases and reports the performance of both. We provide 
-
-
+- Suppose you have a new method for code optimization, say `awesome_optimization`. We provide a sandbox for evaluating the generated code. The sandbox runs the input and the generated code over a set of test cases and reports the performance of both. We provide
 
 1. Save the generations in a jsonl file with the following fields:
 
@@ -96,7 +86,6 @@ We use `src/make_splits.py` to create these splits. The exact configuration for 
 
 2. Next, we need to provide the path to the file with some metadata. We call it the `reference_file` but providing references are optional. The main purpose of this file is to provide information like the language of the code, the problem id, etc. The file should have `slow_code_col` (same as the generations file) and `problem_id`. We join the generations file and the references file on the `slow_code_col` to get the problem id.
 
-
 3. Finally, we need to provide the path to the file with the actual test cases. We call it the `inputs_outputs_basepath`. This is a directory with the following structure:
 
 ```
@@ -104,7 +93,6 @@ inputs_outputs_basepath/{problem_id}/{inputs, outputs}.txt
 ```
 
 where `{inputs, outputs}.txt` are the input and output files for the problem with id `problem_id`. The input and output are plain text files. Each program is fed `inputs.txt` and the output is compared with `outputs.txt`.
-
 
 4. So far, we have discussed the generation file, the reference file, and the inputs/outputs directory. In addition to these, we need to provide some information about the run. Specifically, the number of times each program should be run, the number of programs to evaluate, the timeout, and so on.
 
