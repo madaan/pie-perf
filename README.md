@@ -2,21 +2,80 @@
 
 ## Dataset
 
-* All trajectories are located [here](https://drive.google.com/file/d/19IL3VETwVI9rdibB979Xm4gEWYwn0CkV/view?usp=sharing).
+* All trajectories (`tsv`) are located [here](https://drive.google.com/file/d/19IL3VETwVI9rdibB979Xm4gEWYwn0CkV/view?usp=sharing).
+
+
+### Columns description
+
+- `user_id`: user id
+- `problem_id`: problem id. Details about the problems can be found in `data/problem_list.csv`
+- `language`: programming language
+- `submission_id_v0`: submission id of the first version of the code
+- `submission_id_v1`: submission id of the improved version of the code
+- `cpu_time_v0`: cpu time of the first version of the code
+- `cpu_time_v1`: cpu time of the second version of the code. `cpu_time_v0` > `cpu_time_v1` by at least 1% for all the pairs in the dataset. For pairs where the first version was TLE, `cpu_time_v0` is set to some high value (e.g. 1000000).
+- `memory_v{0,1}`: memory used by the code in the two versions. We can also use `memory_v0` > `memory_v1` to filter out pairs.
+- `status_v{0,1}`: status of the code in the two versions. `status_v0` can be `Accepted` or `Time Limit Exceeded`, but `status_v1` is always `Accepted`.
+- `improvement_frac`: percentage of improvement of the second version of the code with respect to the first version. `improvement_frac` is always > 0.
 
 * Python splits
 
 * C++ splits
 
-* Public test cases
 
-Each file is a jsonl with the following fields:
+
+Each file is a jsonl:
 
 ```
-
+{
+    "user_id": "u187233527",
+    "problem_id": "p03317",
+    "language": "python",
+    "submission_id_v0": "s743350482",
+    "submission_id_v1": "s961810347",
+    "cpu_time_v0": 28.0,
+    "cpu_time_v1": 17.0,
+    "memory_v0": 3060.0,
+    "memory_v1": 3060.0,
+    "status_v0": "Accepted",
+    "status_v1": "Accepted",
+    "improvement_frac": 39.29,
+    "input": "N, K = list(map(int, input().split()))\n\nN -= K\n\nans = 1\n\nwhile N > 0:\n\n  N -= K - 1\n\n  ans += 1\n\nprint(ans)",
+    "target": "import math\n\n\n\nn, k = list(map(int, input().split()))\n\nprint((math.ceil((n - 1) / (k - 1))))",
+    "code_v0_loc": 7.0,
+    "code_v1_loc": 4.0,
+    "code_v0_num_chars": 101,
+    "code_v1_num_chars": 84,
+    "code_v0_no_empty_lines": "N, K = list(map(int, input().split()))\nN -= K\nans = 1\nwhile N > 0:\n    N -= K - 1\n    ans += 1\nprint(ans)\n",
+    "code_v1_no_empty_lines": "import math\n\nn, k = list(map(int, input().split()))\nprint((math.ceil((n - 1) / (k - 1))))\n",
+    "code_same": false,
+    "relative_loc_diff_percent": 42.8571428571,
+    "diff": [
+        "-N, K = list(map(int, input().split()))",
+        "-N -= K",
+        "-ans = 1",
+        "-while N > 0:",
+        "-    N -= K - 1",
+        "-    ans += 1",
+        "-print(ans)",
+        "+import math",
+        "+",
+        "+n, k = list(map(int, input().split()))",
+        "+print((math.ceil((n - 1) / (k - 1))))"
+    ],
+    "diff_only_import_comment": false,
+    "measured_runtime_v0": 0.045435272,
+    "measured_runtime_v1": 0.0459265449,
+    "runtime_lift": 0.9893030722
+}
 ```
 
 We use `src/make_splits.py` to create these splits. The exact configuration for creating each split is specified in the folder.
+
+
+
+* [Public test cases](https://drive.google.com/file/d/1RcUpZMOR8L2xYYWDZx7I0tHFzFgg7COO/view?usp=share_link)
+
 
 
 ## Evaluating Your Method
