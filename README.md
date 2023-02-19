@@ -1,4 +1,4 @@
-# pie-perf
+# Learning Performance-Improving Code Edits
 
 ## Dataset
 
