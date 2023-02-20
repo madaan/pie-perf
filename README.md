@@ -2,7 +2,7 @@
 
 
 
-- Repository for [Learning Performance-Improving Code Edits](https://arxiv.org/pdf/2302.07867.pdf).
+- Repository for Learning Performance-Improving Code Edits ([paper](https://arxiv.org/pdf/2302.07867.pdf), [website](https://pie4perf.com/)).
 
 <img width="879" alt="image" src="https://raw.githubusercontent.com/madaan/pie-perf/main/docs/static/images/mainfig-v4.jpg">
 
