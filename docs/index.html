@@ -154,12 +154,18 @@
                 if (current < max) {
                     current++;
                     showImage(current);
+                } else {
+                    current = 0;
+                    showImage(current);
                 }
             });
 
             $('.prev').click(function () {
                 if (current > 0) {
                     current--;
+                    showImage(current);
+                } else {
+                    current = max;
                     showImage(current);
                 }
             });
@@ -262,72 +268,61 @@
 <body>
 
 
-    <section class="hero">
-        <section class="hero is-warning">
-            <div class="hero-body">
-                <div class="container">
-                    <h1 class="title">
-                        Site under construction! Some links may not work!
-                    </h1>
-                </div>
-            </div>
-        </section>
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <h1 class="title is-1 publication-title">Learning Performance Improving Code Edits with <img
+                            src="./static/images/pie.png" alt="pie" width="40" height="40" vertical-align="middle"
+                            margin-left="5px" /></h1>
+                    <div class="is-size-5 publication-authors">
+                        <span class="author-block">
+                            <a href="https://madaan.github.io/">Aman Madaan</a><sup>1</sup>,
+                        </span>
+                        <span class="author-block">
+                            <a href="https://alexshypula.github.io/">Alexander Shypula</a><sup>2</sup>,
+                        </span>
+                        <span class="author-block">
+                            <a href="https://urialon.ml/">Uri Alon</a><sup>1</sup>,
+                        </span>
+                        <span class="author-block">
+                            <a href="https://sites.google.com/site/miladhashemi/">Milad Hashemi</a><sup>3</sup>,
+                        </span>
+                        <span class="author-block">
+                            <a href="https://www.parthasarathys.com/">Parthasarathy Ranganathan</a><sup>3</sup>,
+                        </span>
+                        <span class="author-block">
+                            <a href="https://www.cs.cmu.edu/~./yiming/">Yiming Yang</a><sup>1</sup>,
+                        </span>
+                        <span class="author-block">
+                            <a href="http://www.phontron.com/">Graham Neubig</a><sup>1,4</sup>,
+                        </span>
+                        <span class="author-block">
+                            <a href="https://www.ayazdan.com//">Amir Yazdanbakhsh</a><sup>5</sup>
+                        </span>
+                    </div>
 
-        <div class="hero-body">
-            <div class="container is-max-desktop">
-                <div class="columns is-centered">
+                    <div class="is-size-5 publication-authors">
+                        <span class="author-block"><sup>1</sup>Carnegie Mellon University</span>
+                        <span class="author-block"><sup>2</sup>University of Pennsylvania</span>
+                        <span class="author-block"><sup>3</sup>Google</span><br />
+                        <span class="author-block"><sup>4</sup>Inspired Cognition</span>
+                        <span class="author-block"><sup>5</sup>Google Research, Brain Team</span><br />
+                    </div>
+
                     <div class="column has-text-centered">
-                        <h1 class="title is-1 publication-title">Learning Performance Improving Code Edits with <img
-                                src="./static/images/pie.png" alt="pie" width="40" height="40" vertical-align="middle"
-                                margin-left="5px" /></h1>
-                        <div class="is-size-5 publication-authors">
-                            <span class="author-block">
-                                <a href="https://madaan.github.io/">Aman Madaan</a><sup>1</sup>,
+                        <div class="publication-links">
+                            <!-- PDF Link. -->
+                            <span class="link-block">
+                                <a href="https://arxiv.org/pdf/2302.07867.pdf"
+                                    class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon">
+                                        <i class="fas fa-file-pdf"></i>
+                                    </span>
+                                    <span>Paper</span>
+                                </a>
                             </span>
-                            <span class="author-block">
-                                <a href="https://alexshypula.github.io/">Alexander Shypula</a><sup>2</sup>,
-                            </span>
-                            <span class="author-block">
-                                <a href="https://urialon.ml/">Uri Alon</a><sup>1</sup>,
-                            </span>
-                            <span class="author-block">
-                                <a href="https://sites.google.com/site/miladhashemi/">Milad Hashemi</a><sup>3</sup>,
-                            </span>
-                            <span class="author-block">
-                                <a href="https://www.parthasarathys.com/">Parthasarathy Ranganathan</a><sup>3</sup>,
-                            </span>
-                            <span class="author-block">
-                                <a href="https://www.cs.cmu.edu/~./yiming/">Yiming Yang</a><sup>1</sup>,
-                            </span>
-                            <span class="author-block">
-                                <a href="http://www.phontron.com/">Graham Neubig</a><sup>1,4</sup>,
-                            </span>
-                            <span class="author-block">
-                                <a href="https://www.ayazdan.com//">Amir Yazdanbakhsh</a><sup>5</sup>
-                            </span>
-                        </div>
-
-                        <div class="is-size-5 publication-authors">
-                            <span class="author-block"><sup>1</sup>Carnegie Mellon University</span>
-                            <span class="author-block"><sup>2</sup>University of Pennsylvania</span>
-                            <span class="author-block"><sup>3</sup>Google</span><br />
-                            <span class="author-block"><sup>4</sup>Inspired Cognition</span>
-                            <span class="author-block"><sup>5</sup>Google Research, Brain Team</span><br />
-                        </div>
-
-                        <div class="column has-text-centered">
-                            <div class="publication-links">
-                                <!-- PDF Link. -->
-                                <span class="link-block">
-                                    <a href="https://arxiv.org/pdf/2302.07867.pdf"
-                                        class="external-link button is-normal is-rounded is-dark">
-                                        <span class="icon">
-                                            <i class="fas fa-file-pdf"></i>
-                                        </span>
-                                        <span>Paper</span>
-                                    </a>
-                                </span>
-                                <!-- <span class="link-block">
+                            <!-- <span class="link-block">
                                     <a href=""
                                         class="external-link button is-normal is-rounded is-dark">
                                         <span class="icon">
@@ -336,32 +331,32 @@
                                         <span>Colab</span>
                                     </a>
                                 </span> -->
-                                <!-- Code Link. -->
-                                <span class="link-block">
-                                    <a href="https://github.com/madaan/pie-perf"
-                                        class="external-link button is-normal is-rounded is-dark">
-                                        <span class="icon">
-                                            <i class="fab fa-github"></i>
-                                        </span>
-                                        <span>Code</span>
-                                    </a>
-                                </span>
-                                <!-- Dataset Link. -->
-                                <span class="link-block">
-                                    <a href="https://github.com/madaan/pie-perf"
-                                        class="external-link button is-normal is-rounded is-dark">
-                                        <span class="icon">
-                                            <i class="far fa-file"></i>
-                                        </span>
-                                        <span>Data</span>
-                                    </a>
-                            </div>
-
+                            <!-- Code Link. -->
+                            <span class="link-block">
+                                <a href="https://github.com/madaan/pie-perf"
+                                    class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon">
+                                        <i class="fab fa-github"></i>
+                                    </span>
+                                    <span>Code</span>
+                                </a>
+                            </span>
+                            <!-- Dataset Link. -->
+                            <span class="link-block">
+                                <a href="https://github.com/madaan/pie-perf#dataset"
+                                    class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon">
+                                        <i class="far fa-file"></i>
+                                    </span>
+                                    <span>Data</span>
+                                </a>
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </section>
 
 
@@ -423,9 +418,29 @@
                         PIE stands for <b>P</b>erformance <b>I</b>mproving Code <b>E</b>dits. We also train strong
                         baselines, showing that CODEGEN-16B can be finetuned using PIE to match closely with CODEX on
                         speedup.
-                        PIE is curated from [CodeNet](https://github.com/IBM/Project_CodeNet). Thanks to project codenet
+                        PIE is curated from <a href="https://github.com/IBM/Project_CodeNet">CodeNet</a>. Thanks to
+                        project codenet
                         for making the dataset available!
                         Each problem statement comes with a set of unit tests to check correctness.
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <header class="card-header">
+                    <p class="card-header-title">
+                        Q. What are we releasing?
+                    </p>
+                    <a class="card-header-icon">
+                        <span class="icon">
+                            <i class="fas fa-angle-down" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </header>
+                <div class="card-content is-hidden">
+                    <div class="content">
+                        We are releasing the dataset of trajectories, our code for preparing the dataset, and our
+                        prompts. We are also releasing our evaluation harness, allowing you to evaluate new methods on
+                        the dataset. (<a href="https://github.com/madaan/pie-perf">more details on the repo</a>). We are working on releasing our CodeGen models but if you are interested in trying them out, please reach out to us.
                     </div>
                 </div>
             </div>
@@ -498,25 +513,6 @@
                 </div>
             </div>
 
-            <div class="card">
-                <header class="card-header">
-                    <p class="card-header-title">
-                        Q. What are we releasing?
-                    </p>
-                    <a class="card-header-icon">
-                        <span class="icon">
-                            <i class="fas fa-angle-down" aria-hidden="true"></i>
-                        </span>
-                    </a>
-                </header>
-                <div class="card-content is-hidden">
-                    <div class="content">
-                        We are releasing the dataset of trajectories, our code for preparing the dataset, and our
-                        prompts. We are also releasing our evaluation harness, allowing you to evaluate new methods on
-                        the dataset.
-                    </div>
-                </div>
-            </div>
 
             <div class="card">
                 <header class="card-header">
@@ -605,7 +601,24 @@
                 </div>
             </div>
 
-        </div>
+            <!--how can I help FAQ-->
+            <div class="card">
+                <header class="card-header">
+                    <p class="card-header-title">
+                        Q. How can I help?
+                    </p>
+                    <a class="card-header-icon">
+                        <span class="icon">
+                            <i class="fas fa-angle-down" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </header>
+                <div class="card-content is-hidden">
+                    <div class="content">
+                        If you are interested in helping, please reach out to the authors!
+                    </div>
+                </div>
+            </div>
     </section>
 
     <script>
@@ -673,40 +686,64 @@
     </section>
 
 
-    <section class="section" id="results">
-        <div class="container is-max-desktop">
-            <div class="columns is-centered has-text-centered">
-                <div class="column is-four-fifths">
-                    <h2 class="title is-3">Main Results</h2>
-                    <!--add screenshot of the results-->
-                    <figure class="image is-8by6">
-                        <img src="static/images/results.jpg">
-                    </figure>
-
-                </div>
-            </div>
-        </div>
-    </section>
 
 
     <section class="section" id="results">
         <div class="container is-max-desktop">
-            <div class="columns is-centered has-text-centered">
-                <div class="column is-four-fifths">
+            <div class="columns is-centered">
+                <div class="column">
+
                     <h2 class="title is-3">Dataset</h2>
-                    [WIP]
+                    <hr>
+                    <h2 class="subtitle is-4">Slow-Fast Pairs</h2>
+
+                    <p>Dataset of slow-fast pairs (<code>tsv</code>) is located <a
+                            href="https://drive.google.com/file/d/19IL3VETwVI9rdibB979Xm4gEWYwn0CkV/view?usp=sharing">here</a>.
+                    </p>
+
+                    Columns description:
+
+                    <ul>
+                        <li><strong>user_id:</strong> user id</li>
+                        <li><strong>problem_id:</strong> problem id. Details about the problems can be found in
+                            <code>data/problem_list.csv</code></li>
+                        <li><strong>language:</strong> programming language</li>
+                        <li><strong>submission_id_v0:</strong> submission id of the first version of the code</li>
+                        <li><strong>submission_id_v1:</strong> submission id of the improved version of the code</li>
+                        <li><strong>cpu_time_v0:</strong> cpu time of the first version of the code</li>
+                        <li><strong>cpu_time_v1:</strong> cpu time of the second version of the code.
+                            <code>cpu_time_v0</code> &gt; <code>cpu_time_v1</code> by at least 1% for all the pairs in
+                            the dataset. For pairs where the first version was TLE, <code>cpu_time_v0</code> is set to
+                            some high value (e.g. 1000000).</li>
+                        <li><strong>memory_v{0,1}:</strong> memory used by the code in the two versions. We can also use
+                            <code>memory_v0</code> &gt; <code>memory_v1</code> to filter out pairs.</li>
+                        <li><strong>status_v{0,1}:</strong> status of the code in the two versions.
+                            <code>status_v0</code> can be "Accepted" or "Time Limit Exceeded", but
+                            <code>status_v1</code> is always "Accepted".</li>
+                        <li><strong>improvement_frac:</strong> percentage of improvement of the second version of the
+                            code with respect to the first version. <code>improvement_frac</code> is always &gt; 0.</li>
+                    </ul>
+
+                    <hr>
+
+                    <h2 class="subtitle is-4">Train/Test/Val Splits for Python and C++</h2>
+                    We also provide the splits used in the paper. The splits are in <code>jsonl</code> format.
+                    <ul>
+                        <li><a
+                                href="https://drive.google.com/file/d/1ec8eOWgnBrzy2HlNDlTX6iURwQcIxDXH/view?usp=sharing">Python
+                                splits</a></li>
+                        <li><a
+                                href="https://drive.google.com/file/d/1NqMT7kqCwk99hj4BjpUcsxLIzPFv_DtT/view?usp=sharing">C++
+                                splits</a></li>
+                    </ul>
+                    The train/test/val files contain additional information like the <code>diff</code>. The slower
+                    program is the <code>input</code> and the faster program is the <code>target</code>.
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- var examples = [
-    "samples/vis/multi_sample/codegen_16b/improvement_1.0_2.7/p00001_s534000808.html",
-    "samples/vis/multi_sample/codegen_16b/improvement_1.0_2.7/p00001_s534000808.html",
-    "samples/vis/multi_sample/codegen_16b/improvement_1.0_2.7/p00001_s534000808.html"
-  ];-->
-
-
+    <!-- 
     <section class="section">
         <div class="container">
             <h1 class="title" id="example-header">Example Gallery [WIP]</h1>
@@ -782,21 +819,35 @@
             </script>
         </div>
         </div>
-    </section>
+    </section> -->
 
     <hr>
 
 
+    <section class="section" id="results">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Main Results</h2>
+                    <!--add screenshot of the results-->
+                    <figure class="image is-8by6">
+                        <img src="static/images/results.jpg">
+                    </figure>
+
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="section" id="BibTeX">
         <div class="container is-max-desktop content">
             <h2 class="title">BibTeX</h2>
             <pre><code>
-                @article{madaan2023learning,
-                    title={Learning Performance-Improving Code Edits},
-                    author={Madaan, Aman and Shypula, Alexander and Alon, Uri and Hashemi, Milad and Ranganathan, Parthasarathy and Yang, Yiming and Neubig, Graham and Yazdanbakhsh, Amir},
-                    journal={arXiv preprint arXiv:2302.07867},
-                    year={2023}
-                  }
+@article{madaan2023learning,
+    title={Learning Performance-Improving Code Edits},
+    author={Madaan, Aman and Shypula, Alexander and Alon, Uri and Hashemi, Milad and Ranganathan, Parthasarathy and Yang, Yiming and Neubig, Graham and Yazdanbakhsh, Amir},
+    journal={arXiv preprint arXiv:2302.07867},
+    year={2023}
+}
 </code></pre>
         </div>
     </section>
