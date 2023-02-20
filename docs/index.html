@@ -204,18 +204,19 @@
         }
 
         .image-container {
-            height: 300px;
+            height: 150px;
             /* set a fixed height */
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .image-container img {
+        /* .image-container img {
             height: 100%;
             object-fit: contain;
-            /* scale image proportionally and center it */
-        }
+            height: auto;
+            
+        } */
 
 
         .caption {
@@ -255,6 +256,12 @@
             overflow: hidden;
             transition: max-height 0.3s ease-out;
         }
+        .content.is-vcentered {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center; /* used this for multiple child */
+  align-items: center; /* if an only child */
+}
     </style>
 
 
@@ -362,7 +369,7 @@
 
 
 
-    <section class="hero teaser" style="margin-bottom: 10em;">
+    <section class="hero teaser" style="margin-bottom: 8em;">
         <div class="container is-max-desktop">
             <div class="notification is-info  has-margin-top" style="font-size: 1.3em;">
                 <strong>TLDR:</strong> A dataset and models for learning code edits that can improve runtime. Browse
@@ -373,7 +380,7 @@
                 <div class="column has-text-centered">
                     <button class="button is-primary is-rounded prev"><i class="fas fa-chevron-left"></i></button>
                 </div>
-                <div class="column is-4">
+                <div class="column is-4 is-flex is-vcentered" >
                     <img src="static/images/examples/slow_1.jpg" alt="Slow Code" class="slow-image"
                         style=" float: left;">
                 </div>
@@ -381,7 +388,7 @@
                     <img src="static/images/examples/pie.jpg">
                     <!-- <i class="fas fa-chevron-right fa-2x arrow"></i> -->
                 </div>
-                <div class="column is-4">
+                <div class="column is-4 is-flex is-vcentered">
                     <img src="static/images/examples/fast_1.jpg" alt="Fast Code" class="fast-image"
                         style=" float: left;">
                 </div>
@@ -389,7 +396,7 @@
                     <button class="button is-primary is-rounded next"><i class="fas fa-chevron-right"></i></button>
                 </div>
                 <div class="column is-12 has-text-centered">
-                    <div class="caption">
+                    <div class="caption has-text-left">
                         Caption 1
                     </div>
                 </div>
