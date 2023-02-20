@@ -130,3 +130,17 @@ Please see `src/codenet_eval/evalconfig.py` for the full list of parameters and 
 ```bash
 python src/codenet_eval/run_eval.py --eval_config data/sample/sample_eval_config.yaml
 ```
+
+
+----
+
+## Citation
+
+```
+@article{madaan2023learning,
+    title={Learning Performance-Improving Code Edits},
+    author={Madaan, Aman and Shypula, Alexander and Alon, Uri and Hashemi, Milad and Ranganathan, Parthasarathy and Yang, Yiming and Neubig, Graham and Yazdanbakhsh, Amir},
+    journal={arXiv preprint arXiv:2302.07867},
+    year={2023}
+}
+```
