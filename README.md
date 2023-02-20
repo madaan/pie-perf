@@ -12,9 +12,7 @@
 
 - PIE is based on [IBM CodeNet](https://github.com/IBM/Project_CodeNet). Huge thanks to the authors of CodeNet for making their curated dataset available!
 
-- All trajectories (`tsv`) are located [here](https://drive.google.com/file/d/19IL3VETwVI9rdibB979Xm4gEWYwn0CkV/view?usp=sharing).
-
-### Columns description
+- All trajectories (`tsv`) are located [here](https://drive.google.com/file/d/19IL3VETwVI9rdibB979Xm4gEWYwn0CkV/view?usp=sharing). Columns description:
 
 - `user_id`: user id
 - `problem_id`: problem id. Details about the problems can be found in `data/problem_list.csv`
