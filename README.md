@@ -1,6 +1,16 @@
-# pie-perf
+# Learning Performance-Improving Code Edits
+
+
+
+- Repository for [Learning Performance-Improving Code Edits](https://arxiv.org/pdf/2302.07867.pdf).
+
+<img width="879" alt="image" src="https://raw.githubusercontent.com/madaan/pie-perf/main/docs/static/images/mainfig-v4.jpg">
+
+
 
 ## Dataset
+
+- PIE is based on [IBM CodeNet](https://github.com/IBM/Project_CodeNet). Huge thanks to the authors of CodeNet for making their curated dataset available!
 
 - All trajectories (`tsv`) are located [here](https://drive.google.com/file/d/19IL3VETwVI9rdibB979Xm4gEWYwn0CkV/view?usp=sharing).
 
