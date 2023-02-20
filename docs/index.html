@@ -460,6 +460,31 @@
             <div class="card">
                 <header class="card-header">
                     <p class="card-header-title">
+                        Q. But ChatGPT can already do everything?
+                    </p>
+                    <a class="card-header-icon">
+                        <span class="icon">
+                            <i class="fas fa-angle-down" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </header>
+                <div class="card-content is-hidden">
+                    <div class="content">
+                        While anecdotal examples are fun, they can be misleading. Our benchmark evaluation confirms that
+                        codex is pretty good at the task but is far from perfect!
+                        Crucially, we leverage pie to finetune <a href="https://github.com/salesforce/CodeGen">CodeGen-16B</a>, and
+                        show that it can closely match CODEX in terms of speedup (2.62x for codex vs. 2.45x for
+                        codegen-16b finetuned on PIE).
+                        Further, CodeGen-16B + PIE is *better* than codex in terms of the lines of code changed (56%
+                        changed by CodeGen-16B vs. 70% changed by codex) (please also see the note above on usability of
+                        optimization methods and the importance of making minimal-changes).
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <header class="card-header">
+                    <p class="card-header-title">
                         Q. What makes PIE unique?
                     </p>
                     <a class="card-header-icon">
@@ -491,12 +516,12 @@
                 </header>
                 <div class="card-content is-hidden">
                     <div class="content">
-                        Trajectories are important because they capture the evolution of a program as it is being
-                        written. Crucially, the differences between subsequent edits are localized to a small number of
-                        lines of code.
+                        Trajectories are important because they capture the <i>evolution of a program as it is being
+                        written by a developer</i>. <b>The differences between subsequent edits are localized to a small number of
+                        lines of code.</b>
                         The fact that the changes are minimal is critical in training models that can perform surgical
                         code edits. We do not want complete rewrites; we want to build models that can propose minimal
-                        changes to a program.
+                        changes to a program. We consider this to be an important aspect of our work.
                     </div>
                 </div>
             </div>
@@ -543,31 +568,6 @@
                         os kernels, etc., are just a few examples where programs frequently run at scale.
                         For programs executed millions of times a day, even a tiny improvement in runtime can
                         significantly impact the overall system performance.
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <header class="card-header">
-                    <p class="card-header-title">
-                        Q. But ChatGPT can already do everything?
-                    </p>
-                    <a class="card-header-icon">
-                        <span class="icon">
-                            <i class="fas fa-angle-down" aria-hidden="true"></i>
-                        </span>
-                    </a>
-                </header>
-                <div class="card-content is-hidden">
-                    <div class="content">
-                        While anecdotal examples are fun, they can be misleading. Our benchmark evaluation confirms that
-                        codex is pretty good at the task but is far from perfect!
-                        Crucially, we leverage pie to finetune [CodeGen-16B](https://github.com/salesforce/CodeGen), and
-                        show that it can closely match CODEX in terms of speedup (2.62x for codex vs. 2.45x for
-                        codegen-16b finetuned on PIE).
-                        Further, CodeGen-16B + PIE is *better* than codex in terms of the lines of code changed (56%
-                        changed by CodeGen-16B vs. 70% changed by codex) (please also see the note above on usability of
-                        optimization methods and the importance of making minimal-changes).
                     </div>
                 </div>
             </div>
