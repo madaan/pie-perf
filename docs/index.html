@@ -131,12 +131,13 @@
                 "Replaces calls to np.log2 with built-in math.log2. It is crucial to have domain experts review such optimizations for critical code, as the suggested changes may or may not be appropriate. (3.2x faster execution, problem ID: p03644, submission ID: s675566275, approach: codegen).",
                 "A more efficient way to check if the number of digits is even (1.49x faster execution, problem ID: p02952, submission ID: s855248831, approach: codex).",
                 "Calculates N choose 2 (comb(v, 2)) using the direct formula: v * (v - 1) // 2. It also uses a concise implementation of a Counter (3.56x faster execution, problem ID: p03287, submission ID: s936062710, approach: codex).",
-                "Uses Deque instead of vector for faster push_front (14x faster execution, problem ID: p03673, submission ID: s571947656, source: https://stackoverflow.com/questions/35483716/is-stddeque-faster-than-stdvector-for-inserting-at-the-end).",
+                "Uses Deque instead of vector for faster push_front (14x faster execution, problem ID: p03673, submission ID: s571947656). See more on this here: https://stackoverflow.com/questions/35483716/is-stddeque-faster-than-stdvector-for-inserting-at-the-end.",
                 "A saves time by not reading it from stdin since it is never used (10x faster execution, problem ID: p03309, submission ID: s670951114).",
                 "Replaces a for loop with a formula (100x faster execution, problem ID: p02924, submission ID: s276057957, approach: codex).",
                 "Folds the if-else statement into a single expression (4x faster execution, problem ID: p04011, submission ID: s699447607, approach: codex).",
-                "The classical comparison between cin/cout and printf/scanf (5x faster execution, problem ID: p02602, submission ID: s068863183, approach: codex). See more details at https://stackoverflow.com/questions/1042110/using-scanf-in-c-programs-is-faster-than-using-cin."
-            ];
+                'The classical comparison between cin/cout and printf/scanf (5x faster execution, problem ID: p02602, submission ID: s068863183, approach: codex). See more details at https://stackoverflow.com/questions/1042110/using-scanf-in-c-programs-is-faster-than-using-cin'];
+            // var captions = ["Substitutes a list with a counter (3.5x faster execution, problem ID: p02691, submission ID: s720467562, approach: codex).", "Replaces a for loop with direct calculation (1.37x faster execution, problem ID: p03548, submission ID: s161926153, approach: codegen).", "Removes redundant operations for reversing a string (1.74x faster execution, problem ID: p03416, submission ID: s576934995, approach: codex).", "Substitutes sum with accumulate (1.27x faster execution, problem ID: p02780, submission ID: s803345472, approach: codegen).", "Replaces calls to np.log2 with built-in math.log2. It is crucial to have domain experts review such optimizations for critical code, as the suggested changes may or may not be appropriate. (3.2x faster execution, problem ID: p03644, submission ID: s675566275, approach: codegen).", "A more efficient way to check if the number of digits is even (1.49x faster execution, problem ID: p02952, submission ID: s855248831, approach: codex).", "Calculates N choose 2 (comb(v, 2)) using the direct formula: v * (v - 1) // 2. It also uses a concise implementation of a Counter (3.56x faster execution, problem ID: p03287, submission ID: s936062710, approach: codex).", "Uses Deque instead of vector for faster push_front (14x faster execution, problem ID: p03673, submission ID: s571947656, <a href='https://stackoverflow.com/questions/35483716/is-stddeque-faster-than-stdvector-for-inserting-at-the-end'>more info</a>).", "A saves time by not reading it from stdin since it is never used (10x faster execution, problem ID: p03309, submission ID: s670951114).", "Replaces a for loop with a formula (100x faster execution, problem ID: p02924, submission ID: s276057957, approach: codex).", "Folds the if-else statement into a single expression (4x faster execution, problem ID: p04011, submission ID: s699447607, approach: codex).", "The classical comparison between cin/cout and printf/scanf (5x faster execution, problem ID: p02602, submission ID: s068863183, approach: codex). See more details at <a href='https://stackoverflow.com/questions/1042110/using-scanf-in-c-programs-is-faster-than-using-cin'>https://stackoverflow.com/questions/1042110/using-scanf-in-c-programs-is-faster-than-using-cin</a>."];
+
             var current = 0;
             var max = slow_images.length - 1;
 
@@ -364,7 +365,9 @@
     <section class="hero teaser" style="margin-bottom: 10em;">
         <div class="container is-max-desktop">
             <div class="notification is-info  has-margin-top" style="font-size: 1.3em;">
-                <strong>TLDR:</strong> A dataset and models for learning code edits that can improve runtime. Browse through some optimizations performed by codex/codegen using PIE below! The examples are cherry-picked for brevity.
+                <strong>TLDR:</strong> A dataset and models for learning code edits that can improve runtime. Browse
+                through some optimizations performed by codex/codegen using PIE below! The examples are cherry-picked
+                for brevity.
             </div>
             <div class="columns is-multiline is-vcentered is-centered">
                 <div class="column has-text-centered">
@@ -437,9 +440,12 @@
                 </header>
                 <div class="card-content is-hidden">
                     <div class="content">
-                        We are releasing the dataset of trajectories (slow-fast pairs) in Python and C++, our code for preparing the dataset, and our
+                        We are releasing the dataset of trajectories (slow-fast pairs) in Python and C++, our code for
+                        preparing the dataset, and our
                         prompts. We are also releasing our evaluation harness, allowing you to evaluate new methods on
-                        the dataset. (<a href="https://github.com/madaan/pie-perf">more details on the repo</a>). We are working on releasing our finetuned CodeGen models but if you are interested in trying them out, please reach out to us.
+                        the dataset. (<a href="https://github.com/madaan/pie-perf">more details on the repo</a>). We are
+                        working on releasing our finetuned CodeGen models but if you are interested in trying them out,
+                        please reach out to us.
                     </div>
                 </div>
             </div>
@@ -705,7 +711,8 @@
                     <ul>
                         <li><strong>user_id:</strong> user id</li>
                         <li><strong>problem_id:</strong> problem id. Details about the problems can be found in
-                            <code>data/problem_list.csv</code></li>
+                            <code>data/problem_list.csv</code>
+                        </li>
                         <li><strong>language:</strong> programming language</li>
                         <li><strong>submission_id_v0:</strong> submission id of the first version of the code</li>
                         <li><strong>submission_id_v1:</strong> submission id of the improved version of the code</li>
@@ -713,12 +720,15 @@
                         <li><strong>cpu_time_v1:</strong> cpu time of the second version of the code.
                             <code>cpu_time_v0</code> &gt; <code>cpu_time_v1</code> by at least 1% for all the pairs in
                             the dataset. For pairs where the first version was TLE, <code>cpu_time_v0</code> is set to
-                            some high value (e.g. 1000000).</li>
+                            some high value (e.g. 1000000).
+                        </li>
                         <li><strong>memory_v{0,1}:</strong> memory used by the code in the two versions. We can also use
-                            <code>memory_v0</code> &gt; <code>memory_v1</code> to filter out pairs.</li>
+                            <code>memory_v0</code> &gt; <code>memory_v1</code> to filter out pairs.
+                        </li>
                         <li><strong>status_v{0,1}:</strong> status of the code in the two versions.
                             <code>status_v0</code> can be "Accepted" or "Time Limit Exceeded", but
-                            <code>status_v1</code> is always "Accepted".</li>
+                            <code>status_v1</code> is always "Accepted".
+                        </li>
                         <li><strong>improvement_frac:</strong> percentage of improvement of the second version of the
                             code with respect to the first version. <code>improvement_frac</code> is always &gt; 0.</li>
                     </ul>
