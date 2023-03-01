@@ -1,0 +1,72 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-removed">2. </p>
+            <p>3. N&nbsp;=&nbsp;int(eval(input()))</p>
+            <p class="diff-block-removed">4. plan&nbsp;=&nbsp;np.array([[0,&nbsp;0,&nbsp;0]]&nbsp;+&nbsp;[list(map(int,&nbsp;input().split()))&nbsp;for&nbsp;i&nbsp;in&nbsp;range(N)])</p>
+            <p class="diff-block-removed">5. diff&nbsp;=&nbsp;np.diff(plan,&nbsp;axis=0)</p>
+            <p class="diff-block-removed">6. </p>
+            <p class="diff-block-removed">7. </p>
+            <p class="diff-block-removed">8. def&nbsp;is_possible(t,&nbsp;x,&nbsp;y):</p>
+            <p class="diff-block-removed">9. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(t&nbsp;+&nbsp;x&nbsp;+&nbsp;y)&nbsp;%&nbsp;2&nbsp;==&nbsp;0&nbsp;and&nbsp;abs(x)&nbsp;+&nbsp;abs(y)&nbsp;&lt;=&nbsp;t:</p>
+            <p class="diff-block-removed">10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;True</p>
+            <p class="diff-block-removed">11. &nbsp;&nbsp;&nbsp;&nbsp;else:</p>
+            <p class="diff-block-removed">12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;False</p>
+            <p class="diff-block-removed">13. </p>
+            <p class="diff-block-removed">14. </p>
+            <p>15. for&nbsp;i&nbsp;in&nbsp;range(N):</p>
+            <p class="diff-block-removed">16. &nbsp;&nbsp;&nbsp;&nbsp;ti,&nbsp;xi,&nbsp;yi&nbsp;=&nbsp;diff[i]</p>
+            <p class="diff-block-removed">17. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;not&nbsp;is_possible(ti,&nbsp;xi,&nbsp;yi):</p>
+            <p>18. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(&quot;No&quot;)</p>
+            <p>19. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit()</p>
+            <p>20. print(&quot;Yes&quot;)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [3.9998318997x faster, p03457, s760019873]</strong></p>
+            <p>1. N&nbsp;=&nbsp;int(eval(input()))</p>
+            <p>2. for&nbsp;i&nbsp;in&nbsp;range(N):</p>
+            <p class="diff-block-added">3. &nbsp;&nbsp;&nbsp;&nbsp;t,&nbsp;x,&nbsp;y&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-added">4. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(t&nbsp;+&nbsp;x&nbsp;+&nbsp;y)&nbsp;%&nbsp;2&nbsp;!=&nbsp;0&nbsp;or&nbsp;abs(x)&nbsp;+&nbsp;abs(y)&nbsp;&gt;&nbsp;t:</p>
+            <p>5. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(&quot;No&quot;)</p>
+            <p>6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit()</p>
+            <p>7. print(&quot;Yes&quot;)</p>
+        </div>
+    </div>
+</body>
+</html>

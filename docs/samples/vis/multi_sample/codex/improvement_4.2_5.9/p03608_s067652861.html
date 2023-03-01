@@ -1,0 +1,114 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p>1. import&nbsp;itertools</p>
+            <p class="diff-block-removed">2. from&nbsp;scipy.sparse.csgraph&nbsp;import&nbsp;floyd_warshall</p>
+            <p>3. </p>
+            <p class="diff-block-removed">4. N,&nbsp;M,&nbsp;R&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">5. r&nbsp;=&nbsp;tuple(map(int,&nbsp;input().split()))</p>
+            <p>6. INF&nbsp;=&nbsp;10**10</p>
+            <p>7. d&nbsp;=&nbsp;[[INF]&nbsp;*&nbsp;N&nbsp;for&nbsp;_&nbsp;in&nbsp;range(N)]</p>
+            <p>8. for&nbsp;i&nbsp;in&nbsp;range(N):</p>
+            <p>9. &nbsp;&nbsp;&nbsp;&nbsp;d[i][i]&nbsp;=&nbsp;0</p>
+            <p>10. for&nbsp;_&nbsp;in&nbsp;range(M):</p>
+            <p class="diff-block-removed">11. &nbsp;&nbsp;&nbsp;&nbsp;a,&nbsp;b,&nbsp;c&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">12. &nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;-=&nbsp;1</p>
+            <p class="diff-block-removed">13. &nbsp;&nbsp;&nbsp;&nbsp;b&nbsp;-=&nbsp;1</p>
+            <p>14. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;d[a][b]&nbsp;&gt;&nbsp;c:</p>
+            <p>15. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d[a][b]&nbsp;=&nbsp;c</p>
+            <p>16. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d[b][a]&nbsp;=&nbsp;c</p>
+            <p>17. </p>
+            <p>18. </p>
+            <p>19. def&nbsp;warshall(d):</p>
+            <p>20. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;k&nbsp;in&nbsp;range(N):</p>
+            <p>21. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(N):</p>
+            <p>22. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;range(N):</p>
+            <p>23. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;d[i][j]&nbsp;&gt;&nbsp;d[i][k]&nbsp;+&nbsp;d[k][j]:</p>
+            <p>24. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d[i][j]&nbsp;=&nbsp;d[i][k]&nbsp;+&nbsp;d[k][j]</p>
+            <p>25. </p>
+            <p>26. </p>
+            <p class="diff-block-removed">27. #&nbsp;d&nbsp;=&nbsp;floyd_warshall(d)</p>
+            <p>28. warshall(d)</p>
+            <p>29. ans&nbsp;=&nbsp;INF</p>
+            <p>30. for&nbsp;p&nbsp;in&nbsp;itertools.permutations(r):</p>
+            <p>31. &nbsp;&nbsp;&nbsp;&nbsp;dist&nbsp;=&nbsp;0</p>
+            <p>32. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(R&nbsp;-&nbsp;1):</p>
+            <p>33. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dist&nbsp;+=&nbsp;d[p[i]&nbsp;-&nbsp;1][p[i&nbsp;+&nbsp;1]&nbsp;-&nbsp;1]</p>
+            <p>34. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;ans&nbsp;&gt;&nbsp;dist:</p>
+            <p>35. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;dist</p>
+            <p>36. print((int(ans)))</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [4.7854687807000005x faster, p03608, s067652861]</strong></p>
+            <p>1. import&nbsp;itertools</p>
+            <p>2. </p>
+            <p class="diff-block-added">3. N,&nbsp;M,&nbsp;R&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p class="diff-block-added">4. r&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p>5. INF&nbsp;=&nbsp;10**10</p>
+            <p>6. d&nbsp;=&nbsp;[[INF]&nbsp;*&nbsp;N&nbsp;for&nbsp;_&nbsp;in&nbsp;range(N)]</p>
+            <p>7. for&nbsp;i&nbsp;in&nbsp;range(N):</p>
+            <p>8. &nbsp;&nbsp;&nbsp;&nbsp;d[i][i]&nbsp;=&nbsp;0</p>
+            <p>9. for&nbsp;_&nbsp;in&nbsp;range(M):</p>
+            <p class="diff-block-added">10. &nbsp;&nbsp;&nbsp;&nbsp;a,&nbsp;b,&nbsp;c&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p class="diff-block-added">11. &nbsp;&nbsp;&nbsp;&nbsp;a,&nbsp;b&nbsp;=&nbsp;a&nbsp;-&nbsp;1,&nbsp;b&nbsp;-&nbsp;1</p>
+            <p>12. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;d[a][b]&nbsp;&gt;&nbsp;c:</p>
+            <p>13. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d[a][b]&nbsp;=&nbsp;c</p>
+            <p>14. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d[b][a]&nbsp;=&nbsp;c</p>
+            <p>15. </p>
+            <p>16. </p>
+            <p>17. def&nbsp;warshall(d):</p>
+            <p>18. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;k&nbsp;in&nbsp;range(N):</p>
+            <p>19. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(N):</p>
+            <p>20. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;range(N):</p>
+            <p>21. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;d[i][j]&nbsp;&gt;&nbsp;d[i][k]&nbsp;+&nbsp;d[k][j]:</p>
+            <p>22. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d[i][j]&nbsp;=&nbsp;d[i][k]&nbsp;+&nbsp;d[k][j]</p>
+            <p>23. </p>
+            <p>24. </p>
+            <p>25. warshall(d)</p>
+            <p>26. ans&nbsp;=&nbsp;INF</p>
+            <p>27. for&nbsp;p&nbsp;in&nbsp;itertools.permutations(r):</p>
+            <p>28. &nbsp;&nbsp;&nbsp;&nbsp;dist&nbsp;=&nbsp;0</p>
+            <p>29. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(R&nbsp;-&nbsp;1):</p>
+            <p>30. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dist&nbsp;+=&nbsp;d[p[i]&nbsp;-&nbsp;1][p[i&nbsp;+&nbsp;1]&nbsp;-&nbsp;1]</p>
+            <p>31. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;ans&nbsp;&gt;&nbsp;dist:</p>
+            <p>32. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;dist</p>
+            <p>33. print((int(ans)))</p>
+        </div>
+    </div>
+</body>
+</html>

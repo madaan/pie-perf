@@ -1,0 +1,137 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. class&nbsp;prime_factorize_by_osa_k:</p>
+            <p class="diff-block-removed">2. &nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;__init__(self,&nbsp;max_val):</p>
+            <p class="diff-block-removed">3. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;&quot;&quot;</p>
+            <p class="diff-block-removed">4. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;割ることが出来る最小の値を格納したリストを返す</p>
+            <p class="diff-block-removed">5. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:param&nbsp;max_val:</p>
+            <p class="diff-block-removed">6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:return:</p>
+            <p class="diff-block-removed">7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;&quot;&quot;</p>
+            <p class="diff-block-removed">8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.minFactor&nbsp;=&nbsp;[-1]&nbsp;*&nbsp;(max_val&nbsp;+&nbsp;1)</p>
+            <p class="diff-block-removed">9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(2,&nbsp;max_val&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-removed">10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;self.minFactor[i]&nbsp;==&nbsp;-1:</p>
+            <p class="diff-block-removed">11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.minFactor[i]&nbsp;=&nbsp;i</p>
+            <p class="diff-block-removed">12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;エラトステネスの篩と同様の処理を行う</p>
+            <p class="diff-block-removed">13. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;range(i&nbsp;*&nbsp;i,&nbsp;max_val&nbsp;+&nbsp;1,&nbsp;i):</p>
+            <p class="diff-block-removed">14. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;self.minFactor[j]&nbsp;==&nbsp;-1:</p>
+            <p class="diff-block-removed">15. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.minFactor[j]&nbsp;=&nbsp;i</p>
+            <p class="diff-block-removed">16. </p>
+            <p class="diff-block-removed">17. &nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;osa_k(self,&nbsp;n):</p>
+            <p class="diff-block-removed">18. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;&quot;&quot;</p>
+            <p class="diff-block-removed">19. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;preprocessをしたあと、O(logN)で素因数分解を行う。nの最大値をn_maxとする。</p>
+            <p class="diff-block-removed">20. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:param&nbsp;n:</p>
+            <p class="diff-block-removed">21. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:return:</p>
+            <p class="diff-block-removed">22. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;&quot;&quot;</p>
+            <p class="diff-block-removed">23. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;collections&nbsp;import&nbsp;defaultdict</p>
+            <p class="diff-block-removed">24. </p>
+            <p class="diff-block-removed">25. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d&nbsp;=&nbsp;defaultdict(int)</p>
+            <p class="diff-block-removed">26. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;now&nbsp;=&nbsp;n</p>
+            <p class="diff-block-removed">27. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;now&nbsp;&gt;&nbsp;1:</p>
+            <p class="diff-block-removed">28. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d[self.minFactor[now]]&nbsp;+=&nbsp;1</p>
+            <p class="diff-block-removed">29. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;now&nbsp;//=&nbsp;self.minFactor[now]</p>
+            <p class="diff-block-removed">30. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;d</p>
+            <p class="diff-block-removed">31. </p>
+            <p class="diff-block-removed">32. </p>
+            <p class="diff-block-removed">33. def&nbsp;gcd(a,&nbsp;b):</p>
+            <p class="diff-block-removed">34. &nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;b:</p>
+            <p class="diff-block-removed">35. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a,&nbsp;b&nbsp;=&nbsp;b,&nbsp;a&nbsp;%&nbsp;b</p>
+            <p class="diff-block-removed">36. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;a</p>
+            <p class="diff-block-removed">37. </p>
+            <p class="diff-block-removed">38. </p>
+            <p class="diff-block-removed">39. N&nbsp;=&nbsp;int(eval(input()))</p>
+            <p>40. A&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">41. #&nbsp;N&nbsp;=&nbsp;10&nbsp;**&nbsp;6</p>
+            <p class="diff-block-removed">42. #&nbsp;A&nbsp;=&nbsp;[10&nbsp;**&nbsp;6]&nbsp;*&nbsp;N</p>
+            <p class="diff-block-removed">43. ob&nbsp;=&nbsp;prime_factorize_by_osa_k(10**6)</p>
+            <p class="diff-block-removed">44. pairwise&nbsp;=&nbsp;False</p>
+            <p class="diff-block-removed">45. prime_key&nbsp;=&nbsp;set(ob.osa_k(A[-1]).keys())</p>
+            <p class="diff-block-removed">46. break_flag&nbsp;=&nbsp;False</p>
+            <p class="diff-block-removed">47. prime_flags&nbsp;=&nbsp;[False]&nbsp;*&nbsp;(10**6&nbsp;+&nbsp;1)</p>
+            <p class="diff-block-removed">48. for&nbsp;i&nbsp;in&nbsp;range(N):</p>
+            <p class="diff-block-removed">49. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;key&nbsp;in&nbsp;list(ob.osa_k(A[i]).keys()):</p>
+            <p class="diff-block-removed">50. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;prime_flags[key]:</p>
+            <p class="diff-block-removed">51. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break_flag&nbsp;=&nbsp;True</p>
+            <p class="diff-block-removed">52. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</p>
+            <p class="diff-block-removed">53. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:</p>
+            <p class="diff-block-removed">54. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prime_flags[key]&nbsp;=&nbsp;True</p>
+            <p class="diff-block-removed">55. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;break_flag:</p>
+            <p class="diff-block-removed">56. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</p>
+            <p class="diff-block-removed">57. else:</p>
+            <p class="diff-block-removed">58. &nbsp;&nbsp;&nbsp;&nbsp;pairwise&nbsp;=&nbsp;True</p>
+            <p class="diff-block-removed">59. if&nbsp;pairwise:</p>
+            <p class="diff-block-removed">60. &nbsp;&nbsp;&nbsp;&nbsp;print(&quot;pairwise&nbsp;coprime&quot;)</p>
+            <p class="diff-block-removed">61. &nbsp;&nbsp;&nbsp;&nbsp;exit()</p>
+            <p class="diff-block-removed">62. work&nbsp;=&nbsp;gcd(A[0],&nbsp;A[1])</p>
+            <p class="diff-block-removed">63. for&nbsp;i&nbsp;in&nbsp;range(2,&nbsp;N):</p>
+            <p class="diff-block-removed">64. &nbsp;&nbsp;&nbsp;&nbsp;work&nbsp;=&nbsp;gcd(work,&nbsp;A[i])</p>
+            <p class="diff-block-removed">65. if&nbsp;work&nbsp;!=&nbsp;1:</p>
+            <p>66. &nbsp;&nbsp;&nbsp;&nbsp;print(&quot;not&nbsp;coprime&quot;)</p>
+            <p class="diff-block-removed">67. else:</p>
+            <p class="diff-block-removed">68. &nbsp;&nbsp;&nbsp;&nbsp;print(&quot;setwise&nbsp;coprime&quot;)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [8.2146329801x faster, p02574, s619395499]</strong></p>
+            <p class="diff-block-added">1. def&nbsp;gcd(a,&nbsp;b):</p>
+            <p class="diff-block-added">2. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;b&nbsp;if&nbsp;a&nbsp;==&nbsp;0&nbsp;else&nbsp;gcd(b&nbsp;%&nbsp;a,&nbsp;a)</p>
+            <p>3. </p>
+            <p>4. </p>
+            <p class="diff-block-added">5. N&nbsp;=&nbsp;int(input())</p>
+            <p>6. A&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-added">7. gcd_of_all&nbsp;=&nbsp;gcd(A[0],&nbsp;A[1])</p>
+            <p class="diff-block-added">8. for&nbsp;a&nbsp;in&nbsp;A[2:]:</p>
+            <p class="diff-block-added">9. &nbsp;&nbsp;&nbsp;&nbsp;gcd_of_all&nbsp;=&nbsp;gcd(gcd_of_all,&nbsp;a)</p>
+            <p class="diff-block-added">10. if&nbsp;gcd_of_all&nbsp;!=&nbsp;1:</p>
+            <p>11. &nbsp;&nbsp;&nbsp;&nbsp;print(&quot;not&nbsp;coprime&quot;)</p>
+            <p class="diff-block-added">12. else:</p>
+            <p class="diff-block-added">13. &nbsp;&nbsp;&nbsp;&nbsp;exists_pairwise_coprime&nbsp;=&nbsp;True</p>
+            <p class="diff-block-added">14. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(N):</p>
+            <p class="diff-block-added">15. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;range(i&nbsp;+&nbsp;1,&nbsp;N):</p>
+            <p class="diff-block-added">16. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;gcd(A[i],&nbsp;A[j])&nbsp;!=&nbsp;1:</p>
+            <p class="diff-block-added">17. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exists_pairwise_coprime&nbsp;=&nbsp;False</p>
+            <p class="diff-block-added">18. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</p>
+            <p class="diff-block-added">19. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;not&nbsp;exists_pairwise_coprime:</p>
+            <p class="diff-block-added">20. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</p>
+            <p class="diff-block-added">21. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;exists_pairwise_coprime:</p>
+            <p class="diff-block-added">22. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(&quot;pairwise&nbsp;coprime&quot;)</p>
+            <p class="diff-block-added">23. &nbsp;&nbsp;&nbsp;&nbsp;else:</p>
+            <p class="diff-block-added">24. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(&quot;setwise&nbsp;coprime&quot;)</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p>1. #!/usr/bin/env&nbsp;python3</p>
+            <p>2. def&nbsp;main():</p>
+            <p>3. &nbsp;&nbsp;&nbsp;&nbsp;import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p>4. </p>
+            <p>5. &nbsp;&nbsp;&nbsp;&nbsp;np.set_printoptions(linewidth=200)</p>
+            <p>6. &nbsp;&nbsp;&nbsp;&nbsp;N,&nbsp;W&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p>7. &nbsp;&nbsp;&nbsp;&nbsp;lst&nbsp;=&nbsp;[list(map(int,&nbsp;input().split()))&nbsp;for&nbsp;_&nbsp;in&nbsp;range(N)]</p>
+            <p>8. &nbsp;&nbsp;&nbsp;&nbsp;v_max&nbsp;=&nbsp;10**3&nbsp;*&nbsp;100&nbsp;*&nbsp;10</p>
+            <p>9. &nbsp;&nbsp;&nbsp;&nbsp;w_max&nbsp;=&nbsp;10**9&nbsp;*&nbsp;v_max</p>
+            <p class="diff-block-removed">10. &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;i以上の価値を持つときの最小重量</p>
+            <p>11. &nbsp;&nbsp;&nbsp;&nbsp;dp&nbsp;=&nbsp;np.full(v_max,&nbsp;w_max,&nbsp;dtype=np.int64)</p>
+            <p>12. &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;initialize</p>
+            <p>13. &nbsp;&nbsp;&nbsp;&nbsp;dp[0]&nbsp;=&nbsp;0</p>
+            <p>14. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;n&nbsp;in&nbsp;range(N):</p>
+            <p>15. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;w,&nbsp;v&nbsp;=&nbsp;lst[n]</p>
+            <p>16. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[v:]&nbsp;=&nbsp;np.minimum(dp[v:],&nbsp;dp[:-v]&nbsp;+&nbsp;w)</p>
+            <p class="diff-block-removed">17. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;0</p>
+            <p class="diff-block-removed">18. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i,&nbsp;w&nbsp;in&nbsp;enumerate(dp):</p>
+            <p class="diff-block-removed">19. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;w&nbsp;&lt;=&nbsp;W:</p>
+            <p class="diff-block-removed">20. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;i</p>
+            <p class="diff-block-removed">21. &nbsp;&nbsp;&nbsp;&nbsp;print(ans)</p>
+            <p>22. </p>
+            <p>23. </p>
+            <p>24. if&nbsp;__name__&nbsp;==&nbsp;&quot;__main__&quot;:</p>
+            <p>25. &nbsp;&nbsp;&nbsp;&nbsp;main()</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [1.6526645099000001x faster, p03164, s162537560]</strong></p>
+            <p>1. #!/usr/bin/env&nbsp;python3</p>
+            <p>2. def&nbsp;main():</p>
+            <p>3. &nbsp;&nbsp;&nbsp;&nbsp;import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p>4. </p>
+            <p>5. &nbsp;&nbsp;&nbsp;&nbsp;np.set_printoptions(linewidth=200)</p>
+            <p>6. &nbsp;&nbsp;&nbsp;&nbsp;N,&nbsp;W&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p>7. &nbsp;&nbsp;&nbsp;&nbsp;lst&nbsp;=&nbsp;[list(map(int,&nbsp;input().split()))&nbsp;for&nbsp;_&nbsp;in&nbsp;range(N)]</p>
+            <p>8. &nbsp;&nbsp;&nbsp;&nbsp;v_max&nbsp;=&nbsp;10**3&nbsp;*&nbsp;100&nbsp;*&nbsp;10</p>
+            <p>9. &nbsp;&nbsp;&nbsp;&nbsp;w_max&nbsp;=&nbsp;10**9&nbsp;*&nbsp;v_max</p>
+            <p>10. &nbsp;&nbsp;&nbsp;&nbsp;dp&nbsp;=&nbsp;np.full(v_max,&nbsp;w_max,&nbsp;dtype=np.int64)</p>
+            <p>11. &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;initialize</p>
+            <p>12. &nbsp;&nbsp;&nbsp;&nbsp;dp[0]&nbsp;=&nbsp;0</p>
+            <p>13. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;n&nbsp;in&nbsp;range(N):</p>
+            <p>14. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;w,&nbsp;v&nbsp;=&nbsp;lst[n]</p>
+            <p>15. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[v:]&nbsp;=&nbsp;np.minimum(dp[v:],&nbsp;dp[:-v]&nbsp;+&nbsp;w)</p>
+            <p class="diff-block-added">16. &nbsp;&nbsp;&nbsp;&nbsp;print((np.where(dp&nbsp;&lt;=&nbsp;W)[0][-1]))</p>
+            <p>17. </p>
+            <p>18. </p>
+            <p>19. if&nbsp;__name__&nbsp;==&nbsp;&quot;__main__&quot;:</p>
+            <p>20. &nbsp;&nbsp;&nbsp;&nbsp;main()</p>
+        </div>
+    </div>
+</body>
+</html>

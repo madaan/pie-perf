@@ -1,0 +1,57 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-removed">2. </p>
+            <p>3. N,&nbsp;M&nbsp;=&nbsp;[int(x)&nbsp;for&nbsp;x&nbsp;in&nbsp;input().split()]</p>
+            <p>4. L&nbsp;=&nbsp;[[int(y)&nbsp;for&nbsp;y&nbsp;in&nbsp;input().split()]&nbsp;for&nbsp;_&nbsp;in&nbsp;range(M)]</p>
+            <p>5. L&nbsp;=&nbsp;sum(L,&nbsp;[])</p>
+            <p class="diff-block-removed">6. for&nbsp;i&nbsp;in&nbsp;np.arange(1,&nbsp;N&nbsp;+&nbsp;1):</p>
+            <p>7. &nbsp;&nbsp;&nbsp;&nbsp;print((L.count(i)))</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [3.273632231x faster, p03720, s591924545]</strong></p>
+            <p>1. N,&nbsp;M&nbsp;=&nbsp;[int(x)&nbsp;for&nbsp;x&nbsp;in&nbsp;input().split()]</p>
+            <p>2. L&nbsp;=&nbsp;[[int(y)&nbsp;for&nbsp;y&nbsp;in&nbsp;input().split()]&nbsp;for&nbsp;_&nbsp;in&nbsp;range(M)]</p>
+            <p>3. L&nbsp;=&nbsp;sum(L,&nbsp;[])</p>
+            <p class="diff-block-added">4. for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;N&nbsp;+&nbsp;1):</p>
+            <p>5. &nbsp;&nbsp;&nbsp;&nbsp;print((L.count(i)))</p>
+        </div>
+    </div>
+</body>
+</html>

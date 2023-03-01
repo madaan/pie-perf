@@ -1,0 +1,91 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. n,&nbsp;m,&nbsp;r&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p>2. rs&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p>3. #&nbsp;construct&nbsp;map</p>
+            <p class="diff-block-removed">4. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-removed">5. </p>
+            <p class="diff-block-removed">6. dists&nbsp;=&nbsp;np.ones((n&nbsp;+&nbsp;1,&nbsp;n&nbsp;+&nbsp;1))&nbsp;*&nbsp;float(&quot;inf&quot;)</p>
+            <p>7. for&nbsp;_&nbsp;in&nbsp;range(m):</p>
+            <p>8. &nbsp;&nbsp;&nbsp;&nbsp;a,&nbsp;b,&nbsp;c&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">9. &nbsp;&nbsp;&nbsp;&nbsp;dists[a,&nbsp;b]&nbsp;=&nbsp;dists[b,&nbsp;a]&nbsp;=&nbsp;c</p>
+            <p>10. for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;n&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-removed">11. &nbsp;&nbsp;&nbsp;&nbsp;dists[i,&nbsp;i]&nbsp;=&nbsp;0</p>
+            <p class="diff-block-removed">12. from&nbsp;itertools&nbsp;import&nbsp;product,&nbsp;permutations</p>
+            <p class="diff-block-removed">13. </p>
+            <p class="diff-block-removed">14. for&nbsp;i,&nbsp;j&nbsp;in&nbsp;product(list(range(1,&nbsp;1&nbsp;+&nbsp;n)),&nbsp;repeat=2):</p>
+            <p class="diff-block-removed">15. &nbsp;&nbsp;&nbsp;&nbsp;dists[j]&nbsp;=&nbsp;np.minimum(dists[j],&nbsp;dists[i]&nbsp;+&nbsp;dists[j,&nbsp;i])</p>
+            <p>16. ans&nbsp;=&nbsp;float(&quot;inf&quot;)</p>
+            <p>17. for&nbsp;path&nbsp;in&nbsp;permutations(rs):</p>
+            <p class="diff-block-removed">18. &nbsp;&nbsp;&nbsp;&nbsp;val&nbsp;=&nbsp;sum(dists[i,&nbsp;j]&nbsp;for&nbsp;i,&nbsp;j&nbsp;in&nbsp;zip(path,&nbsp;path[1:]))</p>
+            <p>19. &nbsp;&nbsp;&nbsp;&nbsp;val&nbsp;=&nbsp;int(val)</p>
+            <p>20. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;val&nbsp;&lt;&nbsp;ans:</p>
+            <p>21. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;val</p>
+            <p>22. print(ans)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [3.870811829x faster, p03608, s433890015]</strong></p>
+            <p class="diff-block-added">1. n,&nbsp;m,&nbsp;r&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p>2. rs&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p>3. #&nbsp;construct&nbsp;map</p>
+            <p class="diff-block-added">4. dists&nbsp;=&nbsp;[[float(&quot;inf&quot;)&nbsp;for&nbsp;i&nbsp;in&nbsp;range(n&nbsp;+&nbsp;1)]&nbsp;for&nbsp;j&nbsp;in&nbsp;range(n&nbsp;+&nbsp;1)]</p>
+            <p>5. for&nbsp;_&nbsp;in&nbsp;range(m):</p>
+            <p>6. &nbsp;&nbsp;&nbsp;&nbsp;a,&nbsp;b,&nbsp;c&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-added">7. &nbsp;&nbsp;&nbsp;&nbsp;dists[a][b]&nbsp;=&nbsp;dists[b][a]&nbsp;=&nbsp;c</p>
+            <p class="diff-block-added">8. for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;n&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-added">9. &nbsp;&nbsp;&nbsp;&nbsp;dists[i][i]&nbsp;=&nbsp;0</p>
+            <p class="diff-block-added">10. #&nbsp;warshall_floyd</p>
+            <p class="diff-block-added">11. for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;n&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-added">12. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;range(1,&nbsp;n&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-added">13. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;k&nbsp;in&nbsp;range(1,&nbsp;n&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-added">14. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dists[j][k]&nbsp;=&nbsp;min(dists[j][k],&nbsp;dists[j][i]&nbsp;+&nbsp;dists[i][k])</p>
+            <p class="diff-block-added">15. #&nbsp;calc</p>
+            <p class="diff-block-added">16. from&nbsp;itertools&nbsp;import&nbsp;permutations</p>
+            <p>17. </p>
+            <p>18. ans&nbsp;=&nbsp;float(&quot;inf&quot;)</p>
+            <p>19. for&nbsp;path&nbsp;in&nbsp;permutations(rs):</p>
+            <p class="diff-block-added">20. &nbsp;&nbsp;&nbsp;&nbsp;val&nbsp;=&nbsp;sum(dists[i][j]&nbsp;for&nbsp;i,&nbsp;j&nbsp;in&nbsp;zip(path,&nbsp;path[1:]))</p>
+            <p>21. &nbsp;&nbsp;&nbsp;&nbsp;val&nbsp;=&nbsp;int(val)</p>
+            <p>22. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;val&nbsp;&lt;&nbsp;ans:</p>
+            <p>23. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;val</p>
+            <p>24. print(ans)</p>
+        </div>
+    </div>
+</body>
+</html>

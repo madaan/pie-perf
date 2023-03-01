@@ -1,0 +1,86 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-removed">2. </p>
+            <p class="diff-block-removed">3. X,&nbsp;Y,&nbsp;Z,&nbsp;K&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">4. A&nbsp;=&nbsp;np.array([int(i)&nbsp;for&nbsp;i&nbsp;in&nbsp;input().split()])</p>
+            <p class="diff-block-removed">5. B&nbsp;=&nbsp;np.array([int(i)&nbsp;for&nbsp;i&nbsp;in&nbsp;input().split()])</p>
+            <p class="diff-block-removed">6. C&nbsp;=&nbsp;np.array([int(i)&nbsp;for&nbsp;i&nbsp;in&nbsp;input().split()])</p>
+            <p class="diff-block-removed">7. A&nbsp;=&nbsp;-np.sort(-A)&nbsp;&nbsp;#&nbsp;要チェックや</p>
+            <p class="diff-block-removed">8. B&nbsp;=&nbsp;-np.sort(-B)</p>
+            <p class="diff-block-removed">9. C&nbsp;=&nbsp;-np.sort(-C)</p>
+            <p class="diff-block-removed">10. D&nbsp;=&nbsp;[]</p>
+            <p class="diff-block-removed">11. for&nbsp;i&nbsp;in&nbsp;range(min(K,&nbsp;X)):</p>
+            <p class="diff-block-removed">12. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;range(min(K,&nbsp;Y)):</p>
+            <p class="diff-block-removed">13. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(i&nbsp;+&nbsp;1)&nbsp;*&nbsp;(j&nbsp;+&nbsp;1)&nbsp;&gt;&nbsp;K:</p>
+            <p class="diff-block-removed">14. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</p>
+            <p class="diff-block-removed">15. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;k&nbsp;in&nbsp;range(min(K,&nbsp;Z)):</p>
+            <p class="diff-block-removed">16. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(i&nbsp;+&nbsp;1)&nbsp;*&nbsp;(j&nbsp;+&nbsp;1)&nbsp;*&nbsp;(k&nbsp;+&nbsp;1)&nbsp;&gt;&nbsp;K:</p>
+            <p class="diff-block-removed">17. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</p>
+            <p class="diff-block-removed">18. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:</p>
+            <p class="diff-block-removed">19. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D.append(A[i]&nbsp;+&nbsp;B[j]&nbsp;+&nbsp;C[k])</p>
+            <p class="diff-block-removed">20. X&nbsp;=&nbsp;np.array(D)</p>
+            <p class="diff-block-removed">21. X&nbsp;=&nbsp;-np.sort(-X)</p>
+            <p class="diff-block-removed">22. for&nbsp;i&nbsp;in&nbsp;range(K):</p>
+            <p class="diff-block-removed">23. &nbsp;&nbsp;&nbsp;&nbsp;print((X[i]))</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [3.4460858207x faster, p03078, s221829319]</strong></p>
+            <p class="diff-block-added">1. X,&nbsp;Y,&nbsp;Z,&nbsp;K&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p class="diff-block-added">2. A&nbsp;=&nbsp;sorted(map(int,&nbsp;input().split()),&nbsp;reverse=True)</p>
+            <p class="diff-block-added">3. B&nbsp;=&nbsp;sorted(map(int,&nbsp;input().split()),&nbsp;reverse=True)</p>
+            <p class="diff-block-added">4. C&nbsp;=&nbsp;sorted(map(int,&nbsp;input().split()),&nbsp;reverse=True)</p>
+            <p class="diff-block-added">5. print(</p>
+            <p class="diff-block-added">6. &nbsp;&nbsp;&nbsp;&nbsp;&quot;\n&quot;.join(</p>
+            <p class="diff-block-added">7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;map(</p>
+            <p class="diff-block-added">8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str,</p>
+            <p class="diff-block-added">9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sorted(</p>
+            <p class="diff-block-added">10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A[i]&nbsp;+&nbsp;B[j]&nbsp;+&nbsp;C[k]</p>
+            <p class="diff-block-added">11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(min(K,&nbsp;X))</p>
+            <p class="diff-block-added">12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;range(min(K,&nbsp;Y))</p>
+            <p class="diff-block-added">13. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;k&nbsp;in&nbsp;range(min(K,&nbsp;Z))</p>
+            <p class="diff-block-added">14. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;i&nbsp;+&nbsp;j&nbsp;+&nbsp;k&nbsp;&lt;&nbsp;K</p>
+            <p class="diff-block-added">15. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)[::-1],</p>
+            <p class="diff-block-added">16. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</p>
+            <p class="diff-block-added">17. &nbsp;&nbsp;&nbsp;&nbsp;)</p>
+            <p class="diff-block-added">18. )</p>
+        </div>
+    </div>
+</body>
+</html>

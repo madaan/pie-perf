@@ -1,0 +1,57 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. N&nbsp;=&nbsp;int(eval(input()))</p>
+            <p class="diff-block-removed">2. d&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">3. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p>4. </p>
+            <p class="diff-block-removed">5. d&nbsp;=&nbsp;np.array(d)</p>
+            <p class="diff-block-removed">6. print((((np.sum(d))&nbsp;**&nbsp;2&nbsp;-&nbsp;np.sum(d**2))&nbsp;//&nbsp;2))</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [3.3872388154x faster, p02886, s711137678]</strong></p>
+            <p class="diff-block-added">1. from&nbsp;math&nbsp;import&nbsp;*</p>
+            <p>2. </p>
+            <p class="diff-block-added">3. read&nbsp;=&nbsp;lambda:&nbsp;map(int,&nbsp;input().split())</p>
+            <p class="diff-block-added">4. n&nbsp;=&nbsp;int(input())</p>
+            <p class="diff-block-added">5. a&nbsp;=&nbsp;list(read())</p>
+            <p class="diff-block-added">6. print((sum(a)&nbsp;**&nbsp;2&nbsp;-&nbsp;sum(i**2&nbsp;for&nbsp;i&nbsp;in&nbsp;a))&nbsp;//&nbsp;2)</p>
+        </div>
+    </div>
+</body>
+</html>

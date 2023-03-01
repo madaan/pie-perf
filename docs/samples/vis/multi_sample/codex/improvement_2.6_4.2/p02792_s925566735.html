@@ -1,0 +1,79 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p>1. def&nbsp;main():</p>
+            <p>2. &nbsp;&nbsp;&nbsp;&nbsp;n&nbsp;=&nbsp;int(eval(input()))</p>
+            <p class="diff-block-removed">3. &nbsp;&nbsp;&nbsp;&nbsp;import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-removed">4. </p>
+            <p class="diff-block-removed">5. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;np.zeros((10,&nbsp;10))</p>
+            <p>6. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;n&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-removed">7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;h,&nbsp;t&nbsp;=&nbsp;str(i)[0],&nbsp;str(i)[-1]</p>
+            <p class="diff-block-removed">8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans[int(h)&nbsp;-&nbsp;1][int(t)&nbsp;-&nbsp;1]&nbsp;+=&nbsp;1</p>
+            <p class="diff-block-removed">9. &nbsp;&nbsp;&nbsp;&nbsp;s&nbsp;=&nbsp;0</p>
+            <p>10. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(10):</p>
+            <p>11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;range(10):</p>
+            <p class="diff-block-removed">12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s&nbsp;+=&nbsp;ans[i][j]&nbsp;*&nbsp;ans[j][i]</p>
+            <p class="diff-block-removed">13. &nbsp;&nbsp;&nbsp;&nbsp;print((int(s)))</p>
+            <p class="diff-block-removed">14. </p>
+            <p class="diff-block-removed">15. </p>
+            <p>16. if&nbsp;__name__&nbsp;==&nbsp;&quot;__main__&quot;:</p>
+            <p>17. &nbsp;&nbsp;&nbsp;&nbsp;main()</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [2.8482706391x faster, p02792, s925566735]</strong></p>
+            <p>1. def&nbsp;main():</p>
+            <p>2. &nbsp;&nbsp;&nbsp;&nbsp;n&nbsp;=&nbsp;int(eval(input()))</p>
+            <p class="diff-block-added">3. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;[[0]&nbsp;*&nbsp;10&nbsp;for&nbsp;_&nbsp;in&nbsp;range(10)]</p>
+            <p>4. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;n&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-added">5. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;=&nbsp;str(i)</p>
+            <p class="diff-block-added">6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s&nbsp;=&nbsp;a[0]</p>
+            <p class="diff-block-added">7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t&nbsp;=&nbsp;a[-1]</p>
+            <p class="diff-block-added">8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans[int(s)][int(t)]&nbsp;+=&nbsp;1</p>
+            <p class="diff-block-added">9. &nbsp;&nbsp;&nbsp;&nbsp;ans_count&nbsp;=&nbsp;0</p>
+            <p>10. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(10):</p>
+            <p>11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;range(10):</p>
+            <p class="diff-block-added">12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans_count&nbsp;+=&nbsp;ans[i][j]&nbsp;*&nbsp;ans[j][i]</p>
+            <p class="diff-block-added">13. &nbsp;&nbsp;&nbsp;&nbsp;print(int(ans_count))</p>
+            <p>14. </p>
+            <p>15. </p>
+            <p>16. if&nbsp;__name__&nbsp;==&nbsp;&quot;__main__&quot;:</p>
+            <p>17. &nbsp;&nbsp;&nbsp;&nbsp;main()</p>
+        </div>
+    </div>
+</body>
+</html>

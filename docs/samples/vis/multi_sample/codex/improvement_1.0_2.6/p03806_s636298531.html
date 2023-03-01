@@ -1,0 +1,104 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p>1. G_MAX&nbsp;=&nbsp;40&nbsp;*&nbsp;10</p>
+            <p class="diff-block-removed">2. N_MAX&nbsp;=&nbsp;40</p>
+            <p class="diff-block-removed">3. INF&nbsp;=&nbsp;float(&quot;inf&quot;)</p>
+            <p class="diff-block-removed">4. dp&nbsp;=&nbsp;[[[INF]&nbsp;*&nbsp;(G_MAX&nbsp;+&nbsp;1)&nbsp;for&nbsp;_&nbsp;in&nbsp;range(G_MAX&nbsp;+&nbsp;1)]&nbsp;for&nbsp;_&nbsp;in&nbsp;range(N_MAX&nbsp;+&nbsp;1)]</p>
+            <p class="diff-block-removed">5. N,&nbsp;Ma,&nbsp;Mb&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">6. a,&nbsp;b,&nbsp;c&nbsp;=&nbsp;[],&nbsp;[],&nbsp;[]</p>
+            <p class="diff-block-removed">7. for&nbsp;_&nbsp;in&nbsp;range(N):</p>
+            <p class="diff-block-removed">8. &nbsp;&nbsp;&nbsp;&nbsp;ai,&nbsp;bi,&nbsp;ci&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">9. &nbsp;&nbsp;&nbsp;&nbsp;a.append(ai)</p>
+            <p class="diff-block-removed">10. &nbsp;&nbsp;&nbsp;&nbsp;b.append(bi)</p>
+            <p class="diff-block-removed">11. &nbsp;&nbsp;&nbsp;&nbsp;c.append(ci)</p>
+            <p>12. dp[0][0][0]&nbsp;=&nbsp;0</p>
+            <p class="diff-block-removed">13. from&nbsp;math&nbsp;import&nbsp;isinf</p>
+            <p class="diff-block-removed">14. </p>
+            <p>15. for&nbsp;i&nbsp;in&nbsp;range(N):</p>
+            <p>16. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;ca&nbsp;in&nbsp;range(G_MAX&nbsp;+&nbsp;1):</p>
+            <p>17. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;cb&nbsp;in&nbsp;range(G_MAX&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-removed">18. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;isinf(dp[i][ca][cb]):</p>
+            <p>19. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue</p>
+            <p>20. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i&nbsp;+&nbsp;1][ca][cb]&nbsp;=&nbsp;min(dp[i&nbsp;+&nbsp;1][ca][cb],&nbsp;dp[i][ca][cb])</p>
+            <p>21. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i&nbsp;+&nbsp;1][ca&nbsp;+&nbsp;a[i]][cb&nbsp;+&nbsp;b[i]]&nbsp;=&nbsp;min(</p>
+            <p>22. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i&nbsp;+&nbsp;1][ca&nbsp;+&nbsp;a[i]][cb&nbsp;+&nbsp;b[i]],&nbsp;dp[i][ca][cb]&nbsp;+&nbsp;c[i]</p>
+            <p>23. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</p>
+            <p>24. ans&nbsp;=&nbsp;INF</p>
+            <p>25. for&nbsp;ca&nbsp;in&nbsp;range(1,&nbsp;G_MAX&nbsp;+&nbsp;1):</p>
+            <p>26. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;cb&nbsp;in&nbsp;range(1,&nbsp;G_MAX&nbsp;+&nbsp;1):</p>
+            <p>27. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;ca&nbsp;*&nbsp;Mb&nbsp;==&nbsp;cb&nbsp;*&nbsp;Ma:</p>
+            <p>28. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;min(ans,&nbsp;dp[N][ca][cb])</p>
+            <p class="diff-block-removed">29. if&nbsp;isinf(ans):</p>
+            <p>30. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;-1</p>
+            <p>31. print(ans)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [1.5709590759x faster, p03806, s636298531]</strong></p>
+            <p class="diff-block-added">1. N,&nbsp;Ma,&nbsp;Mb&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p class="diff-block-added">2. a,&nbsp;b,&nbsp;c&nbsp;=&nbsp;[0]&nbsp;*&nbsp;N,&nbsp;[0]&nbsp;*&nbsp;N,&nbsp;[0]&nbsp;*&nbsp;N</p>
+            <p class="diff-block-added">3. for&nbsp;i&nbsp;in&nbsp;range(N):</p>
+            <p class="diff-block-added">4. &nbsp;&nbsp;&nbsp;&nbsp;ai,&nbsp;bi,&nbsp;ci&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p class="diff-block-added">5. &nbsp;&nbsp;&nbsp;&nbsp;a[i]&nbsp;=&nbsp;ai</p>
+            <p class="diff-block-added">6. &nbsp;&nbsp;&nbsp;&nbsp;b[i]&nbsp;=&nbsp;bi</p>
+            <p class="diff-block-added">7. &nbsp;&nbsp;&nbsp;&nbsp;c[i]&nbsp;=&nbsp;ci</p>
+            <p class="diff-block-added">8. INF&nbsp;=&nbsp;float(&quot;inf&quot;)</p>
+            <p>9. G_MAX&nbsp;=&nbsp;40&nbsp;*&nbsp;10</p>
+            <p class="diff-block-added">10. dp&nbsp;=&nbsp;[[[INF]&nbsp;*&nbsp;(G_MAX&nbsp;+&nbsp;1)&nbsp;for&nbsp;_&nbsp;in&nbsp;range(G_MAX&nbsp;+&nbsp;1)]&nbsp;for&nbsp;_&nbsp;in&nbsp;range(N&nbsp;+&nbsp;1)]</p>
+            <p>11. dp[0][0][0]&nbsp;=&nbsp;0</p>
+            <p class="diff-block-added">12. for&nbsp;i&nbsp;in&nbsp;range(N):</p>
+            <p>13. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;ca&nbsp;in&nbsp;range(G_MAX&nbsp;+&nbsp;1):</p>
+            <p>14. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;cb&nbsp;in&nbsp;range(G_MAX&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-added">15. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;dp[i][ca][cb]&nbsp;==&nbsp;INF:</p>
+            <p>16. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue</p>
+            <p>17. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i&nbsp;+&nbsp;1][ca][cb]&nbsp;=&nbsp;min(dp[i&nbsp;+&nbsp;1][ca][cb],&nbsp;dp[i][ca][cb])</p>
+            <p>18. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i&nbsp;+&nbsp;1][ca&nbsp;+&nbsp;a[i]][cb&nbsp;+&nbsp;b[i]]&nbsp;=&nbsp;min(</p>
+            <p>19. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i&nbsp;+&nbsp;1][ca&nbsp;+&nbsp;a[i]][cb&nbsp;+&nbsp;b[i]],&nbsp;dp[i][ca][cb]&nbsp;+&nbsp;c[i]</p>
+            <p>20. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</p>
+            <p>21. ans&nbsp;=&nbsp;INF</p>
+            <p>22. for&nbsp;ca&nbsp;in&nbsp;range(1,&nbsp;G_MAX&nbsp;+&nbsp;1):</p>
+            <p>23. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;cb&nbsp;in&nbsp;range(1,&nbsp;G_MAX&nbsp;+&nbsp;1):</p>
+            <p>24. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;ca&nbsp;*&nbsp;Mb&nbsp;==&nbsp;cb&nbsp;*&nbsp;Ma:</p>
+            <p>25. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;min(ans,&nbsp;dp[N][ca][cb])</p>
+            <p class="diff-block-added">26. if&nbsp;ans&nbsp;==&nbsp;INF:</p>
+            <p>27. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;-1</p>
+            <p>28. print(ans)</p>
+        </div>
+    </div>
+</body>
+</html>

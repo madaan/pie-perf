@@ -1,0 +1,64 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-removed">2. </p>
+            <p class="diff-block-removed">3. </p>
+            <p>4. def&nbsp;main():</p>
+            <p class="diff-block-removed">5. &nbsp;&nbsp;&nbsp;&nbsp;stdin&nbsp;=&nbsp;np.fromstring(open(0).read(),&nbsp;dtype=np.int64,&nbsp;sep=&quot;&nbsp;&quot;)</p>
+            <p class="diff-block-removed">6. &nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;=&nbsp;stdin[1:]</p>
+            <p class="diff-block-removed">7. &nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;=&nbsp;np.mod(A,&nbsp;2)</p>
+            <p class="diff-block-removed">8. &nbsp;&nbsp;&nbsp;&nbsp;print(&quot;first&quot;)&nbsp;if&nbsp;np.count_nonzero(A)&nbsp;else&nbsp;print(&quot;second&quot;)</p>
+            <p class="diff-block-removed">9. </p>
+            <p class="diff-block-removed">10. </p>
+            <p>11. if&nbsp;__name__&nbsp;==&nbsp;&quot;__main__&quot;:</p>
+            <p>12. &nbsp;&nbsp;&nbsp;&nbsp;main()</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [3.7672297727x faster, p03197, s897143120]</strong></p>
+            <p>1. def&nbsp;main():</p>
+            <p class="diff-block-added">2. &nbsp;&nbsp;&nbsp;&nbsp;_,&nbsp;*A&nbsp;=&nbsp;list(map(int,&nbsp;open(0).read().split()))</p>
+            <p class="diff-block-added">3. &nbsp;&nbsp;&nbsp;&nbsp;print(&quot;first&quot;)&nbsp;if&nbsp;1&nbsp;in&nbsp;A&nbsp;else&nbsp;print(&quot;second&quot;)</p>
+            <p>4. </p>
+            <p>5. </p>
+            <p>6. if&nbsp;__name__&nbsp;==&nbsp;&quot;__main__&quot;:</p>
+            <p>7. &nbsp;&nbsp;&nbsp;&nbsp;main()</p>
+        </div>
+    </div>
+</body>
+</html>

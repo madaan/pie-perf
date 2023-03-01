@@ -1,0 +1,71 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. #&nbsp;参考&nbsp;https://atcoder.jp/contests/abc133/submissions/7966658</p>
+            <p class="diff-block-removed">2. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-removed">3. </p>
+            <p class="diff-block-removed">4. </p>
+            <p class="diff-block-removed">5. def&nbsp;abc133_c():</p>
+            <p class="diff-block-removed">6. &nbsp;&nbsp;&nbsp;&nbsp;L,&nbsp;R&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">7. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;R&nbsp;-&nbsp;L&nbsp;&gt;&nbsp;673:</p>
+            <p class="diff-block-removed">8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;0</p>
+            <p class="diff-block-removed">9. &nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;=&nbsp;np.arange(L,&nbsp;R&nbsp;+&nbsp;1,&nbsp;dtype=np.int64)</p>
+            <p class="diff-block-removed">10. &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;y&nbsp;=&nbsp;x[:,&nbsp;None]&nbsp;*&nbsp;x[None,&nbsp;:]&nbsp;%&nbsp;2019</p>
+            <p class="diff-block-removed">11. &nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;=&nbsp;x.reshape(-1,&nbsp;1)&nbsp;*&nbsp;x.reshape(1,&nbsp;-1)&nbsp;&nbsp;#&nbsp;区間内のすべての組合せの積</p>
+            <p class="diff-block-removed">12. &nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;%=&nbsp;2019</p>
+            <p class="diff-block-removed">13. &nbsp;&nbsp;&nbsp;&nbsp;np.fill_diagonal(y,&nbsp;2019)&nbsp;&nbsp;#&nbsp;対角成分は無視する&nbsp;(同じ数を2回選べない)&nbsp;のでinf値で埋める</p>
+            <p class="diff-block-removed">14. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;y.min()</p>
+            <p class="diff-block-removed">15. </p>
+            <p class="diff-block-removed">16. </p>
+            <p class="diff-block-removed">17. print((abc133_c()))</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [3.7533476760999998x faster, p02983, s922780742]</strong></p>
+            <p class="diff-block-added">1. L,&nbsp;R&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p class="diff-block-added">2. if&nbsp;R&nbsp;-&nbsp;L&nbsp;&gt;=&nbsp;2019:</p>
+            <p class="diff-block-added">3. &nbsp;&nbsp;&nbsp;&nbsp;print(0)</p>
+            <p class="diff-block-added">4. else:</p>
+            <p class="diff-block-added">5. &nbsp;&nbsp;&nbsp;&nbsp;m&nbsp;=&nbsp;2018</p>
+            <p class="diff-block-added">6. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(L,&nbsp;R):</p>
+            <p class="diff-block-added">7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;range(i&nbsp;+&nbsp;1,&nbsp;R&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-added">8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m&nbsp;=&nbsp;min(m,&nbsp;(i&nbsp;*&nbsp;j)&nbsp;%&nbsp;2019)</p>
+            <p class="diff-block-added">9. &nbsp;&nbsp;&nbsp;&nbsp;print(m)</p>
+        </div>
+    </div>
+</body>
+</html>

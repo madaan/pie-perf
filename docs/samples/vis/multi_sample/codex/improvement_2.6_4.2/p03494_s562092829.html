@@ -1,0 +1,65 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-removed">2. </p>
+            <p class="diff-block-removed">3. eval(input())</p>
+            <p class="diff-block-removed">4. x&nbsp;=&nbsp;np.array(input().split(),&nbsp;dtype=np.int32)</p>
+            <p class="diff-block-removed">5. ans&nbsp;=&nbsp;0</p>
+            <p class="diff-block-removed">6. while&nbsp;(x&nbsp;%&nbsp;2&nbsp;==&nbsp;0).all():</p>
+            <p class="diff-block-removed">7. &nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;=&nbsp;x&nbsp;//&nbsp;2</p>
+            <p class="diff-block-removed">8. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;+=&nbsp;1</p>
+            <p class="diff-block-removed">9. print(ans)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [3.5195437661x faster, p03494, s562092829]</strong></p>
+            <p class="diff-block-added">1. A&nbsp;=&nbsp;int(input())</p>
+            <p class="diff-block-added">2. B&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-added">3. cnt&nbsp;=&nbsp;0</p>
+            <p class="diff-block-added">4. while&nbsp;1:</p>
+            <p class="diff-block-added">5. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(A):</p>
+            <p class="diff-block-added">6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;B[i]&nbsp;%&nbsp;2&nbsp;!=&nbsp;0:</p>
+            <p class="diff-block-added">7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(cnt)</p>
+            <p class="diff-block-added">8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit()</p>
+            <p class="diff-block-added">9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:</p>
+            <p class="diff-block-added">10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;B[i]&nbsp;/=&nbsp;2</p>
+            <p class="diff-block-added">11. &nbsp;&nbsp;&nbsp;&nbsp;cnt&nbsp;+=&nbsp;1</p>
+        </div>
+    </div>
+</body>
+</html>

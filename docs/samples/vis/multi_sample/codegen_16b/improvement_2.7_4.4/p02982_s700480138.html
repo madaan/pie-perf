@@ -1,0 +1,72 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. import&nbsp;math</p>
+            <p class="diff-block-removed">2. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-removed">3. </p>
+            <p>4. n,&nbsp;d&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">5. x&nbsp;=&nbsp;np.zeros([n,&nbsp;d])</p>
+            <p class="diff-block-removed">6. for&nbsp;i&nbsp;in&nbsp;range(n):</p>
+            <p class="diff-block-removed">7. &nbsp;&nbsp;&nbsp;&nbsp;line&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">8. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;range(d):</p>
+            <p class="diff-block-removed">9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x[i,&nbsp;j]&nbsp;=&nbsp;line[j]</p>
+            <p>10. cnt&nbsp;=&nbsp;0</p>
+            <p class="diff-block-removed">11. for&nbsp;i&nbsp;in&nbsp;range(n):</p>
+            <p>12. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;range(i&nbsp;+&nbsp;1,&nbsp;n):</p>
+            <p class="diff-block-removed">13. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xx&nbsp;=&nbsp;(x[i]&nbsp;-&nbsp;x[j])&nbsp;**&nbsp;2</p>
+            <p class="diff-block-removed">14. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dist&nbsp;=&nbsp;math.sqrt(xx.sum())</p>
+            <p class="diff-block-removed">15. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;dist&nbsp;%&nbsp;1&nbsp;==&nbsp;0:</p>
+            <p>16. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cnt&nbsp;+=&nbsp;1</p>
+            <p>17. print(cnt)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [3.7236253967x faster, p02982, s700480138]</strong></p>
+            <p>1. n,&nbsp;d&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-added">2. x&nbsp;=&nbsp;[list(map(int,&nbsp;input().split()))&nbsp;for&nbsp;_&nbsp;in&nbsp;range(n)]</p>
+            <p>3. cnt&nbsp;=&nbsp;0</p>
+            <p>4. for&nbsp;i&nbsp;in&nbsp;range(n):</p>
+            <p>5. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;range(i&nbsp;+&nbsp;1,&nbsp;n):</p>
+            <p class="diff-block-added">6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xx&nbsp;=&nbsp;float(sum((x[i][k]&nbsp;-&nbsp;x[j][k])&nbsp;**&nbsp;2&nbsp;for&nbsp;k&nbsp;in&nbsp;range(d)))</p>
+            <p class="diff-block-added">7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dist&nbsp;=&nbsp;round(xx**0.5)</p>
+            <p class="diff-block-added">8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;xx&nbsp;==&nbsp;dist**2:</p>
+            <p>9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cnt&nbsp;+=&nbsp;1</p>
+            <p>10. print(cnt)</p>
+        </div>
+    </div>
+</body>
+</html>

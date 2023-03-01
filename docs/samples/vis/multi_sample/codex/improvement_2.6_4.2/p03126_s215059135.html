@@ -1,0 +1,66 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-removed">2. </p>
+            <p class="diff-block-removed">3. N,&nbsp;M&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">4. like_total&nbsp;=&nbsp;np.zeros(M)</p>
+            <p class="diff-block-removed">5. cnt&nbsp;=&nbsp;0</p>
+            <p class="diff-block-removed">6. for&nbsp;_&nbsp;in&nbsp;range(N):</p>
+            <p class="diff-block-removed">7. &nbsp;&nbsp;&nbsp;&nbsp;l&nbsp;=&nbsp;[v&nbsp;for&nbsp;v&nbsp;in&nbsp;map(int,&nbsp;input().split())]</p>
+            <p class="diff-block-removed">8. &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;print(l)</p>
+            <p class="diff-block-removed">9. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;l[0]&nbsp;+&nbsp;1,&nbsp;1):</p>
+            <p class="diff-block-removed">10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;like_total[l[i]&nbsp;-&nbsp;1]&nbsp;+=&nbsp;1</p>
+            <p class="diff-block-removed">11. #&nbsp;print(like_total,&nbsp;N)</p>
+            <p class="diff-block-removed">12. #&nbsp;print(like_total[4],&nbsp;like_total[9],&nbsp;like_total[-1])</p>
+            <p class="diff-block-removed">13. ans&nbsp;=&nbsp;len(np.where(like_total&nbsp;==&nbsp;N)[0])</p>
+            <p class="diff-block-removed">14. print(ans)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [3.4039131998x faster, p03126, s215059135]</strong></p>
+            <p class="diff-block-added">1. n,&nbsp;m&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p class="diff-block-added">2. a&nbsp;=&nbsp;[list(map(int,&nbsp;input().split()))&nbsp;for&nbsp;_&nbsp;in&nbsp;range(n)]</p>
+            <p class="diff-block-added">3. c&nbsp;=&nbsp;[0]&nbsp;*&nbsp;m</p>
+            <p class="diff-block-added">4. for&nbsp;i&nbsp;in&nbsp;range(n):</p>
+            <p class="diff-block-added">5. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;a[i][1:]:</p>
+            <p class="diff-block-added">6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c[j&nbsp;-&nbsp;1]&nbsp;+=&nbsp;1</p>
+            <p class="diff-block-added">7. print(c.count(n))</p>
+        </div>
+    </div>
+</body>
+</html>

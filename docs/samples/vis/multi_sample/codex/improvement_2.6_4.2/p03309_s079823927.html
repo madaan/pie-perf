@@ -1,0 +1,59 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-removed">2. </p>
+            <p class="diff-block-removed">3. N&nbsp;=&nbsp;int(eval(input()))</p>
+            <p class="diff-block-removed">4. list_ai&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">5. list1&nbsp;=&nbsp;[x&nbsp;-&nbsp;(i&nbsp;+&nbsp;1)&nbsp;for&nbsp;i,&nbsp;x&nbsp;in&nbsp;enumerate(list_ai)]</p>
+            <p class="diff-block-removed">6. a1&nbsp;=&nbsp;np.array(list1)</p>
+            <p class="diff-block-removed">7. median1&nbsp;=&nbsp;int(np.floor(np.median(a1)))</p>
+            <p class="diff-block-removed">8. ans&nbsp;=&nbsp;np.sum(np.abs(a1&nbsp;-&nbsp;median1))</p>
+            <p class="diff-block-removed">9. print(ans)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [3.1940578672x faster, p03309, s079823927]</strong></p>
+            <p class="diff-block-added">1. N&nbsp;=&nbsp;int(input())</p>
+            <p class="diff-block-added">2. A&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-added">3. A&nbsp;=&nbsp;[a&nbsp;-&nbsp;i&nbsp;-&nbsp;1&nbsp;for&nbsp;i,&nbsp;a&nbsp;in&nbsp;enumerate(A)]</p>
+            <p class="diff-block-added">4. m&nbsp;=&nbsp;sorted(A)[N&nbsp;//&nbsp;2]</p>
+            <p class="diff-block-added">5. print(sum(abs(a&nbsp;-&nbsp;m)&nbsp;for&nbsp;a&nbsp;in&nbsp;A))</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p>1. import&nbsp;sys</p>
+            <p class="diff-block-removed">2. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p>3. </p>
+            <p>4. read&nbsp;=&nbsp;sys.stdin.buffer.read</p>
+            <p>5. readline&nbsp;=&nbsp;sys.stdin.buffer.readline</p>
+            <p>6. readlines&nbsp;=&nbsp;sys.stdin.buffer.readlines</p>
+            <p>7. n,&nbsp;k&nbsp;=&nbsp;list(map(int,&nbsp;readline().split()))</p>
+            <p>8. p&nbsp;=&nbsp;list(map(int,&nbsp;readline().split()))</p>
+            <p class="diff-block-removed">9. tmp&nbsp;=&nbsp;[(i&nbsp;+&nbsp;1)&nbsp;/&nbsp;2&nbsp;for&nbsp;i&nbsp;in&nbsp;p]</p>
+            <p class="diff-block-removed">10. cs&nbsp;=&nbsp;list(np.cumsum(tmp))</p>
+            <p>11. if&nbsp;n&nbsp;==&nbsp;k:</p>
+            <p class="diff-block-removed">12. &nbsp;&nbsp;&nbsp;&nbsp;print((cs[-1]))</p>
+            <p>13. &nbsp;&nbsp;&nbsp;&nbsp;exit()</p>
+            <p>14. ans&nbsp;=&nbsp;0</p>
+            <p class="diff-block-removed">15. for&nbsp;i&nbsp;in&nbsp;range(n&nbsp;-&nbsp;k):</p>
+            <p class="diff-block-removed">16. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;max(ans,&nbsp;cs[i&nbsp;+&nbsp;k]&nbsp;-&nbsp;cs[i])</p>
+            <p>17. print(ans)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [2.5155775085x faster, p02780, s309433375]</strong></p>
+            <p>1. import&nbsp;sys</p>
+            <p>2. </p>
+            <p>3. read&nbsp;=&nbsp;sys.stdin.buffer.read</p>
+            <p>4. readline&nbsp;=&nbsp;sys.stdin.buffer.readline</p>
+            <p>5. readlines&nbsp;=&nbsp;sys.stdin.buffer.readlines</p>
+            <p>6. n,&nbsp;k&nbsp;=&nbsp;list(map(int,&nbsp;readline().split()))</p>
+            <p>7. p&nbsp;=&nbsp;list(map(int,&nbsp;readline().split()))</p>
+            <p class="diff-block-added">8. P&nbsp;=&nbsp;[(i&nbsp;+&nbsp;1)&nbsp;/&nbsp;2&nbsp;for&nbsp;i&nbsp;in&nbsp;p]</p>
+            <p>9. if&nbsp;n&nbsp;==&nbsp;k:</p>
+            <p class="diff-block-added">10. &nbsp;&nbsp;&nbsp;&nbsp;print((sum(P)))</p>
+            <p>11. &nbsp;&nbsp;&nbsp;&nbsp;exit()</p>
+            <p class="diff-block-added">12. cumsum&nbsp;=&nbsp;[0]&nbsp;*&nbsp;(n&nbsp;+&nbsp;1)</p>
+            <p class="diff-block-added">13. for&nbsp;i,&nbsp;v&nbsp;in&nbsp;enumerate(P,&nbsp;1):</p>
+            <p class="diff-block-added">14. &nbsp;&nbsp;&nbsp;&nbsp;cumsum[i]&nbsp;=&nbsp;cumsum[i&nbsp;-&nbsp;1]&nbsp;+&nbsp;v</p>
+            <p class="diff-block-added">15. now&nbsp;=&nbsp;0</p>
+            <p>16. ans&nbsp;=&nbsp;0</p>
+            <p class="diff-block-added">17. for&nbsp;i&nbsp;in&nbsp;range(k,&nbsp;n&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-added">18. &nbsp;&nbsp;&nbsp;&nbsp;now&nbsp;=&nbsp;cumsum[i]&nbsp;-&nbsp;cumsum[i&nbsp;-&nbsp;k]</p>
+            <p class="diff-block-added">19. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;max(ans,&nbsp;now)</p>
+            <p>20. print(ans)</p>
+        </div>
+    </div>
+</body>
+</html>

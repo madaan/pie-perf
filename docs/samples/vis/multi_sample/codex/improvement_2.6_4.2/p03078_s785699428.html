@@ -1,0 +1,86 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p>1. import&nbsp;sys</p>
+            <p class="diff-block-removed">2. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-removed">3. </p>
+            <p class="diff-block-removed">4. x,&nbsp;y,&nbsp;z,&nbsp;k&nbsp;=&nbsp;map(int,&nbsp;sys.stdin.readline().split())</p>
+            <p class="diff-block-removed">5. a,&nbsp;b,&nbsp;c&nbsp;=&nbsp;(np.array(sys.stdin.readline().split(),&nbsp;dtype=np.int64)&nbsp;for&nbsp;_&nbsp;in&nbsp;range(3))</p>
+            <p class="diff-block-removed">6. </p>
+            <p class="diff-block-removed">7. </p>
+            <p class="diff-block-removed">8. def&nbsp;main():</p>
+            <p class="diff-block-removed">9. &nbsp;&nbsp;&nbsp;&nbsp;res&nbsp;=&nbsp;np.sort(np.ravel(a[:,&nbsp;None]&nbsp;+&nbsp;b))[::-1]</p>
+            <p class="diff-block-removed">10. &nbsp;&nbsp;&nbsp;&nbsp;res&nbsp;=&nbsp;np.sort(np.ravel(c[:,&nbsp;None]&nbsp;+&nbsp;res[:&nbsp;min(k,&nbsp;x&nbsp;*&nbsp;y)]))[::-1]</p>
+            <p class="diff-block-removed">11. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;res[:k]</p>
+            <p class="diff-block-removed">12. </p>
+            <p class="diff-block-removed">13. </p>
+            <p class="diff-block-removed">14. if&nbsp;__name__&nbsp;==&nbsp;&quot;__main__&quot;:</p>
+            <p class="diff-block-removed">15. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;main()</p>
+            <p class="diff-block-removed">16. &nbsp;&nbsp;&nbsp;&nbsp;print(*ans,&nbsp;sep=&quot;\n&quot;)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [4.0022482628x faster, p03078, s785699428]</strong></p>
+            <p class="diff-block-added">1. import&nbsp;heapq</p>
+            <p>2. import&nbsp;sys</p>
+            <p>3. </p>
+            <p class="diff-block-added">4. readline&nbsp;=&nbsp;sys.stdin.buffer.readline</p>
+            <p class="diff-block-added">5. read&nbsp;=&nbsp;sys.stdin.buffer.read</p>
+            <p class="diff-block-added">6. readlines&nbsp;=&nbsp;sys.stdin.buffer.readlines</p>
+            <p class="diff-block-added">7. x,&nbsp;y,&nbsp;z,&nbsp;k&nbsp;=&nbsp;map(int,&nbsp;readline().split())</p>
+            <p class="diff-block-added">8. a&nbsp;=&nbsp;list(map(int,&nbsp;readline().split()))</p>
+            <p class="diff-block-added">9. b&nbsp;=&nbsp;list(map(int,&nbsp;readline().split()))</p>
+            <p class="diff-block-added">10. c&nbsp;=&nbsp;list(map(int,&nbsp;readline().split()))</p>
+            <p class="diff-block-added">11. a.sort(reverse=True)</p>
+            <p class="diff-block-added">12. b.sort(reverse=True)</p>
+            <p class="diff-block-added">13. c.sort(reverse=True)</p>
+            <p class="diff-block-added">14. ab&nbsp;=&nbsp;list()</p>
+            <p class="diff-block-added">15. for&nbsp;i&nbsp;in&nbsp;range(min(x,&nbsp;k)):</p>
+            <p class="diff-block-added">16. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;range(min(y,&nbsp;k)):</p>
+            <p class="diff-block-added">17. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ab.append(a[i]&nbsp;+&nbsp;b[j])</p>
+            <p class="diff-block-added">18. ab.sort(reverse=True)</p>
+            <p class="diff-block-added">19. ans&nbsp;=&nbsp;list()</p>
+            <p class="diff-block-added">20. for&nbsp;i&nbsp;in&nbsp;range(min(z,&nbsp;k)):</p>
+            <p class="diff-block-added">21. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;range(min(k,&nbsp;len(ab))):</p>
+            <p class="diff-block-added">22. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans.append(c[i]&nbsp;+&nbsp;ab[j])</p>
+            <p class="diff-block-added">23. ans.sort(reverse=True)</p>
+            <p class="diff-block-added">24. for&nbsp;i&nbsp;in&nbsp;range(k):</p>
+            <p class="diff-block-added">25. &nbsp;&nbsp;&nbsp;&nbsp;print(ans[i])</p>
+        </div>
+    </div>
+</body>
+</html>

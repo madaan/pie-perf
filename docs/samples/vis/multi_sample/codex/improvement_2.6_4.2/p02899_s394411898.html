@@ -1,0 +1,57 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-removed">2. </p>
+            <p>3. N&nbsp;=&nbsp;int(input())</p>
+            <p class="diff-block-removed">4. As&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">5. #&nbsp;for&nbsp;i&nbsp;in&nbsp;range(N):</p>
+            <p class="diff-block-removed">6. #&nbsp;&nbsp;&nbsp;print(As.index(i+1)&nbsp;+&nbsp;1,&nbsp;end&nbsp;=&nbsp;&quot;&nbsp;&quot;)</p>
+            <p class="diff-block-removed">7. for&nbsp;item&nbsp;in&nbsp;np.argsort(As):</p>
+            <p class="diff-block-removed">8. &nbsp;&nbsp;&nbsp;&nbsp;print(item&nbsp;+&nbsp;1,&nbsp;end=&quot;&nbsp;&quot;)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [3.5393556592x faster, p02899, s394411898]</strong></p>
+            <p>1. N&nbsp;=&nbsp;int(input())</p>
+            <p class="diff-block-added">2. L&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-added">3. for&nbsp;i&nbsp;in&nbsp;range(N):</p>
+            <p class="diff-block-added">4. &nbsp;&nbsp;&nbsp;&nbsp;print(L.index(i&nbsp;+&nbsp;1)&nbsp;+&nbsp;1,&nbsp;end=&quot;&nbsp;&quot;)</p>
+        </div>
+    </div>
+</body>
+</html>

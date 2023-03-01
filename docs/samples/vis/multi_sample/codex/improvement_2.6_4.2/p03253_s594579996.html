@@ -1,0 +1,116 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. from&nbsp;math&nbsp;import&nbsp;sqrt</p>
+            <p class="diff-block-removed">2. from&nbsp;scipy.misc&nbsp;import&nbsp;comb</p>
+            <p>3. </p>
+            <p>4. </p>
+            <p class="diff-block-removed">5. def&nbsp;cal_factors(num):</p>
+            <p class="diff-block-removed">6. &nbsp;&nbsp;&nbsp;&nbsp;factors&nbsp;=&nbsp;{}</p>
+            <p class="diff-block-removed">7. &nbsp;&nbsp;&nbsp;&nbsp;maxmod&nbsp;=&nbsp;int(sqrt(num))&nbsp;+&nbsp;1</p>
+            <p class="diff-block-removed">8. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;mod&nbsp;in&nbsp;range(2,&nbsp;maxmod):</p>
+            <p class="diff-block-removed">9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i&nbsp;=&nbsp;0</p>
+            <p class="diff-block-removed">10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;True:</p>
+            <p class="diff-block-removed">11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d,&nbsp;q&nbsp;=&nbsp;divmod(num,&nbsp;mod)</p>
+            <p class="diff-block-removed">12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;q&nbsp;==&nbsp;0:</p>
+            <p class="diff-block-removed">13. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;num&nbsp;=&nbsp;d</p>
+            <p class="diff-block-removed">14. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i&nbsp;+=&nbsp;1</p>
+            <p class="diff-block-removed">15. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;factors[mod]&nbsp;=&nbsp;i</p>
+            <p class="diff-block-removed">16. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:</p>
+            <p class="diff-block-removed">17. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</p>
+            <p class="diff-block-removed">18. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;num&nbsp;&gt;&nbsp;1:</p>
+            <p class="diff-block-removed">19. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;factors[num]&nbsp;=&nbsp;1</p>
+            <p class="diff-block-removed">20. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;factors</p>
+            <p>21. </p>
+            <p>22. </p>
+            <p class="diff-block-removed">23. n,&nbsp;m&nbsp;=&nbsp;[int(v)&nbsp;for&nbsp;v&nbsp;in&nbsp;input().split()]</p>
+            <p>24. mod&nbsp;=&nbsp;1000000000&nbsp;+&nbsp;7</p>
+            <p class="diff-block-removed">25. factors&nbsp;=&nbsp;cal_factors(m)</p>
+            <p class="diff-block-removed">26. ans&nbsp;=&nbsp;1</p>
+            <p class="diff-block-removed">27. for&nbsp;v&nbsp;in&nbsp;list(factors.values()):</p>
+            <p class="diff-block-removed">28. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;*=&nbsp;comb(v&nbsp;+&nbsp;n&nbsp;-&nbsp;1,&nbsp;v,&nbsp;exact=True)&nbsp;%&nbsp;mod</p>
+            <p>29. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;%=&nbsp;mod</p>
+            <p>30. print(ans)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [3.3864857746x faster, p03253, s594579996]</strong></p>
+            <p class="diff-block-added">1. from&nbsp;functools&nbsp;import&nbsp;reduce</p>
+            <p class="diff-block-added">2. from&nbsp;operator&nbsp;import&nbsp;mul</p>
+            <p class="diff-block-added">3. </p>
+            <p class="diff-block-added">4. </p>
+            <p class="diff-block-added">5. def&nbsp;primes(n):</p>
+            <p class="diff-block-added">6. &nbsp;&nbsp;&nbsp;&nbsp;sieve&nbsp;=&nbsp;[True]&nbsp;*&nbsp;n</p>
+            <p class="diff-block-added">7. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(3,&nbsp;int(n**0.5)&nbsp;+&nbsp;1,&nbsp;2):</p>
+            <p class="diff-block-added">8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;sieve[i]:</p>
+            <p class="diff-block-added">9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sieve[i&nbsp;*&nbsp;i&nbsp;::&nbsp;2&nbsp;*&nbsp;i]&nbsp;=&nbsp;[False]&nbsp;*&nbsp;((n&nbsp;-&nbsp;i&nbsp;*&nbsp;i&nbsp;-&nbsp;1)&nbsp;//&nbsp;(2&nbsp;*&nbsp;i)&nbsp;+&nbsp;1)</p>
+            <p class="diff-block-added">10. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;[2]&nbsp;+&nbsp;[i&nbsp;for&nbsp;i&nbsp;in&nbsp;range(3,&nbsp;n,&nbsp;2)&nbsp;if&nbsp;sieve[i]]</p>
+            <p class="diff-block-added">11. </p>
+            <p class="diff-block-added">12. </p>
+            <p class="diff-block-added">13. def&nbsp;prime_factor_decomposition(n):</p>
+            <p class="diff-block-added">14. &nbsp;&nbsp;&nbsp;&nbsp;prime_factors&nbsp;=&nbsp;{}</p>
+            <p class="diff-block-added">15. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;prime&nbsp;in&nbsp;primes(int(n**0.5)&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-added">16. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;n&nbsp;&lt;&nbsp;prime:</p>
+            <p class="diff-block-added">17. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</p>
+            <p class="diff-block-added">18. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;n&nbsp;%&nbsp;prime&nbsp;==&nbsp;0:</p>
+            <p class="diff-block-added">19. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prime_factors[prime]&nbsp;=&nbsp;prime_factors.get(prime,&nbsp;0)&nbsp;+&nbsp;1</p>
+            <p class="diff-block-added">20. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n&nbsp;//=&nbsp;prime</p>
+            <p class="diff-block-added">21. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;n&nbsp;&gt;&nbsp;1:</p>
+            <p class="diff-block-added">22. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prime_factors[n]&nbsp;=&nbsp;prime_factors.get(n,&nbsp;0)&nbsp;+&nbsp;1</p>
+            <p class="diff-block-added">23. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;prime_factors</p>
+            <p class="diff-block-added">24. </p>
+            <p class="diff-block-added">25. </p>
+            <p class="diff-block-added">26. def&nbsp;combination(n,&nbsp;m):</p>
+            <p class="diff-block-added">27. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;n&nbsp;&lt;&nbsp;m:</p>
+            <p class="diff-block-added">28. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;0</p>
+            <p class="diff-block-added">29. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;n&nbsp;==&nbsp;m:</p>
+            <p class="diff-block-added">30. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;1</p>
+            <p class="diff-block-added">31. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;reduce(mul,&nbsp;range(n&nbsp;-&nbsp;m&nbsp;+&nbsp;1,&nbsp;n&nbsp;+&nbsp;1))&nbsp;//&nbsp;reduce(mul,&nbsp;range(1,&nbsp;m&nbsp;+&nbsp;1))</p>
+            <p class="diff-block-added">32. </p>
+            <p class="diff-block-added">33. </p>
+            <p class="diff-block-added">34. N,&nbsp;M&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p class="diff-block-added">35. prime_factors&nbsp;=&nbsp;prime_factor_decomposition(M)</p>
+            <p class="diff-block-added">36. ans&nbsp;=&nbsp;1</p>
+            <p>37. mod&nbsp;=&nbsp;1000000000&nbsp;+&nbsp;7</p>
+            <p class="diff-block-added">38. for&nbsp;v&nbsp;in&nbsp;list(prime_factors.values()):</p>
+            <p class="diff-block-added">39. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;*=&nbsp;combination(v&nbsp;+&nbsp;N&nbsp;-&nbsp;1,&nbsp;v)&nbsp;%&nbsp;mod</p>
+            <p>40. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;%=&nbsp;mod</p>
+            <p>41. print(ans)</p>
+        </div>
+    </div>
+</body>
+</html>

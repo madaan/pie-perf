@@ -1,0 +1,62 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. MOD&nbsp;=&nbsp;1000000007</p>
+            <p>2. S&nbsp;=&nbsp;int(eval(input()))</p>
+            <p class="diff-block-removed">3. #&nbsp;dp[i]:=i桁の数列で条件を満たすものの数</p>
+            <p>4. dp&nbsp;=&nbsp;[0]&nbsp;*&nbsp;(S&nbsp;+&nbsp;1)</p>
+            <p>5. for&nbsp;i&nbsp;in&nbsp;range(3,&nbsp;S&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-removed">6. &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;dp[i]=sum(dp[0],..,dp[i-3])+1</p>
+            <p class="diff-block-removed">7. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;range(i&nbsp;-&nbsp;3&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-removed">8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i]&nbsp;=&nbsp;(dp[i]&nbsp;+&nbsp;dp[j])&nbsp;%&nbsp;MOD</p>
+            <p class="diff-block-removed">9. &nbsp;&nbsp;&nbsp;&nbsp;dp[i]&nbsp;=&nbsp;(dp[i]&nbsp;+&nbsp;1)&nbsp;%&nbsp;MOD</p>
+            <p class="diff-block-removed">10. print((dp[S]))</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [2.8107659416x faster, p02555, s871406737]</strong></p>
+            <p class="diff-block-added">1. MOD&nbsp;=&nbsp;10**9&nbsp;+&nbsp;7</p>
+            <p>2. S&nbsp;=&nbsp;int(eval(input()))</p>
+            <p>3. dp&nbsp;=&nbsp;[0]&nbsp;*&nbsp;(S&nbsp;+&nbsp;1)</p>
+            <p>4. for&nbsp;i&nbsp;in&nbsp;range(3,&nbsp;S&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-added">5. &nbsp;&nbsp;&nbsp;&nbsp;dp[i]&nbsp;=&nbsp;sum(dp[:&nbsp;i&nbsp;-&nbsp;3&nbsp;+&nbsp;1])&nbsp;+&nbsp;1</p>
+            <p class="diff-block-added">6. &nbsp;&nbsp;&nbsp;&nbsp;dp[i]&nbsp;%=&nbsp;MOD</p>
+            <p class="diff-block-added">7. print(dp[S])</p>
+        </div>
+    </div>
+</body>
+</html>

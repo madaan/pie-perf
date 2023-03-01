@@ -1,0 +1,83 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-removed">2. </p>
+            <p class="diff-block-removed">3. n&nbsp;=&nbsp;int(eval(input()))</p>
+            <p class="diff-block-removed">4. input_X&nbsp;=&nbsp;[[int(i)&nbsp;for&nbsp;i&nbsp;in&nbsp;input().split()]&nbsp;for&nbsp;i&nbsp;in&nbsp;range(n)]</p>
+            <p class="diff-block-removed">5. X&nbsp;=&nbsp;np.array(input_X)</p>
+            <p class="diff-block-removed">6. pre_t&nbsp;=&nbsp;0</p>
+            <p class="diff-block-removed">7. pre_x&nbsp;=&nbsp;0</p>
+            <p class="diff-block-removed">8. pre_y&nbsp;=&nbsp;0</p>
+            <p class="diff-block-removed">9. for&nbsp;i&nbsp;in&nbsp;range(n):</p>
+            <p class="diff-block-removed">10. &nbsp;&nbsp;&nbsp;&nbsp;x_move&nbsp;=&nbsp;abs(X[i][1]&nbsp;-&nbsp;pre_x)</p>
+            <p class="diff-block-removed">11. &nbsp;&nbsp;&nbsp;&nbsp;y_move&nbsp;=&nbsp;abs(X[i][2]&nbsp;-&nbsp;pre_y)</p>
+            <p>12. &nbsp;&nbsp;&nbsp;&nbsp;xy_sum&nbsp;=&nbsp;x_move&nbsp;+&nbsp;y_move</p>
+            <p class="diff-block-removed">13. &nbsp;&nbsp;&nbsp;&nbsp;spend_time&nbsp;=&nbsp;X[i][0]&nbsp;-&nbsp;pre_t</p>
+            <p>14. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;xy_sum&nbsp;%&nbsp;2&nbsp;==&nbsp;spend_time&nbsp;%&nbsp;2&nbsp;and&nbsp;spend_time&nbsp;&gt;=&nbsp;xy_sum:</p>
+            <p class="diff-block-removed">15. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pre_t&nbsp;=&nbsp;X[i][0]</p>
+            <p class="diff-block-removed">16. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pre_x&nbsp;=&nbsp;X[i][1]</p>
+            <p class="diff-block-removed">17. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pre_y&nbsp;=&nbsp;X[i][2]</p>
+            <p class="diff-block-removed">18. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;i&nbsp;+&nbsp;1&nbsp;==&nbsp;n:</p>
+            <p class="diff-block-removed">19. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(&quot;Yes&quot;)</p>
+            <p class="diff-block-removed">20. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:</p>
+            <p class="diff-block-removed">21. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue</p>
+            <p class="diff-block-removed">22. &nbsp;&nbsp;&nbsp;&nbsp;else:</p>
+            <p>23. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(&quot;No&quot;)</p>
+            <p class="diff-block-removed">24. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [5.048773511x faster, p03457, s981534291]</strong></p>
+            <p class="diff-block-added">1. N&nbsp;=&nbsp;int(input())</p>
+            <p class="diff-block-added">2. X&nbsp;=&nbsp;[tuple(map(int,&nbsp;input().split()))&nbsp;for&nbsp;_&nbsp;in&nbsp;range(N)]</p>
+            <p class="diff-block-added">3. pre_t,&nbsp;pre_x,&nbsp;pre_y&nbsp;=&nbsp;0,&nbsp;0,&nbsp;0</p>
+            <p class="diff-block-added">4. for&nbsp;t,&nbsp;x,&nbsp;y&nbsp;in&nbsp;X:</p>
+            <p class="diff-block-added">5. &nbsp;&nbsp;&nbsp;&nbsp;x_move&nbsp;=&nbsp;abs(x&nbsp;-&nbsp;pre_x)</p>
+            <p class="diff-block-added">6. &nbsp;&nbsp;&nbsp;&nbsp;y_move&nbsp;=&nbsp;abs(y&nbsp;-&nbsp;pre_y)</p>
+            <p>7. &nbsp;&nbsp;&nbsp;&nbsp;xy_sum&nbsp;=&nbsp;x_move&nbsp;+&nbsp;y_move</p>
+            <p class="diff-block-added">8. &nbsp;&nbsp;&nbsp;&nbsp;spend_time&nbsp;=&nbsp;t&nbsp;-&nbsp;pre_t</p>
+            <p>9. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;xy_sum&nbsp;%&nbsp;2&nbsp;==&nbsp;spend_time&nbsp;%&nbsp;2&nbsp;and&nbsp;spend_time&nbsp;&gt;=&nbsp;xy_sum:</p>
+            <p class="diff-block-added">10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pre_t,&nbsp;pre_x,&nbsp;pre_y&nbsp;=&nbsp;t,&nbsp;x,&nbsp;y</p>
+            <p>11. &nbsp;&nbsp;&nbsp;&nbsp;else:</p>
+            <p>12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(&quot;No&quot;)</p>
+            <p class="diff-block-added">13. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit()</p>
+            <p class="diff-block-added">14. print(&quot;Yes&quot;)</p>
+        </div>
+    </div>
+</body>
+</html>

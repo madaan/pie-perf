@@ -1,0 +1,72 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p>1. import&nbsp;sys</p>
+            <p class="diff-block-removed">2. </p>
+            <p class="diff-block-removed">3. input&nbsp;=&nbsp;sys.stdin.readline</p>
+            <p class="diff-block-removed">4. sys.setrecursionlimit(10**7)</p>
+            <p class="diff-block-removed">5. &quot;&quot;&quot;</p>
+            <p class="diff-block-removed">6. 奇数番目集合、偶数番目集合の中で自由にできるのが操作2．</p>
+            <p class="diff-block-removed">7. 操作1で集合間のやりとりをする</p>
+            <p class="diff-block-removed">8. &quot;&quot;&quot;</p>
+            <p class="diff-block-removed">9. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-removed">10. </p>
+            <p class="diff-block-removed">11. N&nbsp;=&nbsp;int(eval(input()))</p>
+            <p class="diff-block-removed">12. A&nbsp;=&nbsp;np.fromstring(sys.stdin.read(),&nbsp;dtype=np.int64,&nbsp;sep=&quot;\n&quot;)</p>
+            <p class="diff-block-removed">13. B&nbsp;=&nbsp;np.sort(A)</p>
+            <p class="diff-block-removed">14. answer&nbsp;=&nbsp;len(np.setdiff1d(A[::2],&nbsp;B[::2]))</p>
+            <p class="diff-block-removed">15. print(answer)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [4.0049234259x faster, p04021, s472972485]</strong></p>
+            <p>1. import&nbsp;sys</p>
+            <p>2. </p>
+            <p class="diff-block-added">3. sr&nbsp;=&nbsp;lambda:&nbsp;sys.stdin.readline().rstrip()</p>
+            <p class="diff-block-added">4. ir&nbsp;=&nbsp;lambda:&nbsp;int(sr())</p>
+            <p class="diff-block-added">5. lr&nbsp;=&nbsp;lambda:&nbsp;list(map(int,&nbsp;sr().split()))</p>
+            <p class="diff-block-added">6. N&nbsp;=&nbsp;ir()</p>
+            <p class="diff-block-added">7. A&nbsp;=&nbsp;[int(i)&nbsp;for&nbsp;i&nbsp;in&nbsp;sys.stdin.read().split()]</p>
+            <p class="diff-block-added">8. answer&nbsp;=&nbsp;0</p>
+            <p class="diff-block-added">9. for&nbsp;i,&nbsp;a&nbsp;in&nbsp;enumerate(A,&nbsp;0):</p>
+            <p class="diff-block-added">10. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(i&nbsp;%&nbsp;2&nbsp;==&nbsp;0)&nbsp;and&nbsp;a&nbsp;%&nbsp;2&nbsp;==&nbsp;0:</p>
+            <p class="diff-block-added">11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;answer&nbsp;+=&nbsp;1</p>
+            <p class="diff-block-added">12. print((len([i&nbsp;for&nbsp;i&nbsp;in&nbsp;A&nbsp;if&nbsp;i&nbsp;%&nbsp;2&nbsp;==&nbsp;1])&nbsp;-&nbsp;answer))</p>
+        </div>
+    </div>
+</body>
+</html>

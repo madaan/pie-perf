@@ -1,0 +1,70 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p>1. def&nbsp;c_rally():</p>
+            <p class="diff-block-removed">2. &nbsp;&nbsp;&nbsp;&nbsp;import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-removed">3. &nbsp;&nbsp;&nbsp;&nbsp;import&nbsp;math</p>
+            <p class="diff-block-removed">4. </p>
+            <p class="diff-block-removed">5. &nbsp;&nbsp;&nbsp;&nbsp;N&nbsp;=&nbsp;int(eval(input()))</p>
+            <p class="diff-block-removed">6. &nbsp;&nbsp;&nbsp;&nbsp;X&nbsp;=&nbsp;[int(i)&nbsp;for&nbsp;i&nbsp;in&nbsp;input().split()]</p>
+            <p class="diff-block-removed">7. &nbsp;&nbsp;&nbsp;&nbsp;m&nbsp;=&nbsp;np.average(X)</p>
+            <p>8. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;float(&quot;inf&quot;)</p>
+            <p class="diff-block-removed">9. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;(math.floor(m),&nbsp;math.ceil(m)):</p>
+            <p>10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;min(ans,&nbsp;sum([(x&nbsp;-&nbsp;j)&nbsp;**&nbsp;2&nbsp;for&nbsp;x&nbsp;in&nbsp;X]))</p>
+            <p>11. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;ans</p>
+            <p class="diff-block-removed">12. </p>
+            <p class="diff-block-removed">13. </p>
+            <p>14. print((c_rally()))</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [3.3005527296x faster, p02767, s118619526]</strong></p>
+            <p>1. def&nbsp;c_rally():</p>
+            <p class="diff-block-added">2. &nbsp;&nbsp;&nbsp;&nbsp;N&nbsp;=&nbsp;int(input())</p>
+            <p class="diff-block-added">3. &nbsp;&nbsp;&nbsp;&nbsp;X&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-added">4. &nbsp;&nbsp;&nbsp;&nbsp;m&nbsp;=&nbsp;sum(X)&nbsp;//&nbsp;N</p>
+            <p>5. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;float(&quot;inf&quot;)</p>
+            <p class="diff-block-added">6. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;(m,&nbsp;m&nbsp;+&nbsp;1):</p>
+            <p>7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;min(ans,&nbsp;sum([(x&nbsp;-&nbsp;j)&nbsp;**&nbsp;2&nbsp;for&nbsp;x&nbsp;in&nbsp;X]))</p>
+            <p>8. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;ans</p>
+            <p>9. </p>
+            <p>10. </p>
+            <p>11. print((c_rally()))</p>
+        </div>
+    </div>
+</body>
+</html>

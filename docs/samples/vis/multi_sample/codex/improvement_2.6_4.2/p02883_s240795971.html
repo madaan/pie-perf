@@ -1,0 +1,99 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. import&nbsp;sys</p>
+            <p class="diff-block-removed">2. </p>
+            <p class="diff-block-removed">3. input&nbsp;=&nbsp;sys.stdin.buffer.readline</p>
+            <p class="diff-block-removed">4. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-removed">5. </p>
+            <p class="diff-block-removed">6. </p>
+            <p>7. def&nbsp;main():</p>
+            <p>8. &nbsp;&nbsp;&nbsp;&nbsp;N,&nbsp;K&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p>9. &nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p>10. &nbsp;&nbsp;&nbsp;&nbsp;f&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p>11. &nbsp;&nbsp;&nbsp;&nbsp;a.sort()</p>
+            <p>12. &nbsp;&nbsp;&nbsp;&nbsp;f.sort(reverse=True)</p>
+            <p>13. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;sum(a)&nbsp;&lt;=&nbsp;K:</p>
+            <p>14. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print((0))</p>
+            <p>15. &nbsp;&nbsp;&nbsp;&nbsp;else:</p>
+            <p class="diff-block-removed">16. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;=&nbsp;np.array(a)</p>
+            <p class="diff-block-removed">17. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f&nbsp;=&nbsp;np.array(f)</p>
+            <p>18. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;left,&nbsp;right&nbsp;=&nbsp;0,&nbsp;max(a)&nbsp;*&nbsp;max(f)</p>
+            <p>19. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;right&nbsp;-&nbsp;left&nbsp;&gt;&nbsp;1:</p>
+            <p>20. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mid&nbsp;=&nbsp;(left&nbsp;+&nbsp;right)&nbsp;//&nbsp;2</p>
+            <p class="diff-block-removed">21. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pra&nbsp;=&nbsp;a&nbsp;-&nbsp;mid&nbsp;//&nbsp;f</p>
+            <p class="diff-block-removed">22. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pra[pra&nbsp;&lt;&nbsp;0]&nbsp;=&nbsp;0</p>
+            <p class="diff-block-removed">23. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;np.sum(pra)&nbsp;&gt;&nbsp;K:</p>
+            <p>24. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;left&nbsp;=&nbsp;mid</p>
+            <p>25. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:</p>
+            <p>26. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;right&nbsp;=&nbsp;mid</p>
+            <p>27. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(right)</p>
+            <p class="diff-block-removed">28. </p>
+            <p class="diff-block-removed">29. </p>
+            <p>30. if&nbsp;__name__&nbsp;==&nbsp;&quot;__main__&quot;:</p>
+            <p>31. &nbsp;&nbsp;&nbsp;&nbsp;main()</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [3.2136847934x faster, p02883, s240795971]</strong></p>
+            <p>1. def&nbsp;main():</p>
+            <p>2. &nbsp;&nbsp;&nbsp;&nbsp;N,&nbsp;K&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p>3. &nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p>4. &nbsp;&nbsp;&nbsp;&nbsp;f&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p>5. &nbsp;&nbsp;&nbsp;&nbsp;a.sort()</p>
+            <p>6. &nbsp;&nbsp;&nbsp;&nbsp;f.sort(reverse=True)</p>
+            <p>7. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;sum(a)&nbsp;&lt;=&nbsp;K:</p>
+            <p>8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print((0))</p>
+            <p>9. &nbsp;&nbsp;&nbsp;&nbsp;else:</p>
+            <p>10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;left,&nbsp;right&nbsp;=&nbsp;0,&nbsp;max(a)&nbsp;*&nbsp;max(f)</p>
+            <p>11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;right&nbsp;-&nbsp;left&nbsp;&gt;&nbsp;1:</p>
+            <p>12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mid&nbsp;=&nbsp;(left&nbsp;+&nbsp;right)&nbsp;//&nbsp;2</p>
+            <p class="diff-block-added">13. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pra&nbsp;=&nbsp;[i&nbsp;-&nbsp;mid&nbsp;//&nbsp;j&nbsp;for&nbsp;i,&nbsp;j&nbsp;in&nbsp;zip(a,&nbsp;f)]</p>
+            <p class="diff-block-added">14. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pra&nbsp;=&nbsp;[0&nbsp;if&nbsp;i&nbsp;&lt;&nbsp;0&nbsp;else&nbsp;i&nbsp;for&nbsp;i&nbsp;in&nbsp;pra]</p>
+            <p class="diff-block-added">15. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;sum(pra)&nbsp;&gt;&nbsp;K:</p>
+            <p>16. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;left&nbsp;=&nbsp;mid</p>
+            <p>17. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:</p>
+            <p>18. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;right&nbsp;=&nbsp;mid</p>
+            <p>19. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(right)</p>
+            <p>20. </p>
+            <p>21. </p>
+            <p>22. if&nbsp;__name__&nbsp;==&nbsp;&quot;__main__&quot;:</p>
+            <p>23. &nbsp;&nbsp;&nbsp;&nbsp;main()</p>
+        </div>
+    </div>
+</body>
+</html>

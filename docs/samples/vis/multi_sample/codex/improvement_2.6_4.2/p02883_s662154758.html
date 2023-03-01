@@ -1,0 +1,81 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p>2. </p>
+            <p class="diff-block-removed">3. N,&nbsp;K&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">4. A&nbsp;=&nbsp;[int(i)&nbsp;for&nbsp;i&nbsp;in&nbsp;input().split()]</p>
+            <p class="diff-block-removed">5. F&nbsp;=&nbsp;[int(i)&nbsp;for&nbsp;i&nbsp;in&nbsp;input().split()]</p>
+            <p class="diff-block-removed">6. A&nbsp;=&nbsp;np.array(sorted(A,&nbsp;reverse=True))</p>
+            <p class="diff-block-removed">7. F&nbsp;=&nbsp;np.array(sorted(F))</p>
+            <p class="diff-block-removed">8. lower_bound&nbsp;=&nbsp;0</p>
+            <p class="diff-block-removed">9. upper_bound&nbsp;=&nbsp;np.max(A&nbsp;*&nbsp;F)</p>
+            <p class="diff-block-removed">10. K_tmp&nbsp;=&nbsp;0</p>
+            <p class="diff-block-removed">11. while&nbsp;upper_bound&nbsp;&gt;=&nbsp;lower_bound:</p>
+            <p class="diff-block-removed">12. &nbsp;&nbsp;&nbsp;&nbsp;mid&nbsp;=&nbsp;(lower_bound&nbsp;+&nbsp;upper_bound)&nbsp;//&nbsp;2</p>
+            <p class="diff-block-removed">13. &nbsp;&nbsp;&nbsp;&nbsp;K_tmp&nbsp;=&nbsp;np.sum(np.maximum(A&nbsp;-&nbsp;mid&nbsp;//&nbsp;F,&nbsp;0))</p>
+            <p class="diff-block-removed">14. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;K_tmp&nbsp;&lt;=&nbsp;K:</p>
+            <p class="diff-block-removed">15. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;upper_bound&nbsp;=&nbsp;mid&nbsp;-&nbsp;1</p>
+            <p>16. &nbsp;&nbsp;&nbsp;&nbsp;else:</p>
+            <p class="diff-block-removed">17. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lower_bound&nbsp;=&nbsp;mid&nbsp;+&nbsp;1</p>
+            <p class="diff-block-removed">18. print(lower_bound)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [3.6180129933x faster, p02883, s662154758]</strong></p>
+            <p class="diff-block-added">1. N,&nbsp;K&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p class="diff-block-added">2. A&nbsp;=&nbsp;sorted(list(map(int,&nbsp;input().split())),&nbsp;reverse=True)</p>
+            <p class="diff-block-added">3. F&nbsp;=&nbsp;sorted(list(map(int,&nbsp;input().split())))</p>
+            <p class="diff-block-added">4. </p>
+            <p class="diff-block-added">5. </p>
+            <p class="diff-block-added">6. def&nbsp;ok(x):</p>
+            <p class="diff-block-added">7. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;sum(max(a&nbsp;-&nbsp;x&nbsp;//&nbsp;f,&nbsp;0)&nbsp;for&nbsp;a,&nbsp;f&nbsp;in&nbsp;zip(A,&nbsp;F))&nbsp;&lt;=&nbsp;K</p>
+            <p class="diff-block-added">8. </p>
+            <p class="diff-block-added">9. </p>
+            <p class="diff-block-added">10. ng&nbsp;=&nbsp;-1</p>
+            <p class="diff-block-added">11. ok_&nbsp;=&nbsp;10**15&nbsp;+&nbsp;1</p>
+            <p class="diff-block-added">12. while&nbsp;abs(ok_&nbsp;-&nbsp;ng)&nbsp;&gt;&nbsp;1:</p>
+            <p class="diff-block-added">13. &nbsp;&nbsp;&nbsp;&nbsp;mid&nbsp;=&nbsp;(ok_&nbsp;+&nbsp;ng)&nbsp;//&nbsp;2</p>
+            <p class="diff-block-added">14. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;ok(mid):</p>
+            <p class="diff-block-added">15. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ok_&nbsp;=&nbsp;mid</p>
+            <p>16. &nbsp;&nbsp;&nbsp;&nbsp;else:</p>
+            <p class="diff-block-added">17. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ng&nbsp;=&nbsp;mid</p>
+            <p class="diff-block-added">18. print(ok_)</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p>1. n&nbsp;=&nbsp;int(eval(input()))</p>
+            <p class="diff-block-removed">2. l&nbsp;=&nbsp;[]</p>
+            <p class="diff-block-removed">3. for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;1000001):</p>
+            <p class="diff-block-removed">4. &nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;=&nbsp;n&nbsp;/&nbsp;i</p>
+            <p class="diff-block-removed">5. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;a.is_integer():</p>
+            <p class="diff-block-removed">6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;l.append(i&nbsp;+&nbsp;n&nbsp;/&nbsp;i)</p>
+            <p class="diff-block-removed">7. print((int(min(l)&nbsp;-&nbsp;2)))</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [3.2906485373x faster, p02881, s837964487]</strong></p>
+            <p class="diff-block-added">1. import&nbsp;math</p>
+            <p class="diff-block-added">2. </p>
+            <p>3. n&nbsp;=&nbsp;int(eval(input()))</p>
+            <p class="diff-block-added">4. ans&nbsp;=&nbsp;float(&quot;inf&quot;)</p>
+            <p class="diff-block-added">5. for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;int(math.sqrt(n))):</p>
+            <p class="diff-block-added">6. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;n&nbsp;%&nbsp;i&nbsp;==&nbsp;0:</p>
+            <p class="diff-block-added">7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;min(ans,&nbsp;i&nbsp;+&nbsp;n&nbsp;//&nbsp;i&nbsp;-&nbsp;2)</p>
+            <p class="diff-block-added">8. print(ans)</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. n,&nbsp;m&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">2. ans&nbsp;=&nbsp;0</p>
+            <p class="diff-block-removed">3. for&nbsp;i&nbsp;in&nbsp;range(n,&nbsp;m&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-removed">4. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;str(i)[0]&nbsp;+&nbsp;str(i)[1]&nbsp;==&nbsp;str(i)[-1]&nbsp;+&nbsp;str(i)[-2]:</p>
+            <p class="diff-block-removed">5. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;+=&nbsp;1</p>
+            <p>6. print(ans)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [1.2988410649x faster, p03416, s773095214]</strong></p>
+            <p class="diff-block-added">1. n,&nbsp;m&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p class="diff-block-added">2. ans&nbsp;=&nbsp;sum(str(i)[0]&nbsp;+&nbsp;str(i)[1]&nbsp;==&nbsp;str(i)[-1]&nbsp;+&nbsp;str(i)[-2]&nbsp;for&nbsp;i&nbsp;in&nbsp;range(n,&nbsp;m&nbsp;+&nbsp;1))</p>
+            <p>3. print(ans)</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,92 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p>2. </p>
+            <p class="diff-block-removed">3. n,&nbsp;m&nbsp;=&nbsp;[int(i)&nbsp;for&nbsp;i&nbsp;in&nbsp;input().split()]</p>
+            <p class="diff-block-removed">4. a&nbsp;=&nbsp;[int(i)&nbsp;for&nbsp;i&nbsp;in&nbsp;input().split()]</p>
+            <p class="diff-block-removed">5. d&nbsp;=&nbsp;2**18</p>
+            <p class="diff-block-removed">6. f&nbsp;=&nbsp;np.zeros(d,&nbsp;dtype=int)</p>
+            <p class="diff-block-removed">7. for&nbsp;i&nbsp;in&nbsp;a:</p>
+            <p class="diff-block-removed">8. &nbsp;&nbsp;&nbsp;&nbsp;f[i]&nbsp;+=&nbsp;1</p>
+            <p class="diff-block-removed">9. tf&nbsp;=&nbsp;np.fft.fft(f)</p>
+            <p class="diff-block-removed">10. f&nbsp;=&nbsp;np.fft.ifft(tf&nbsp;*&nbsp;tf)</p>
+            <p class="diff-block-removed">11. f&nbsp;=&nbsp;[int(i&nbsp;+&nbsp;0.5)&nbsp;for&nbsp;i&nbsp;in&nbsp;f]</p>
+            <p class="diff-block-removed">12. ans&nbsp;=&nbsp;0</p>
+            <p class="diff-block-removed">13. for&nbsp;i&nbsp;in&nbsp;range(len(f)&nbsp;-&nbsp;1,&nbsp;0,&nbsp;-1):</p>
+            <p class="diff-block-removed">14. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;f[i]&nbsp;&lt;=&nbsp;m:</p>
+            <p class="diff-block-removed">15. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;+=&nbsp;i&nbsp;*&nbsp;f[i]</p>
+            <p class="diff-block-removed">16. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m&nbsp;-=&nbsp;f[i]</p>
+            <p class="diff-block-removed">17. &nbsp;&nbsp;&nbsp;&nbsp;elif&nbsp;f[i]&nbsp;&gt;&nbsp;m:</p>
+            <p class="diff-block-removed">18. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;+=&nbsp;i&nbsp;*&nbsp;m</p>
+            <p class="diff-block-removed">19. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</p>
+            <p class="diff-block-removed">20. print(ans)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [1.107794511x faster, p02821, s417724663]</strong></p>
+            <p class="diff-block-added">1. def&nbsp;main():</p>
+            <p class="diff-block-added">2. &nbsp;&nbsp;&nbsp;&nbsp;import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-added">3. &nbsp;&nbsp;&nbsp;&nbsp;import&nbsp;sys</p>
+            <p class="diff-block-added">4. </p>
+            <p class="diff-block-added">5. &nbsp;&nbsp;&nbsp;&nbsp;input&nbsp;=&nbsp;sys.stdin.readline</p>
+            <p class="diff-block-added">6. &nbsp;&nbsp;&nbsp;&nbsp;n,&nbsp;m&nbsp;=&nbsp;[int(i)&nbsp;for&nbsp;i&nbsp;in&nbsp;input().split()]</p>
+            <p class="diff-block-added">7. &nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;=&nbsp;[int(i)&nbsp;for&nbsp;i&nbsp;in&nbsp;input().split()]</p>
+            <p class="diff-block-added">8. &nbsp;&nbsp;&nbsp;&nbsp;d&nbsp;=&nbsp;2**18</p>
+            <p class="diff-block-added">9. &nbsp;&nbsp;&nbsp;&nbsp;f&nbsp;=&nbsp;np.zeros(d,&nbsp;dtype=int)</p>
+            <p class="diff-block-added">10. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;a:</p>
+            <p class="diff-block-added">11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f[i]&nbsp;+=&nbsp;1</p>
+            <p class="diff-block-added">12. &nbsp;&nbsp;&nbsp;&nbsp;tf&nbsp;=&nbsp;np.fft.fft(f)</p>
+            <p class="diff-block-added">13. &nbsp;&nbsp;&nbsp;&nbsp;f&nbsp;=&nbsp;np.fft.ifft(tf&nbsp;*&nbsp;tf)</p>
+            <p class="diff-block-added">14. &nbsp;&nbsp;&nbsp;&nbsp;f&nbsp;=&nbsp;[int(i&nbsp;+&nbsp;0.5)&nbsp;for&nbsp;i&nbsp;in&nbsp;f]</p>
+            <p class="diff-block-added">15. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;0</p>
+            <p class="diff-block-added">16. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(len(f)&nbsp;-&nbsp;1,&nbsp;0,&nbsp;-1):</p>
+            <p class="diff-block-added">17. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;f[i]&nbsp;&lt;=&nbsp;m:</p>
+            <p class="diff-block-added">18. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;+=&nbsp;i&nbsp;*&nbsp;f[i]</p>
+            <p class="diff-block-added">19. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m&nbsp;-=&nbsp;f[i]</p>
+            <p class="diff-block-added">20. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif&nbsp;f[i]&nbsp;&gt;&nbsp;m:</p>
+            <p class="diff-block-added">21. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;+=&nbsp;i&nbsp;*&nbsp;m</p>
+            <p class="diff-block-added">22. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</p>
+            <p class="diff-block-added">23. &nbsp;&nbsp;&nbsp;&nbsp;print(ans)</p>
+            <p class="diff-block-added">24. </p>
+            <p class="diff-block-added">25. </p>
+            <p class="diff-block-added">26. if&nbsp;__name__&nbsp;==&nbsp;&quot;__main__&quot;:</p>
+            <p class="diff-block-added">27. &nbsp;&nbsp;&nbsp;&nbsp;main()</p>
+        </div>
+    </div>
+</body>
+</html>

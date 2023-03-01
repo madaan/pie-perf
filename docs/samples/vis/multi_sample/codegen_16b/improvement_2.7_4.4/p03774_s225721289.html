@@ -1,0 +1,88 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p>2. </p>
+            <p>3. N,&nbsp;M&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">4. human&nbsp;=&nbsp;[]</p>
+            <p>5. for&nbsp;i&nbsp;in&nbsp;range(N):</p>
+            <p class="diff-block-removed">6. &nbsp;&nbsp;&nbsp;&nbsp;a,&nbsp;b&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">7. &nbsp;&nbsp;&nbsp;&nbsp;human.append((a,&nbsp;b))</p>
+            <p>8. C&nbsp;=&nbsp;[]</p>
+            <p class="diff-block-removed">9. for&nbsp;i&nbsp;in&nbsp;range(M):</p>
+            <p class="diff-block-removed">10. &nbsp;&nbsp;&nbsp;&nbsp;c,&nbsp;d&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">11. &nbsp;&nbsp;&nbsp;&nbsp;C.append((c,&nbsp;d))</p>
+            <p class="diff-block-removed">12. for&nbsp;h&nbsp;in&nbsp;human:</p>
+            <p class="diff-block-removed">13. &nbsp;&nbsp;&nbsp;&nbsp;a,&nbsp;b&nbsp;=&nbsp;h</p>
+            <p class="diff-block-removed">14. &nbsp;&nbsp;&nbsp;&nbsp;now&nbsp;=&nbsp;0</p>
+            <p class="diff-block-removed">15. &nbsp;&nbsp;&nbsp;&nbsp;mini&nbsp;=&nbsp;np.inf</p>
+            <p class="diff-block-removed">16. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i,&nbsp;ch&nbsp;in&nbsp;enumerate(C):</p>
+            <p class="diff-block-removed">17. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c,&nbsp;d&nbsp;=&nbsp;ch</p>
+            <p class="diff-block-removed">18. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;L&nbsp;=&nbsp;abs(a&nbsp;-&nbsp;c)&nbsp;+&nbsp;abs(b&nbsp;-&nbsp;d)</p>
+            <p>19. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;mini&nbsp;&gt;&nbsp;L:</p>
+            <p>20. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mini&nbsp;=&nbsp;L</p>
+            <p class="diff-block-removed">21. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;now&nbsp;=&nbsp;i&nbsp;+&nbsp;1</p>
+            <p class="diff-block-removed">22. &nbsp;&nbsp;&nbsp;&nbsp;print(now)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [3.5707454416x faster, p03774, s225721289]</strong></p>
+            <p class="diff-block-added">1. import&nbsp;sys</p>
+            <p>2. </p>
+            <p>3. N,&nbsp;M&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-added">4. H&nbsp;=&nbsp;[]</p>
+            <p>5. for&nbsp;i&nbsp;in&nbsp;range(N):</p>
+            <p class="diff-block-added">6. &nbsp;&nbsp;&nbsp;&nbsp;x,&nbsp;y&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-added">7. &nbsp;&nbsp;&nbsp;&nbsp;H.append((x,&nbsp;y))</p>
+            <p>8. C&nbsp;=&nbsp;[]</p>
+            <p class="diff-block-added">9. for&nbsp;j&nbsp;in&nbsp;range(M):</p>
+            <p class="diff-block-added">10. &nbsp;&nbsp;&nbsp;&nbsp;x,&nbsp;y&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-added">11. &nbsp;&nbsp;&nbsp;&nbsp;C.append((x,&nbsp;y))</p>
+            <p class="diff-block-added">12. for&nbsp;h&nbsp;in&nbsp;H:</p>
+            <p class="diff-block-added">13. &nbsp;&nbsp;&nbsp;&nbsp;smin&nbsp;=&nbsp;-1</p>
+            <p class="diff-block-added">14. &nbsp;&nbsp;&nbsp;&nbsp;mini&nbsp;=&nbsp;sys.maxsize</p>
+            <p class="diff-block-added">15. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i,&nbsp;ch&nbsp;in&nbsp;enumerate(C,&nbsp;1):</p>
+            <p class="diff-block-added">16. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x,&nbsp;y&nbsp;=&nbsp;ch</p>
+            <p class="diff-block-added">17. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;L&nbsp;=&nbsp;abs(h[0]&nbsp;-&nbsp;x)&nbsp;+&nbsp;abs(h[1]&nbsp;-&nbsp;y)</p>
+            <p>18. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;mini&nbsp;&gt;&nbsp;L:</p>
+            <p>19. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mini&nbsp;=&nbsp;L</p>
+            <p class="diff-block-added">20. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;smin&nbsp;=&nbsp;i</p>
+            <p class="diff-block-added">21. &nbsp;&nbsp;&nbsp;&nbsp;print(smin)</p>
+        </div>
+    </div>
+</body>
+</html>

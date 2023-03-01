@@ -1,0 +1,72 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-removed">2. </p>
+            <p>3. N,&nbsp;K&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p>4. plist&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">5. kitaiti&nbsp;=&nbsp;np.array([(0.5&nbsp;*&nbsp;(p&nbsp;+&nbsp;1))&nbsp;for&nbsp;p&nbsp;in&nbsp;plist])</p>
+            <p class="diff-block-removed">6. ans&nbsp;=&nbsp;0</p>
+            <p class="diff-block-removed">7. val&nbsp;=&nbsp;sum(kitaiti[:K])</p>
+            <p class="diff-block-removed">8. ans&nbsp;=&nbsp;max(ans,&nbsp;val)</p>
+            <p class="diff-block-removed">9. for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;N&nbsp;-&nbsp;K&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-removed">10. &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;print(i-1,&nbsp;i+K)</p>
+            <p class="diff-block-removed">11. &nbsp;&nbsp;&nbsp;&nbsp;val&nbsp;-=&nbsp;kitaiti[i&nbsp;-&nbsp;1]</p>
+            <p class="diff-block-removed">12. &nbsp;&nbsp;&nbsp;&nbsp;val&nbsp;+=&nbsp;kitaiti[i&nbsp;+&nbsp;K&nbsp;-&nbsp;1]</p>
+            <p class="diff-block-removed">13. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;max(ans,&nbsp;val)</p>
+            <p class="diff-block-removed">14. print(ans)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [3.307523676x faster, p02780, s906856884]</strong></p>
+            <p>1. N,&nbsp;K&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p>2. plist&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-added">3. kitaiti&nbsp;=&nbsp;[0]&nbsp;*&nbsp;(N&nbsp;+&nbsp;2)</p>
+            <p class="diff-block-added">4. for&nbsp;i,&nbsp;p&nbsp;in&nbsp;enumerate(plist):</p>
+            <p class="diff-block-added">5. &nbsp;&nbsp;&nbsp;&nbsp;kitaiti[i&nbsp;+&nbsp;1]&nbsp;=&nbsp;(p&nbsp;+&nbsp;1)&nbsp;/&nbsp;2</p>
+            <p class="diff-block-added">6. kitaiti&nbsp;=&nbsp;[0]&nbsp;+&nbsp;kitaiti&nbsp;+&nbsp;[0]</p>
+            <p class="diff-block-added">7. INF&nbsp;=&nbsp;10**9</p>
+            <p class="diff-block-added">8. maxans&nbsp;=&nbsp;0</p>
+            <p class="diff-block-added">9. for&nbsp;i&nbsp;in&nbsp;range(N&nbsp;+&nbsp;K):</p>
+            <p class="diff-block-added">10. &nbsp;&nbsp;&nbsp;&nbsp;curr_sum&nbsp;=&nbsp;sum(kitaiti[i&nbsp;:&nbsp;i&nbsp;+&nbsp;K])</p>
+            <p class="diff-block-added">11. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;curr_sum&nbsp;&gt;&nbsp;maxans:</p>
+            <p class="diff-block-added">12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;maxans&nbsp;=&nbsp;curr_sum</p>
+            <p class="diff-block-added">13. print(maxans)</p>
+        </div>
+    </div>
+</body>
+</html>

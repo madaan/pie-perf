@@ -1,0 +1,119 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. from&nbsp;functools&nbsp;import&nbsp;lru_cache</p>
+            <p class="diff-block-removed">2. import&nbsp;sys</p>
+            <p class="diff-block-removed">3. </p>
+            <p class="diff-block-removed">4. sys.setrecursionlimit(30000)</p>
+            <p class="diff-block-removed">5. N,&nbsp;M&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">6. a&nbsp;=&nbsp;list(int(eval(input()))&nbsp;for&nbsp;_&nbsp;in&nbsp;range(M))</p>
+            <p class="diff-block-removed">7. MOD&nbsp;=&nbsp;pow(10,&nbsp;9)&nbsp;+&nbsp;7</p>
+            <p class="diff-block-removed">8. isOk&nbsp;=&nbsp;True</p>
+            <p class="diff-block-removed">9. for&nbsp;i&nbsp;in&nbsp;range(M&nbsp;-&nbsp;1):</p>
+            <p class="diff-block-removed">10. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;a[i]&nbsp;+&nbsp;1&nbsp;==&nbsp;a[i&nbsp;+&nbsp;1]:</p>
+            <p class="diff-block-removed">11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;isOk&nbsp;=&nbsp;False</p>
+            <p class="diff-block-removed">12. funcb&nbsp;=&nbsp;[-1]&nbsp;*&nbsp;100001</p>
+            <p class="diff-block-removed">13. </p>
+            <p class="diff-block-removed">14. </p>
+            <p class="diff-block-removed">15. def&nbsp;func(n):</p>
+            <p class="diff-block-removed">16. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;n&nbsp;&lt;=&nbsp;0:</p>
+            <p class="diff-block-removed">17. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;1</p>
+            <p class="diff-block-removed">18. &nbsp;&nbsp;&nbsp;&nbsp;cnt&nbsp;=&nbsp;funcb[n]</p>
+            <p class="diff-block-removed">19. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;cnt&nbsp;&gt;&nbsp;0:</p>
+            <p class="diff-block-removed">20. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;cnt</p>
+            <p class="diff-block-removed">21. &nbsp;&nbsp;&nbsp;&nbsp;cnt&nbsp;=&nbsp;0</p>
+            <p class="diff-block-removed">22. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;n&nbsp;&gt;=&nbsp;2:</p>
+            <p class="diff-block-removed">23. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cnt&nbsp;+=&nbsp;func(n&nbsp;-&nbsp;2)</p>
+            <p class="diff-block-removed">24. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;n&nbsp;&gt;=&nbsp;1:</p>
+            <p class="diff-block-removed">25. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cnt&nbsp;+=&nbsp;func(n&nbsp;-&nbsp;1)</p>
+            <p class="diff-block-removed">26. &nbsp;&nbsp;&nbsp;&nbsp;funcb[n]&nbsp;=&nbsp;cnt&nbsp;%&nbsp;MOD</p>
+            <p class="diff-block-removed">27. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;funcb[n]</p>
+            <p class="diff-block-removed">28. </p>
+            <p class="diff-block-removed">29. </p>
+            <p class="diff-block-removed">30. func(30000)</p>
+            <p class="diff-block-removed">31. func(50000)</p>
+            <p class="diff-block-removed">32. func(80000)</p>
+            <p class="diff-block-removed">33. func(100000)</p>
+            <p class="diff-block-removed">34. if&nbsp;not&nbsp;isOk:</p>
+            <p class="diff-block-removed">35. &nbsp;&nbsp;&nbsp;&nbsp;print((0))</p>
+            <p class="diff-block-removed">36. else:</p>
+            <p class="diff-block-removed">37. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;1</p>
+            <p class="diff-block-removed">38. &nbsp;&nbsp;&nbsp;&nbsp;s&nbsp;=&nbsp;0</p>
+            <p class="diff-block-removed">39. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(M&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-removed">40. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;i&nbsp;&gt;=&nbsp;M:</p>
+            <p class="diff-block-removed">41. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e&nbsp;=&nbsp;N</p>
+            <p class="diff-block-removed">42. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:</p>
+            <p class="diff-block-removed">43. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e&nbsp;=&nbsp;a[i]&nbsp;-&nbsp;1</p>
+            <p class="diff-block-removed">44. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;ans&nbsp;*&nbsp;func(e&nbsp;-&nbsp;s)&nbsp;%&nbsp;MOD</p>
+            <p class="diff-block-removed">45. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;i&nbsp;&gt;=&nbsp;M:</p>
+            <p class="diff-block-removed">46. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</p>
+            <p class="diff-block-removed">47. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s&nbsp;=&nbsp;a[i]&nbsp;+&nbsp;1</p>
+            <p class="diff-block-removed">48. &nbsp;&nbsp;&nbsp;&nbsp;print(ans)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [3.4887460953x faster, p03013, s227334045]</strong></p>
+            <p class="diff-block-added">1. N,&nbsp;M&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p class="diff-block-added">2. a&nbsp;=&nbsp;[int(input())&nbsp;for&nbsp;_&nbsp;in&nbsp;range(M)]</p>
+            <p class="diff-block-added">3. MOD&nbsp;=&nbsp;10**9&nbsp;+&nbsp;7</p>
+            <p class="diff-block-added">4. dp&nbsp;=&nbsp;[0]&nbsp;*&nbsp;(N&nbsp;+&nbsp;1)</p>
+            <p class="diff-block-added">5. dp[0]&nbsp;=&nbsp;1</p>
+            <p class="diff-block-added">6. for&nbsp;i&nbsp;in&nbsp;range(N&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-added">7. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;i&nbsp;&gt;=&nbsp;2:</p>
+            <p class="diff-block-added">8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i]&nbsp;+=&nbsp;dp[i&nbsp;-&nbsp;2]</p>
+            <p class="diff-block-added">9. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;i&nbsp;&gt;=&nbsp;1:</p>
+            <p class="diff-block-added">10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i]&nbsp;+=&nbsp;dp[i&nbsp;-&nbsp;1]</p>
+            <p class="diff-block-added">11. &nbsp;&nbsp;&nbsp;&nbsp;dp[i]&nbsp;%=&nbsp;MOD</p>
+            <p class="diff-block-added">12. if&nbsp;any(b&nbsp;-&nbsp;a&nbsp;==&nbsp;1&nbsp;for&nbsp;a,&nbsp;b&nbsp;in&nbsp;zip(a,&nbsp;a[1:])):</p>
+            <p class="diff-block-added">13. &nbsp;&nbsp;&nbsp;&nbsp;print(0)</p>
+            <p class="diff-block-added">14. &nbsp;&nbsp;&nbsp;&nbsp;exit()</p>
+            <p class="diff-block-added">15. ans&nbsp;=&nbsp;1</p>
+            <p class="diff-block-added">16. s&nbsp;=&nbsp;0</p>
+            <p class="diff-block-added">17. for&nbsp;i&nbsp;in&nbsp;range(M&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-added">18. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;i&nbsp;&gt;=&nbsp;M:</p>
+            <p class="diff-block-added">19. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e&nbsp;=&nbsp;N</p>
+            <p class="diff-block-added">20. &nbsp;&nbsp;&nbsp;&nbsp;else:</p>
+            <p class="diff-block-added">21. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e&nbsp;=&nbsp;a[i]&nbsp;-&nbsp;1</p>
+            <p class="diff-block-added">22. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;ans&nbsp;*&nbsp;dp[e&nbsp;-&nbsp;s]&nbsp;%&nbsp;MOD</p>
+            <p class="diff-block-added">23. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;i&nbsp;&gt;=&nbsp;M:</p>
+            <p class="diff-block-added">24. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</p>
+            <p class="diff-block-added">25. &nbsp;&nbsp;&nbsp;&nbsp;s&nbsp;=&nbsp;a[i]&nbsp;+&nbsp;1</p>
+            <p class="diff-block-added">26. print(ans)</p>
+        </div>
+    </div>
+</body>
+</html>

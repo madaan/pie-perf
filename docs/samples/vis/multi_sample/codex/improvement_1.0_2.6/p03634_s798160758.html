@@ -1,0 +1,211 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. #!usr/bin/env&nbsp;python3</p>
+            <p class="diff-block-removed">2. from&nbsp;collections&nbsp;import&nbsp;defaultdict</p>
+            <p class="diff-block-removed">3. from&nbsp;collections&nbsp;import&nbsp;deque</p>
+            <p class="diff-block-removed">4. from&nbsp;heapq&nbsp;import&nbsp;heappush,&nbsp;heappop</p>
+            <p class="diff-block-removed">5. import&nbsp;sys</p>
+            <p class="diff-block-removed">6. import&nbsp;math</p>
+            <p class="diff-block-removed">7. import&nbsp;bisect</p>
+            <p class="diff-block-removed">8. import&nbsp;random</p>
+            <p class="diff-block-removed">9. </p>
+            <p class="diff-block-removed">10. </p>
+            <p class="diff-block-removed">11. def&nbsp;LI():</p>
+            <p class="diff-block-removed">12. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;list(map(int,&nbsp;sys.stdin.readline().split()))</p>
+            <p class="diff-block-removed">13. </p>
+            <p class="diff-block-removed">14. </p>
+            <p class="diff-block-removed">15. def&nbsp;I():</p>
+            <p class="diff-block-removed">16. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;int(sys.stdin.readline())</p>
+            <p class="diff-block-removed">17. </p>
+            <p class="diff-block-removed">18. </p>
+            <p class="diff-block-removed">19. def&nbsp;LS():</p>
+            <p class="diff-block-removed">20. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;list(map(list,&nbsp;sys.stdin.readline().split()))</p>
+            <p class="diff-block-removed">21. </p>
+            <p class="diff-block-removed">22. </p>
+            <p class="diff-block-removed">23. def&nbsp;S():</p>
+            <p class="diff-block-removed">24. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;list(sys.stdin.readline())[:-1]</p>
+            <p class="diff-block-removed">25. </p>
+            <p class="diff-block-removed">26. </p>
+            <p class="diff-block-removed">27. def&nbsp;IR(n):</p>
+            <p class="diff-block-removed">28. &nbsp;&nbsp;&nbsp;&nbsp;l&nbsp;=&nbsp;[None&nbsp;for&nbsp;i&nbsp;in&nbsp;range(n)]</p>
+            <p class="diff-block-removed">29. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(n):</p>
+            <p class="diff-block-removed">30. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;l[i]&nbsp;=&nbsp;I()</p>
+            <p class="diff-block-removed">31. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;l</p>
+            <p class="diff-block-removed">32. </p>
+            <p class="diff-block-removed">33. </p>
+            <p class="diff-block-removed">34. def&nbsp;LIR(n):</p>
+            <p class="diff-block-removed">35. &nbsp;&nbsp;&nbsp;&nbsp;l&nbsp;=&nbsp;[None&nbsp;for&nbsp;i&nbsp;in&nbsp;range(n)]</p>
+            <p class="diff-block-removed">36. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(n):</p>
+            <p class="diff-block-removed">37. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;l[i]&nbsp;=&nbsp;LI()</p>
+            <p class="diff-block-removed">38. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;l</p>
+            <p class="diff-block-removed">39. </p>
+            <p class="diff-block-removed">40. </p>
+            <p class="diff-block-removed">41. def&nbsp;SR(n):</p>
+            <p class="diff-block-removed">42. &nbsp;&nbsp;&nbsp;&nbsp;l&nbsp;=&nbsp;[None&nbsp;for&nbsp;i&nbsp;in&nbsp;range(n)]</p>
+            <p class="diff-block-removed">43. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(n):</p>
+            <p class="diff-block-removed">44. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;l[i]&nbsp;=&nbsp;S()</p>
+            <p class="diff-block-removed">45. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;l</p>
+            <p class="diff-block-removed">46. </p>
+            <p class="diff-block-removed">47. </p>
+            <p class="diff-block-removed">48. def&nbsp;LSR(n):</p>
+            <p class="diff-block-removed">49. &nbsp;&nbsp;&nbsp;&nbsp;l&nbsp;=&nbsp;[None&nbsp;for&nbsp;i&nbsp;in&nbsp;range(n)]</p>
+            <p class="diff-block-removed">50. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(n):</p>
+            <p class="diff-block-removed">51. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;l[i]&nbsp;=&nbsp;SR()</p>
+            <p class="diff-block-removed">52. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;l</p>
+            <p class="diff-block-removed">53. </p>
+            <p class="diff-block-removed">54. </p>
+            <p class="diff-block-removed">55. mod&nbsp;=&nbsp;1000000007</p>
+            <p>56. #&nbsp;A</p>
+            <p>57. &quot;&quot;&quot;</p>
+            <p class="diff-block-removed">58. def&nbsp;gcd(a,b):</p>
+            <p class="diff-block-removed">59. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;a&nbsp;==&nbsp;0:</p>
+            <p class="diff-block-removed">60. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;b</p>
+            <p class="diff-block-removed">61. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;gcd(b%a,a)</p>
+            <p class="diff-block-removed">62. n&nbsp;=&nbsp;I()</p>
+            <p class="diff-block-removed">63. a&nbsp;=&nbsp;IR(n)</p>
+            <p>64. l&nbsp;=&nbsp;a[0]</p>
+            <p>65. for&nbsp;i&nbsp;in&nbsp;range(1,n):</p>
+            <p class="diff-block-removed">66. &nbsp;&nbsp;&nbsp;&nbsp;g&nbsp;=&nbsp;gcd(l,a[i])</p>
+            <p>67. &nbsp;&nbsp;&nbsp;&nbsp;l&nbsp;*=&nbsp;a[i]//g</p>
+            <p>68. print(l)</p>
+            <p>69. &quot;&quot;&quot;</p>
+            <p>70. #&nbsp;B</p>
+            <p class="diff-block-removed">71. n&nbsp;=&nbsp;I()</p>
+            <p>72. v&nbsp;=&nbsp;[[]&nbsp;for&nbsp;i&nbsp;in&nbsp;range(n)]</p>
+            <p class="diff-block-removed">73. for&nbsp;i&nbsp;in&nbsp;range(n&nbsp;-&nbsp;1):</p>
+            <p class="diff-block-removed">74. &nbsp;&nbsp;&nbsp;&nbsp;a,&nbsp;b,&nbsp;c&nbsp;=&nbsp;LI()</p>
+            <p>75. &nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;-=&nbsp;1</p>
+            <p>76. &nbsp;&nbsp;&nbsp;&nbsp;b&nbsp;-=&nbsp;1</p>
+            <p>77. &nbsp;&nbsp;&nbsp;&nbsp;v[a].append([b,&nbsp;c])</p>
+            <p>78. &nbsp;&nbsp;&nbsp;&nbsp;v[b].append([a,&nbsp;c])</p>
+            <p class="diff-block-removed">79. Q,&nbsp;k&nbsp;=&nbsp;LI()</p>
+            <p>80. d&nbsp;=&nbsp;[-1&nbsp;for&nbsp;i&nbsp;in&nbsp;range(n)]</p>
+            <p>81. d[k&nbsp;-&nbsp;1]&nbsp;=&nbsp;0</p>
+            <p class="diff-block-removed">82. q&nbsp;=&nbsp;deque()</p>
+            <p>83. q.append(k&nbsp;-&nbsp;1)</p>
+            <p>84. while&nbsp;q:</p>
+            <p>85. &nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;=&nbsp;q.pop()</p>
+            <p>86. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;y,&nbsp;c&nbsp;in&nbsp;v[x]:</p>
+            <p>87. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;d[y]&nbsp;==&nbsp;-1:</p>
+            <p>88. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d[y]&nbsp;=&nbsp;d[x]&nbsp;+&nbsp;c</p>
+            <p>89. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;q.append(y)</p>
+            <p class="diff-block-removed">90. for&nbsp;i&nbsp;in&nbsp;range(Q):</p>
+            <p class="diff-block-removed">91. &nbsp;&nbsp;&nbsp;&nbsp;x,&nbsp;y&nbsp;=&nbsp;LI()</p>
+            <p>92. &nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;-=&nbsp;1</p>
+            <p>93. &nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;-=&nbsp;1</p>
+            <p>94. &nbsp;&nbsp;&nbsp;&nbsp;print((d[x]&nbsp;+&nbsp;d[y]))</p>
+            <p>95. #&nbsp;C</p>
+            <p>96. #&nbsp;D</p>
+            <p>97. #&nbsp;E</p>
+            <p>98. #&nbsp;F</p>
+            <p>99. #&nbsp;G</p>
+            <p>100. #&nbsp;H</p>
+            <p>101. #&nbsp;I</p>
+            <p>102. #&nbsp;J</p>
+            <p>103. #&nbsp;K</p>
+            <p>104. #&nbsp;L</p>
+            <p>105. #&nbsp;M</p>
+            <p>106. #&nbsp;N</p>
+            <p>107. #&nbsp;O</p>
+            <p>108. #&nbsp;P</p>
+            <p>109. #&nbsp;Q</p>
+            <p>110. #&nbsp;R</p>
+            <p>111. #&nbsp;S</p>
+            <p>112. #&nbsp;T</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [1.1190707929x faster, p03634, s798160758]</strong></p>
+            <p>1. #&nbsp;A</p>
+            <p>2. &quot;&quot;&quot;</p>
+            <p class="diff-block-added">3. import&nbsp;math</p>
+            <p class="diff-block-added">4. n&nbsp;=&nbsp;int(input())</p>
+            <p class="diff-block-added">5. a&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p>6. l&nbsp;=&nbsp;a[0]</p>
+            <p>7. for&nbsp;i&nbsp;in&nbsp;range(1,n):</p>
+            <p class="diff-block-added">8. &nbsp;&nbsp;&nbsp;&nbsp;g&nbsp;=&nbsp;math.gcd(l,a[i])</p>
+            <p>9. &nbsp;&nbsp;&nbsp;&nbsp;l&nbsp;*=&nbsp;a[i]//g</p>
+            <p>10. print(l)</p>
+            <p>11. &quot;&quot;&quot;</p>
+            <p>12. #&nbsp;B</p>
+            <p class="diff-block-added">13. n&nbsp;=&nbsp;int(input())</p>
+            <p>14. v&nbsp;=&nbsp;[[]&nbsp;for&nbsp;i&nbsp;in&nbsp;range(n)]</p>
+            <p class="diff-block-added">15. for&nbsp;_&nbsp;in&nbsp;range(n&nbsp;-&nbsp;1):</p>
+            <p class="diff-block-added">16. &nbsp;&nbsp;&nbsp;&nbsp;a,&nbsp;b,&nbsp;c&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p>17. &nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;-=&nbsp;1</p>
+            <p>18. &nbsp;&nbsp;&nbsp;&nbsp;b&nbsp;-=&nbsp;1</p>
+            <p>19. &nbsp;&nbsp;&nbsp;&nbsp;v[a].append([b,&nbsp;c])</p>
+            <p>20. &nbsp;&nbsp;&nbsp;&nbsp;v[b].append([a,&nbsp;c])</p>
+            <p class="diff-block-added">21. Q,&nbsp;k&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p>22. d&nbsp;=&nbsp;[-1&nbsp;for&nbsp;i&nbsp;in&nbsp;range(n)]</p>
+            <p>23. d[k&nbsp;-&nbsp;1]&nbsp;=&nbsp;0</p>
+            <p class="diff-block-added">24. q&nbsp;=&nbsp;[]</p>
+            <p>25. q.append(k&nbsp;-&nbsp;1)</p>
+            <p>26. while&nbsp;q:</p>
+            <p>27. &nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;=&nbsp;q.pop()</p>
+            <p>28. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;y,&nbsp;c&nbsp;in&nbsp;v[x]:</p>
+            <p>29. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;d[y]&nbsp;==&nbsp;-1:</p>
+            <p>30. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d[y]&nbsp;=&nbsp;d[x]&nbsp;+&nbsp;c</p>
+            <p>31. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;q.append(y)</p>
+            <p class="diff-block-added">32. for&nbsp;_&nbsp;in&nbsp;range(Q):</p>
+            <p class="diff-block-added">33. &nbsp;&nbsp;&nbsp;&nbsp;x,&nbsp;y&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p>34. &nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;-=&nbsp;1</p>
+            <p>35. &nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;-=&nbsp;1</p>
+            <p>36. &nbsp;&nbsp;&nbsp;&nbsp;print((d[x]&nbsp;+&nbsp;d[y]))</p>
+            <p>37. #&nbsp;C</p>
+            <p>38. #&nbsp;D</p>
+            <p>39. #&nbsp;E</p>
+            <p>40. #&nbsp;F</p>
+            <p>41. #&nbsp;G</p>
+            <p>42. #&nbsp;H</p>
+            <p>43. #&nbsp;I</p>
+            <p>44. #&nbsp;J</p>
+            <p>45. #&nbsp;K</p>
+            <p>46. #&nbsp;L</p>
+            <p>47. #&nbsp;M</p>
+            <p>48. #&nbsp;N</p>
+            <p>49. #&nbsp;O</p>
+            <p>50. #&nbsp;P</p>
+            <p>51. #&nbsp;Q</p>
+            <p>52. #&nbsp;R</p>
+            <p>53. #&nbsp;S</p>
+            <p>54. #&nbsp;T</p>
+        </div>
+    </div>
+</body>
+</html>

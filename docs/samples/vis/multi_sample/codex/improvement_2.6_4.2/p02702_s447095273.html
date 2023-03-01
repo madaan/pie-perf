@@ -1,0 +1,79 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-removed">2. </p>
+            <p class="diff-block-removed">3. s&nbsp;=&nbsp;eval(input())</p>
+            <p class="diff-block-removed">4. y&nbsp;=&nbsp;2019</p>
+            <p class="diff-block-removed">5. dp&nbsp;=&nbsp;np.zeros(y,&nbsp;dtype=&quot;int64&quot;)</p>
+            <p class="diff-block-removed">6. tmp&nbsp;=&nbsp;np.zeros(y,&nbsp;dtype=&quot;int64&quot;)</p>
+            <p>7. k&nbsp;=&nbsp;1</p>
+            <p>8. r&nbsp;=&nbsp;0</p>
+            <p>9. for&nbsp;c&nbsp;in&nbsp;s[::-1]:</p>
+            <p class="diff-block-removed">10. &nbsp;&nbsp;&nbsp;&nbsp;i&nbsp;=&nbsp;int(c)&nbsp;*&nbsp;k&nbsp;%&nbsp;y</p>
+            <p class="diff-block-removed">11. &nbsp;&nbsp;&nbsp;&nbsp;tmp[i:]&nbsp;=&nbsp;dp[:&nbsp;y&nbsp;-&nbsp;i]</p>
+            <p class="diff-block-removed">12. &nbsp;&nbsp;&nbsp;&nbsp;tmp[:i]&nbsp;=&nbsp;dp[y&nbsp;-&nbsp;i&nbsp;:]</p>
+            <p>13. &nbsp;&nbsp;&nbsp;&nbsp;tmp[i]&nbsp;+=&nbsp;1</p>
+            <p>14. &nbsp;&nbsp;&nbsp;&nbsp;dp,&nbsp;tmp&nbsp;=&nbsp;tmp,&nbsp;dp</p>
+            <p>15. &nbsp;&nbsp;&nbsp;&nbsp;r&nbsp;+=&nbsp;dp[0]</p>
+            <p>16. &nbsp;&nbsp;&nbsp;&nbsp;k&nbsp;*=&nbsp;10</p>
+            <p class="diff-block-removed">17. &nbsp;&nbsp;&nbsp;&nbsp;k&nbsp;%=&nbsp;y</p>
+            <p>18. print(r)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [3.3453160547x faster, p02702, s447095273]</strong></p>
+            <p class="diff-block-added">1. Y&nbsp;=&nbsp;2019</p>
+            <p class="diff-block-added">2. s&nbsp;=&nbsp;input()</p>
+            <p class="diff-block-added">3. dp&nbsp;=&nbsp;[0]&nbsp;*&nbsp;Y</p>
+            <p class="diff-block-added">4. tmp&nbsp;=&nbsp;[0]&nbsp;*&nbsp;Y</p>
+            <p>5. k&nbsp;=&nbsp;1</p>
+            <p>6. r&nbsp;=&nbsp;0</p>
+            <p>7. for&nbsp;c&nbsp;in&nbsp;s[::-1]:</p>
+            <p class="diff-block-added">8. &nbsp;&nbsp;&nbsp;&nbsp;i&nbsp;=&nbsp;int(c)&nbsp;*&nbsp;k&nbsp;%&nbsp;Y</p>
+            <p class="diff-block-added">9. &nbsp;&nbsp;&nbsp;&nbsp;tmp[i:]&nbsp;=&nbsp;dp[:&nbsp;Y&nbsp;-&nbsp;i]</p>
+            <p class="diff-block-added">10. &nbsp;&nbsp;&nbsp;&nbsp;tmp[:i]&nbsp;=&nbsp;dp[Y&nbsp;-&nbsp;i&nbsp;:]</p>
+            <p>11. &nbsp;&nbsp;&nbsp;&nbsp;tmp[i]&nbsp;+=&nbsp;1</p>
+            <p>12. &nbsp;&nbsp;&nbsp;&nbsp;dp,&nbsp;tmp&nbsp;=&nbsp;tmp,&nbsp;dp</p>
+            <p>13. &nbsp;&nbsp;&nbsp;&nbsp;r&nbsp;+=&nbsp;dp[0]</p>
+            <p>14. &nbsp;&nbsp;&nbsp;&nbsp;k&nbsp;*=&nbsp;10</p>
+            <p class="diff-block-added">15. &nbsp;&nbsp;&nbsp;&nbsp;k&nbsp;%=&nbsp;Y</p>
+            <p>16. print(r)</p>
+        </div>
+    </div>
+</body>
+</html>

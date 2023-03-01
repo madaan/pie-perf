@@ -1,0 +1,87 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. N,&nbsp;Ma,&nbsp;Mb&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">2. arr&nbsp;=&nbsp;[list(map(int,&nbsp;input().split()))&nbsp;for&nbsp;_&nbsp;in&nbsp;range(N)]</p>
+            <p class="diff-block-removed">3. dp&nbsp;=&nbsp;[[[5000]&nbsp;*&nbsp;401&nbsp;for&nbsp;_&nbsp;in&nbsp;range(401)]&nbsp;for&nbsp;_&nbsp;in&nbsp;range(41)]</p>
+            <p>4. dp[0][0][0]&nbsp;=&nbsp;0</p>
+            <p>5. for&nbsp;i&nbsp;in&nbsp;range(N):</p>
+            <p class="diff-block-removed">6. &nbsp;&nbsp;&nbsp;&nbsp;a,&nbsp;b,&nbsp;c&nbsp;=&nbsp;arr[i]</p>
+            <p class="diff-block-removed">7. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;range(10&nbsp;*&nbsp;N&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-removed">8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;k&nbsp;in&nbsp;range(10&nbsp;*&nbsp;N&nbsp;+&nbsp;1):</p>
+            <p>9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;dp[i][j][k]&nbsp;==&nbsp;5000:</p>
+            <p>10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue</p>
+            <p>11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i&nbsp;+&nbsp;1][j][k]&nbsp;=&nbsp;min(dp[i&nbsp;+&nbsp;1][j][k],&nbsp;dp[i][j][k])</p>
+            <p>12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i&nbsp;+&nbsp;1][j&nbsp;+&nbsp;a][k&nbsp;+&nbsp;b]&nbsp;=&nbsp;min(dp[i&nbsp;+&nbsp;1][j&nbsp;+&nbsp;a][k&nbsp;+&nbsp;b],&nbsp;dp[i][j][k]&nbsp;+&nbsp;c)</p>
+            <p>13. ans&nbsp;=&nbsp;5000</p>
+            <p>14. for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;401):</p>
+            <p>15. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;i&nbsp;*&nbsp;Ma&nbsp;&gt;&nbsp;400&nbsp;or&nbsp;i&nbsp;*&nbsp;Mb&nbsp;&gt;&nbsp;400:</p>
+            <p>16. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</p>
+            <p>17. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;min(ans,&nbsp;dp[N][i&nbsp;*&nbsp;Ma][i&nbsp;*&nbsp;Mb])</p>
+            <p>18. if&nbsp;ans&nbsp;==&nbsp;5000:</p>
+            <p class="diff-block-removed">19. &nbsp;&nbsp;&nbsp;&nbsp;print((-1))</p>
+            <p>20. else:</p>
+            <p>21. &nbsp;&nbsp;&nbsp;&nbsp;print(ans)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [1.9571499958x faster, p03806, s948329967]</strong></p>
+            <p class="diff-block-added">1. N,&nbsp;Ma,&nbsp;Mb&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p class="diff-block-added">2. arr&nbsp;=&nbsp;[[0]&nbsp;*&nbsp;N&nbsp;for&nbsp;i&nbsp;in&nbsp;range(N)]</p>
+            <p class="diff-block-added">3. dp&nbsp;=&nbsp;[[[5000]&nbsp;*&nbsp;401&nbsp;for&nbsp;i&nbsp;in&nbsp;range(401)]&nbsp;for&nbsp;i&nbsp;in&nbsp;range(N&nbsp;+&nbsp;1)]</p>
+            <p>4. dp[0][0][0]&nbsp;=&nbsp;0</p>
+            <p>5. for&nbsp;i&nbsp;in&nbsp;range(N):</p>
+            <p class="diff-block-added">6. &nbsp;&nbsp;&nbsp;&nbsp;a,&nbsp;b,&nbsp;c&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p class="diff-block-added">7. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;range(401):</p>
+            <p class="diff-block-added">8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;k&nbsp;in&nbsp;range(401):</p>
+            <p>9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;dp[i][j][k]&nbsp;==&nbsp;5000:</p>
+            <p>10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue</p>
+            <p>11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i&nbsp;+&nbsp;1][j][k]&nbsp;=&nbsp;min(dp[i&nbsp;+&nbsp;1][j][k],&nbsp;dp[i][j][k])</p>
+            <p>12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i&nbsp;+&nbsp;1][j&nbsp;+&nbsp;a][k&nbsp;+&nbsp;b]&nbsp;=&nbsp;min(dp[i&nbsp;+&nbsp;1][j&nbsp;+&nbsp;a][k&nbsp;+&nbsp;b],&nbsp;dp[i][j][k]&nbsp;+&nbsp;c)</p>
+            <p>13. ans&nbsp;=&nbsp;5000</p>
+            <p>14. for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;401):</p>
+            <p>15. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;i&nbsp;*&nbsp;Ma&nbsp;&gt;&nbsp;400&nbsp;or&nbsp;i&nbsp;*&nbsp;Mb&nbsp;&gt;&nbsp;400:</p>
+            <p>16. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</p>
+            <p>17. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;min(ans,&nbsp;dp[N][i&nbsp;*&nbsp;Ma][i&nbsp;*&nbsp;Mb])</p>
+            <p>18. if&nbsp;ans&nbsp;==&nbsp;5000:</p>
+            <p class="diff-block-added">19. &nbsp;&nbsp;&nbsp;&nbsp;print(-1)</p>
+            <p>20. else:</p>
+            <p>21. &nbsp;&nbsp;&nbsp;&nbsp;print(ans)</p>
+        </div>
+    </div>
+</body>
+</html>

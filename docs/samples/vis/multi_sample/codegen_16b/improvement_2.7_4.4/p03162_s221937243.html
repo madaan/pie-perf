@@ -1,0 +1,83 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p>1. #!/usr/bin/env&nbsp;python3</p>
+            <p>2. def&nbsp;main():</p>
+            <p class="diff-block-removed">3. &nbsp;&nbsp;&nbsp;&nbsp;import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p>4. </p>
+            <p class="diff-block-removed">5. &nbsp;&nbsp;&nbsp;&nbsp;N&nbsp;=&nbsp;int(eval(input()))</p>
+            <p class="diff-block-removed">6. &nbsp;&nbsp;&nbsp;&nbsp;happiness&nbsp;=&nbsp;[list(map(int,&nbsp;input().split()))&nbsp;for&nbsp;_&nbsp;in&nbsp;range(N)]</p>
+            <p class="diff-block-removed">7. &nbsp;&nbsp;&nbsp;&nbsp;dp&nbsp;=&nbsp;np.zeros((N,&nbsp;3),&nbsp;dtype=np.int64)</p>
+            <p class="diff-block-removed">8. &nbsp;&nbsp;&nbsp;&nbsp;dp[0]&nbsp;=&nbsp;happiness[0]</p>
+            <p class="diff-block-removed">9. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;N):</p>
+            <p class="diff-block-removed">10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;a,&nbsp;yesterday&nbsp;in&nbsp;enumerate(dp[i&nbsp;-&nbsp;1]):</p>
+            <p>11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;b,&nbsp;today&nbsp;in&nbsp;enumerate(happiness[i]):</p>
+            <p>12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;a&nbsp;==&nbsp;b:</p>
+            <p>13. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue</p>
+            <p class="diff-block-removed">14. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i][b]&nbsp;=&nbsp;max(dp[i][b],&nbsp;yesterday&nbsp;+&nbsp;today)</p>
+            <p>15. &nbsp;&nbsp;&nbsp;&nbsp;print((max(dp[-1])))</p>
+            <p>16. </p>
+            <p>17. </p>
+            <p>18. if&nbsp;__name__&nbsp;==&nbsp;&quot;__main__&quot;:</p>
+            <p>19. &nbsp;&nbsp;&nbsp;&nbsp;main()</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [3.8210876023x faster, p03162, s221937243]</strong></p>
+            <p>1. #!/usr/bin/env&nbsp;python3</p>
+            <p>2. def&nbsp;main():</p>
+            <p class="diff-block-added">3. &nbsp;&nbsp;&nbsp;&nbsp;import&nbsp;sys</p>
+            <p>4. </p>
+            <p class="diff-block-added">5. &nbsp;&nbsp;&nbsp;&nbsp;input&nbsp;=&nbsp;sys.stdin.buffer.readline</p>
+            <p class="diff-block-added">6. &nbsp;&nbsp;&nbsp;&nbsp;n&nbsp;=&nbsp;int(eval(input()))</p>
+            <p class="diff-block-added">7. &nbsp;&nbsp;&nbsp;&nbsp;happiness&nbsp;=&nbsp;[list(map(int,&nbsp;input().split()))&nbsp;for&nbsp;_&nbsp;in&nbsp;range(n)]</p>
+            <p class="diff-block-added">8. &nbsp;&nbsp;&nbsp;&nbsp;dp&nbsp;=&nbsp;[[0,&nbsp;0,&nbsp;0]&nbsp;for&nbsp;_&nbsp;in&nbsp;range(n&nbsp;+&nbsp;1)]</p>
+            <p class="diff-block-added">9. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(n):</p>
+            <p class="diff-block-added">10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;a,&nbsp;yesterday&nbsp;in&nbsp;enumerate(dp[i]):</p>
+            <p>11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;b,&nbsp;today&nbsp;in&nbsp;enumerate(happiness[i]):</p>
+            <p>12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;a&nbsp;==&nbsp;b:</p>
+            <p>13. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue</p>
+            <p class="diff-block-added">14. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i&nbsp;+&nbsp;1][b]&nbsp;=&nbsp;max(dp[i&nbsp;+&nbsp;1][b],&nbsp;yesterday&nbsp;+&nbsp;today)</p>
+            <p>15. &nbsp;&nbsp;&nbsp;&nbsp;print((max(dp[-1])))</p>
+            <p>16. </p>
+            <p>17. </p>
+            <p>18. if&nbsp;__name__&nbsp;==&nbsp;&quot;__main__&quot;:</p>
+            <p>19. &nbsp;&nbsp;&nbsp;&nbsp;main()</p>
+        </div>
+    </div>
+</body>
+</html>

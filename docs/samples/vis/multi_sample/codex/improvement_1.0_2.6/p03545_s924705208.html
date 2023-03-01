@@ -1,0 +1,138 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. #&nbsp;import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-removed">2. #&nbsp;import&nbsp;numpypy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-removed">3. import&nbsp;sys</p>
+            <p class="diff-block-removed">4. </p>
+            <p class="diff-block-removed">5. input&nbsp;=&nbsp;sys.stdin.readline</p>
+            <p class="diff-block-removed">6. </p>
+            <p class="diff-block-removed">7. </p>
+            <p class="diff-block-removed">8. def&nbsp;eprint(*args,&nbsp;**kwargs):</p>
+            <p class="diff-block-removed">9. &nbsp;&nbsp;&nbsp;&nbsp;print(*args,&nbsp;file=sys.stderr,&nbsp;**kwargs)</p>
+            <p class="diff-block-removed">10. &nbsp;&nbsp;&nbsp;&nbsp;return</p>
+            <p class="diff-block-removed">11. </p>
+            <p class="diff-block-removed">12. </p>
+            <p class="diff-block-removed">13. import&nbsp;math</p>
+            <p class="diff-block-removed">14. import&nbsp;string</p>
+            <p class="diff-block-removed">15. import&nbsp;fractions</p>
+            <p class="diff-block-removed">16. from&nbsp;fractions&nbsp;import&nbsp;Fraction</p>
+            <p class="diff-block-removed">17. from&nbsp;fractions&nbsp;import&nbsp;gcd</p>
+            <p class="diff-block-removed">18. </p>
+            <p class="diff-block-removed">19. </p>
+            <p class="diff-block-removed">20. def&nbsp;lcm(n,&nbsp;m):</p>
+            <p class="diff-block-removed">21. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;int(n&nbsp;*&nbsp;m&nbsp;/&nbsp;gcd(n,&nbsp;m))</p>
+            <p class="diff-block-removed">22. </p>
+            <p class="diff-block-removed">23. </p>
+            <p class="diff-block-removed">24. import&nbsp;re</p>
+            <p class="diff-block-removed">25. import&nbsp;array</p>
+            <p class="diff-block-removed">26. import&nbsp;copy</p>
+            <p class="diff-block-removed">27. import&nbsp;functools</p>
+            <p class="diff-block-removed">28. import&nbsp;operator</p>
+            <p class="diff-block-removed">29. import&nbsp;collections</p>
+            <p class="diff-block-removed">30. import&nbsp;itertools</p>
+            <p class="diff-block-removed">31. import&nbsp;bisect</p>
+            <p class="diff-block-removed">32. import&nbsp;heapq</p>
+            <p class="diff-block-removed">33. from&nbsp;heapq&nbsp;import&nbsp;heappush</p>
+            <p class="diff-block-removed">34. from&nbsp;heapq&nbsp;import&nbsp;heappop</p>
+            <p class="diff-block-removed">35. from&nbsp;heapq&nbsp;import&nbsp;heappushpop</p>
+            <p class="diff-block-removed">36. from&nbsp;heapq&nbsp;import&nbsp;heapify</p>
+            <p class="diff-block-removed">37. from&nbsp;heapq&nbsp;import&nbsp;heapreplace</p>
+            <p class="diff-block-removed">38. from&nbsp;queue&nbsp;import&nbsp;PriorityQueue&nbsp;as&nbsp;pq</p>
+            <p class="diff-block-removed">39. </p>
+            <p class="diff-block-removed">40. </p>
+            <p class="diff-block-removed">41. def&nbsp;reduce(p,&nbsp;q):</p>
+            <p class="diff-block-removed">42. &nbsp;&nbsp;&nbsp;&nbsp;common&nbsp;=&nbsp;fractions.gcd(p,&nbsp;q)</p>
+            <p class="diff-block-removed">43. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;(p&nbsp;//&nbsp;common,&nbsp;q&nbsp;//&nbsp;common)</p>
+            <p class="diff-block-removed">44. </p>
+            <p class="diff-block-removed">45. </p>
+            <p class="diff-block-removed">46. #&nbsp;from&nbsp;itertools&nbsp;import&nbsp;accumulate</p>
+            <p class="diff-block-removed">47. #&nbsp;from&nbsp;collections&nbsp;import&nbsp;deque</p>
+            <p class="diff-block-removed">48. import&nbsp;random</p>
+            <p class="diff-block-removed">49. </p>
+            <p class="diff-block-removed">50. </p>
+            <p class="diff-block-removed">51. def&nbsp;main():</p>
+            <p class="diff-block-removed">52. &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;l&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">53. &nbsp;&nbsp;&nbsp;&nbsp;ll&nbsp;=&nbsp;input().strip()</p>
+            <p class="diff-block-removed">54. &nbsp;&nbsp;&nbsp;&nbsp;l&nbsp;=&nbsp;[0&nbsp;for&nbsp;i&nbsp;in&nbsp;range(4)]</p>
+            <p class="diff-block-removed">55. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(len(l)):</p>
+            <p class="diff-block-removed">56. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;l[i]&nbsp;=&nbsp;int(ll[i])</p>
+            <p class="diff-block-removed">57. &nbsp;&nbsp;&nbsp;&nbsp;NUM_CASE&nbsp;=&nbsp;3</p>
+            <p class="diff-block-removed">58. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;case&nbsp;in&nbsp;range(2**NUM_CASE):</p>
+            <p class="diff-block-removed">59. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;eprint(&quot;case&nbsp;:&nbsp;&quot;&nbsp;+&nbsp;str(case))</p>
+            <p class="diff-block-removed">60. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sum&nbsp;=&nbsp;l[0]</p>
+            <p class="diff-block-removed">61. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stack&nbsp;=&nbsp;[]</p>
+            <p class="diff-block-removed">62. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S&nbsp;=&nbsp;&quot;&quot;</p>
+            <p class="diff-block-removed">63. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;index&nbsp;in&nbsp;range(NUM_CASE):</p>
+            <p class="diff-block-removed">64. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(case&nbsp;&gt;&gt;&nbsp;index)&nbsp;&amp;&nbsp;1&nbsp;==&nbsp;1:</p>
+            <p class="diff-block-removed">65. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;eprint(&quot;l[%d]&nbsp;:&nbsp;%d&quot;&nbsp;%&nbsp;(index+1,l[index+1])&nbsp;)</p>
+            <p class="diff-block-removed">66. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sum&nbsp;+=&nbsp;l[index&nbsp;+&nbsp;1]</p>
+            <p class="diff-block-removed">67. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stack.append(&quot;+&quot;)</p>
+            <p class="diff-block-removed">68. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:</p>
+            <p class="diff-block-removed">69. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;eprint(&quot;l[%d]&nbsp;:&nbsp;%d&quot;&nbsp;%&nbsp;(index+1,l[index+1])&nbsp;)</p>
+            <p class="diff-block-removed">70. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sum&nbsp;-=&nbsp;l[index&nbsp;+&nbsp;1]</p>
+            <p class="diff-block-removed">71. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stack.append(&quot;-&quot;)</p>
+            <p class="diff-block-removed">72. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;eprint(&quot;sum&nbsp;:&nbsp;&quot;&nbsp;+&nbsp;str(sum))</p>
+            <p class="diff-block-removed">73. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;sum&nbsp;==&nbsp;7:</p>
+            <p class="diff-block-removed">74. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(4):</p>
+            <p class="diff-block-removed">75. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S&nbsp;+=&nbsp;str(l[i])</p>
+            <p class="diff-block-removed">76. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;i&nbsp;!=&nbsp;3:</p>
+            <p class="diff-block-removed">77. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S&nbsp;+=&nbsp;str(stack[i])</p>
+            <p class="diff-block-removed">78. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S&nbsp;+=&nbsp;&quot;=7&quot;</p>
+            <p class="diff-block-removed">79. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(S)</p>
+            <p class="diff-block-removed">80. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return</p>
+            <p class="diff-block-removed">81. &nbsp;&nbsp;&nbsp;&nbsp;return</p>
+            <p class="diff-block-removed">82. </p>
+            <p class="diff-block-removed">83. </p>
+            <p class="diff-block-removed">84. if&nbsp;__name__&nbsp;==&nbsp;&quot;__main__&quot;:</p>
+            <p class="diff-block-removed">85. &nbsp;&nbsp;&nbsp;&nbsp;main()</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [1.5952985641000001x faster, p03545, s924705208]</strong></p>
+            <p class="diff-block-added">1. import&nbsp;itertools</p>
+            <p>2. </p>
+            <p class="diff-block-added">3. N&nbsp;=&nbsp;input()</p>
+            <p class="diff-block-added">4. for&nbsp;op&nbsp;in&nbsp;itertools.product([&quot;+&quot;,&nbsp;&quot;-&quot;],&nbsp;repeat=3):</p>
+            <p class="diff-block-added">5. &nbsp;&nbsp;&nbsp;&nbsp;formula&nbsp;=&nbsp;N[0]&nbsp;+&nbsp;op[0]&nbsp;+&nbsp;N[1]&nbsp;+&nbsp;op[1]&nbsp;+&nbsp;N[2]&nbsp;+&nbsp;op[2]&nbsp;+&nbsp;N[3]</p>
+            <p class="diff-block-added">6. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;eval(formula)&nbsp;==&nbsp;7:</p>
+            <p class="diff-block-added">7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(formula&nbsp;+&nbsp;&quot;=7&quot;)</p>
+            <p class="diff-block-added">8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</p>
+        </div>
+    </div>
+</body>
+</html>

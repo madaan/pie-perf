@@ -1,0 +1,165 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. def&nbsp;getN():</p>
+            <p class="diff-block-removed">2. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;int(eval(input()))</p>
+            <p class="diff-block-removed">3. </p>
+            <p class="diff-block-removed">4. </p>
+            <p class="diff-block-removed">5. def&nbsp;getNM():</p>
+            <p class="diff-block-removed">6. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">7. </p>
+            <p class="diff-block-removed">8. </p>
+            <p class="diff-block-removed">9. def&nbsp;getList():</p>
+            <p class="diff-block-removed">10. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">11. </p>
+            <p class="diff-block-removed">12. </p>
+            <p class="diff-block-removed">13. def&nbsp;getArray(intn):</p>
+            <p class="diff-block-removed">14. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;[int(eval(input()))&nbsp;for&nbsp;i&nbsp;in&nbsp;range(intn)]</p>
+            <p class="diff-block-removed">15. </p>
+            <p class="diff-block-removed">16. </p>
+            <p class="diff-block-removed">17. def&nbsp;input():</p>
+            <p class="diff-block-removed">18. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;sys.stdin.readline().rstrip()</p>
+            <p class="diff-block-removed">19. </p>
+            <p class="diff-block-removed">20. </p>
+            <p class="diff-block-removed">21. def&nbsp;rand_N(ran1,&nbsp;ran2):</p>
+            <p class="diff-block-removed">22. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;random.randint(ran1,&nbsp;ran2)</p>
+            <p class="diff-block-removed">23. </p>
+            <p class="diff-block-removed">24. </p>
+            <p class="diff-block-removed">25. def&nbsp;rand_List(ran1,&nbsp;ran2,&nbsp;rantime):</p>
+            <p class="diff-block-removed">26. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;[random.randint(ran1,&nbsp;ran2)&nbsp;for&nbsp;i&nbsp;in&nbsp;range(rantime)]</p>
+            <p class="diff-block-removed">27. </p>
+            <p class="diff-block-removed">28. </p>
+            <p class="diff-block-removed">29. def&nbsp;rand_ints_nodup(ran1,&nbsp;ran2,&nbsp;rantime):</p>
+            <p class="diff-block-removed">30. &nbsp;&nbsp;&nbsp;&nbsp;ns&nbsp;=&nbsp;[]</p>
+            <p class="diff-block-removed">31. &nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;len(ns)&nbsp;&lt;&nbsp;rantime:</p>
+            <p class="diff-block-removed">32. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n&nbsp;=&nbsp;random.randint(ran1,&nbsp;ran2)</p>
+            <p class="diff-block-removed">33. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;not&nbsp;n&nbsp;in&nbsp;ns:</p>
+            <p class="diff-block-removed">34. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ns.append(n)</p>
+            <p class="diff-block-removed">35. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;sorted(ns)</p>
+            <p class="diff-block-removed">36. </p>
+            <p class="diff-block-removed">37. </p>
+            <p class="diff-block-removed">38. def&nbsp;rand_query(ran1,&nbsp;ran2,&nbsp;rantime):</p>
+            <p class="diff-block-removed">39. &nbsp;&nbsp;&nbsp;&nbsp;r_query&nbsp;=&nbsp;[]</p>
+            <p class="diff-block-removed">40. &nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;len(r_query)&nbsp;&lt;&nbsp;rantime:</p>
+            <p class="diff-block-removed">41. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n_q&nbsp;=&nbsp;rand_ints_nodup(ran1,&nbsp;ran2,&nbsp;2)</p>
+            <p class="diff-block-removed">42. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;not&nbsp;n_q&nbsp;in&nbsp;r_query:</p>
+            <p class="diff-block-removed">43. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r_query.append(n_q)</p>
+            <p class="diff-block-removed">44. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;sorted(r_query)</p>
+            <p class="diff-block-removed">45. </p>
+            <p class="diff-block-removed">46. </p>
+            <p class="diff-block-removed">47. from&nbsp;collections&nbsp;import&nbsp;defaultdict,&nbsp;deque,&nbsp;Counter</p>
+            <p class="diff-block-removed">48. from&nbsp;sys&nbsp;import&nbsp;exit</p>
+            <p class="diff-block-removed">49. from&nbsp;decimal&nbsp;import&nbsp;*</p>
+            <p class="diff-block-removed">50. from&nbsp;heapq&nbsp;import&nbsp;heapify,&nbsp;heappop,&nbsp;heappush</p>
+            <p class="diff-block-removed">51. import&nbsp;math</p>
+            <p class="diff-block-removed">52. import&nbsp;random</p>
+            <p class="diff-block-removed">53. import&nbsp;string</p>
+            <p class="diff-block-removed">54. from&nbsp;copy&nbsp;import&nbsp;deepcopy</p>
+            <p class="diff-block-removed">55. from&nbsp;itertools&nbsp;import&nbsp;combinations,&nbsp;permutations,&nbsp;product</p>
+            <p class="diff-block-removed">56. from&nbsp;operator&nbsp;import&nbsp;mul,&nbsp;itemgetter</p>
+            <p class="diff-block-removed">57. from&nbsp;functools&nbsp;import&nbsp;reduce</p>
+            <p class="diff-block-removed">58. from&nbsp;bisect&nbsp;import&nbsp;bisect_left,&nbsp;bisect_right</p>
+            <p class="diff-block-removed">59. import&nbsp;sys</p>
+            <p class="diff-block-removed">60. </p>
+            <p class="diff-block-removed">61. sys.setrecursionlimit(1000000000)</p>
+            <p>62. mod&nbsp;=&nbsp;10**9&nbsp;+&nbsp;7</p>
+            <p class="diff-block-removed">63. #############</p>
+            <p class="diff-block-removed">64. #&nbsp;Main&nbsp;Code&nbsp;#</p>
+            <p class="diff-block-removed">65. #############</p>
+            <p class="diff-block-removed">66. S&nbsp;=&nbsp;getN()</p>
+            <p class="diff-block-removed">67. #&nbsp;逆元事前処理ver</p>
+            <p class="diff-block-removed">68. #&nbsp;nが小さい場合に</p>
+            <p class="diff-block-removed">69. lim&nbsp;=&nbsp;10**5&nbsp;+&nbsp;1</p>
+            <p class="diff-block-removed">70. fact&nbsp;=&nbsp;[1,&nbsp;1]</p>
+            <p class="diff-block-removed">71. factinv&nbsp;=&nbsp;[1,&nbsp;1]</p>
+            <p class="diff-block-removed">72. inv&nbsp;=&nbsp;[0,&nbsp;1]</p>
+            <p class="diff-block-removed">73. for&nbsp;i&nbsp;in&nbsp;range(2,&nbsp;lim&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-removed">74. &nbsp;&nbsp;&nbsp;&nbsp;fact.append((fact[-1]&nbsp;*&nbsp;i)&nbsp;%&nbsp;mod)</p>
+            <p class="diff-block-removed">75. &nbsp;&nbsp;&nbsp;&nbsp;inv.append((-inv[mod&nbsp;%&nbsp;i]&nbsp;*&nbsp;(mod&nbsp;//&nbsp;i))&nbsp;%&nbsp;mod)</p>
+            <p class="diff-block-removed">76. &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;累計</p>
+            <p class="diff-block-removed">77. &nbsp;&nbsp;&nbsp;&nbsp;factinv.append((factinv[-1]&nbsp;*&nbsp;inv[-1])&nbsp;%&nbsp;mod)</p>
+            <p class="diff-block-removed">78. </p>
+            <p class="diff-block-removed">79. </p>
+            <p>80. def&nbsp;cmb(n,&nbsp;r):</p>
+            <p class="diff-block-removed">81. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(r&nbsp;&lt;&nbsp;0)&nbsp;or&nbsp;(n&nbsp;&lt;&nbsp;r):</p>
+            <p class="diff-block-removed">82. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;0</p>
+            <p class="diff-block-removed">83. &nbsp;&nbsp;&nbsp;&nbsp;r&nbsp;=&nbsp;min(r,&nbsp;n&nbsp;-&nbsp;r)</p>
+            <p class="diff-block-removed">84. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;fact[n]&nbsp;*&nbsp;factinv[r]&nbsp;*&nbsp;factinv[n&nbsp;-&nbsp;r]&nbsp;%&nbsp;mod</p>
+            <p class="diff-block-removed">85. </p>
+            <p class="diff-block-removed">86. </p>
+            <p>87. ans&nbsp;=&nbsp;0</p>
+            <p>88. #&nbsp;長さNの時最低でも3&nbsp;*&nbsp;N使う</p>
+            <p>89. #&nbsp;残りは分配する</p>
+            <p class="diff-block-removed">90. for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;2001):</p>
+            <p class="diff-block-removed">91. &nbsp;&nbsp;&nbsp;&nbsp;s&nbsp;=&nbsp;S&nbsp;-&nbsp;(3&nbsp;*&nbsp;i)</p>
+            <p>92. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;s&nbsp;&lt;&nbsp;0:</p>
+            <p>93. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</p>
+            <p>94. &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;sをN個に分配する通りがいくつあるか</p>
+            <p>95. &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;重複組み合わせ</p>
+            <p>96. &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;仕切りの数はi&nbsp;-&nbsp;1個</p>
+            <p>97. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;+=&nbsp;cmb(s&nbsp;+&nbsp;i&nbsp;-&nbsp;1,&nbsp;i&nbsp;-&nbsp;1)</p>
+            <p>98. print((ans&nbsp;%&nbsp;mod))</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [2.3847528057x faster, p02555, s435485475]</strong></p>
+            <p class="diff-block-added">1. import&nbsp;math</p>
+            <p>2. </p>
+            <p>3. mod&nbsp;=&nbsp;10**9&nbsp;+&nbsp;7</p>
+            <p>4. </p>
+            <p>5. </p>
+            <p>6. def&nbsp;cmb(n,&nbsp;r):</p>
+            <p class="diff-block-added">7. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;math.factorial(n)&nbsp;//&nbsp;math.factorial(n&nbsp;-&nbsp;r)&nbsp;//&nbsp;math.factorial(r)&nbsp;%&nbsp;mod</p>
+            <p>8. </p>
+            <p>9. </p>
+            <p class="diff-block-added">10. N&nbsp;=&nbsp;int(input())</p>
+            <p>11. ans&nbsp;=&nbsp;0</p>
+            <p>12. #&nbsp;長さNの時最低でも3&nbsp;*&nbsp;N使う</p>
+            <p>13. #&nbsp;残りは分配する</p>
+            <p class="diff-block-added">14. for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;N&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-added">15. &nbsp;&nbsp;&nbsp;&nbsp;s&nbsp;=&nbsp;N&nbsp;-&nbsp;(3&nbsp;*&nbsp;i)</p>
+            <p>16. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;s&nbsp;&lt;&nbsp;0:</p>
+            <p>17. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</p>
+            <p>18. &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;sをN個に分配する通りがいくつあるか</p>
+            <p>19. &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;重複組み合わせ</p>
+            <p>20. &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;仕切りの数はi&nbsp;-&nbsp;1個</p>
+            <p>21. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;+=&nbsp;cmb(s&nbsp;+&nbsp;i&nbsp;-&nbsp;1,&nbsp;i&nbsp;-&nbsp;1)</p>
+            <p>22. print((ans&nbsp;%&nbsp;mod))</p>
+        </div>
+    </div>
+</body>
+</html>

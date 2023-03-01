@@ -1,0 +1,84 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-removed">2. </p>
+            <p class="diff-block-removed">3. </p>
+            <p class="diff-block-removed">4. def&nbsp;main(n,&nbsp;m,&nbsp;a):</p>
+            <p class="diff-block-removed">5. &nbsp;&nbsp;&nbsp;&nbsp;dp&nbsp;=&nbsp;np.zeros(n&nbsp;+&nbsp;1,&nbsp;dtype=int)</p>
+            <p class="diff-block-removed">6. &nbsp;&nbsp;&nbsp;&nbsp;dp[0]&nbsp;=&nbsp;1</p>
+            <p class="diff-block-removed">7. &nbsp;&nbsp;&nbsp;&nbsp;dp[1]&nbsp;=&nbsp;1&nbsp;if&nbsp;1&nbsp;not&nbsp;in&nbsp;a&nbsp;else&nbsp;0</p>
+            <p class="diff-block-removed">8. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(2,&nbsp;len(dp)):</p>
+            <p class="diff-block-removed">9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i]&nbsp;=&nbsp;dp[i&nbsp;-&nbsp;1]&nbsp;+&nbsp;dp[i&nbsp;-&nbsp;2]&nbsp;if&nbsp;i&nbsp;not&nbsp;in&nbsp;a&nbsp;else&nbsp;0</p>
+            <p class="diff-block-removed">10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i]&nbsp;%=&nbsp;1000000007</p>
+            <p class="diff-block-removed">11. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;dp[-1]</p>
+            <p class="diff-block-removed">12. </p>
+            <p class="diff-block-removed">13. </p>
+            <p class="diff-block-removed">14. if&nbsp;__name__&nbsp;==&nbsp;&quot;__main__&quot;:</p>
+            <p>15. &nbsp;&nbsp;&nbsp;&nbsp;N,&nbsp;M&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p>16. &nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;=&nbsp;set()</p>
+            <p>17. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;_&nbsp;in&nbsp;range(M):</p>
+            <p>18. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A.add(int(eval(input())))</p>
+            <p class="diff-block-removed">19. &nbsp;&nbsp;&nbsp;&nbsp;print((main(N,&nbsp;M,&nbsp;A)))</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [3.9996750815x faster, p03013, s651904471]</strong></p>
+            <p class="diff-block-added">1. def&nbsp;main():</p>
+            <p class="diff-block-added">2. &nbsp;&nbsp;&nbsp;&nbsp;MOD&nbsp;=&nbsp;10**9&nbsp;+&nbsp;7</p>
+            <p>3. &nbsp;&nbsp;&nbsp;&nbsp;N,&nbsp;M&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p>4. &nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;=&nbsp;set()</p>
+            <p>5. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;_&nbsp;in&nbsp;range(M):</p>
+            <p>6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A.add(int(eval(input())))</p>
+            <p class="diff-block-added">7. &nbsp;&nbsp;&nbsp;&nbsp;dp&nbsp;=&nbsp;[0]&nbsp;*&nbsp;(N&nbsp;+&nbsp;1)</p>
+            <p class="diff-block-added">8. &nbsp;&nbsp;&nbsp;&nbsp;dp[0]&nbsp;=&nbsp;1</p>
+            <p class="diff-block-added">9. &nbsp;&nbsp;&nbsp;&nbsp;dp[1]&nbsp;=&nbsp;1&nbsp;if&nbsp;1&nbsp;not&nbsp;in&nbsp;A&nbsp;else&nbsp;0</p>
+            <p class="diff-block-added">10. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(2,&nbsp;N&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-added">11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;i&nbsp;not&nbsp;in&nbsp;A:</p>
+            <p class="diff-block-added">12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i]&nbsp;=&nbsp;dp[i&nbsp;-&nbsp;1]&nbsp;+&nbsp;dp[i&nbsp;-&nbsp;2]</p>
+            <p class="diff-block-added">13. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:</p>
+            <p class="diff-block-added">14. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i]&nbsp;=&nbsp;0</p>
+            <p class="diff-block-added">15. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i]&nbsp;%=&nbsp;MOD</p>
+            <p class="diff-block-added">16. &nbsp;&nbsp;&nbsp;&nbsp;print((dp[-1]))</p>
+            <p class="diff-block-added">17. </p>
+            <p class="diff-block-added">18. </p>
+            <p class="diff-block-added">19. if&nbsp;__name__&nbsp;==&nbsp;&quot;__main__&quot;:</p>
+            <p class="diff-block-added">20. &nbsp;&nbsp;&nbsp;&nbsp;main()</p>
+        </div>
+    </div>
+</body>
+</html>

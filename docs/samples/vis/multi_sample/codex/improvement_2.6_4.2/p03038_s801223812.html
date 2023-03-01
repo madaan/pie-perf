@@ -1,0 +1,87 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-removed">2. </p>
+            <p class="diff-block-removed">3. NM&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">4. N&nbsp;=&nbsp;NM[0]</p>
+            <p class="diff-block-removed">5. M&nbsp;=&nbsp;NM[1]</p>
+            <p class="diff-block-removed">6. A&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">7. listBC&nbsp;=&nbsp;[]</p>
+            <p class="diff-block-removed">8. while&nbsp;True:</p>
+            <p class="diff-block-removed">9. &nbsp;&nbsp;&nbsp;&nbsp;try:</p>
+            <p class="diff-block-removed">10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;listBC.append(list(map(int,&nbsp;input().split())))</p>
+            <p class="diff-block-removed">11. &nbsp;&nbsp;&nbsp;&nbsp;except:</p>
+            <p class="diff-block-removed">12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</p>
+            <p class="diff-block-removed">13. BC&nbsp;=&nbsp;np.array(listBC)</p>
+            <p class="diff-block-removed">14. BCnum&nbsp;=&nbsp;np.argsort(BC[:,&nbsp;1])[::-1]</p>
+            <p class="diff-block-removed">15. BC&nbsp;=&nbsp;BC[BCnum,&nbsp;:]</p>
+            <p class="diff-block-removed">16. A.sort()</p>
+            <p class="diff-block-removed">17. j&nbsp;=&nbsp;0</p>
+            <p class="diff-block-removed">18. for&nbsp;i&nbsp;in&nbsp;range(len(A)):</p>
+            <p class="diff-block-removed">19. &nbsp;&nbsp;&nbsp;&nbsp;times&nbsp;=&nbsp;BC[j,&nbsp;0]</p>
+            <p class="diff-block-removed">20. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;BC[j,&nbsp;0]&nbsp;==&nbsp;0:</p>
+            <p class="diff-block-removed">21. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j&nbsp;+=&nbsp;1</p>
+            <p class="diff-block-removed">22. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;j&nbsp;==&nbsp;BC.shape[0]:</p>
+            <p class="diff-block-removed">23. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</p>
+            <p class="diff-block-removed">24. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;times&nbsp;=&nbsp;BC[j,&nbsp;0]</p>
+            <p class="diff-block-removed">25. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;A[i]&nbsp;&lt;&nbsp;BC[j,&nbsp;1]:</p>
+            <p class="diff-block-removed">26. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A[i]&nbsp;=&nbsp;BC[j,&nbsp;1]</p>
+            <p class="diff-block-removed">27. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BC[j,&nbsp;0]&nbsp;+=&nbsp;-1</p>
+            <p class="diff-block-removed">28. output&nbsp;=&nbsp;sum(A)</p>
+            <p class="diff-block-removed">29. print(output)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [3.300279824x faster, p03038, s801223812]</strong></p>
+            <p class="diff-block-added">1. N,&nbsp;M&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p class="diff-block-added">2. A&nbsp;=&nbsp;sorted(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-added">3. BC&nbsp;=&nbsp;[list(map(int,&nbsp;input().split()))&nbsp;for&nbsp;_&nbsp;in&nbsp;range(M)]</p>
+            <p class="diff-block-added">4. BC.sort(key=lambda&nbsp;x:&nbsp;x[1],&nbsp;reverse=True)</p>
+            <p class="diff-block-added">5. i&nbsp;=&nbsp;j&nbsp;=&nbsp;0</p>
+            <p class="diff-block-added">6. while&nbsp;i&nbsp;&lt;&nbsp;N&nbsp;and&nbsp;j&nbsp;&lt;&nbsp;M:</p>
+            <p class="diff-block-added">7. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;A[i]&nbsp;&lt;&nbsp;BC[j][1]:</p>
+            <p class="diff-block-added">8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A[i]&nbsp;=&nbsp;BC[j][1]</p>
+            <p class="diff-block-added">9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BC[j][0]&nbsp;-=&nbsp;1</p>
+            <p class="diff-block-added">10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;BC[j][0]&nbsp;==&nbsp;0:</p>
+            <p class="diff-block-added">11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j&nbsp;+=&nbsp;1</p>
+            <p class="diff-block-added">12. &nbsp;&nbsp;&nbsp;&nbsp;i&nbsp;+=&nbsp;1</p>
+            <p class="diff-block-added">13. print(sum(A))</p>
+        </div>
+    </div>
+</body>
+</html>

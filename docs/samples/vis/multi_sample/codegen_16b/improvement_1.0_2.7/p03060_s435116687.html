@@ -1,0 +1,61 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. import&nbsp;sys</p>
+            <p class="diff-block-removed">2. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-removed">3. </p>
+            <p>4. N&nbsp;=&nbsp;eval(input())</p>
+            <p class="diff-block-removed">5. V&nbsp;=&nbsp;input().split()</p>
+            <p class="diff-block-removed">6. v&nbsp;=&nbsp;np.array([int(x)&nbsp;for&nbsp;x&nbsp;in&nbsp;V])</p>
+            <p class="diff-block-removed">7. C&nbsp;=&nbsp;input().split()</p>
+            <p class="diff-block-removed">8. c&nbsp;=&nbsp;np.array([int(x)&nbsp;for&nbsp;x&nbsp;in&nbsp;C])</p>
+            <p class="diff-block-removed">9. delt&nbsp;=&nbsp;v&nbsp;-&nbsp;c</p>
+            <p class="diff-block-removed">10. print((delt[delt&nbsp;&gt;&nbsp;0].sum()))</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [2.6233507x faster, p03060, s435116687]</strong></p>
+            <p>1. N&nbsp;=&nbsp;eval(input())</p>
+            <p class="diff-block-added">2. V&nbsp;=&nbsp;list([int(a)&nbsp;for&nbsp;a&nbsp;in&nbsp;input().split()])</p>
+            <p class="diff-block-added">3. C&nbsp;=&nbsp;list([int(a)&nbsp;for&nbsp;a&nbsp;in&nbsp;input().split()])</p>
+            <p class="diff-block-added">4. delta&nbsp;=&nbsp;[v&nbsp;-&nbsp;c&nbsp;for&nbsp;v,&nbsp;c&nbsp;in&nbsp;zip(V,&nbsp;C)&nbsp;if&nbsp;v&nbsp;-&nbsp;c&nbsp;&gt;=&nbsp;0]</p>
+            <p class="diff-block-added">5. s&nbsp;=&nbsp;sum(delta)</p>
+            <p class="diff-block-added">6. print(s)</p>
+        </div>
+    </div>
+</body>
+</html>

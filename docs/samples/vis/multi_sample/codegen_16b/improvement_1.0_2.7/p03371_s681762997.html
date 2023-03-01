@@ -1,0 +1,73 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p>1. #&nbsp;AtCoder&nbsp;Beginner&nbsp;Contest&nbsp;095&nbsp;C&nbsp;-&nbsp;Half&nbsp;and&nbsp;Half</p>
+            <p class="diff-block-removed">2. import&nbsp;sys</p>
+            <p>3. </p>
+            <p class="diff-block-removed">4. A,&nbsp;B,&nbsp;C,&nbsp;X,&nbsp;Y&nbsp;=&nbsp;list(map(int,&nbsp;sys.stdin.readline().strip().split()))</p>
+            <p class="diff-block-removed">5. ans&nbsp;=&nbsp;A&nbsp;*&nbsp;X&nbsp;+&nbsp;B&nbsp;*&nbsp;Y</p>
+            <p class="diff-block-removed">6. for&nbsp;z&nbsp;in&nbsp;range(2,&nbsp;2&nbsp;*&nbsp;10**5&nbsp;+&nbsp;1,&nbsp;2):</p>
+            <p class="diff-block-removed">7. &nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;=&nbsp;max(X&nbsp;-&nbsp;int(z&nbsp;/&nbsp;2),&nbsp;0)</p>
+            <p class="diff-block-removed">8. &nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;=&nbsp;max(Y&nbsp;-&nbsp;int(z&nbsp;/&nbsp;2),&nbsp;0)</p>
+            <p class="diff-block-removed">9. &nbsp;&nbsp;&nbsp;&nbsp;price&nbsp;=&nbsp;A&nbsp;*&nbsp;x&nbsp;+&nbsp;B&nbsp;*&nbsp;y&nbsp;+&nbsp;C&nbsp;*&nbsp;z</p>
+            <p class="diff-block-removed">10. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;min(price,&nbsp;ans)</p>
+            <p class="diff-block-removed">11. print(ans)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [1.148912529x faster, p03371, s681762997]</strong></p>
+            <p>1. #&nbsp;AtCoder&nbsp;Beginner&nbsp;Contest&nbsp;095&nbsp;C&nbsp;-&nbsp;Half&nbsp;and&nbsp;Half</p>
+            <p class="diff-block-added">2. from&nbsp;itertools&nbsp;import&nbsp;accumulate</p>
+            <p class="diff-block-added">3. </p>
+            <p class="diff-block-added">4. </p>
+            <p class="diff-block-added">5. def&nbsp;main():</p>
+            <p class="diff-block-added">6. &nbsp;&nbsp;&nbsp;&nbsp;A,&nbsp;B,&nbsp;C,&nbsp;X,&nbsp;Y&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-added">7. &nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;[A&nbsp;*&nbsp;X&nbsp;+&nbsp;B&nbsp;*&nbsp;Y]</p>
+            <p class="diff-block-added">8. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(2,&nbsp;2&nbsp;*&nbsp;10**5&nbsp;+&nbsp;1,&nbsp;2):</p>
+            <p class="diff-block-added">9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans.append(</p>
+            <p class="diff-block-added">10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;min(</p>
+            <p class="diff-block-added">11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;*&nbsp;max(X&nbsp;-&nbsp;int(i&nbsp;/&nbsp;2),&nbsp;0)&nbsp;+&nbsp;B&nbsp;*&nbsp;max(Y&nbsp;-&nbsp;int(i&nbsp;/&nbsp;2),&nbsp;0)&nbsp;+&nbsp;C&nbsp;*&nbsp;i,&nbsp;ans[-1]</p>
+            <p class="diff-block-added">12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</p>
+            <p class="diff-block-added">13. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</p>
+            <p class="diff-block-added">14. &nbsp;&nbsp;&nbsp;&nbsp;print((min(ans)))</p>
+            <p class="diff-block-added">15. </p>
+            <p class="diff-block-added">16. </p>
+            <p class="diff-block-added">17. main()</p>
+        </div>
+    </div>
+</body>
+</html>

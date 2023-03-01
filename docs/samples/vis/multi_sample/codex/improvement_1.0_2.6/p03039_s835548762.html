@@ -1,0 +1,161 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. n,&nbsp;m,&nbsp;k&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p>2. mod&nbsp;=&nbsp;10**9&nbsp;+&nbsp;7</p>
+            <p class="diff-block-removed">3. MAX&nbsp;=&nbsp;n&nbsp;*&nbsp;m</p>
+            <p class="diff-block-removed">4. </p>
+            <p class="diff-block-removed">5. </p>
+            <p class="diff-block-removed">6. class&nbsp;ModInt:</p>
+            <p class="diff-block-removed">7. &nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;__init__(self,&nbsp;num):</p>
+            <p class="diff-block-removed">8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.num&nbsp;=&nbsp;num</p>
+            <p class="diff-block-removed">9. </p>
+            <p class="diff-block-removed">10. &nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;__str__(self):</p>
+            <p class="diff-block-removed">11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;str(self.num)</p>
+            <p class="diff-block-removed">12. </p>
+            <p class="diff-block-removed">13. &nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;__repr__(self):</p>
+            <p class="diff-block-removed">14. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;&quot;ModInt(num:&nbsp;{},&nbsp;mod:&nbsp;{}&quot;.format(self.num,&nbsp;mod)</p>
+            <p class="diff-block-removed">15. </p>
+            <p class="diff-block-removed">16. &nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;__add__(self,&nbsp;other):</p>
+            <p class="diff-block-removed">17. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ret&nbsp;=&nbsp;self.num&nbsp;+&nbsp;other.num</p>
+            <p class="diff-block-removed">18. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ret&nbsp;%=&nbsp;mod</p>
+            <p class="diff-block-removed">19. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;ModInt(ret)</p>
+            <p class="diff-block-removed">20. </p>
+            <p class="diff-block-removed">21. &nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;__sub__(self,&nbsp;other):</p>
+            <p class="diff-block-removed">22. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ret&nbsp;=&nbsp;self.num&nbsp;-&nbsp;other.num</p>
+            <p class="diff-block-removed">23. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ret&nbsp;%=&nbsp;mod</p>
+            <p class="diff-block-removed">24. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;ModInt(ret)</p>
+            <p class="diff-block-removed">25. </p>
+            <p class="diff-block-removed">26. &nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;__mul__(self,&nbsp;other):</p>
+            <p class="diff-block-removed">27. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ret&nbsp;=&nbsp;self.num&nbsp;*&nbsp;other.num</p>
+            <p class="diff-block-removed">28. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ret&nbsp;%=&nbsp;mod</p>
+            <p class="diff-block-removed">29. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;ModInt(ret)</p>
+            <p class="diff-block-removed">30. </p>
+            <p class="diff-block-removed">31. &nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;pow(self,&nbsp;times):</p>
+            <p class="diff-block-removed">32. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pw&nbsp;=&nbsp;pow(self.num,&nbsp;times,&nbsp;mod)</p>
+            <p class="diff-block-removed">33. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;ModInt(pw)</p>
+            <p class="diff-block-removed">34. </p>
+            <p class="diff-block-removed">35. &nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;inverse(self):</p>
+            <p class="diff-block-removed">36. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;ModInt(inv[self.num])</p>
+            <p class="diff-block-removed">37. </p>
+            <p class="diff-block-removed">38. &nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;__truediv__(self,&nbsp;other):</p>
+            <p class="diff-block-removed">39. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;num&nbsp;=&nbsp;self&nbsp;*&nbsp;other.inverse()</p>
+            <p class="diff-block-removed">40. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;ModInt(num)</p>
+            <p class="diff-block-removed">41. </p>
+            <p class="diff-block-removed">42. </p>
+            <p class="diff-block-removed">43. def&nbsp;comb(n,&nbsp;k):</p>
+            <p class="diff-block-removed">44. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;fact[n]&nbsp;*&nbsp;inv[n&nbsp;-&nbsp;k]&nbsp;*&nbsp;inv[k]</p>
+            <p class="diff-block-removed">45. </p>
+            <p class="diff-block-removed">46. </p>
+            <p class="diff-block-removed">47. fact&nbsp;=&nbsp;[None]&nbsp;*&nbsp;(MAX&nbsp;+&nbsp;1)</p>
+            <p class="diff-block-removed">48. fact[0]&nbsp;=&nbsp;ModInt(1)</p>
+            <p class="diff-block-removed">49. for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;MAX&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-removed">50. &nbsp;&nbsp;&nbsp;&nbsp;fact[i]&nbsp;=&nbsp;fact[i&nbsp;-&nbsp;1]&nbsp;*&nbsp;ModInt(i)</p>
+            <p class="diff-block-removed">51. inv&nbsp;=&nbsp;[None]&nbsp;*&nbsp;(MAX&nbsp;+&nbsp;1)</p>
+            <p class="diff-block-removed">52. inv[MAX]&nbsp;=&nbsp;fact[MAX].pow(mod&nbsp;-&nbsp;2)</p>
+            <p class="diff-block-removed">53. for&nbsp;i&nbsp;in&nbsp;range(MAX,&nbsp;0,&nbsp;-1):</p>
+            <p class="diff-block-removed">54. &nbsp;&nbsp;&nbsp;&nbsp;inv[i&nbsp;-&nbsp;1]&nbsp;=&nbsp;inv[i]&nbsp;*&nbsp;ModInt(i)</p>
+            <p class="diff-block-removed">55. ans&nbsp;=&nbsp;ModInt(0)</p>
+            <p>56. for&nbsp;i&nbsp;in&nbsp;range(n):</p>
+            <p>57. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;range(m):</p>
+            <p class="diff-block-removed">58. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;add&nbsp;=&nbsp;ModInt(n&nbsp;-&nbsp;i)&nbsp;*&nbsp;ModInt(m&nbsp;-&nbsp;j)&nbsp;*&nbsp;ModInt(i&nbsp;+&nbsp;j)</p>
+            <p>59. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;i&nbsp;!=&nbsp;0&nbsp;and&nbsp;j&nbsp;!=&nbsp;0:</p>
+            <p class="diff-block-removed">60. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;add&nbsp;*=&nbsp;ModInt(2)</p>
+            <p>61. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;+=&nbsp;add</p>
+            <p>62. ans&nbsp;*=&nbsp;comb(n&nbsp;*&nbsp;m&nbsp;-&nbsp;2,&nbsp;k&nbsp;-&nbsp;2)</p>
+            <p>63. print(ans)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [1.3383134906x faster, p03039, s835548762]</strong></p>
+            <p class="diff-block-added">1. #&nbsp;coding:&nbsp;utf-8</p>
+            <p class="diff-block-added">2. n,&nbsp;m,&nbsp;k&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p>3. mod&nbsp;=&nbsp;10**9&nbsp;+&nbsp;7</p>
+            <p>4. </p>
+            <p>5. </p>
+            <p class="diff-block-added">6. def&nbsp;modinv(a,&nbsp;m):</p>
+            <p class="diff-block-added">7. &nbsp;&nbsp;&nbsp;&nbsp;b&nbsp;=&nbsp;m</p>
+            <p class="diff-block-added">8. &nbsp;&nbsp;&nbsp;&nbsp;u&nbsp;=&nbsp;1</p>
+            <p class="diff-block-added">9. &nbsp;&nbsp;&nbsp;&nbsp;v&nbsp;=&nbsp;0</p>
+            <p class="diff-block-added">10. &nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;b:</p>
+            <p class="diff-block-added">11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t&nbsp;=&nbsp;a&nbsp;//&nbsp;b</p>
+            <p class="diff-block-added">12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;-=&nbsp;t&nbsp;*&nbsp;b</p>
+            <p class="diff-block-added">13. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a,&nbsp;b&nbsp;=&nbsp;b,&nbsp;a</p>
+            <p class="diff-block-added">14. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;u&nbsp;-=&nbsp;t&nbsp;*&nbsp;v</p>
+            <p class="diff-block-added">15. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;u,&nbsp;v&nbsp;=&nbsp;v,&nbsp;u</p>
+            <p class="diff-block-added">16. &nbsp;&nbsp;&nbsp;&nbsp;u&nbsp;%=&nbsp;m</p>
+            <p class="diff-block-added">17. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;u</p>
+            <p>18. </p>
+            <p>19. </p>
+            <p class="diff-block-added">20. def&nbsp;comb(n,&nbsp;r):</p>
+            <p class="diff-block-added">21. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;n&nbsp;-&nbsp;r&nbsp;&lt;&nbsp;r:</p>
+            <p class="diff-block-added">22. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r&nbsp;=&nbsp;n&nbsp;-&nbsp;r</p>
+            <p class="diff-block-added">23. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;r&nbsp;==&nbsp;0:</p>
+            <p class="diff-block-added">24. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;1</p>
+            <p class="diff-block-added">25. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;r&nbsp;==&nbsp;1:</p>
+            <p class="diff-block-added">26. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;n</p>
+            <p class="diff-block-added">27. &nbsp;&nbsp;&nbsp;&nbsp;numerator&nbsp;=&nbsp;[n&nbsp;-&nbsp;r&nbsp;+&nbsp;k&nbsp;+&nbsp;1&nbsp;for&nbsp;k&nbsp;in&nbsp;range(r)]</p>
+            <p class="diff-block-added">28. &nbsp;&nbsp;&nbsp;&nbsp;denominator&nbsp;=&nbsp;[k&nbsp;+&nbsp;1&nbsp;for&nbsp;k&nbsp;in&nbsp;range(r)]</p>
+            <p class="diff-block-added">29. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;p&nbsp;in&nbsp;range(2,&nbsp;r&nbsp;+&nbsp;1):</p>
+            <p class="diff-block-added">30. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pivot&nbsp;=&nbsp;denominator[p&nbsp;-&nbsp;1]</p>
+            <p class="diff-block-added">31. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;pivot&nbsp;&gt;&nbsp;1:</p>
+            <p class="diff-block-added">32. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;offset&nbsp;=&nbsp;(n&nbsp;-&nbsp;r)&nbsp;%&nbsp;p</p>
+            <p class="diff-block-added">33. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;k&nbsp;in&nbsp;range(p&nbsp;-&nbsp;1,&nbsp;r,&nbsp;p):</p>
+            <p class="diff-block-added">34. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;numerator[k&nbsp;-&nbsp;offset]&nbsp;/=&nbsp;pivot</p>
+            <p class="diff-block-added">35. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;denominator[k]&nbsp;/=&nbsp;pivot</p>
+            <p class="diff-block-added">36. &nbsp;&nbsp;&nbsp;&nbsp;result&nbsp;=&nbsp;1</p>
+            <p class="diff-block-added">37. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;k&nbsp;in&nbsp;range(r):</p>
+            <p class="diff-block-added">38. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;numerator[k]&nbsp;&gt;&nbsp;1:</p>
+            <p class="diff-block-added">39. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result&nbsp;*=&nbsp;int(numerator[k])</p>
+            <p class="diff-block-added">40. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result&nbsp;%=&nbsp;mod</p>
+            <p class="diff-block-added">41. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;result</p>
+            <p>42. </p>
+            <p>43. </p>
+            <p class="diff-block-added">44. ans&nbsp;=&nbsp;0</p>
+            <p>45. for&nbsp;i&nbsp;in&nbsp;range(n):</p>
+            <p>46. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;range(m):</p>
+            <p class="diff-block-added">47. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;add&nbsp;=&nbsp;(n&nbsp;-&nbsp;i)&nbsp;*&nbsp;(m&nbsp;-&nbsp;j)&nbsp;*&nbsp;(i&nbsp;+&nbsp;j)</p>
+            <p>48. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;i&nbsp;!=&nbsp;0&nbsp;and&nbsp;j&nbsp;!=&nbsp;0:</p>
+            <p class="diff-block-added">49. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;add&nbsp;*=&nbsp;2</p>
+            <p>50. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;+=&nbsp;add</p>
+            <p>51. ans&nbsp;*=&nbsp;comb(n&nbsp;*&nbsp;m&nbsp;-&nbsp;2,&nbsp;k&nbsp;-&nbsp;2)</p>
+            <p class="diff-block-added">52. ans&nbsp;%=&nbsp;mod</p>
+            <p>53. print(ans)</p>
+        </div>
+    </div>
+</body>
+</html>

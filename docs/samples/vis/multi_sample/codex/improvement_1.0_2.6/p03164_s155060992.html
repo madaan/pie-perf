@@ -1,0 +1,87 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. #&nbsp;N個の荷物、ナップザックの容量はW</p>
+            <p class="diff-block-removed">2. N,&nbsp;W&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">3. w&nbsp;=&nbsp;[0]&nbsp;*&nbsp;N</p>
+            <p class="diff-block-removed">4. v&nbsp;=&nbsp;[0]&nbsp;*&nbsp;N</p>
+            <p class="diff-block-removed">5. for&nbsp;i&nbsp;in&nbsp;range(N):</p>
+            <p class="diff-block-removed">6. &nbsp;&nbsp;&nbsp;&nbsp;a,&nbsp;b&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">7. &nbsp;&nbsp;&nbsp;&nbsp;w[i]&nbsp;=&nbsp;a</p>
+            <p class="diff-block-removed">8. &nbsp;&nbsp;&nbsp;&nbsp;v[i]&nbsp;=&nbsp;b</p>
+            <p class="diff-block-removed">9. #&nbsp;1&nbsp;&lt;=&nbsp;W&nbsp;&lt;=&nbsp;10^9なので横軸をWにするとテーブルがでかすぎる</p>
+            <p class="diff-block-removed">10. #&nbsp;そのかわりにVの方を横軸にする</p>
+            <p class="diff-block-removed">11. #&nbsp;価値の総合計はまだ不明なので、適当にでかい値にしとく</p>
+            <p class="diff-block-removed">12. #&nbsp;最上部と最左部に0が入るので、その分を+1</p>
+            <p class="diff-block-removed">13. V&nbsp;=&nbsp;N&nbsp;*&nbsp;1000&nbsp;+&nbsp;1</p>
+            <p class="diff-block-removed">14. dp&nbsp;=&nbsp;[[float(&quot;inf&quot;)&nbsp;for&nbsp;_&nbsp;in&nbsp;range(V&nbsp;+&nbsp;1)]&nbsp;for&nbsp;_&nbsp;in&nbsp;range(N&nbsp;+&nbsp;1)]</p>
+            <p class="diff-block-removed">15. #&nbsp;最小値を求めるので、上記でinfが入ってるので、初期値は0をいれる必要がある</p>
+            <p class="diff-block-removed">16. dp[0][0]&nbsp;=&nbsp;0</p>
+            <p class="diff-block-removed">17. #&nbsp;dp[i][sum_v]&nbsp;=&nbsp;これまで(i-1)番目までの品物から価値がsum_v以上になるように選んだときの、重さの総和の最小値</p>
+            <p class="diff-block-removed">18. for&nbsp;i&nbsp;in&nbsp;range(N):</p>
+            <p class="diff-block-removed">19. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;sum_v&nbsp;in&nbsp;range(V):</p>
+            <p class="diff-block-removed">20. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;sum_v&nbsp;-&nbsp;v[i]&nbsp;&gt;=&nbsp;0:</p>
+            <p class="diff-block-removed">21. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i&nbsp;+&nbsp;1][sum_v]&nbsp;=&nbsp;min(dp[i&nbsp;+&nbsp;1][sum_v],&nbsp;dp[i][sum_v&nbsp;-&nbsp;v[i]]&nbsp;+&nbsp;w[i])</p>
+            <p class="diff-block-removed">22. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i&nbsp;+&nbsp;1][sum_v]&nbsp;=&nbsp;min(dp[i&nbsp;+&nbsp;1][sum_v],&nbsp;dp[i][sum_v])</p>
+            <p class="diff-block-removed">23. #&nbsp;中身がWなので、W以下であるうちのsum_vの最大値を求めればいい</p>
+            <p class="diff-block-removed">24. for&nbsp;sum_v&nbsp;in&nbsp;range(V):</p>
+            <p class="diff-block-removed">25. &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;最終行だけ見ればいいので、端からsum_vの最大値をなめるだけ</p>
+            <p class="diff-block-removed">26. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;dp[N][sum_v]&nbsp;&lt;=&nbsp;W:</p>
+            <p>27. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;sum_v</p>
+            <p>28. print(ans)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [1.4721214585x faster, p03164, s155060992]</strong></p>
+            <p class="diff-block-added">1. N,&nbsp;W&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p class="diff-block-added">2. V&nbsp;=&nbsp;N&nbsp;*&nbsp;1000&nbsp;+&nbsp;1</p>
+            <p class="diff-block-added">3. dp&nbsp;=&nbsp;[float(&quot;inf&quot;)]&nbsp;*&nbsp;(V&nbsp;+&nbsp;1)</p>
+            <p class="diff-block-added">4. dp[0]&nbsp;=&nbsp;0</p>
+            <p>5. for&nbsp;i&nbsp;in&nbsp;range(N):</p>
+            <p class="diff-block-added">6. &nbsp;&nbsp;&nbsp;&nbsp;w,&nbsp;v&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p class="diff-block-added">7. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;sum_v&nbsp;in&nbsp;range(V)[::-1]:</p>
+            <p class="diff-block-added">8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;sum_v&nbsp;-&nbsp;v&nbsp;&gt;=&nbsp;0:</p>
+            <p class="diff-block-added">9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[sum_v]&nbsp;=&nbsp;min(dp[sum_v],&nbsp;dp[sum_v&nbsp;-&nbsp;v]&nbsp;+&nbsp;w)</p>
+            <p class="diff-block-added">10. for&nbsp;sum_v&nbsp;in&nbsp;range(V)[::-1]:</p>
+            <p class="diff-block-added">11. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;dp[sum_v]&nbsp;&lt;=&nbsp;W:</p>
+            <p>12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;sum_v</p>
+            <p class="diff-block-added">13. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</p>
+            <p>14. print(ans)</p>
+        </div>
+    </div>
+</body>
+</html>

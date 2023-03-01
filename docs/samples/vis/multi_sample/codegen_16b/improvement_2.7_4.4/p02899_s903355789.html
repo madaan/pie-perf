@@ -1,0 +1,53 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-removed">2. </p>
+            <p>3. n&nbsp;=&nbsp;int(eval(input()))</p>
+            <p class="diff-block-removed">4. a&nbsp;=&nbsp;np.array(list(map(int,&nbsp;input().split())))</p>
+            <p class="diff-block-removed">5. print((*list([x&nbsp;+&nbsp;1&nbsp;for&nbsp;x&nbsp;in&nbsp;np.argsort(a)])))</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [3.8745266356x faster, p02899, s903355789]</strong></p>
+            <p>1. n&nbsp;=&nbsp;int(eval(input()))</p>
+            <p class="diff-block-added">2. a&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-added">3. print((*[i&nbsp;for&nbsp;i,&nbsp;v&nbsp;in&nbsp;sorted(enumerate(a,&nbsp;1),&nbsp;key=lambda&nbsp;p:&nbsp;p[1])]))</p>
+        </div>
+    </div>
+</body>
+</html>

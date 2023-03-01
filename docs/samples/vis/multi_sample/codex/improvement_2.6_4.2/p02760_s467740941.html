@@ -1,0 +1,144 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p class="diff-block-removed">1. import&nbsp;sys,&nbsp;re</p>
+            <p class="diff-block-removed">2. from&nbsp;collections&nbsp;import&nbsp;deque,&nbsp;defaultdict,&nbsp;Counter</p>
+            <p class="diff-block-removed">3. from&nbsp;math&nbsp;import&nbsp;ceil,&nbsp;sqrt,&nbsp;hypot,&nbsp;factorial,&nbsp;pi,&nbsp;sin,&nbsp;cos,&nbsp;radians</p>
+            <p class="diff-block-removed">4. from&nbsp;itertools&nbsp;import&nbsp;accumulate,&nbsp;permutations,&nbsp;combinations,&nbsp;product,&nbsp;groupby</p>
+            <p class="diff-block-removed">5. from&nbsp;operator&nbsp;import&nbsp;itemgetter,&nbsp;mul</p>
+            <p class="diff-block-removed">6. from&nbsp;copy&nbsp;import&nbsp;deepcopy</p>
+            <p class="diff-block-removed">7. from&nbsp;string&nbsp;import&nbsp;ascii_lowercase,&nbsp;ascii_uppercase,&nbsp;digits</p>
+            <p class="diff-block-removed">8. from&nbsp;bisect&nbsp;import&nbsp;bisect,&nbsp;bisect_left</p>
+            <p class="diff-block-removed">9. from&nbsp;fractions&nbsp;import&nbsp;gcd</p>
+            <p class="diff-block-removed">10. from&nbsp;heapq&nbsp;import&nbsp;heappush,&nbsp;heappop</p>
+            <p class="diff-block-removed">11. from&nbsp;functools&nbsp;import&nbsp;reduce</p>
+            <p class="diff-block-removed">12. </p>
+            <p class="diff-block-removed">13. </p>
+            <p class="diff-block-removed">14. def&nbsp;input():</p>
+            <p class="diff-block-removed">15. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;sys.stdin.readline().strip()</p>
+            <p class="diff-block-removed">16. </p>
+            <p class="diff-block-removed">17. </p>
+            <p class="diff-block-removed">18. def&nbsp;INT():</p>
+            <p class="diff-block-removed">19. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;int(eval(input()))</p>
+            <p class="diff-block-removed">20. </p>
+            <p class="diff-block-removed">21. </p>
+            <p class="diff-block-removed">22. def&nbsp;MAP():</p>
+            <p class="diff-block-removed">23. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">24. </p>
+            <p class="diff-block-removed">25. </p>
+            <p class="diff-block-removed">26. def&nbsp;LIST():</p>
+            <p class="diff-block-removed">27. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p class="diff-block-removed">28. </p>
+            <p class="diff-block-removed">29. </p>
+            <p class="diff-block-removed">30. def&nbsp;ZIP(n):</p>
+            <p class="diff-block-removed">31. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;list(zip(*(MAP()&nbsp;for&nbsp;_&nbsp;in&nbsp;range(n))))</p>
+            <p class="diff-block-removed">32. </p>
+            <p class="diff-block-removed">33. </p>
+            <p class="diff-block-removed">34. sys.setrecursionlimit(10**9)</p>
+            <p class="diff-block-removed">35. INF&nbsp;=&nbsp;float(&quot;inf&quot;)</p>
+            <p class="diff-block-removed">36. mod&nbsp;=&nbsp;10**9&nbsp;+&nbsp;7</p>
+            <p class="diff-block-removed">37. import&nbsp;numpy&nbsp;as&nbsp;np</p>
+            <p class="diff-block-removed">38. </p>
+            <p class="diff-block-removed">39. A1&nbsp;=&nbsp;LIST()</p>
+            <p class="diff-block-removed">40. A2&nbsp;=&nbsp;LIST()</p>
+            <p class="diff-block-removed">41. A3&nbsp;=&nbsp;LIST()</p>
+            <p class="diff-block-removed">42. N&nbsp;=&nbsp;INT()</p>
+            <p class="diff-block-removed">43. B&nbsp;=&nbsp;np.ones(N)</p>
+            <p class="diff-block-removed">44. for&nbsp;i&nbsp;in&nbsp;range(N):</p>
+            <p class="diff-block-removed">45. &nbsp;&nbsp;&nbsp;&nbsp;B[i]&nbsp;=&nbsp;INT()</p>
+            <p class="diff-block-removed">46. B&nbsp;=&nbsp;list(B)</p>
+            <p class="diff-block-removed">47. </p>
+            <p class="diff-block-removed">48. </p>
+            <p>49. def&nbsp;bingo_array(A,&nbsp;B):</p>
+            <p>50. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(3):</p>
+            <p>51. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;x&nbsp;in&nbsp;B:</p>
+            <p>52. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;A[i]&nbsp;==&nbsp;x:</p>
+            <p>53. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A[i]&nbsp;*=&nbsp;0</p>
+            <p class="diff-block-removed">54. </p>
+            <p class="diff-block-removed">55. </p>
+            <p>56. bingo_array(A1,&nbsp;B)</p>
+            <p>57. bingo_array(A2,&nbsp;B)</p>
+            <p>58. bingo_array(A3,&nbsp;B)</p>
+            <p>59. if&nbsp;sum(A1)&nbsp;==&nbsp;0&nbsp;or&nbsp;sum(A2)&nbsp;==&nbsp;0&nbsp;or&nbsp;sum(A3)&nbsp;==&nbsp;0:</p>
+            <p>60. &nbsp;&nbsp;&nbsp;&nbsp;print(&quot;Yes&quot;)</p>
+            <p>61. elif&nbsp;(</p>
+            <p>62. &nbsp;&nbsp;&nbsp;&nbsp;A1[0]&nbsp;+&nbsp;A2[0]&nbsp;+&nbsp;A3[0]&nbsp;==&nbsp;0</p>
+            <p>63. &nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;A1[1]&nbsp;+&nbsp;A2[1]&nbsp;+&nbsp;A3[1]&nbsp;==&nbsp;0</p>
+            <p>64. &nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;A1[2]&nbsp;+&nbsp;A2[2]&nbsp;+&nbsp;A3[2]&nbsp;==&nbsp;0</p>
+            <p>65. ):</p>
+            <p>66. &nbsp;&nbsp;&nbsp;&nbsp;print(&quot;Yes&quot;)</p>
+            <p>67. elif&nbsp;A1[0]&nbsp;+&nbsp;A2[1]&nbsp;+&nbsp;A3[2]&nbsp;==&nbsp;0&nbsp;or&nbsp;A1[2]&nbsp;+&nbsp;A2[1]&nbsp;+&nbsp;A3[0]&nbsp;==&nbsp;0:</p>
+            <p>68. &nbsp;&nbsp;&nbsp;&nbsp;print(&quot;Yes&quot;)</p>
+            <p>69. else:</p>
+            <p>70. &nbsp;&nbsp;&nbsp;&nbsp;print(&quot;No&quot;)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [3.4735575413x faster, p02760, s467740941]</strong></p>
+            <p class="diff-block-added">1. A1&nbsp;=&nbsp;[int(i)&nbsp;for&nbsp;i&nbsp;in&nbsp;input().split()]</p>
+            <p class="diff-block-added">2. A2&nbsp;=&nbsp;[int(i)&nbsp;for&nbsp;i&nbsp;in&nbsp;input().split()]</p>
+            <p class="diff-block-added">3. A3&nbsp;=&nbsp;[int(i)&nbsp;for&nbsp;i&nbsp;in&nbsp;input().split()]</p>
+            <p class="diff-block-added">4. N&nbsp;=&nbsp;int(input())</p>
+            <p>5. </p>
+            <p>6. </p>
+            <p>7. def&nbsp;bingo_array(A,&nbsp;B):</p>
+            <p>8. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(3):</p>
+            <p>9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;x&nbsp;in&nbsp;B:</p>
+            <p>10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;A[i]&nbsp;==&nbsp;x:</p>
+            <p>11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A[i]&nbsp;*=&nbsp;0</p>
+            <p>12. </p>
+            <p>13. </p>
+            <p class="diff-block-added">14. B&nbsp;=&nbsp;[int(input())&nbsp;for&nbsp;_&nbsp;in&nbsp;range(N)]</p>
+            <p>15. bingo_array(A1,&nbsp;B)</p>
+            <p>16. bingo_array(A2,&nbsp;B)</p>
+            <p>17. bingo_array(A3,&nbsp;B)</p>
+            <p>18. if&nbsp;sum(A1)&nbsp;==&nbsp;0&nbsp;or&nbsp;sum(A2)&nbsp;==&nbsp;0&nbsp;or&nbsp;sum(A3)&nbsp;==&nbsp;0:</p>
+            <p>19. &nbsp;&nbsp;&nbsp;&nbsp;print(&quot;Yes&quot;)</p>
+            <p>20. elif&nbsp;(</p>
+            <p>21. &nbsp;&nbsp;&nbsp;&nbsp;A1[0]&nbsp;+&nbsp;A2[0]&nbsp;+&nbsp;A3[0]&nbsp;==&nbsp;0</p>
+            <p>22. &nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;A1[1]&nbsp;+&nbsp;A2[1]&nbsp;+&nbsp;A3[1]&nbsp;==&nbsp;0</p>
+            <p>23. &nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;A1[2]&nbsp;+&nbsp;A2[2]&nbsp;+&nbsp;A3[2]&nbsp;==&nbsp;0</p>
+            <p>24. ):</p>
+            <p>25. &nbsp;&nbsp;&nbsp;&nbsp;print(&quot;Yes&quot;)</p>
+            <p>26. elif&nbsp;A1[0]&nbsp;+&nbsp;A2[1]&nbsp;+&nbsp;A3[2]&nbsp;==&nbsp;0&nbsp;or&nbsp;A1[2]&nbsp;+&nbsp;A2[1]&nbsp;+&nbsp;A3[0]&nbsp;==&nbsp;0:</p>
+            <p>27. &nbsp;&nbsp;&nbsp;&nbsp;print(&quot;Yes&quot;)</p>
+            <p>28. else:</p>
+            <p>29. &nbsp;&nbsp;&nbsp;&nbsp;print(&quot;No&quot;)</p>
+        </div>
+    </div>
+</body>
+</html>

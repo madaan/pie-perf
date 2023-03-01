@@ -1,0 +1,205 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            padding: 10px;
+            border-radius: 10px;
+            width: 45%;
+            background-color: #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .diff-block-added {
+            background-color: #a1f9a2;
+            box-shadow: 0px 0px 3px 0px #60bd51;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .diff-block-removed {
+            background-color: #fdd4d4;
+            padding: 0px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0px 0px 3px 0px #ff7f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-block">
+            <p><strong>Slow Code:</strong></p>
+            <p>1. n&nbsp;=&nbsp;int(eval(input()))</p>
+            <p>2. a&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p>3. D&nbsp;=&nbsp;{i:&nbsp;[0]&nbsp;for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;n&nbsp;+&nbsp;1)}</p>
+            <p>4. for&nbsp;i&nbsp;in&nbsp;range(n&nbsp;+&nbsp;1):</p>
+            <p>5. &nbsp;&nbsp;&nbsp;&nbsp;D[a[i]][0]&nbsp;+=&nbsp;1</p>
+            <p>6. &nbsp;&nbsp;&nbsp;&nbsp;D[a[i]].append(i)</p>
+            <p>7. pl,&nbsp;pr&nbsp;=&nbsp;0,&nbsp;0</p>
+            <p>8. for&nbsp;i&nbsp;in&nbsp;D:</p>
+            <p>9. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;D[i][0]&nbsp;==&nbsp;2:</p>
+            <p>10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pl&nbsp;=&nbsp;D[i][1]</p>
+            <p>11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pr&nbsp;=&nbsp;D[i][2]</p>
+            <p>12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</p>
+            <p>13. L&nbsp;=&nbsp;pl</p>
+            <p>14. M&nbsp;=&nbsp;pr&nbsp;-&nbsp;pl&nbsp;-&nbsp;1</p>
+            <p>15. N&nbsp;=&nbsp;n&nbsp;-&nbsp;pr</p>
+            <p>16. mod&nbsp;=&nbsp;int(1e9)&nbsp;+&nbsp;7&nbsp;&nbsp;#&nbsp;&lt;--&nbsp;input&nbsp;modulo</p>
+            <p>17. maxf&nbsp;=&nbsp;n&nbsp;+&nbsp;11&nbsp;&nbsp;#&nbsp;&lt;--&nbsp;input&nbsp;factional&nbsp;limitation</p>
+            <p>18. </p>
+            <p>19. </p>
+            <p>20. def&nbsp;make_fact(n,&nbsp;k):</p>
+            <p>21. &nbsp;&nbsp;&nbsp;&nbsp;tmp&nbsp;=&nbsp;n</p>
+            <p>22. &nbsp;&nbsp;&nbsp;&nbsp;perm&nbsp;=&nbsp;[i&nbsp;for&nbsp;i&nbsp;in&nbsp;range(k)]</p>
+            <p>23. &nbsp;&nbsp;&nbsp;&nbsp;L&nbsp;=&nbsp;[0&nbsp;for&nbsp;_&nbsp;in&nbsp;range(k)]</p>
+            <p>24. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(k):</p>
+            <p>25. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;L[i]&nbsp;=&nbsp;tmp&nbsp;%&nbsp;(i&nbsp;+&nbsp;1)</p>
+            <p>26. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tmp&nbsp;//=&nbsp;i&nbsp;+&nbsp;1</p>
+            <p>27. &nbsp;&nbsp;&nbsp;&nbsp;LL&nbsp;=&nbsp;[0&nbsp;for&nbsp;_&nbsp;in&nbsp;range(k)]</p>
+            <p>28. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(k):</p>
+            <p>29. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LL[i]&nbsp;=&nbsp;perm[L[-i&nbsp;-&nbsp;1]]</p>
+            <p>30. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;range(L[-i&nbsp;-&nbsp;1]&nbsp;+&nbsp;1,&nbsp;k):</p>
+            <p>31. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perm[j&nbsp;-&nbsp;1]&nbsp;=&nbsp;perm[j]</p>
+            <p>32. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;LL</p>
+            <p>33. </p>
+            <p>34. </p>
+            <p>35. def&nbsp;doubling(n,&nbsp;m,&nbsp;modulo=mod):</p>
+            <p>36. &nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;=&nbsp;1</p>
+            <p>37. &nbsp;&nbsp;&nbsp;&nbsp;base&nbsp;=&nbsp;n</p>
+            <p>38. &nbsp;&nbsp;&nbsp;&nbsp;tmp&nbsp;=&nbsp;m</p>
+            <p>39. &nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;tmp&nbsp;!=&nbsp;0:</p>
+            <p>40. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;tmp&nbsp;%&nbsp;2&nbsp;==&nbsp;1:</p>
+            <p>41. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;*=&nbsp;base</p>
+            <p>42. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;modulo&nbsp;&gt;&nbsp;0:</p>
+            <p>43. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;%=&nbsp;modulo</p>
+            <p>44. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;base&nbsp;*=&nbsp;base</p>
+            <p>45. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;modulo&nbsp;&gt;&nbsp;0:</p>
+            <p>46. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;base&nbsp;%=&nbsp;modulo</p>
+            <p>47. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tmp&nbsp;//=&nbsp;2</p>
+            <p>48. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;y</p>
+            <p>49. </p>
+            <p>50. </p>
+            <p>51. def&nbsp;inved(a,&nbsp;modulo=mod):</p>
+            <p>52. &nbsp;&nbsp;&nbsp;&nbsp;x,&nbsp;y,&nbsp;u,&nbsp;v,&nbsp;k,&nbsp;l&nbsp;=&nbsp;1,&nbsp;0,&nbsp;0,&nbsp;1,&nbsp;a,&nbsp;modulo</p>
+            <p>53. &nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;l&nbsp;!=&nbsp;0:</p>
+            <p>54. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x,&nbsp;y,&nbsp;u,&nbsp;v&nbsp;=&nbsp;u,&nbsp;v,&nbsp;x&nbsp;-&nbsp;u&nbsp;*&nbsp;(k&nbsp;//&nbsp;l),&nbsp;y&nbsp;-&nbsp;v&nbsp;*&nbsp;(k&nbsp;//&nbsp;l)</p>
+            <p>55. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k,&nbsp;l&nbsp;=&nbsp;l,&nbsp;k&nbsp;%&nbsp;l</p>
+            <p>56. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;x&nbsp;%&nbsp;modulo</p>
+            <p>57. </p>
+            <p>58. </p>
+            <p>59. fact&nbsp;=&nbsp;[1&nbsp;for&nbsp;_&nbsp;in&nbsp;range(maxf&nbsp;+&nbsp;1)]</p>
+            <p>60. invf&nbsp;=&nbsp;[1&nbsp;for&nbsp;_&nbsp;in&nbsp;range(maxf&nbsp;+&nbsp;1)]</p>
+            <p>61. for&nbsp;i&nbsp;in&nbsp;range(maxf):</p>
+            <p>62. &nbsp;&nbsp;&nbsp;&nbsp;fact[i&nbsp;+&nbsp;1]&nbsp;=&nbsp;(fact[i]&nbsp;*&nbsp;(i&nbsp;+&nbsp;1))&nbsp;%&nbsp;mod</p>
+            <p>63. invf[-1]&nbsp;=&nbsp;inved(fact[-1])</p>
+            <p>64. for&nbsp;i&nbsp;in&nbsp;range(maxf,&nbsp;0,&nbsp;-1):</p>
+            <p>65. &nbsp;&nbsp;&nbsp;&nbsp;invf[i&nbsp;-&nbsp;1]&nbsp;=&nbsp;(invf[i]&nbsp;*&nbsp;i)&nbsp;%&nbsp;mod</p>
+            <p>66. for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;n&nbsp;+&nbsp;2):</p>
+            <p>67. &nbsp;&nbsp;&nbsp;&nbsp;S&nbsp;=&nbsp;fact[n]&nbsp;*&nbsp;invf[i&nbsp;-&nbsp;1]&nbsp;*&nbsp;invf[n&nbsp;-&nbsp;i&nbsp;+&nbsp;1]&nbsp;%&nbsp;mod</p>
+            <p>68. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;i&nbsp;&lt;=&nbsp;n&nbsp;-&nbsp;1:</p>
+            <p>69. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S&nbsp;+=&nbsp;fact[n&nbsp;-&nbsp;1]&nbsp;*&nbsp;invf[i]&nbsp;*&nbsp;invf[n&nbsp;-&nbsp;1&nbsp;-&nbsp;i]&nbsp;%&nbsp;mod</p>
+            <p>70. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S&nbsp;%=&nbsp;mod</p>
+            <p>71. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;i&nbsp;&lt;=&nbsp;n&nbsp;-&nbsp;M:</p>
+            <p>72. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S&nbsp;-=&nbsp;fact[n&nbsp;-&nbsp;1&nbsp;-&nbsp;M]&nbsp;*&nbsp;invf[i&nbsp;-&nbsp;1]&nbsp;*&nbsp;invf[n&nbsp;-&nbsp;M&nbsp;-&nbsp;i]&nbsp;%&nbsp;mod</p>
+            <p>73. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S&nbsp;%=&nbsp;mod</p>
+            <p>74. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;i&nbsp;&lt;=&nbsp;n:</p>
+            <p>75. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S&nbsp;+=&nbsp;fact[n&nbsp;-&nbsp;1]&nbsp;*&nbsp;invf[i&nbsp;-&nbsp;1]&nbsp;*&nbsp;invf[n&nbsp;-&nbsp;i]&nbsp;%&nbsp;mod</p>
+            <p>76. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S&nbsp;%=&nbsp;mod</p>
+            <p>77. &nbsp;&nbsp;&nbsp;&nbsp;print(S)</p>
+        </div>
+        <div class="code-block">
+            <p><strong>Fast Code [1.0413591277x faster, p03674, s545310428]</strong></p>
+            <p>1. n&nbsp;=&nbsp;int(eval(input()))</p>
+            <p>2. a&nbsp;=&nbsp;list(map(int,&nbsp;input().split()))</p>
+            <p>3. D&nbsp;=&nbsp;{i:&nbsp;[0]&nbsp;for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;n&nbsp;+&nbsp;1)}</p>
+            <p>4. for&nbsp;i&nbsp;in&nbsp;range(n&nbsp;+&nbsp;1):</p>
+            <p>5. &nbsp;&nbsp;&nbsp;&nbsp;D[a[i]][0]&nbsp;+=&nbsp;1</p>
+            <p>6. &nbsp;&nbsp;&nbsp;&nbsp;D[a[i]].append(i)</p>
+            <p>7. pl,&nbsp;pr&nbsp;=&nbsp;0,&nbsp;0</p>
+            <p>8. for&nbsp;i&nbsp;in&nbsp;D:</p>
+            <p>9. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;D[i][0]&nbsp;==&nbsp;2:</p>
+            <p>10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pl&nbsp;=&nbsp;D[i][1]</p>
+            <p>11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pr&nbsp;=&nbsp;D[i][2]</p>
+            <p>12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</p>
+            <p>13. L&nbsp;=&nbsp;pl</p>
+            <p>14. M&nbsp;=&nbsp;pr&nbsp;-&nbsp;pl&nbsp;-&nbsp;1</p>
+            <p>15. N&nbsp;=&nbsp;n&nbsp;-&nbsp;pr</p>
+            <p>16. mod&nbsp;=&nbsp;int(1e9)&nbsp;+&nbsp;7&nbsp;&nbsp;#&nbsp;&lt;--&nbsp;input&nbsp;modulo</p>
+            <p>17. maxf&nbsp;=&nbsp;n&nbsp;+&nbsp;11&nbsp;&nbsp;#&nbsp;&lt;--&nbsp;input&nbsp;factional&nbsp;limitation</p>
+            <p>18. </p>
+            <p>19. </p>
+            <p>20. def&nbsp;make_fact(n,&nbsp;k):</p>
+            <p>21. &nbsp;&nbsp;&nbsp;&nbsp;tmp&nbsp;=&nbsp;n</p>
+            <p>22. &nbsp;&nbsp;&nbsp;&nbsp;perm&nbsp;=&nbsp;[i&nbsp;for&nbsp;i&nbsp;in&nbsp;range(k)]</p>
+            <p>23. &nbsp;&nbsp;&nbsp;&nbsp;L&nbsp;=&nbsp;[0&nbsp;for&nbsp;_&nbsp;in&nbsp;range(k)]</p>
+            <p>24. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(k):</p>
+            <p>25. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;L[i]&nbsp;=&nbsp;tmp&nbsp;%&nbsp;(i&nbsp;+&nbsp;1)</p>
+            <p>26. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tmp&nbsp;//=&nbsp;i&nbsp;+&nbsp;1</p>
+            <p>27. &nbsp;&nbsp;&nbsp;&nbsp;LL&nbsp;=&nbsp;[0&nbsp;for&nbsp;_&nbsp;in&nbsp;range(k)]</p>
+            <p>28. &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(k):</p>
+            <p>29. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LL[i]&nbsp;=&nbsp;perm[L[-i&nbsp;-&nbsp;1]]</p>
+            <p>30. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;range(L[-i&nbsp;-&nbsp;1]&nbsp;+&nbsp;1,&nbsp;k):</p>
+            <p>31. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perm[j&nbsp;-&nbsp;1]&nbsp;=&nbsp;perm[j]</p>
+            <p>32. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;LL</p>
+            <p>33. </p>
+            <p>34. </p>
+            <p>35. def&nbsp;doubling(n,&nbsp;m,&nbsp;modulo=mod):</p>
+            <p>36. &nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;=&nbsp;1</p>
+            <p>37. &nbsp;&nbsp;&nbsp;&nbsp;base&nbsp;=&nbsp;n</p>
+            <p>38. &nbsp;&nbsp;&nbsp;&nbsp;tmp&nbsp;=&nbsp;m</p>
+            <p>39. &nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;tmp&nbsp;!=&nbsp;0:</p>
+            <p>40. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;tmp&nbsp;%&nbsp;2&nbsp;==&nbsp;1:</p>
+            <p>41. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;*=&nbsp;base</p>
+            <p>42. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;modulo&nbsp;&gt;&nbsp;0:</p>
+            <p>43. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;%=&nbsp;modulo</p>
+            <p>44. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;base&nbsp;*=&nbsp;base</p>
+            <p>45. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;modulo&nbsp;&gt;&nbsp;0:</p>
+            <p>46. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;base&nbsp;%=&nbsp;modulo</p>
+            <p>47. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tmp&nbsp;//=&nbsp;2</p>
+            <p>48. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;y</p>
+            <p>49. </p>
+            <p>50. </p>
+            <p>51. def&nbsp;inved(a,&nbsp;modulo=mod):</p>
+            <p>52. &nbsp;&nbsp;&nbsp;&nbsp;x,&nbsp;y,&nbsp;u,&nbsp;v,&nbsp;k,&nbsp;l&nbsp;=&nbsp;1,&nbsp;0,&nbsp;0,&nbsp;1,&nbsp;a,&nbsp;modulo</p>
+            <p>53. &nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;l&nbsp;!=&nbsp;0:</p>
+            <p>54. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x,&nbsp;y,&nbsp;u,&nbsp;v&nbsp;=&nbsp;u,&nbsp;v,&nbsp;x&nbsp;-&nbsp;u&nbsp;*&nbsp;(k&nbsp;//&nbsp;l),&nbsp;y&nbsp;-&nbsp;v&nbsp;*&nbsp;(k&nbsp;//&nbsp;l)</p>
+            <p>55. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k,&nbsp;l&nbsp;=&nbsp;l,&nbsp;k&nbsp;%&nbsp;l</p>
+            <p>56. &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;x&nbsp;%&nbsp;modulo</p>
+            <p>57. </p>
+            <p>58. </p>
+            <p>59. fact&nbsp;=&nbsp;[1&nbsp;for&nbsp;_&nbsp;in&nbsp;range(maxf&nbsp;+&nbsp;1)]</p>
+            <p>60. invf&nbsp;=&nbsp;[1&nbsp;for&nbsp;_&nbsp;in&nbsp;range(maxf&nbsp;+&nbsp;1)]</p>
+            <p>61. for&nbsp;i&nbsp;in&nbsp;range(maxf):</p>
+            <p>62. &nbsp;&nbsp;&nbsp;&nbsp;fact[i&nbsp;+&nbsp;1]&nbsp;=&nbsp;(fact[i]&nbsp;*&nbsp;(i&nbsp;+&nbsp;1))&nbsp;%&nbsp;mod</p>
+            <p>63. invf[-1]&nbsp;=&nbsp;inved(fact[-1])</p>
+            <p>64. for&nbsp;i&nbsp;in&nbsp;range(maxf,&nbsp;0,&nbsp;-1):</p>
+            <p>65. &nbsp;&nbsp;&nbsp;&nbsp;invf[i&nbsp;-&nbsp;1]&nbsp;=&nbsp;(invf[i]&nbsp;*&nbsp;i)&nbsp;%&nbsp;mod</p>
+            <p>66. for&nbsp;i&nbsp;in&nbsp;range(1,&nbsp;n&nbsp;+&nbsp;2):</p>
+            <p>67. &nbsp;&nbsp;&nbsp;&nbsp;S&nbsp;=&nbsp;fact[n]&nbsp;*&nbsp;invf[i&nbsp;-&nbsp;1]&nbsp;*&nbsp;invf[n&nbsp;-&nbsp;i&nbsp;+&nbsp;1]&nbsp;%&nbsp;mod</p>
+            <p>68. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;i&nbsp;&lt;=&nbsp;n&nbsp;-&nbsp;1:</p>
+            <p>69. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S&nbsp;+=&nbsp;fact[n&nbsp;-&nbsp;1]&nbsp;*&nbsp;invf[i]&nbsp;*&nbsp;invf[n&nbsp;-&nbsp;1&nbsp;-&nbsp;i]&nbsp;%&nbsp;mod</p>
+            <p>70. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S&nbsp;%=&nbsp;mod</p>
+            <p>71. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;i&nbsp;&lt;=&nbsp;n&nbsp;-&nbsp;M:</p>
+            <p>72. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S&nbsp;-=&nbsp;fact[n&nbsp;-&nbsp;1&nbsp;-&nbsp;M]&nbsp;*&nbsp;invf[i&nbsp;-&nbsp;1]&nbsp;*&nbsp;invf[n&nbsp;-&nbsp;M&nbsp;-&nbsp;i]&nbsp;%&nbsp;mod</p>
+            <p>73. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S&nbsp;%=&nbsp;mod</p>
+            <p>74. &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;i&nbsp;&lt;=&nbsp;n:</p>
+            <p>75. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S&nbsp;+=&nbsp;fact[n&nbsp;-&nbsp;1]&nbsp;*&nbsp;invf[i&nbsp;-&nbsp;1]&nbsp;*&nbsp;invf[n&nbsp;-&nbsp;i]&nbsp;%&nbsp;mod</p>
+            <p>76. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S&nbsp;%=&nbsp;mod</p>
+            <p>77. &nbsp;&nbsp;&nbsp;&nbsp;print(S)</p>
+            <p class="diff-block-added">78. #&nbsp;slower&nbsp;version:</p>
+            <p class="diff-block-added">79. n,&nbsp;k&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p class="diff-block-added">80. print(&quot;Yes&quot;&nbsp;if&nbsp;len(set([input()&nbsp;for&nbsp;i&nbsp;in&nbsp;range(k)]))&nbsp;==&nbsp;k&nbsp;else&nbsp;&quot;No&quot;)</p>
+            <p class="diff-block-added">81. #&nbsp;optimized&nbsp;version&nbsp;of&nbsp;the&nbsp;same&nbsp;code:</p>
+            <p class="diff-block-added">82. n,&nbsp;k&nbsp;=&nbsp;map(int,&nbsp;input().split())</p>
+            <p class="diff-block-added">83. print(&quot;Yes&quot;&nbsp;if&nbsp;len(set(input()&nbsp;for&nbsp;i&nbsp;in&nbsp;range(k)))&nbsp;==&nbsp;k&nbsp;else&nbsp;&quot;No&quot;)</p>
+        </div>
+    </div>
+</body>
+</html>
