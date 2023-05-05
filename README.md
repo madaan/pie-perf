@@ -8,7 +8,7 @@
 
 
 ## Updates 📢
-[May 2023] We have added translated problem statements for all problem ids in the dataset. The translation was done using ChatGPT/GPT-4. The files are located [here](data/problem_statements_translated.zip)
+[May 2023] A large number of problem statements in codenet were in Japanese. We have translated them to English using ChatGPT/GPT-4. The files are located [here](data/problem_statements_translated.zip)
 
 
 
