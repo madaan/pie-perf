@@ -7,6 +7,10 @@
 <img width="879" alt="image" src="https://raw.githubusercontent.com/madaan/pie-perf/main/docs/static/images/mainfig-v4.jpg">
 
 
+## Updates 📢
+[May 2023] We have added translated problem statements for all problem ids in the dataset. The translation was done using ChatGPT/GPT-4. The files are located [here](data/problem_statements_translated.zip)
+
+
 
 ## Dataset
 
