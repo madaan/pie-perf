@@ -1,26 +1,27 @@
-- type: article
-  id: madaan2023learning
-  title: Learning Performance-Improving Code Edits
-  authors:
-    - family-names: Madaan
-      given-names: Aman
-    - family-names: Shypula
-      given-names: Alexander
-    - family-names: Alon
-      given-names: Uri
-    - family-names: Hashemi
-      given-names: Milad
-    - family-names: Ranganathan
-      given-names: Parthasarathy
-    - family-names: Yang
-      given-names: Yiming
-    - family-names: Neubig
-      given-names: Graham
-    - family-names: Yazdanbakhsh
-      given-names: Amir
-  journal: arXiv preprint arXiv:2302.07867
-  year: 2023
-  arxiv:
-    identifier: 2302.07867
-    category: cs.SE
-    url: https://arxiv.org/abs/2302.07867
+cff-version: 1.2.0
+type: article
+id: madaan2023learning
+title: Learning Performance-Improving Code Edits
+authors:
+  - family-names: Madaan
+    given-names: Aman
+  - family-names: Shypula
+    given-names: Alexander
+  - family-names: Alon
+    given-names: Uri
+  - family-names: Hashemi
+    given-names: Milad
+  - family-names: Ranganathan
+    given-names: Parthasarathy
+  - family-names: Yang
+    given-names: Yiming
+  - family-names: Neubig
+    given-names: Graham
+  - family-names: Yazdanbakhsh
+    given-names: Amir
+journal: arXiv preprint arXiv:2302.07867
+year: 2023
+arxiv:
+  identifier: 2302.07867
+  category: cs.SE
+  url: https://arxiv.org/abs/2302.07867
