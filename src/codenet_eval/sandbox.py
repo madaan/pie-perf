@@ -328,6 +328,10 @@ def run_cpp_code_on_inputs(
 
 
     """
+    # Setting cflags to the default value if cflags is None, else calling compile_cpp_code will fail.
+    if cflags is None:
+        cflags = "--std=c++17 -O1"
+
     try: 
         binary_output_path = compile_cpp_code(code_path, cflags=cflags)
     except Exception as e:
@@ -369,7 +373,7 @@ def run_cpp_code_on_inputs(
                     times_millisec.append(time_taken * 1000)
                     if ground_truths is not None:
                         acc = get_accuracy(output, ground_truths[test_case_idx])
-                        if acc < return_if_acc_below:
+                        if return_if_acc_below is not None and acc < return_if_acc_below:
                             if remove_code_after_run: 
                                 os.remove(binary_output_path)
                             logging.info(f"Accuracy {acc} below {return_if_acc_below}. Returning.")
