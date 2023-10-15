@@ -82,6 +82,7 @@ Each file is a jsonl:
 We use `src/make_splits.py` to create these splits. The exact configuration for creating each split is specified in the folder.
 
 - [Public test cases](https://drive.google.com/file/d/1RcUpZMOR8L2xYYWDZx7I0tHFzFgg7COO/view?usp=share_link)
+- [Generated test cases](https://drive.google.com/file/d/1migwX4wpED0gDDxn7gS6q55vWeXIDgId/view?usp=drive_link). These test cases are sourced from [alphacode](https://github.com/google-deepmind/code_contests).
 
 ## Evaluating Your Method
 
