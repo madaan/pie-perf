@@ -1,0 +1,14 @@
+digraph "VerbatimCPU Architecture" {
+	C [label=VerbatimCPU color=lightgray shape=box style=filled]
+	I [label=L1ICache color=lightblue shape=ellipse style=filled]
+	D [label=L1DCache color=lightblue shape=ellipse style=filled]
+	L2 [label=L2Cache color=lightcoral shape=ellipse style=filled]
+	L3 [label=L3Cache color=lightgreen shape=ellipse style=filled]
+	M [label=MemCtrl color=yellow shape=ellipse style=filled]
+	C -> I
+	C -> D
+	I -> L2
+	D -> L2
+	L2 -> L3
+	L3 -> M
+}

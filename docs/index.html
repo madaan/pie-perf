@@ -4,8 +4,18 @@
 <head>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto:400,500,700&display=swap">
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="preload" href="static/images/151.gif" as="image">
+    <link rel="preload" href="static/images/150.gif" as="image">
+
+    
+
 
     <style>
+
+
         .teaser .columns {
             position: relative;
         }
@@ -48,6 +58,63 @@
             font-family: 'Open Sans', sans-serif;
         }
     </style>
+
+    <style>
+        .styled-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 14px;
+            text-align: center;
+            border: 2px solid #e0e0e0;
+        }
+        
+        .styled-table th, .styled-table td {
+            padding: 10px;
+        }
+        
+        .styled-table th {
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+        
+        /* Center align text for all td elements */
+        .styled-table td {
+            text-align: center;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        /* Left-align text for td elements in the first column */
+        .styled-table td:first-child {
+            text-align: left;
+        }
+
+        .bold-value {
+            font-weight: bold;
+        }
+
+        .underline-value {
+            text-decoration: underline;
+        }
+
+        
+        .styled-table tr:hover {
+            background-color: #f5f5f5;
+        }
+        
+        /* Updated separator using border-bottom */
+        .styled-table tr.separator td {
+            border-bottom: 1px solid #e0e0e0; /* Adjust thickness here */
+        }
+        
+        /* Ensure the last row doesn't have a bottom border */
+        .styled-table tr:last-child td {
+            border-bottom: none;
+        }
+    
+    </style>
+    
+
     <meta charset="utf-8">
     <meta name="description" content="Optimization">
     <meta name="keywords"
@@ -78,7 +145,8 @@
     <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
     <link rel="stylesheet" href="./static/css/index.css">
-    <link rel="icon" href="./static/images/favicon.svg">
+    <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+    <link rel="icon" href="./static/images/pie.png">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
@@ -91,62 +159,114 @@
     <script src="./static/js/index.js"></script>
     <script src="https://d3js.org/d3.v4.js"></script>
 
+
     <script>
+        $(document).ready(function () {
+
+            // Function to shuffle an array
+            function shuffleArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+                }
+            }
+        
+            var indices = Array.from({ length: 149 }, (_, i) => i);
+            shuffleArray(indices);
+            var selectedIndices = indices.slice(0, 20);
+            // pre-pend 100_animation.gif and 200_animation.gif
+            var gifs; 
+            gifs = selectedIndices.map(index => 'static/images/' + index + '.gif');
+            gifs.unshift('static/images/150.gif');
+            gifs.unshift('static/images/151.gif');
+            
+            //var gifs = selectedIndices.map(index => 'static/images_2/' + index + '_animation.gif');
+        
+            var current = 0;
+        
+            // Preload function
+            function preloadImage(src) {
+                var img = new Image();
+                img.src = src;
+            }
+        
+            // Fetch the delays from the JSON file
+            $.getJSON("/static/images/delays.json", function(gifDelays) {
+                function showImage(index) {
+                    $('.slow-image').attr('src', gifs[index]);
+        
+                    // Preload the next image
+                    if (index < gifs.length - 1) {
+                        preloadImage(gifs[index + 1]);
+                        preloadImage(gifs[index + 2]);
+                    } else {
+                        preloadImage(gifs[0]);
+                        preloadImage(gifs[1]);
+                    }
+        
+                    //setTimeout(function() {
+                    //    $('.next').click();
+                    //}, gifDelays[gifs[index].split("/").pop()]);
+                    //var delay = gifDelays[gifs[index].split("/").pop()];
+                    //console.log("Current GIF:", gifs[index], "Delay:", delay);
+                    //setTimeout(function() {
+                    //    $('.next').click();
+                    //}, delay);
+                }
+        
+                showImage(current);
+        
+                $('.next').click(function () {
+                    if (current < gifs.length - 1) {
+                        current++;
+                        showImage(current);
+                    } else {
+                        current = 0;
+                        showImage(current);
+                    }
+                });
+        
+                $('.prev').click(function () {
+                    if (current > 0) {
+                        current--;
+                        showImage(current);
+                    } else {
+                        current = gifs.length - 1;
+                        showImage(current);
+                    }
+                });
+            });
+        });
+    </script>
+    
+    
+    
+    
+    
+    
+
+    <!-- <script>
 
         $(document).ready(function () {
 
-            var slow_images = [
-                'static/images/examples/slow_1.jpg',
-                'static/images/examples/slow_2.jpg',
-                'static/images/examples/slow_3.jpg',
-                'static/images/examples/slow_4.jpg',
-                'static/images/examples/slow_5.jpg',
-                'static/images/examples/slow_6.jpg',
-                'static/images/examples/slow_7.jpg',
-                'static/images/examples/slow_8.jpg',
-                'static/images/examples/slow_9.jpg',
-                'static/images/examples/slow_10.jpg',
-                'static/images/examples/slow_11.jpg',
-                'static/images/examples/slow_12.jpg',
+ 
+            var gifs = [
+                'static/images_2/0_animation.gif', 
+                'static/images_2/1_animation.gif',
+                'static/images_2/2_animation.gif',
+                'static/images_2/3_animation.gif',
+                'static/images_2/4_animation.gif',
             ];
-            var fast_images = [
-                'static/images/examples/fast_1.jpg',
-                'static/images/examples/fast_2.jpg',
-                'static/images/examples/fast_3.jpg',
-                'static/images/examples/fast_4.jpg',
-                'static/images/examples/fast_5.jpg',
-                'static/images/examples/fast_6.jpg',
-                'static/images/examples/fast_7.jpg',
-                'static/images/examples/fast_8.jpg',
-                'static/images/examples/fast_9.jpg',
-                'static/images/examples/fast_10.jpg',
-                'static/images/examples/fast_11.jpg',
-                'static/images/examples/fast_12.jpg',
-            ];
-            var captions = [
-                "Substitutes a list with a counter (3.5x faster execution, problem ID: p02691, submission ID: s720467562, approach: codex).",
-                "Replaces a for loop with direct calculation (1.37x faster execution, problem ID: p03548, submission ID: s161926153, approach: codegen).",
-                "Removes redundant operations for reversing a string (1.74x faster execution, problem ID: p03416, submission ID: s576934995, approach: codex).",
-                "Substitutes sum with accumulate (1.27x faster execution, problem ID: p02780, submission ID: s803345472, approach: codegen).",
-                "Replaces calls to np.log2 with built-in math.log2. It is crucial to have domain experts review such optimizations for critical code, as the suggested changes may or may not be appropriate. (3.2x faster execution, problem ID: p03644, submission ID: s675566275, approach: codegen).",
-                "A more efficient way to check if the number of digits is even (1.49x faster execution, problem ID: p02952, submission ID: s855248831, approach: codex).",
-                "Calculates N choose 2 (comb(v, 2)) using the direct formula: v * (v - 1) // 2. It also uses a concise implementation of a Counter (3.56x faster execution, problem ID: p03287, submission ID: s936062710, approach: codex).",
-                "Uses Deque instead of vector for faster push_front (14x faster execution, problem ID: p03673, submission ID: s571947656). See more on this here: https://stackoverflow.com/questions/35483716/is-stddeque-faster-than-stdvector-for-inserting-at-the-end.",
-                "A saves time by not reading it from stdin since it is never used (10x faster execution, problem ID: p03309, submission ID: s670951114).",
-                "Replaces a for loop with a formula (100x faster execution, problem ID: p02924, submission ID: s276057957, approach: codex).",
-                "Folds the if-else statement into a single expression (4x faster execution, problem ID: p04011, submission ID: s699447607, approach: codex).",
-                'The classical comparison between cin/cout and printf/scanf (5x faster execution, problem ID: p02602, submission ID: s068863183, approach: codex). See more details at https://stackoverflow.com/questions/1042110/using-scanf-in-c-programs-is-faster-than-using-cin'];
+            
             // var captions = ["Substitutes a list with a counter (3.5x faster execution, problem ID: p02691, submission ID: s720467562, approach: codex).", "Replaces a for loop with direct calculation (1.37x faster execution, problem ID: p03548, submission ID: s161926153, approach: codegen).", "Removes redundant operations for reversing a string (1.74x faster execution, problem ID: p03416, submission ID: s576934995, approach: codex).", "Substitutes sum with accumulate (1.27x faster execution, problem ID: p02780, submission ID: s803345472, approach: codegen).", "Replaces calls to np.log2 with built-in math.log2. It is crucial to have domain experts review such optimizations for critical code, as the suggested changes may or may not be appropriate. (3.2x faster execution, problem ID: p03644, submission ID: s675566275, approach: codegen).", "A more efficient way to check if the number of digits is even (1.49x faster execution, problem ID: p02952, submission ID: s855248831, approach: codex).", "Calculates N choose 2 (comb(v, 2)) using the direct formula: v * (v - 1) // 2. It also uses a concise implementation of a Counter (3.56x faster execution, problem ID: p03287, submission ID: s936062710, approach: codex).", "Uses Deque instead of vector for faster push_front (14x faster execution, problem ID: p03673, submission ID: s571947656, <a href='https://stackoverflow.com/questions/35483716/is-stddeque-faster-than-stdvector-for-inserting-at-the-end'>more info</a>).", "A saves time by not reading it from stdin since it is never used (10x faster execution, problem ID: p03309, submission ID: s670951114).", "Replaces a for loop with a formula (100x faster execution, problem ID: p02924, submission ID: s276057957, approach: codex).", "Folds the if-else statement into a single expression (4x faster execution, problem ID: p04011, submission ID: s699447607, approach: codex).", "The classical comparison between cin/cout and printf/scanf (5x faster execution, problem ID: p02602, submission ID: s068863183, approach: codex). See more details at <a href='https://stackoverflow.com/questions/1042110/using-scanf-in-c-programs-is-faster-than-using-cin'>https://stackoverflow.com/questions/1042110/using-scanf-in-c-programs-is-faster-than-using-cin</a>."];
 
             var current = 0;
-            var max = slow_images.length - 1;
+            var max = gifs.length - 1;
 
             // define images
 
             function showImage(index) {
-                $('.slow-image').attr('src', slow_images[index]);
-                $('.fast-image').attr('src', fast_images[index]);
-                $('.caption').text(captions[index]);
+                $('.slow-image').attr('src', gifs[index]);  // Display gif in the slow-image element
             }
 
             showImage(current);
@@ -172,7 +292,7 @@
             });
         });
 
-    </script>
+    </script> -->
     <!-- <script src="./static/js/results.js"></script> -->
 
     <!--solution from https://stackoverflow.com/questions/23018619/make-text-in-select-element-wrap-when-too-long-->
@@ -281,48 +401,57 @@
             <div class="columns is-centered">
                 <div class="column has-text-centered">
                     <h1 class="title is-1 publication-title">Learning Performance Improving Code Edits with <img
-                            src="./static/images/pie.png" alt="pie" width="40" height="40" vertical-align="middle"
-                            margin-left="5px" /></h1>
+                            src="./static/images/pie.png" alt="pie" width="40" height="40" style="vertical-align:middle; margin-left:5px;" /></h1>
                     <div class="is-size-5 publication-authors">
                         <span class="author-block">
-                            <a href="https://madaan.github.io/">Aman Madaan</a><sup>1</sup>,
+                            <a href="#">Alexander Shypula</a><sup>*,1</sup>,
                         </span>
                         <span class="author-block">
-                            <a href="https://alexshypula.github.io/">Alexander Shypula</a><sup>2</sup>,
+                            <a href="https://madaan.github.io/">Aman Madaan</a><sup>*,2</sup>,
                         </span>
                         <span class="author-block">
-                            <a href="https://urialon.ml/">Uri Alon</a><sup>1</sup>,
+                            <a href="#">Yimeng Zeng</a><sup>1</sup>,
+                        </span>
+                        <span class="author-block">
+                            <a href="https://urialon.ml/">Uri Alon</a><sup>2</sup>,
+                        </span>
+                        <span class="author-block">
+                            <a href="#">Jacob Gardner</a><sup>1</sup>,
                         </span>
                         <span class="author-block">
                             <a href="https://sites.google.com/site/miladhashemi/">Milad Hashemi</a><sup>3</sup>,
                         </span>
                         <span class="author-block">
+                            <a href="http://www.phontron.com/">Graham Neubig</a><sup>2,4</sup>,
+                        </span>
+                        <span class="author-block">
                             <a href="https://www.parthasarathys.com/">Parthasarathy Ranganathan</a><sup>3</sup>,
                         </span>
                         <span class="author-block">
-                            <a href="https://www.cs.cmu.edu/~./yiming/">Yiming Yang</a><sup>1</sup>,
+                            <a href="https://obastani.github.io/">Osbert Bastani</a><sup>1</sup>,
                         </span>
                         <span class="author-block">
-                            <a href="http://www.phontron.com/">Graham Neubig</a><sup>1,4</sup>,
-                        </span>
-                        <span class="author-block">
-                            <a href="https://www.ayazdan.com//">Amir Yazdanbakhsh</a><sup>5</sup>
+                            <a href="https://www.ayazdan.com/">Amir Yazdanbakhsh</a><sup>5</sup>
                         </span>
                     </div>
-
+    
                     <div class="is-size-5 publication-authors">
-                        <span class="author-block"><sup>1</sup>Carnegie Mellon University</span>
-                        <span class="author-block"><sup>2</sup>University of Pennsylvania</span>
+                        <span class="author-block"><sup>1</sup>University of Pennsylvania</span>
+                        <span class="author-block"><sup>2</sup>Carnegie Mellon University</span>
                         <span class="author-block"><sup>3</sup>Google</span><br />
                         <span class="author-block"><sup>4</sup>Inspired Cognition</span>
-                        <span class="author-block"><sup>5</sup>Google Research, Brain Team</span><br />
+                        <span class="author-block"><sup>5</sup>Google Deepmind</span><br />
+                        <span class="author-block"><sup>*</sup>Equal contribution</span>
                     </div>
+                </div>
+            </div>
+     
 
                     <div class="column has-text-centered">
                         <div class="publication-links">
                             <!-- PDF Link. -->
                             <span class="link-block">
-                                <a href="https://arxiv.org/pdf/2302.07867.pdf"
+                                <a href="https://openreview.net/forum?id=ix7rLVHXyY"
                                     class="external-link button is-normal is-rounded is-dark">
                                     <span class="icon">
                                         <i class="fas fa-file-pdf"></i>
@@ -369,44 +498,416 @@
 
 
 
-    <section class="hero teaser" style="margin-bottom: 8em;">
+    <section id="tldr"  class="hero teaser" style="margin-bottom: 8em;">
         <div class="container is-max-desktop">
             <div class="notification is-info  has-margin-top" style="font-size: 1.3em;">
-                <strong>TLDR:</strong> A dataset and models for learning code edits that can improve runtime. Browse
-                through some optimizations performed by codex/codegen using PIE below. The examples are selectively picked for brevity.
+                <!-- <strong>TLDR:</strong>  -->
+                We perform extensive experiments to evaluate and improve Large Language Models (LLMs) for program optimization. 
+                We built a custom evaluation framework that benchmarks program execution time in a highly-reliable manner. When measuring average program speedup, 
+                we obtained a fine-tuned version of CodeLlama13B that outperforms GPT4 and the best human programmer. Using self-play for program optimization, 
+                we also obtain a fine-tuned version of GPT3.5 that is even stronger. 
             </div>
             <div class="columns is-multiline is-vcentered is-centered">
                 <div class="column has-text-centered">
                     <button class="button is-primary is-rounded prev"><i class="fas fa-chevron-left"></i></button>
                 </div>
-                <div class="column is-4 is-flex is-vcentered" >
-                    <img src="static/images/examples/slow_1.jpg" alt="Slow Code" class="slow-image"
-                        style=" float: left;">
+                <div class="column is-10 is-flex is-vcentered" >
+                    <img src="static/images/151.gif" class="slow-image" style="width: 100%; height: auto; object-fit: contain;"/>
                 </div>
-                <div class="column is-2 has-text-centered">
+                <!-- <div class="column is-2 has-text-centered">
                     <img src="static/images/examples/pie.jpg">
-                    <!-- <i class="fas fa-chevron-right fa-2x arrow"></i> -->
+                    
                 </div>
                 <div class="column is-4 is-flex is-vcentered">
                     <img src="static/images/examples/fast_1.jpg" alt="Fast Code" class="fast-image"
                         style=" float: left;">
-                </div>
+                </div> -->
                 <div class="column has-text-centered">
                     <button class="button is-primary is-rounded next"><i class="fas fa-chevron-right"></i></button>
                 </div>
-                <div class="column is-12 has-text-centered">
+                <!-- <div class="column is-12 has-text-centered">
                     <div class="caption has-text-left">
                         Caption 1
                     </div>
+                </div> -->
+                
+            </div> 
+        </div>
+    </section>
+
+    <section class="section" id="results">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Fully Deterministic Program Benchmarking</h2>
+                <div class="content has-text-justified is-size-6">
+                    <p>
+                        Benchmarking programs is easy; but benchmarking programs in a reproducible and deterministic manner is <i>very hard</i>.
+                        It is important, because we want to compare the performance of different models on the same set of programs irrespective of 
+                        a reserarcher's server configuration. Moreover, you can even wind up in scenarios where you can benchmark the same exact program and accidentally believe one is much faster than the other. 
+                    </p>
+                </div>
+                    <figure class="image is-8by6">
+                        <img src="static/images/arch.png" alt="Architecture" style="width: 100%; height: auto; object-fit: contain;">
+                    </figure>
                 </div>
             </div>
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <div class="content has-text-justified is-size-6">
+                        <p>
+                            <!-- Benchmarking programs is easy; but benchmarking programs in a reproducible and deterministic manner is <i>very hard</i>.
+                            It is important, because we want to compare the performance of different models on the same set of programs irrespective of 
+                            a reserarcher's server configuration. Moreover, you can even wind up in scenarios where you can benchmark the same exact program and accidentally believe one is much faster than the other. 
+                            <br><br> -->
+                            We built a custom evaluation framework that benchmarks program execution time in a highly-reliable manner.
+                            We built an execution sandbox based on the <a href="https://www.gem5.org/">gem5</a> simulator and is fully deterministic.
+                            For our experiments, we use <a href="https://github.com/darchr/gem5-skylake-config">a simulated CPU of the Intel Skylake CPU</a>.
+                            We provide an easy-to-use docker image and API that can be used to reproduce our results and for other researchers to continue to use for program optimization research.
+                        </p>    
+        </div>
+    </section>
+
+    <section class="section" id="results">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Improving LLMs for Program Optimization</h2>
+                </div>
+            </div>
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <div class="content has-text-justified is-size-6">
+                        <p>
+                            We investigate numerous ways to improve the performance of LLMs for program optimization. Our best public access model is a fine-tuned version of 
+                            <a href="https://github.com/facebookresearch/codellama">CodeLlama</a> (13B parameters) that we fine-tuned on our dataset with performance-conditioning. 
+                            This model outperforms standard GPT-3.5 Turbo and GPT-4 with standard prompting strategies. We also were able to fine-tune a version of GPT-3.5 Turbo using our dataset of 
+                            program optimizations and <i>self-play</i> (using programs and optimizations both sampled from an LLM) to obtain a model that is even stronger.
+                            
+                        </p>    
+                        <table class="styled-table">
+                            <thead>
+                                <tr>
+                                    <th>Model + Configuration</th>
+                                    <th>%Optimized</th>
+                                    <th>Agg. Speedup</th>
+                                    <th>%Correct</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Same Human, Best Edit</td>
+                                    <td>100%</td>
+                                    <td>3.64</td>
+                                    <td>100%</td>
+                                </tr>
+                                <tr>
+                                    <td>Best of all Humans in the Dataset</td>
+                                    <td class="bold-value">100%</td>
+                                    <td class="bold-value">4.06</td>
+                                    <td>100%</td>
+                                </tr>
+                                <tr class="separator">
+                                    <td colspan="4"></td>
+                                </tr>
+                                <tr>
+                                    <td>GPT4 With Instruction Prompts, Best@1</td>
+                                    <td>8.6%</td>
+                                    <td>1.15</td>
+                                    <td>93.45%</td>
+                                </tr>
+                                <tr>
+                                    <td>GPT3.5 With Chain of Thought Prompts, Best@1</td>
+                                    <td>21.78%</td>
+                                    <td>1.26</td>
+                                    <td>67.01%</td>
+                                </tr>
+                                <tr>
+                                    <td>Fine-Tuned CodeLlama w/ Perf-Conditioning, Best@1</td>
+                                    <!-- <td>31.87%</td>
+                                    <td>2.95</td>
+                                    <td>38.7%</td> -->
+                                    <td class="underline-value">31.87%</td>
+                                    <td class="underline-value">2.95</td>
+                                    <td>38.7%</td>
+                                </tr>
+                                <tr>
+                                    <td>Fine-Tuned Gpt3.5 w/Self-Play, Best@1</td>
+                                    <td class="bold-value">45.62%</td>
+                                    <td class="bold-value">3.02</td>
+                                    <td>61.71%</td>
+                                    <!-- <td>45.62%</td>
+                                    <td>3.02</td>
+                                    <td>61.71%</td> -->
+                                </tr>
+                                <tr class="separator">
+                                    <td colspan="4"></td>
+                                </tr>
+                                <tr>
+                                    <td>Fine-Tuned CodeLlama w/ Perf-Conditioning, Best@8</td>
+                                    <!-- <td>66.60%</td>
+                                    <td>5.65</td>
+                                    <td>71.08%</td> -->
+                                    <td class="underline-value">66.60%</td>
+                                    <td class="underline-value">5.65</td>
+                                    <td>71.08%</td>
+
+                                </tr>
+                                <tr>
+                                    <td>Fine-Tuned Gpt3.5 w/Self-Play, Best@8</td>
+                                    <td class="bold-value">87.68%</td>
+                                    <td class="bold-value">6.86</td>
+                                    <td>95.11%</td>
+                                    <!-- <td>87.68%</td> -->
+                                    <!-- <td>6.86</td> -->
+                                    <!-- <td>95.11%</td> -->
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+        </div>
+
+
+    </section>
+
+    <section class="section" id="results">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Performance-Conditioning</h2>
+                <div class="content has-text-justified is-size-6">
+                    <p>
+                        Programs can typically be written in many ways with different performance profiles. When training a model to predict performance-improving edits with
+                        a large dataset, it may be trained on a mix of large and small improvements, without any information
+                        on which improvements are more desirable than others. We introduce performance tags during training by associating
+                        each “fast” program with a tag indicating the optimal achievable performance across all solutions in the
+                        dataset.
+                    </p>
+                </div>
+                    <figure class="image is-8by6">
+                        <img src="static/images/performance_conditioning.png" alt="Architecture" style="width: 100%; height: auto; object-fit: contain;">
+                    </figure>
+                </div>
+            </div>
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <div class="content has-text-justified is-size-6">
+                        <p>
+                            Specifically, the tag indicates how close that program is to peak performance on a binned-scale
+                            {1, 2, . . . , 10}. Then at test time, we prompt the model with a test input and a maximal score tag “10/10”,
+                            directing it to generate a highly-optimized solution.
+                        </p>    
+                        
+        </div>
+    </section>
+
+    <section class="section" id="results">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Self-Play for Program Optimization</h2>
+                <div class="content has-text-justified is-size-6">
+                    <p>
+                        In an attempt to boost the performance of our models, we also investigate the use of self-play for program optimization as a data augmentation technique. Because there is a limited set of programs in our dataset, we use 
+                        an off-the-shelf language model to generate new programs and a high-quality fine-tuned model to generate new optimizations. After taking some rigorous steps to ensure the generated programs are 
+                        semantically novel and the optimizaitons are non-trivial, we use the generated programs and optimizations to create new program optimization pairs. 
+                        The self-play notion comes from the fact that one model is used to generate the programs to solve and the other model is used to generate solve/propose the optimizations.
+                    </p>
+                </div>
+                    <figure class="image is-8by6">
+                        <img src="static/images/self_play.drawio.png" alt="Architecture" style="width: 100%; height: auto; object-fit: contain;">
+                    </figure>
+                </div>
+            </div>
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <div class="content has-text-justified is-size-6">
+                        <p>
+                            Our best model without self-play was with GPT3.5 turbo, our best fine-tuned model was trained with 4,085 high quality pairs. We were able to sample 3,314 novel programs and obtain 1,485 high-quality optimizations.
+                            Using these additional 1,485 optimizations helped improve the performance of our fine-tuned model. We also performed an ablation by adding 1,485 next-best programs from the PIE dataset for fine-tuning GPT3.5 turbo, but these pairs led to performance degradation.
+                        </p>    
+                        
         </div>
     </section>
 
 
+<!-- 
+    <section class="section">
+
+        <div class="container is-max-desktop">
+
+            
+            <div class="columns is-centered has-text-centered">
+
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Abstract</h2>
+                    <div class="content has-text-justified is-size-4">
+                        The waning of Moore's Law has shifted the focus of the tech industry towards alternative methods
+                        to achieve continued performance gains. To optimize program efficiency, programmers must craft
+                        and refactor code with better performance characteristics. In this paper, we investigate the
+                        ability of large language models (LLMs) to suggest functionally correct, performance-improving
+                        code edits. We hypothesize that language models can suggest such edits in ways that would be
+                        impractical for static analysis alone. To evaluate and improve the capacity of large language
+                        models, we have curated a large-scale dataset of Performance-Improving Edits (<span
+                            class="pie">PIE</span>).
+                        PIE contains trajectories of programs, where a programmer begins with an initial, slower version
+                        and iteratively makes changes to improve the program's performance. We use PIE to fine-tune
+                        multiple variants of CODEGEN, a billion-scale Transformer-decoder model. Additionally, we use
+                        examples from PIE to prompt OpenAI's CODEX using a few-shot prompting. Our results show that
+                        both CODEX and CODEGEN can generate performance-improving edits, with speedups of more than 2.5x
+                        for over 25% of the programs. Moreover, PIE allows CODEGEN, an open-sourced and 10x smaller
+                        model than CODEX, to match the performance of CODEX on this challenging task. </div>
+                </div>
+            </div>
+            
+        </div>
+    </section> -->
+
+
+<!-- 
+
+    <section class="section" id="results">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column">
+
+                    <h2 class="title is-3">Dataset</h2>
+                    <hr>
+                    <h2 class="subtitle is-4">Slow-Fast Pairs</h2>
+
+                    <p>Dataset of slow-fast pairs (<code>tsv</code>) is located <a
+                            href="https://drive.google.com/file/d/19IL3VETwVI9rdibB979Xm4gEWYwn0CkV/view?usp=sharing">here</a>.
+                    </p>
+
+                    Columns description:
+
+                    <ul>
+                        <li><strong>user_id:</strong> user id</li>
+                        <li><strong>problem_id:</strong> problem id. Details about the problems can be found in
+                            <code>data/problem_list.csv</code>
+                        </li>
+                        <li><strong>language:</strong> programming language</li>
+                        <li><strong>submission_id_v0:</strong> submission id of the first version of the code</li>
+                        <li><strong>submission_id_v1:</strong> submission id of the improved version of the code</li>
+                        <li><strong>cpu_time_v0:</strong> cpu time of the first version of the code</li>
+                        <li><strong>cpu_time_v1:</strong> cpu time of the second version of the code.
+                            <code>cpu_time_v0</code> &gt; <code>cpu_time_v1</code> by at least 1% for all the pairs in
+                            the dataset. For pairs where the first version was TLE, <code>cpu_time_v0</code> is set to
+                            some high value (e.g. 1000000).
+                        </li>
+                        <li><strong>memory_v{0,1}:</strong> memory used by the code in the two versions. We can also use
+                            <code>memory_v0</code> &gt; <code>memory_v1</code> to filter out pairs.
+                        </li>
+                        <li><strong>status_v{0,1}:</strong> status of the code in the two versions.
+                            <code>status_v0</code> can be "Accepted" or "Time Limit Exceeded", but
+                            <code>status_v1</code> is always "Accepted".
+                        </li>
+                        <li><strong>improvement_frac:</strong> percentage of improvement of the second version of the
+                            code with respect to the first version. <code>improvement_frac</code> is always &gt; 0.</li>
+                    </ul>
+
+                    <hr>
+
+                    <h2 class="subtitle is-4">Train/Test/Val Splits for Python and C++</h2>
+                    We also provide the splits used in the paper. The splits are in <code>jsonl</code> format.
+                    <ul>
+                        <li><a
+                                href="https://drive.google.com/file/d/1ec8eOWgnBrzy2HlNDlTX6iURwQcIxDXH/view?usp=sharing">Python
+                                splits</a></li>
+                        <li><a
+                                href="https://drive.google.com/file/d/1NqMT7kqCwk99hj4BjpUcsxLIzPFv_DtT/view?usp=sharing">C++
+                                splits</a></li>
+                    </ul>
+                    The train/test/val files contain additional information like the <code>diff</code>. The slower
+                    program is the <code>input</code> and the faster program is the <code>target</code>.
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- 
+    <section class="section">
+        <div class="container">
+            <h1 class="title" id="example-header">Example Gallery [WIP]</h1>
+            <div class="example-browse">
+                <iframe id="example-frame"
+                    src="samples/vis/multi_sample/codegen_16b/improvement_1.0_2.7/p00001_s534000808.html"
+                    style="border: 0; width:100%; height: 500px; overflow: auto;"></iframe>
+                <div class="example-nav">
+                    <a href="#" class="example-prev" onclick="prevExample()">&lt; Previous</a>
+                    <a href="#" class="example-next" onclick="nextExample()">Next &gt;</a>
+                </div>
+            </div>
+
+            <script>
+
+                var examples = [
+                    "samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p03494_s386053727.html",
+                    "samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p02881_s498895748.html",
+                    "samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p02767_s628544873.html",
+                    "samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p03000_s975287095.html",
+                    "samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p02959_s294034147.html",
+                    "samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p02899_s524734651.html",
+                    "samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p00053_s978814614.html",
+                    "samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p00053_s391855332.html",
+                    "samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p03494_s417323905.html",
+                    "samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p00053_s431311473.html",
+                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p03796_s800410916.html",
+                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p03457_s981534291.html",
+                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p03371_s229566237.html",
+                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p03013_s205446737.html",
+                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p03608_s067652861.html",
+                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p03575_s060994907.html",
+                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p03371_s537618501.html",
+                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p03000_s741155786.html",
+                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p02537_s897150427.html",
+                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p00053_s978814614.html",
+                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p03608_s886496644.html",
+                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p03038_s447256606.html",
+                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p02982_s670004614.html",
+                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p02881_s106501170.html",
+                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p02574_s426798312.html",
+                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p03575_s277296975.html",
+                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p02702_s837932378.html",
+                ];
+                var currentExample = 0;
+
+                function prevExample() {
+                    currentExample--;
+                    if (currentExample < 0) {
+                        currentExample = examples.length - 1;
+                    }
+                    updateExample();
+                }
+
+                function nextExample() {
+                    currentExample++;
+                    if (currentExample >= examples.length) {
+                        currentExample = 0;
+                    }
+                    updateExample();
+                }
+
+                function updateExample() {
+                    var iframe = document.getElementById("example-frame");
+                    iframe.src = examples[currentExample];
+                    var element = document.getElementById("example-header");
+                    element.scrollIntoView({ behavior: "smooth" });
+                    $('html,body').animate({
+                        scrollTop: $(".second").offset().top
+                    },
+                        'slow');
+                }
+            </script>
+        </div>
+        </div>
+    </section> -->
+
+
 
     <!--FAQ-->
-    <section class="section">
+    <!-- <section class="section">
         <div class="container is-max-desktop">
             <h1 class="title">About <img src="./static/images/pie.png" alt="pie" width="40" height="40"
                     vertical-align="middle" margin-left="5px" /></h1>
@@ -612,7 +1113,7 @@
                 </div>
             </div>
 
-            <!--how can I help FAQ-->
+            
             <div class="card">
                 <header class="card-header">
                     <p class="card-header-title">
@@ -630,9 +1131,9 @@
                     </div>
                 </div>
             </div>
-    </section>
+    </section> -->
 
-    <script>
+    <!-- <script>
         // load the faq from /static/faq.html
 
         $(function () {
@@ -663,188 +1164,16 @@
         cardContents.forEach(content => {
             content.style.maxHeight = 0;
         });
-    </script>
-
-    <section class="section">
-
-        <div class="container is-max-desktop">
-
-            <!-- Abstract. -->
-            <div class="columns is-centered has-text-centered">
-
-                <div class="column is-four-fifths">
-                    <h2 class="title is-3">Abstract</h2>
-                    <div class="content has-text-justified is-size-4">
-                        The waning of Moore's Law has shifted the focus of the tech industry towards alternative methods
-                        to achieve continued performance gains. To optimize program efficiency, programmers must craft
-                        and refactor code with better performance characteristics. In this paper, we investigate the
-                        ability of large language models (LLMs) to suggest functionally correct, performance-improving
-                        code edits. We hypothesize that language models can suggest such edits in ways that would be
-                        impractical for static analysis alone. To evaluate and improve the capacity of large language
-                        models, we have curated a large-scale dataset of Performance-Improving Edits (<span
-                            class="pie">PIE</span>).
-                        PIE contains trajectories of programs, where a programmer begins with an initial, slower version
-                        and iteratively makes changes to improve the program's performance. We use PIE to fine-tune
-                        multiple variants of CODEGEN, a billion-scale Transformer-decoder model. Additionally, we use
-                        examples from PIE to prompt OpenAI's CODEX using a few-shot prompting. Our results show that
-                        both CODEX and CODEGEN can generate performance-improving edits, with speedups of more than 2.5x
-                        for over 25% of the programs. Moreover, PIE allows CODEGEN, an open-sourced and 10x smaller
-                        model than CODEX, to match the performance of CODEX on this challenging task. </div>
-                </div>
-            </div>
-            <!--/ Abstract. -->
-        </div>
-    </section>
-
-
-
-
-    <section class="section" id="results">
-        <div class="container is-max-desktop">
-            <div class="columns is-centered">
-                <div class="column">
-
-                    <h2 class="title is-3">Dataset</h2>
-                    <hr>
-                    <h2 class="subtitle is-4">Slow-Fast Pairs</h2>
-
-                    <p>Dataset of slow-fast pairs (<code>tsv</code>) is located <a
-                            href="https://drive.google.com/file/d/19IL3VETwVI9rdibB979Xm4gEWYwn0CkV/view?usp=sharing">here</a>.
-                    </p>
-
-                    Columns description:
-
-                    <ul>
-                        <li><strong>user_id:</strong> user id</li>
-                        <li><strong>problem_id:</strong> problem id. Details about the problems can be found in
-                            <code>data/problem_list.csv</code>
-                        </li>
-                        <li><strong>language:</strong> programming language</li>
-                        <li><strong>submission_id_v0:</strong> submission id of the first version of the code</li>
-                        <li><strong>submission_id_v1:</strong> submission id of the improved version of the code</li>
-                        <li><strong>cpu_time_v0:</strong> cpu time of the first version of the code</li>
-                        <li><strong>cpu_time_v1:</strong> cpu time of the second version of the code.
-                            <code>cpu_time_v0</code> &gt; <code>cpu_time_v1</code> by at least 1% for all the pairs in
-                            the dataset. For pairs where the first version was TLE, <code>cpu_time_v0</code> is set to
-                            some high value (e.g. 1000000).
-                        </li>
-                        <li><strong>memory_v{0,1}:</strong> memory used by the code in the two versions. We can also use
-                            <code>memory_v0</code> &gt; <code>memory_v1</code> to filter out pairs.
-                        </li>
-                        <li><strong>status_v{0,1}:</strong> status of the code in the two versions.
-                            <code>status_v0</code> can be "Accepted" or "Time Limit Exceeded", but
-                            <code>status_v1</code> is always "Accepted".
-                        </li>
-                        <li><strong>improvement_frac:</strong> percentage of improvement of the second version of the
-                            code with respect to the first version. <code>improvement_frac</code> is always &gt; 0.</li>
-                    </ul>
-
-                    <hr>
-
-                    <h2 class="subtitle is-4">Train/Test/Val Splits for Python and C++</h2>
-                    We also provide the splits used in the paper. The splits are in <code>jsonl</code> format.
-                    <ul>
-                        <li><a
-                                href="https://drive.google.com/file/d/1ec8eOWgnBrzy2HlNDlTX6iURwQcIxDXH/view?usp=sharing">Python
-                                splits</a></li>
-                        <li><a
-                                href="https://drive.google.com/file/d/1NqMT7kqCwk99hj4BjpUcsxLIzPFv_DtT/view?usp=sharing">C++
-                                splits</a></li>
-                    </ul>
-                    The train/test/val files contain additional information like the <code>diff</code>. The slower
-                    program is the <code>input</code> and the faster program is the <code>target</code>.
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 
-    <section class="section">
-        <div class="container">
-            <h1 class="title" id="example-header">Example Gallery [WIP]</h1>
-            <div class="example-browse">
-                <iframe id="example-frame"
-                    src="samples/vis/multi_sample/codegen_16b/improvement_1.0_2.7/p00001_s534000808.html"
-                    style="border: 0; width:100%; height: 500px; overflow: auto;"></iframe>
-                <div class="example-nav">
-                    <a href="#" class="example-prev" onclick="prevExample()">&lt; Previous</a>
-                    <a href="#" class="example-next" onclick="nextExample()">Next &gt;</a>
-                </div>
-            </div>
-
-            <script>
-
-                var examples = [
-                    "samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p03494_s386053727.html",
-                    "samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p02881_s498895748.html",
-                    "samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p02767_s628544873.html",
-                    "samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p03000_s975287095.html",
-                    "samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p02959_s294034147.html",
-                    "samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p02899_s524734651.html",
-                    "samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p00053_s978814614.html",
-                    "samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p00053_s391855332.html",
-                    "samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p03494_s417323905.html",
-                    "samples/vis/multi_sample/codegen_16b/improvement_4.4_6.2/p00053_s431311473.html",
-                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p03796_s800410916.html",
-                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p03457_s981534291.html",
-                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p03371_s229566237.html",
-                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p03013_s205446737.html",
-                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p03608_s067652861.html",
-                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p03575_s060994907.html",
-                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p03371_s537618501.html",
-                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p03000_s741155786.html",
-                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p02537_s897150427.html",
-                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p00053_s978814614.html",
-                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p03608_s886496644.html",
-                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p03038_s447256606.html",
-                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p02982_s670004614.html",
-                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p02881_s106501170.html",
-                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p02574_s426798312.html",
-                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p03575_s277296975.html",
-                    "samples/vis/multi_sample/codex/improvement_4.2_5.9/p02702_s837932378.html",
-                ];
-                var currentExample = 0;
-
-                function prevExample() {
-                    currentExample--;
-                    if (currentExample < 0) {
-                        currentExample = examples.length - 1;
-                    }
-                    updateExample();
-                }
-
-                function nextExample() {
-                    currentExample++;
-                    if (currentExample >= examples.length) {
-                        currentExample = 0;
-                    }
-                    updateExample();
-                }
-
-                function updateExample() {
-                    var iframe = document.getElementById("example-frame");
-                    iframe.src = examples[currentExample];
-                    var element = document.getElementById("example-header");
-                    element.scrollIntoView({ behavior: "smooth" });
-                    $('html,body').animate({
-                        scrollTop: $(".second").offset().top
-                    },
-                        'slow');
-                }
-            </script>
-        </div>
-        </div>
-    </section> -->
+    </script> -->
 
     <hr>
 
 
-    <section class="section" id="results">
+    <!-- <section class="section" id="results">
         <div class="container is-max-desktop">
             <div class="columns is-centered has-text-centered">
                 <div class="column is-four-fifths">
                     <h2 class="title is-3">Main Results</h2>
-                    <!--add screenshot of the results-->
                     <figure class="image is-8by6">
                         <img src="static/images/results.jpg">
                     </figure>
@@ -852,7 +1181,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <section class="section" id="BibTeX">
         <div class="container is-max-desktop content">
             <h2 class="title">BibTeX</h2>
@@ -891,6 +1220,7 @@
             </div>
         </div>
     </footer>
+
 
 </body>
 
