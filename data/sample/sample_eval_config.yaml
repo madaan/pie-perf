@@ -1,0 +1,16 @@
+model_generated_outputs_path: "data/sample/codex_greedy_outputs.jsonl"
+inputs_outputs_basepath: "data/codenet/public_test_cases/"
+reference_file_path: "data/sample/py_reference.jsonl"
+output_report_file_path: "data/sample//codex_greedy_outputs.jsonl.report"
+num_problems_to_evaluate: -1
+num_trials: 25
+ignore_first_k: 1
+max_time_per_run: 10
+temp_dir: null
+model_generated_potentially_faster_code_col: "generated_answers"
+slow_code_col: "input"
+reference_code_col: "target"
+is_prompt_based: true
+cpu_number: 10
+return_if_acc_below: 1.0
+language: python
