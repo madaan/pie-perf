@@ -403,7 +403,7 @@
                     <h1 class="title is-1 publication-title">Learning Performance Improving Code Edits</h1>
                     <div class="is-size-5 publication-authors">
                         <span class="author-block">
-                            <a href="#">Alexander Shypula</a><sup>*,1</sup>,
+                            <a href="https://alexshypula.github.io/">Alexander Shypula</a><sup>*,1</sup>,
                         </span>
                         <span class="author-block">
                             <a href="https://madaan.github.io/">Aman Madaan</a><sup>*,2</sup>,
@@ -412,7 +412,7 @@
                             <a href="#">Yimeng Zeng</a><sup>1</sup>,
                         </span>
                         <span class="author-block">
-                            <a href="https://urialon.ml/">Uri Alon</a><sup>2</sup>,
+                            <a href="https://urialon.ml/">Uri Alon</a><sup>5</sup>,
                         </span>
                         <span class="author-block">
                             <a href="#">Jacob Gardner</a><sup>1</sup>,
@@ -479,7 +479,7 @@
                             </span>
                             <!-- Dataset Link. -->
                             <span class="link-block">
-                                <a href="https://github.com/madaan/pie-perf#dataset"
+                                <a href="https://github.com/LearningOpt/pie?tab=readme-ov-file#dataset"
                                     class="external-link button is-normal is-rounded is-dark">
                                     <span class="icon">
                                         <i class="far fa-file"></i>
@@ -503,8 +503,8 @@
                 <!-- <strong>TLDR:</strong>  -->
                 We perform extensive experiments to evaluate and improve Large Language Models (LLMs) for program optimization. 
                 We built a custom evaluation framework that benchmarks program execution time in a highly-reliable manner. When measuring average program speedup, 
-                we obtained a fine-tuned version of CodeLlama13B that outperforms GPT4 and the best human programmer. Using self-play for program optimization, 
-                we also obtain a fine-tuned version of GPT3.5 that is even stronger. 
+                we obtained models capable of outperforming edits made during competitive programming contests. We also obtain a model that is able to set a 
+                higher upper-limit for speedup than the fastest submissions in the dataset. 
             </div>
             <div class="columns is-multiline is-vcentered is-centered">
                 <div class="column has-text-centered">
@@ -538,7 +538,7 @@
         <div class="container is-max-desktop">
             <div class="columns is-centered has-text-centered">
                 <div class="column is-four-fifths">
-                    <h2 class="title is-3">Fully Deterministic Program Benchmarking</h2>
+                    <h2 class="title is-3">Benchmarking Programs with Gem5</h2>
                 <div class="content has-text-justified is-size-6">
                     <p>
                         Benchmarking programs is easy; but benchmarking programs in a reproducible and deterministic manner is <i>very hard</i>.
@@ -555,12 +555,8 @@
                 <div class="column is-four-fifths">
                     <div class="content has-text-justified is-size-6">
                         <p>
-                            <!-- Benchmarking programs is easy; but benchmarking programs in a reproducible and deterministic manner is <i>very hard</i>.
-                            It is important, because we want to compare the performance of different models on the same set of programs irrespective of 
-                            a reserarcher's server configuration. Moreover, you can even wind up in scenarios where you can benchmark the same exact program and accidentally believe one is much faster than the other. 
-                            <br><br> -->
                             We built a custom evaluation framework that benchmarks program execution time in a highly-reliable manner.
-                            We built an execution sandbox based on the <a href="https://www.gem5.org/">gem5</a> simulator and is fully deterministic.
+                            We built an execution sandbox based on the <a href="https://www.gem5.org/">gem5</a> simulator and is fully deterministic modulo program termination.
                             For our experiments, we use <a href="https://github.com/darchr/gem5-skylake-config">a simulated CPU of the Intel Skylake CPU</a>.
                             We provide an easy-to-use docker image and API that can be used to reproduce our results and for other researchers to continue to use for program optimization research.
                         </p>    
@@ -595,46 +591,64 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Same Human, Best Edit</td>
+                                    <td>Average Human</td>
                                     <td>100%</td>
-                                    <td>3.64</td>
+                                    <td>3.66</td>
                                     <td>100%</td>
                                 </tr>
                                 <tr>
                                     <td>Best of all Humans in the Dataset</td>
-                                    <td class="bold-value">100%</td>
-                                    <td class="bold-value">4.06</td>
+                                    <td >100%</td>
+                                    <td >9.56</td>
                                     <td>100%</td>
                                 </tr>
                                 <tr class="separator">
                                     <td colspan="4"></td>
                                 </tr>
                                 <tr>
-                                    <td>GPT4 With Instruction Prompts, Best@1</td>
-                                    <td>8.6%</td>
-                                    <td>1.15</td>
-                                    <td>93.45%</td>
-                                </tr>
-                                <tr>
                                     <td>GPT3.5 With Chain of Thought Prompts, Best@1</td>
-                                    <td>21.78%</td>
-                                    <td>1.26</td>
-                                    <td>67.01%</td>
+                                    <td>21.37%</td>
+                                    <td>1.25</td>
+                                    <td>65.95%</td>
                                 </tr>
                                 <tr>
-                                    <td>Fine-Tuned CodeLlama w/ Perf-Conditioning, Best@1</td>
+                                    <td>GPT4 With Chain-of-Thought Prompts, Best@1</td>
+                                    <td>26.99%</td>
+                                    <td>1.32</td>
+                                    <td>63.09%</td>
+                                </tr>
+                                <tr class="separator">
+                                    <td colspan="4"></td>
+                                </tr>
+                                <tr>
+                                    <td>GPT3.5 With Retrieval-based-Prompting, Best@1</td>
+                                    <td>28.02%</td>
+                                    <td>1.55</td>
+                                    <td>79.65%</td>
+                                </tr>
+                                <tr>
+                                    <td>GPT4 With Retrieval-based-Prompting, Best@1</td>
+                                    <td>51.02%</td>
+                                    <td>2.53</td>
+                                    <td>79.35%</td>
+                                </tr>
+                                    <tr class="separator">
+                                    <td colspan="4"></td>
+                                </tr>
+                                <tr>
+                                    <td>Fine-Tuned CodeLlama 13B w/ Perf-Conditioning, Best@1</td>
                                     <!-- <td>31.87%</td>
                                     <td>2.95</td>
                                     <td>38.7%</td> -->
-                                    <td class="underline-value">31.87%</td>
-                                    <td class="underline-value">2.95</td>
-                                    <td>38.7%</td>
+                                    <td >32.00%</td>
+                                    <td >2.95</td>
+                                    <td>38.55%</td>
                                 </tr>
                                 <tr>
                                     <td>Fine-Tuned Gpt3.5 w/Self-Play, Best@1</td>
-                                    <td class="bold-value">45.62%</td>
-                                    <td class="bold-value">3.02</td>
-                                    <td>61.71%</td>
+                                    <td >45.50%</td>
+                                    <td >3.02</td>
+                                    <td>61.55%</td>
                                     <!-- <td>45.62%</td>
                                     <td>3.02</td>
                                     <td>61.71%</td> -->
@@ -643,20 +657,32 @@
                                     <td colspan="4"></td>
                                 </tr>
                                 <tr>
-                                    <td>Fine-Tuned CodeLlama w/ Perf-Conditioning, Best@8</td>
+                                    <td>Fine-Tuned CodeLlama 13B w/ Perf-Conditioning, Best@8</td>
                                     <!-- <td>66.60%</td>
                                     <td>5.65</td>
                                     <td>71.08%</td> -->
-                                    <td class="underline-value">66.60%</td>
+                                    <td class="underline-value">66.56%</td>
                                     <td class="underline-value">5.65</td>
-                                    <td>71.08%</td>
+                                    <td>70.96%</td>
 
                                 </tr>
                                 <tr>
                                     <td>Fine-Tuned Gpt3.5 w/Self-Play, Best@8</td>
-                                    <td class="bold-value">87.68%</td>
+                                    <td class="bold-value">87.63%</td>
                                     <td class="bold-value">6.86</td>
-                                    <td>95.11%</td>
+                                    <td>95.09%</td>
+                                    <!-- <td>87.68%</td> -->
+                                    <!-- <td>6.86</td> -->
+                                    <!-- <td>95.11%</td> -->
+                                </tr>
+                                     <tr class="separator">
+                                    <td colspan="4"></td>
+                                </tr>
+                                <tr>
+                                    <td>Fine-Tuned Gpt3.5 w/Self-Play, Best over all Submissions, 40 samples Per Problem</td>
+                                    <td class="bold-value">99.80%</td>
+                                    <td class="bold-value">9.64</td>
+                                    <td>99.90%</td>
                                     <!-- <td>87.68%</td> -->
                                     <!-- <td>6.86</td> -->
                                     <!-- <td>95.11%</td> -->
